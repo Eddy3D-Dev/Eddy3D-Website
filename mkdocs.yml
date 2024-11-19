@@ -1,7 +1,7 @@
 site_name: Eddy3D Documentation
 site_url: https://docs.eddy3d.com/
 repo_url: https://github.com/Eddy3D-Dev/Eddy3D-Documentation/
-# edit_uri: blob/main/docs/
+edit_uri: ''
 site_author: Patrick Kastner
 site_description: >-
   This is the Eddy3D documentation.
@@ -12,8 +12,11 @@ copyright: Copyright &copy; 2023 - 2024 Eddy3D
 theme:
   name: material
   custom_dir: overrides
-  favicon: images/favicon.ico
+  favicon: images/android-chrome-192x192.png
   logo: images/android-chrome-192x192.png
+  #font:
+  #  text: Open Sans
+  #  code: Roboto Monno
   features:
     - announce.dismiss
     - content.action.edit
@@ -45,22 +48,23 @@ theme:
     # - toc.integrate
 
   palette:
-    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/brightness-auto
+        icon: material/link
         name: Switch to light mode
-    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
+      scheme: default
+      primary: black
+      accent: indigo
       toggle:
-        icon: material/brightness-7
+        icon: material/toggle-switch
         name: Switch to dark mode
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: black
+      accent: indigo
       toggle:
-        icon: material/brightness-4
+        icon: material/toggle-switch-off
         name: Switch to system preference
 
 extra_css:
