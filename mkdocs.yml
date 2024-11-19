@@ -9,11 +9,10 @@ site_description: >-
 # Copyright
 copyright: Copyright &copy; 2023 - 2024 Eddy3D
 
-
 theme:
   name: material
   custom_dir: overrides
-  favicon: images/favicon.svg
+  favicon: images/favicon.ico
   logo: images/android-chrome-192x192.png
   features:
     - announce.dismiss
@@ -46,23 +45,22 @@ theme:
     # - toc.integrate
 
   palette:
+    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/link
+        icon: material/brightness-auto
         name: Switch to light mode
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: blue grey
-      accent: indigo
+      scheme: default 
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-7
         name: Switch to dark mode
+    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: blue grey
-      accent: indigo
       toggle:
-        icon: material/toggle-switch-off
+        icon: material/brightness-4
         name: Switch to system preference
 
 extra_css:
