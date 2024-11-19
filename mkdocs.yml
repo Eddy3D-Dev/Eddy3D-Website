@@ -53,7 +53,7 @@ theme:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: blue grey
-      accent: black
+      accent: indigo
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
