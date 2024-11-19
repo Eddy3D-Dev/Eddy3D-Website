@@ -1,5 +1,5 @@
 site_name: Eddy3D Documentation
-site_url: https://eddy3d-dev.github.io/Eddy3D-Documentation/
+site_url: https://docs.eddy3d.com/
 repo_url: https://github.com/Eddy3D-Dev/Eddy3D-Documentation/
 # edit_uri: blob/main/docs/
 site_author: Patrick Kastner
@@ -164,13 +164,8 @@ plugins:
       enabled: true
       enabled_on_serve: true
       strict: true
-  - git-committers:
-      repository: VIP-SMUR/wiki
-      branch: main
-      docs_path: docs/
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-
 
 nav:
   - Home:
