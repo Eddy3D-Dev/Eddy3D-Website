@@ -1,14 +1,14 @@
-## ![](../../images/icons/Deconstruct_Initial_Condition.png) Deconstruct Initial Condition - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Deconstruct%20Initial%20Condition.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Initial_Condition.png) Deconstruct Initial Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Initial%20Condition.cs)
 
-![](../../images/components/Deconstruct_Initial_Condition.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Initial_Condition.png)
 
 Deconstructs an initial condition
 
-#### Inputs
-* ##### I []
+#### Input
+* ##### I 
 File container of type InitialCondition to deconstruct.
 
-#### Outputs
+#### Output
 * ##### A
 File container Address
 * ##### F
@@ -27,6 +27,3 @@ Internal field value
 Name of patches addressed by initial condition
 * ##### B
 Boundary conditions for each patch
-
-
-[Check Hydra Example Files for Deconstruct Initial Condition](https://hydrashare.github.io/hydra/index.html?keywords=Deconstruct Initial Condition)

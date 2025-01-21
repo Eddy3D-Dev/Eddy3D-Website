@@ -1,16 +1,13 @@
-## ![](../../images/icons/calculated.png) calculated - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/calculated.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/calculated.png) calculated - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/calculated.cs)
 
-![](../../images/components/calculated.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/calculated.png)
 
 calculated value
 
-#### Inputs
-* ##### S []
+#### Input
+* ##### S 
 Scalar component of uniform value.
 
-#### Outputs
+#### Output
 * ##### V
 The created calculated value instance.
-
-
-[Check Hydra Example Files for calculated](https://hydrashare.github.io/hydra/index.html?keywords=calculated)

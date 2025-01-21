@@ -1,16 +1,15 @@
-## ![](../../images/icons/Check_Installation.png) Check Installation - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Check%20Installation.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Check_Installation.png) Check Installation - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Check%20Installation.cs)
 
-![](../../images/components/Check_Installation.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Check_Installation.png)
 
 Checks installation
 
-#### Inputs
-* ##### C []
+#### Input
+* ##### C 
 Set to true to check if dependendies were installed correctly
+* ##### I 
+Set to true to install urbanMicroclimateFoam
 
-#### Outputs
-* ##### AA
-Attributes of this plugin assembly
-
-
-[Check Hydra Example Files for Check Installation](https://hydrashare.github.io/hydra/index.html?keywords=Check Installation)
+#### Output
+* ##### L
+Logs of the installation check

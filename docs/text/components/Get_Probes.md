@@ -1,22 +1,19 @@
-## ![](../../images/icons/Get_Probes.png) Get Probes - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Get%20Probes.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Get_Probes.png) Get Probes - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Get%20Probes.cs)
 
-![](../../images/components/Get_Probes.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Get_Probes.png)
 
 Get probe values from a field
 
-#### Inputs
-* ##### C []
+#### Input
+* ##### C 
 Case
-* ##### P []
+* ##### P 
 Name of the probing to get information from
-* ##### F []
+* ##### F 
 Field to retrieve from probes
 
-#### Outputs
+#### Output
 * ##### T
 Simulation time steps
 * ##### P
 Probe values
-
-
-[Check Hydra Example Files for Get Probes](https://hydrashare.github.io/hydra/index.html?keywords=Get Probes)

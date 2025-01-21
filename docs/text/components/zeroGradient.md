@@ -1,12 +1,9 @@
-## ![](../../images/icons/zeroGradient.png) zeroGradient - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/zeroGradient.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/zeroGradient.png) zeroGradient - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/zeroGradient.cs)
 
-![](../../images/components/zeroGradient.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/zeroGradient.png)
 
 zeroGradient value.
 
-#### Inputs
+#### Input
 
-#### Outputs
-
-
-[Check Hydra Example Files for zeroGradient](https://hydrashare.github.io/hydra/index.html?keywords=zeroGradient)
+#### Output

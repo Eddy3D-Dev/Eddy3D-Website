@@ -1,16 +1,13 @@
-## ![](../../images/icons/uniform.png) uniform - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/uniform.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/uniform.png) uniform - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/uniform.cs)
 
-![](../../images/components/uniform.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/uniform.png)
 
 uniform value
 
-#### Inputs
-* ##### S []
+#### Input
+* ##### S 
 Scalar component of uniform value
 
-#### Outputs
+#### Output
 * ##### V
 The created uniform value instance
-
-
-[Check Hydra Example Files for uniform](https://hydrashare.github.io/hydra/index.html?keywords=uniform)

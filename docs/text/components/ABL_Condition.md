@@ -1,22 +1,19 @@
-## ![](../../images/icons/ABL_Condition.png) ABL Condition - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/ABL%20Condition.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/ABL_Condition.png) ABL Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/ABL%20Condition.cs)
 
-![](../../images/components/ABL_Condition.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/ABL_Condition.png)
 
 Atmospheric Boundary Layer condition for air region
 
-#### Inputs
-* ##### WS []
+#### Input
+* ##### WS 
 Wind speed at the given Height
-* ##### H []
+* ##### H 
 Heigh at which windspeed is given
-* ##### WD []
+* ##### WD 
 Wind direction
-* ##### SRL []
+* ##### SRL 
 Surface roughness length
 
-#### Outputs
+#### Output
 * ##### ABL
 Atmospheric Boundary Layer settings
-
-
-[Check Hydra Example Files for ABL Condition](https://hydrashare.github.io/hydra/index.html?keywords=ABL Condition)

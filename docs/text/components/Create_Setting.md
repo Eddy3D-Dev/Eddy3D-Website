@@ -1,16 +1,13 @@
-## ![](../../images/icons/Create_Setting.png) Create Setting - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Create%20Setting.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Create_Setting.png) Create Setting - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20Setting.cs)
 
-![](../../images/components/Create_Setting.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Create_Setting.png)
 
 Creates a custom Setting instance. Settings contain a list of entries.
 
-#### Inputs
-* ##### E []
+#### Input
+* ##### E 
 Entries to be added to the Setting.
 
-#### Outputs
+#### Output
 * ##### S
 The created Setting instance.
-
-
-[Check Hydra Example Files for Create Setting](https://hydrashare.github.io/hydra/index.html?keywords=Create Setting)
