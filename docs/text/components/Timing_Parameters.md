@@ -1,24 +1,19 @@
-## ![](../../images/icons/Timing_Parameters.png) Timing Parameters - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Timing%20Parameters.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Timing_Parameters.png) Timing Parameters - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Timing%20Parameters.cs)
 
-![](../../images/components/Timing_Parameters.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Timing_Parameters.png)
 
 Timing parameters of the simulation
 
-#### Inputs
-* ##### W []
+#### Input
+* ##### W 
 Weather instance.
-* ##### RT []
-Temperature inside the building. Values must match the duration of the simulation. One value per hour is required
-* ##### SD []
+* ##### SD 
 Index of the day of the year to start the simulation on
-* ##### ST []
+* ##### ST 
 Starting hour of the simulation
-* ##### D []
+* ##### D 
 Number of hours to simulate
 
-#### Outputs
+#### Output
 * ##### T
 Simulation timing settings
-
-
-[Check Hydra Example Files for Timing Parameters](https://hydrashare.github.io/hydra/index.html?keywords=Timing Parameters)

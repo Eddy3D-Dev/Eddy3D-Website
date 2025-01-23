@@ -1,18 +1,15 @@
-## ![](../../images/icons/Air_Region.png) Air Region - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Air%20Region.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Air_Region.png) Air Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Air%20Region.cs)
 
-![](../../images/components/Air_Region.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Air_Region.png)
 
 Air region
 
-#### Inputs
-* ##### ABL []
+#### Input
+* ##### ABL 
 Atmospheric boundary layer condition setting
-* ##### BD []
+* ##### BD 
 List of parameters of the box domain in the order: front, 
 
-#### Outputs
+#### Output
 * ##### R
 Air region.
-
-
-[Check Hydra Example Files for Air Region](https://hydrashare.github.io/hydra/index.html?keywords=Air Region)

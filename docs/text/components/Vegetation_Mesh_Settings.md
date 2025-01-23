@@ -1,28 +1,23 @@
-## ![](../../images/icons/Vegetation_Mesh_Settings.png) Vegetation Mesh Settings - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Vegetation%20Mesh%20Settings.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Vegetation_Mesh_Settings.png) Vegetation Mesh Settings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Mesh%20Settings.cs)
 
-![](../../images/components/Vegetation_Mesh_Settings.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Vegetation_Mesh_Settings.png)
 
 Description
 
-#### Inputs
-* ##### FRL []
-Feature refinement level
-* ##### LSRL []
-Lower value of surface refinement level
-* ##### USRL []
-Upper value of surface refinement level
-* ##### LRRL []
-Lower value of region refinement level
-* ##### URRL []
-Upper value of region refinement level
-* ##### LRRD []
-Lower distance to which apply region refinement level
-* ##### URRD []
-Upper distance to which apply region refinement level
+#### Input
+* ##### LSRL 
+Lower value of surface refinement level. Default value is '3'
+* ##### USRL 
+Upper value of surface refinement level. Default value is '5'
+* ##### LRRL 
+Lower value of region refinement level. Default value is '5'
+* ##### URRL 
+Upper value of region refinement level. Default value is '4'
+* ##### LRRD 
+Lower distance to which apply region refinement level. Default value is '1.0'
+* ##### URRD 
+Upper distance to which apply region refinement level. Default value is '2.0'
 
-#### Outputs
+#### Output
 * ##### M
 Vegetation mesh parameters
-
-
-[Check Hydra Example Files for Vegetation Mesh Settings](https://hydrashare.github.io/hydra/index.html?keywords=Vegetation Mesh Settings)

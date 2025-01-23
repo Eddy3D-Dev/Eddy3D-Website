@@ -1,36 +1,33 @@
-## ![](../../images/icons/Simulation_Settings.png) Simulation Settings - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Simulation%20Settings.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Simulation_Settings.png) Simulation Settings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulation%20Settings.cs)
 
-![](../../images/components/Simulation_Settings.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Simulation_Settings.png)
 
 Simulation settings.
 
-#### Inputs
-* ##### WI []
+#### Input
+* ##### WI 
 Write interval
-* ##### CPUs []
+* ##### CPUs 
 Number of CPUs to be used
-* ##### ISTF []
+* ##### ISTF 
 urbanMicroclimateFoam controls: Initial Solid Timestep Factor
-* ##### minDT []
+* ##### minDT 
 urbanMicroclimateFoam controls: Minimum time between iterations
-* ##### maxDT []
+* ##### maxDT 
 urbanMicroclimateFoam controls: Maximum time between iterations
-* ##### minFI []
+* ##### minFI 
 urbanMicroclimateFoam controls: maxFluidIteration
-* ##### maxFI []
+* ##### maxFI 
 urbanMicroclimateFoam controls: maxFluidIteration
-* ##### pcEF []
+* ##### pcEF 
 'pc-based' or 'mixed' - default is 'pc-based'
-* ##### DT []
+* ##### DT 
 blendingCoeffs: Damping thickness
-* ##### ACU []
+* ##### ACU 
 blendingCoeffs: alphaCoeffU
-* ##### ACT []
+* ##### ACT 
 blendingCoeffs: alphaCoeffT
 
-#### Outputs
+#### Output
 * ##### SS
 Simulation settings
-
-
-[Check Hydra Example Files for Simulation Settings](https://hydrashare.github.io/hydra/index.html?keywords=Simulation Settings)

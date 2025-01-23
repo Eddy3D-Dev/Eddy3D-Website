@@ -1,18 +1,15 @@
-## ![](../../images/icons/Deconstruct_Setting.png) Deconstruct Setting - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Deconstruct%20Setting.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Setting.png) Deconstruct Setting - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Setting.cs)
 
-![](../../images/components/Deconstruct_Setting.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Setting.png)
 
 Deconstrusct a setting instance.
 
-#### Inputs
-* ##### S []
+#### Input
+* ##### S 
 Setting to deconstruct
 
-#### Outputs
+#### Output
 * ##### E
 Entries in the setting.
 * ##### LC
 List containers in the setting
-
-
-[Check Hydra Example Files for Deconstruct Setting](https://hydrashare.github.io/hydra/index.html?keywords=Deconstruct Setting)

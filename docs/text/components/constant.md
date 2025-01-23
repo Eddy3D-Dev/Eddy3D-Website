@@ -1,16 +1,13 @@
-## ![](../../images/icons/constant.png) constant - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/constant.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/constant.png) constant - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/constant.cs)
 
-![](../../images/components/constant.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/constant.png)
 
 constant value.
 
-#### Inputs
-* ##### S []
+#### Input
+* ##### S 
 Scalar component of uniform value.
 
-#### Outputs
+#### Output
 * ##### V
 The created calculated value instance.
-
-
-[Check Hydra Example Files for constant](https://hydrashare.github.io/hydra/index.html?keywords=constant)

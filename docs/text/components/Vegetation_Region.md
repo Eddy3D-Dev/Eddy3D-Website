@@ -1,22 +1,19 @@
-## ![](../../images/icons/Vegetation_Region.png) Vegetation Region - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Vegetation%20Region.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Vegetation_Region.png) Vegetation Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Region.cs)
 
-![](../../images/components/Vegetation_Region.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Vegetation_Region.png)
 
 Description
 
-#### Inputs
-* ##### M []
+#### Input
+* ##### M 
 Vegetation mesh
-* ##### L []
+* ##### L 
 Leaf Area Density of the vegetation
-* ##### P []
+* ##### P 
 Vegetation properties
-* ##### MP []
+* ##### MP 
 Mesh parameteres
 
-#### Outputs
+#### Output
 * ##### V
 Vegetation region.
-
-
-[Check Hydra Example Files for Vegetation Region](https://hydrashare.github.io/hydra/index.html?keywords=Vegetation Region)

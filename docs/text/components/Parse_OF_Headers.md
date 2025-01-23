@@ -1,16 +1,16 @@
-## ![](../../images/icons/Parse_OF_Headers.png) Parse OF Headers - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Parse%20OF%20Headers.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Parse_OF_Headers.png) Parse OF Headers - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Parse%20OF%20Headers.cs)
 
-![](../../images/components/Parse_OF_Headers.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Parse_OF_Headers.png)
 
 Parses a directory looking for boundary conditions.
 
-#### Inputs
-* ##### D []
+#### Input
+* ##### D 
 Directory
-* ##### S []
+* ##### S 
 List of boundary conditions to select. If no list is provided, all boundary conditions are selected.
 
-#### Outputs
+#### Output
 * ##### PSF
 Boundary conditions of type FvPatchScalarField found, and that exist in the selection input.
 * ##### PVF
@@ -23,6 +23,3 @@ Boundary conditions of type PointPatchFields found, and that exist in the select
 Boundary conditions of tpye DimensionedFields found, and that exist in the selection input.
 * ##### N
 Names of all boundary conditions found.
-
-
-[Check Hydra Example Files for Parse OF Headers](https://hydrashare.github.io/hydra/index.html?keywords=Parse OF Headers)

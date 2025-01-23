@@ -1,14 +1,14 @@
-## ![](../../images/icons/Deconstruct_Boundary_Condition.png) Deconstruct Boundary Condition - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Deconstruct%20Boundary%20Condition.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Boundary_Condition.png) Deconstruct Boundary Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Boundary%20Condition.cs)
 
-![](../../images/components/Deconstruct_Boundary_Condition.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Boundary_Condition.png)
 
 Deconstrunct a boundary condition instance.
 
-#### Inputs
-* ##### B []
+#### Input
+* ##### B 
 Boundary condition to deconstruct.
 
-#### Outputs
+#### Output
 * ##### N
 Name.
 * ##### C
@@ -19,6 +19,3 @@ Description.
 Type.
 * ##### C
 Content.
-
-
-[Check Hydra Example Files for Deconstruct Boundary Condition](https://hydrashare.github.io/hydra/index.html?keywords=Deconstruct Boundary Condition)

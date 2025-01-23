@@ -1,16 +1,13 @@
-## ![](../../images/icons/Weather.png) Weather - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Weather.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Weather.png) Weather - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Weather.cs)
 
-![](../../images/components/Weather.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Weather.png)
 
 Reads an EPW file and creates a Weather instance for the simulation
 
-#### Inputs
-* ##### F []
+#### Input
+* ##### F 
 Path to the EPW file
 
-#### Outputs
+#### Output
 * ##### W
 Weather instance containing weather information
-
-
-[Check Hydra Example Files for Weather](https://hydrashare.github.io/hydra/index.html?keywords=Weather)

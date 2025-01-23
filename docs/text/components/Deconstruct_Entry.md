@@ -1,18 +1,15 @@
-## ![](../../images/icons/Deconstruct_Entry.png) Deconstruct Entry - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Deconstruct%20Entry.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Entry.png) Deconstruct Entry - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Entry.cs)
 
-![](../../images/components/Deconstruct_Entry.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Entry.png)
 
 Deconstructs an Entry instance.
 
-#### Inputs
-* ##### E []
+#### Input
+* ##### E 
 Entry to deconstruct.
 
-#### Outputs
+#### Output
 * ##### A
 Entry address.
 * ##### C
 Conent of the entry as key value pairs.
-
-
-[Check Hydra Example Files for Deconstruct Entry](https://hydrashare.github.io/hydra/index.html?keywords=Deconstruct Entry)

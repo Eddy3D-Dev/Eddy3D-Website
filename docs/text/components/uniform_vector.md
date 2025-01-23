@@ -1,16 +1,13 @@
-## ![](../../images/icons/uniform_vector.png) uniform vector - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/uniform%20vector.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/uniform_vector.png) uniform vector - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/uniform%20vector.cs)
 
-![](../../images/components/uniform_vector.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/uniform_vector.png)
 
 uniform vector value
 
-#### Inputs
-* ##### V []
+#### Input
+* ##### V 
 Vector
 
-#### Outputs
+#### Output
 * ##### V
 The created uniform vector value instance
-
-
-[Check Hydra Example Files for uniform vector](https://hydrashare.github.io/hydra/index.html?keywords=uniform vector)

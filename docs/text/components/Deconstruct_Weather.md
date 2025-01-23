@@ -1,20 +1,22 @@
-## ![](../../images/icons/Deconstruct_Weather.png) Deconstruct Weather - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Deconstruct%20Weather.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Weather.png) Deconstruct Weather - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Weather.cs)
 
-![](../../images/components/Deconstruct_Weather.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Weather.png)
 
 Deconstructs a Weather instance, exposing the weather information.
 
-#### Inputs
-* ##### W []
+#### Input
+* ##### W 
 Weather instance
 
-#### Outputs
+#### Output
 * ##### dbt
 DryBulbTemp
 * ##### dpt
 DewPointTemp
 * ##### rh
 RelativeHumidity
+* ##### ah
+AbsoluteHumidity
 * ##### p
 Pressure
 * ##### ws
@@ -41,6 +43,3 @@ OpaqSkyCover
 SolarElevation
 * ##### sa
 SolarAzi
-
-
-[Check Hydra Example Files for Deconstruct Weather](https://hydrashare.github.io/hydra/index.html?keywords=Deconstruct Weather)

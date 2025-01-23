@@ -1,22 +1,19 @@
-## ![](../../images/icons/Simulator_From_Directory.png) Simulator From Directory - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Simulator%20From%20Directory.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Simulator_From_Directory.png) Simulator From Directory - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulator%20From%20Directory.cs)
 
-![](../../images/components/Simulator_From_Directory.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Simulator_From_Directory.png)
 
 Creates a simulator instance from an existing case
 
-#### Inputs
-* ##### D []
+#### Input
+* ##### D 
 Path to the directory to the existing case
-* ##### E []
+* ##### E 
 Optional entries to modify the case
-* ##### I []
+* ##### I 
 Names of additional files to include
 
-#### Outputs
+#### Output
 * ##### L
 Logs
 * ##### S
 Simulator of the created case
-
-
-[Check Hydra Example Files for Simulator From Directory](https://hydrashare.github.io/hydra/index.html?keywords=Simulator From Directory)

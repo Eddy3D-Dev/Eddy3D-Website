@@ -1,28 +1,25 @@
-## ![](../../images/icons/Case_Run.png) Case Run - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Case%20Run.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Case_Run.png) Case Run - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Case%20Run.cs)
 
-![](../../images/components/Case_Run.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Case_Run.png)
 
 Runs the case
 
-#### Inputs
-* ##### C []
+#### Input
+* ##### C 
 Case to run the simulation on
-* ##### PS []
+* ##### PS 
 Set to true to prepare the simulation
-* ##### PSp []
+* ##### PSp 
 Set to true to prepare the simulation
-* ##### RS []
+* ##### RS 
 Set to true to run the simulation
-* ##### RSp []
+* ##### RSp 
 Set to true to run the simulation in parallel
 
-#### Outputs
+#### Output
 * ##### C
 Case that contains the simulation
 * ##### L
 Names of the files that contain simulation logs
 * ##### L
 Content of the files that contain simulation logs
-
-
-[Check Hydra Example Files for Case Run](https://hydrashare.github.io/hydra/index.html?keywords=Case Run)

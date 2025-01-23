@@ -1,16 +1,13 @@
-## ![](../../images/icons/calculated_Vector.png) calculated Vector - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/calculated%20Vector.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/calculated_Vector.png) calculated Vector - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/calculated%20Vector.cs)
 
-![](../../images/components/calculated_Vector.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/calculated_Vector.png)
 
 calculated vector value
 
-#### Inputs
-* ##### V []
+#### Input
+* ##### V 
 Vector
 
-#### Outputs
+#### Output
 * ##### V
 The created calculated vector value instance.
-
-
-[Check Hydra Example Files for calculated Vector](https://hydrashare.github.io/hydra/index.html?keywords=calculated Vector)

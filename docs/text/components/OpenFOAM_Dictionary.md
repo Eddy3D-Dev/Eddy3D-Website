@@ -1,18 +1,15 @@
-## ![](../../images/icons/OpenFOAM_Dictionary.png) OpenFOAM Dictionary - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/OpenFOAM%20Dictionary.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/OpenFOAM_Dictionary.png) OpenFOAM Dictionary - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/OpenFOAM%20Dictionary.cs)
 
-![](../../images/components/OpenFOAM_Dictionary.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/OpenFOAM_Dictionary.png)
 
 Creates an OpenFOAM dictioanry. Used as an input to modify OpenFOAM files
 
-#### Inputs
-* ##### K []
+#### Input
+* ##### K 
 List of keys to store in the OF Dictionary.
-* ##### V []
+* ##### V 
 List of values to store in the OF Dictionary.
 
-#### Outputs
+#### Output
 * ##### C
 The created collection.
-
-
-[Check Hydra Example Files for OpenFOAM Dictionary](https://hydrashare.github.io/hydra/index.html?keywords=OpenFOAM Dictionary)

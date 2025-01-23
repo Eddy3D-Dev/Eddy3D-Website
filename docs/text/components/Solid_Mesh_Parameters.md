@@ -1,28 +1,25 @@
-## ![](../../images/icons/Solid_Mesh_Parameters.png) Solid Mesh Parameters - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Solid%20Mesh%20Parameters.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Solid_Mesh_Parameters.png) Solid Mesh Parameters - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Solid%20Mesh%20Parameters.cs)
 
-![](../../images/components/Solid_Mesh_Parameters.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Solid_Mesh_Parameters.png)
 
 Meshing parameters for solid for Solid Type component.
 
-#### Inputs
-* ##### FRL []
-Feature refinement level
-* ##### LSRL []
-Lower value of surface refinement level
-* ##### USRL []
-Upper value of surface refinement level
-* ##### LRRL []
-Lower value of region refinement level
-* ##### URRL []
-Upper value of region refinement level
-* ##### LRRD []
-Lower distance to which apply region refinement level
-* ##### URRD []
-Upper distance to which apply region refinement level
+#### Input
+* ##### FRL 
+Feature refinement level. Default value is '4'
+* ##### LSRL 
+Lower value of surface refinement level. Default value is '3'
+* ##### USRL 
+Upper value of surface refinement level. Default value is '5'
+* ##### LRRL 
+Lower value of region refinement level. Default value is '4'
+* ##### URRL 
+Upper value of region refinement level. Default value is '3'
+* ##### LRRD 
+Lower distance to which apply region refinement level. Default value is '1.0'
+* ##### URRD 
+Upper distance to which apply region refinement level. Default value is '1.0'
 
-#### Outputs
+#### Output
 * ##### M
 Solid mesh paremeters for Solid Type component.
-
-
-[Check Hydra Example Files for Solid Mesh Parameters](https://hydrashare.github.io/hydra/index.html?keywords=Solid Mesh Parameters)

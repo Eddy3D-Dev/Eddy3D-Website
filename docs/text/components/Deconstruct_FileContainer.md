@@ -1,14 +1,14 @@
-## ![](../../images/icons/Deconstruct_FileContainer.png) Deconstruct FileContainer - [[source code]](C:\Users\pkastner\Documents\GitHub\Eddy3D\UMCF/Deconstruct%20FileContainer.py)
+## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_FileContainer.png) Deconstruct FileContainer - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20FileContainer.cs)
 
-![](../../images/components/Deconstruct_FileContainer.png)
+![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_FileContainer.png)
 
 Deconstructs a FileContainer instance.
 
-#### Inputs
-* ##### F []
+#### Input
+* ##### F 
 File container to deconstruct.
 
-#### Outputs
+#### Output
 * ##### N
 File container name.
 * ##### F
@@ -21,6 +21,3 @@ File container values.
 Raw content of the file.
 * ##### TR
 Total raw content of the file.
-
-
-[Check Hydra Example Files for Deconstruct FileContainer](https://hydrashare.github.io/hydra/index.html?keywords=Deconstruct FileContainer)
