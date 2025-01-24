@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Create_Address.png) Create Address - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20Address.cs)
+## ![](../../Images/Icons/Create_Address.png) Create Address - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20Address.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Create_Address.png)
+![](../../Images/Components/Create_Address.png)
 
 Creates an Address for a Key
 

@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Check_Installation.png) Check Installation - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Check%20Installation.cs)
+## ![](../../Images/Icons/Check_Installation.png) Check Installation - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Check%20Installation.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Check_Installation.png)
+![](../../Images/Components/Check_Installation.png)
 
 Checks installation
 

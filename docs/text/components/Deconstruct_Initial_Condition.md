@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Initial_Condition.png) Deconstruct Initial Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Initial%20Condition.cs)
+## ![](../../Images/Icons/Deconstruct_Initial_Condition.png) Deconstruct Initial Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Initial%20Condition.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Initial_Condition.png)
+![](../../Images/Components/Deconstruct_Initial_Condition.png)
 
 Deconstructs an initial condition
 

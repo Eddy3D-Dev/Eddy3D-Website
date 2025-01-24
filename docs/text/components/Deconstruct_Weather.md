@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Weather.png) Deconstruct Weather - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Weather.cs)
+## ![](../../Images/Icons/Deconstruct_Weather.png) Deconstruct Weather - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Weather.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Weather.png)
+![](../../Images/Components/Deconstruct_Weather.png)
 
 Deconstructs a Weather instance, exposing the weather information.
 

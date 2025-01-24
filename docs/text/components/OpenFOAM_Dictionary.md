@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/OpenFOAM_Dictionary.png) OpenFOAM Dictionary - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/OpenFOAM%20Dictionary.cs)
+## ![](../../Images/Icons/OpenFOAM_Dictionary.png) OpenFOAM Dictionary - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/OpenFOAM%20Dictionary.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/OpenFOAM_Dictionary.png)
+![](../../Images/Components/OpenFOAM_Dictionary.png)
 
 Creates an OpenFOAM dictioanry. Used as an input to modify OpenFOAM files
 

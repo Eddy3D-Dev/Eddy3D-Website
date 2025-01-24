@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Grass.png) Grass - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Grass.cs)
+## ![](../../Images/Icons/Grass.png) Grass - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Grass.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Grass.png)
+![](../../Images/Components/Grass.png)
 
 Creates grass in the simulation
 

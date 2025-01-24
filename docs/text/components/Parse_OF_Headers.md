@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Parse_OF_Headers.png) Parse OF Headers - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Parse%20OF%20Headers.cs)
+## ![](../../Images/Icons/Parse_OF_Headers.png) Parse OF Headers - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Parse%20OF%20Headers.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Parse_OF_Headers.png)
+![](../../Images/Components/Parse_OF_Headers.png)
 
 Parses a directory looking for boundary conditions.
 

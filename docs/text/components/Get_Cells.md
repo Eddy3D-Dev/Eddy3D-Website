@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Get_Cells.png) Get Cells - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Get%20Cells.cs)
+## ![](../../Images/Icons/Get_Cells.png) Get Cells - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Get%20Cells.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Get_Cells.png)
+![](../../Images/Components/Get_Cells.png)
 
 Group of mesh faces based on indices from owner and neighbour files
 

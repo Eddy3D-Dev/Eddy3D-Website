@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Simulation_MeshSettings.png) Simulation MeshSettings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulation%20MeshSettings.cs)
+## ![](../../Images/Icons/Simulation_MeshSettings.png) Simulation MeshSettings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulation%20MeshSettings.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Simulation_MeshSettings.png)
+![](../../Images/Components/Simulation_MeshSettings.png)
 
 Simulation mesh settings.
 

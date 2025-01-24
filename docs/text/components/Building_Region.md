@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Building_Region.png) Building Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Building%20Region.cs)
+## ![](../../Images/Icons/Building_Region.png) Building Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Building%20Region.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Building_Region.png)
+![](../../Images/Components/Building_Region.png)
 
 Building Region
 

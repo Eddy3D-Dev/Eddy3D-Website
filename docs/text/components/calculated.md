@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/calculated.png) calculated - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/calculated.cs)
+## ![](../../Images/Icons/calculated.png) calculated - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/calculated.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/calculated.png)
+![](../../Images/Components/calculated.png)
 
 calculated value
 
