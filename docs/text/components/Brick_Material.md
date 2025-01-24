@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Brick_Material.png) Brick Material - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Brick%20Material.cs)
+## ![](../../images/icons/Brick_Material.png) Brick Material - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Brick%20Material.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Brick_Material.png)
+![](../../images/components/Brick_Material.png)
 
 Parameters of building material model "Hamstad5Brick"
 

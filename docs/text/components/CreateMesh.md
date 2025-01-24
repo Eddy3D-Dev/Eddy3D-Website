@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/CreateMesh.png) CreateMesh - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/CreateMesh.cs)
+## ![](../../images/icons/CreateMesh.png) CreateMesh - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/CreateMesh.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/CreateMesh.png)
+![](../../images/components/CreateMesh.png)
 
 Creates a mesh from point and face data in .txt files
 

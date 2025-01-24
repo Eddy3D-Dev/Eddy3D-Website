@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Vegetation_Mesh_Settings.png) Vegetation Mesh Settings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Mesh%20Settings.cs)
+## ![](../../images/icons/Vegetation_Mesh_Settings.png) Vegetation Mesh Settings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Mesh%20Settings.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Vegetation_Mesh_Settings.png)
+![](../../images/components/Vegetation_Mesh_Settings.png)
 
 Description
 

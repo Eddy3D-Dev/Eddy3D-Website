@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Air_Region.png) Air Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Air%20Region.cs)
+## ![](../../images/icons/Air_Region.png) Air Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Air%20Region.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Air_Region.png)
+![](../../images/components/Air_Region.png)
 
 Air region
 

@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Templates.png) Templates - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Templates.cs)
+## ![](../../images/icons/Templates.png) Templates - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Templates.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Templates.png)
+![](../../images/components/Templates.png)
 
 Contains templates of Grasshopper definitions
 

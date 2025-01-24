@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Modify_with_Entry.png) Modify with Entry - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Modify%20with%20Entry.cs)
+## ![](../../images/icons/Modify_with_Entry.png) Modify with Entry - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Modify%20with%20Entry.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Modify_with_Entry.png)
+![](../../images/components/Modify_with_Entry.png)
 
 Modifies a file container with an entry.
 

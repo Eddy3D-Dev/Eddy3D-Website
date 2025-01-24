@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Solid_Mesh_Parameters.png) Solid Mesh Parameters - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Solid%20Mesh%20Parameters.cs)
+## ![](../../images/icons/Solid_Mesh_Parameters.png) Solid Mesh Parameters - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Solid%20Mesh%20Parameters.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Solid_Mesh_Parameters.png)
+![](../../images/components/Solid_Mesh_Parameters.png)
 
 Meshing parameters for solid for Solid Type component.
 

@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/CheckMesh.png) CheckMesh - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/CheckMesh.cs)
+## ![](../../images/icons/CheckMesh.png) CheckMesh - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/CheckMesh.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/CheckMesh.png)
+![](../../images/components/CheckMesh.png)
 
 Runs the checkMesh command in OpenFOAM
 

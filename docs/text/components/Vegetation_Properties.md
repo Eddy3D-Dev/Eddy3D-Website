@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Vegetation_Properties.png) Vegetation Properties - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Properties.cs)
+## ![](../../images/icons/Vegetation_Properties.png) Vegetation Properties - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Properties.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Vegetation_Properties.png)
+![](../../images/components/Vegetation_Properties.png)
 
 Properties of vegetation.
 

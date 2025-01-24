@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Create_GH_Plugin.png) Create GH Plugin - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20GH%20Plugin.cs)
+## ![](../../images/icons/Create_GH_Plugin.png) Create GH Plugin - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20GH%20Plugin.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Create_GH_Plugin.png)
+![](../../images/components/Create_GH_Plugin.png)
 
 Creates a Grasshopper plugin in the input directory.
 

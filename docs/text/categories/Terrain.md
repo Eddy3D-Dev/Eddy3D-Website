@@ -1,4 +1,4 @@
 # Terrain
 #### Exposure: primary
-* [Grass](../../Components/Grass.md)
-* [Terrain Region](../../Components/Terrain_Region.md)
+* [Grass](components/Grass.md)
+* [Terrain Region](components/Terrain_Region.md)

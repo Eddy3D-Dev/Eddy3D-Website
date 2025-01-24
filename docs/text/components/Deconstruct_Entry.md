@@ -1,6 +1,6 @@
-## ![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Icons/Deconstruct_Entry.png) Deconstruct Entry - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Entry.cs)
+## ![](../../images/icons/Deconstruct_Entry.png) Deconstruct Entry - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Entry.cs)
 
-![](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Documentation/Images/Components/Deconstruct_Entry.png)
+![](../../images/components/Deconstruct_Entry.png)
 
 Deconstructs an Entry instance.
 
