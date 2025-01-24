@@ -150,7 +150,7 @@ Key parameters include:
 
 ## Documentation
 
-[UMCF Component list](Text/README.md)
+[UMCF Component list](}text/README.md)
 
 ## Presentation
 
