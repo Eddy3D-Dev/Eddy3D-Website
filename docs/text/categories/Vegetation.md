@@ -1,5 +1,5 @@
 # Vegetation
 #### Exposure: primary
-* [Vegetation Region](Components/Vegetation_Region.md)
-* [Vegetation Properties](Components/Vegetation_Properties.md)
-* [Vegetation Mesh Settings](Components/Vegetation_Mesh_Settings.md)
+* [Vegetation Region](components/Vegetation_Region.md)
+* [Vegetation Properties](components/Vegetation_Properties.md)
+* [Vegetation Mesh Settings](components/Vegetation_Mesh_Settings.md)

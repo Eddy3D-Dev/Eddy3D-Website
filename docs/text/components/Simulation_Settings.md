@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Simulation_Settings.png) Simulation Settings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulation%20Settings.cs)
+## ![](../../images/icons/Simulation_Settings.png) Simulation Settings - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulation%20Settings.cs)
 
-![](../../Images/Components/Simulation_Settings.png)
+![](../../images/components/Simulation_Settings.png)
 
 Simulation settings.
 

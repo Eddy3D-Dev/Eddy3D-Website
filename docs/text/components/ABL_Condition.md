@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/ABL_Condition.png) ABL Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/ABL%20Condition.cs)
+## ![](../../images/icons/ABL_Condition.png) ABL Condition - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/ABL%20Condition.cs)
 
-![](../../Images/Components/ABL_Condition.png)
+![](../../images/components/ABL_Condition.png)
 
 Atmospheric Boundary Layer condition for air region
 

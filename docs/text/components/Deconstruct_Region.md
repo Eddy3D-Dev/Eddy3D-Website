@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Deconstruct_Region.png) Deconstruct Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Region.cs)
+## ![](../../images/icons/Deconstruct_Region.png) Deconstruct Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Region.cs)
 
-![](../../Images/Components/Deconstruct_Region.png)
+![](../../images/components/Deconstruct_Region.png)
 
 Deconstructs a Region
 

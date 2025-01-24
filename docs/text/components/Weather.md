@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Weather.png) Weather - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Weather.cs)
+## ![](../../images/icons/Weather.png) Weather - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Weather.cs)
 
-![](../../Images/Components/Weather.png)
+![](../../images/components/Weather.png)
 
 Reads an EPW file and creates a Weather instance for the simulation
 

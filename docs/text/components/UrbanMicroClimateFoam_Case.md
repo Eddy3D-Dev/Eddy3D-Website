@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/UrbanMicroClimateFoam_Case.png) UrbanMicroClimateFoam Case - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/UrbanMicroClimateFoam%20Case.cs)
+## ![](../../images/icons/UrbanMicroClimateFoam_Case.png) UrbanMicroClimateFoam Case - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/UrbanMicroClimateFoam%20Case.cs)
 
-![](../../Images/Components/UrbanMicroClimateFoam_Case.png)
+![](../../images/components/UrbanMicroClimateFoam_Case.png)
 
 Creates an UMCF case
 

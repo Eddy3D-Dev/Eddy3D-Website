@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Ground.png) Ground - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Ground.cs)
+## ![](../../images/icons/Ground.png) Ground - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Ground.cs)
 
-![](../../Images/Components/Ground.png)
+![](../../images/components/Ground.png)
 
 Contains specifications for the ground
 

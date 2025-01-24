@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Debugger.png) Debugger - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Debugger.cs)
+## ![](../../images/icons/Debugger.png) Debugger - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Debugger.cs)
 
-![](../../Images/Components/Debugger.png)
+![](../../images/components/Debugger.png)
 
 Debugger
 

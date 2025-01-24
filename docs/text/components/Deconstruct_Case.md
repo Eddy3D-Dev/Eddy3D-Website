@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Deconstruct_Case.png) Deconstruct Case - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Case.cs)
+## ![](../../images/icons/Deconstruct_Case.png) Deconstruct Case - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Deconstruct%20Case.cs)
 
-![](../../Images/Components/Deconstruct_Case.png)
+![](../../images/components/Deconstruct_Case.png)
 
 Deconstructs a Case instance, exposing all types of file containers.
 

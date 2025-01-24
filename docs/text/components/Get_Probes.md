@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Get_Probes.png) Get Probes - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Get%20Probes.cs)
+## ![](../../images/icons/Get_Probes.png) Get Probes - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Get%20Probes.cs)
 
-![](../../Images/Components/Get_Probes.png)
+![](../../images/components/Get_Probes.png)
 
 Get probe values from a field
 

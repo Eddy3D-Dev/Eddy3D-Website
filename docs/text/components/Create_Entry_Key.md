@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Create_Entry_Key.png) Create Entry Key - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20Entry%20Key.cs)
+## ![](../../images/icons/Create_Entry_Key.png) Create Entry Key - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Create%20Entry%20Key.cs)
 
-![](../../Images/Components/Create_Entry_Key.png)
+![](../../images/components/Create_Entry_Key.png)
 
 Creates an entry key
 

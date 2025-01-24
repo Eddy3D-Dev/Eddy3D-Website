@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Vegetation_Region.png) Vegetation Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Region.cs)
+## ![](../../images/icons/Vegetation_Region.png) Vegetation Region - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Vegetation%20Region.cs)
 
-![](../../Images/Components/Vegetation_Region.png)
+![](../../images/components/Vegetation_Region.png)
 
 Description
 

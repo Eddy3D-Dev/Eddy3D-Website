@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Simulator_From_Directory.png) Simulator From Directory - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulator%20From%20Directory.cs)
+## ![](../../images/icons/Simulator_From_Directory.png) Simulator From Directory - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Simulator%20From%20Directory.cs)
 
-![](../../Images/Components/Simulator_From_Directory.png)
+![](../../images/components/Simulator_From_Directory.png)
 
 Creates a simulator instance from an existing case
 

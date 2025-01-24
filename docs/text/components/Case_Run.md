@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Case_Run.png) Case Run - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Case%20Run.cs)
+## ![](../../images/icons/Case_Run.png) Case Run - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Case%20Run.cs)
 
-![](../../Images/Components/Case_Run.png)
+![](../../images/components/Case_Run.png)
 
 Runs the case
 

@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Probing.png) Probing - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Probing.cs)
+## ![](../../images/icons/Probing.png) Probing - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Probing.cs)
 
-![](../../Images/Components/Probing.png)
+![](../../images/components/Probing.png)
 
 Probes the simulation
 

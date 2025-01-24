@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Box_Domain_Dimensions.png) Box Domain Dimensions - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Box%20Domain%20Dimensions.cs)
+## ![](../../images/icons/Box_Domain_Dimensions.png) Box Domain Dimensions - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Box%20Domain%20Dimensions.cs)
 
-![](../../Images/Components/Box_Domain_Dimensions.png)
+![](../../images/components/Box_Domain_Dimensions.png)
 
 Parameters for box domain dimensions
 

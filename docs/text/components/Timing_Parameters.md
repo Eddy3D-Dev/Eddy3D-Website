@@ -1,6 +1,6 @@
-## ![](../../Images/Icons/Timing_Parameters.png) Timing Parameters - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Timing%20Parameters.cs)
+## ![](../../images/icons/Timing_Parameters.png) Timing Parameters - [[source code]](https://github.com/Eddy3D-Dev/Eddy3D/tree/dev/Timing%20Parameters.cs)
 
-![](../../Images/Components/Timing_Parameters.png)
+![](../../images/components/Timing_Parameters.png)
 
 Timing parameters of the simulation
 
