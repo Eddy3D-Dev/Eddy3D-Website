@@ -172,8 +172,8 @@ theme:
   custom_dir: site/overrides
   font: false
   icon:
-    logo: octicons/terminal-16
-  favicon: assets/images/cli.png
+    logo: cd/favicon
+  favicon: cd/favicon
   language: en
   features:
     - tabs
