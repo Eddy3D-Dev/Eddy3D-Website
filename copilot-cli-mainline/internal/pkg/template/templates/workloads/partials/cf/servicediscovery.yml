@@ -1,0 +1,19 @@
+DiscoveryService:
+  Metadata:
+    'aws:copilot:description': 'Service discovery for your services to communicate within the VPC'
+  Type: AWS::ServiceDiscovery::Service
+  Properties:
+    Description: Discovery Service for the Copilot services
+    DnsConfig:
+      RoutingPolicy: MULTIVALUE
+      DnsRecords:
+        - TTL: 10
+          Type: A
+        - TTL: 10
+          Type: SRV
+    HealthCheckCustomConfig:
+      FailureThreshold: 1
+    Name:  !Ref WorkloadName
+    NamespaceId:
+      Fn::ImportValue:
+        !Sub '${AppName}-${EnvName}-ServiceDiscoveryNamespaceID'

@@ -1,0 +1,130 @@
+{{if .LogConfig}}
+- Name: firelens_log_router
+  Image: {{ .LogConfig.Image }}
+  Environment:
+{{include "envvars-common" . | indent 2}}
+{{if .LogConfig.Variables}}
+{{include "variables" .LogConfig | indent 2 }}
+{{end}}
+  EnvironmentFiles:
+    - !If
+      - HasLoggingEnvFile
+      - Type: "s3"
+        Value: !Ref LoggingEnvFileARN
+      - !Ref "AWS::NoValue"
+{{- if .LogConfig.Secrets}}
+  Secrets:
+  {{- range $name, $secret := .LogConfig.Secrets}}
+  - Name: {{$name}}
+  {{- if $secret.RequiresImport}}
+    ValueFrom:
+      Fn::ImportValue: {{ quote $secret.ValueFrom }}
+  {{- else}}
+    ValueFrom: {{if not $secret.RequiresSub }} {{$secret.ValueFrom}} {{- else}} !Sub 'arn:${AWS::Partition}:{{$secret.Service}}:${AWS::Region}:${AWS::AccountId}:{{$secret.ValueFrom}}' {{- end}}
+  {{- end}}
+  {{- end}}
+{{- end}}
+  FirelensConfiguration:
+    Type: fluentbit
+    Options:
+      enable-ecs-log-metadata: {{.LogConfig.EnableMetadata}}{{if .LogConfig.ConfigFile}}
+      config-file-type: file
+      config-file-value: {{.LogConfig.ConfigFile}}{{end}}
+  LogConfiguration:
+    LogDriver: awslogs
+    Options:
+      awslogs-region: !Ref AWS::Region
+      awslogs-group: !Ref LogGroup
+      awslogs-stream-prefix: copilot
+{{- end}}
+{{- if eq .Observability.Tracing "AWSXRAY"}}
+- Name: aws-otel-collector
+  Image: public.ecr.aws/aws-observability/aws-otel-collector:v0.17.0
+  Command:
+    - --config=/etc/ecs/ecs-xray.yaml
+  LogConfiguration:
+    LogDriver: awslogs
+    Options:
+      awslogs-region: !Ref AWS::Region
+      awslogs-group: !Ref LogGroup
+      awslogs-stream-prefix: copilot
+{{- end}}
+{{- range $sidecar := .Sidecars}}
+- Name: {{$sidecar.Name}}
+  Image: {{$sidecar.Image}}
+{{- if $sidecar.Essential}}
+  Essential: {{$sidecar.Essential}}
+{{- end}}
+{{include "image-overrides" . | indent 2}}
+{{- if $sidecar.PortMappings}}
+  PortMappings:
+    {{- range $portMapping := $sidecar.PortMappings }}
+    - ContainerPort: {{ $portMapping.ContainerPort }}
+  {{- if $.ServiceConnectOpts.Server}}
+  {{- if and (eq $.ServiceConnectOpts.Server.Name $sidecar.Name) (eq $.ServiceConnectOpts.Server.Port (strconvUint16 $portMapping.ContainerPort ))}}
+      Name: target
+  {{- end}}
+  {{- end}}
+      Protocol: {{ $portMapping.Protocol }}
+{{- end}}
+{{- end}}
+{{- if $sidecar.HealthCheck}}
+  HealthCheck:
+    Command: {{quoteSlice $sidecar.HealthCheck.Command | fmtSlice}}
+    Interval: {{$sidecar.HealthCheck.Interval}}
+    Retries: {{$sidecar.HealthCheck.Retries}}
+    StartPeriod: {{$sidecar.HealthCheck.StartPeriod}}
+    Timeout: {{$sidecar.HealthCheck.Timeout}}
+{{- end}}
+  Environment:
+{{/* "$" denotes the parent WorkloadOpts, whereas "." is the individual container. */}}
+{{include "envvars-common" $ | indent 2}}
+{{include "envvars-container" . | indent 2}}
+  EnvironmentFiles:
+    - !If
+      - HasEnvFileFor{{ logicalIDSafe $sidecar.Name}}
+      - Type: "s3"
+        Value: !Ref EnvFileARNFor{{ logicalIDSafe $sidecar.Name}}
+      - !Ref "AWS::NoValue"
+{{- if $sidecar.Secrets}}
+  Secrets:
+  {{- range $name, $secret := $sidecar.Secrets}}
+  - Name: {{$name}}
+  {{- if $secret.RequiresImport}}
+    ValueFrom:
+      Fn::ImportValue: {{ quote $secret.ValueFrom }}
+  {{- else}}
+    ValueFrom: {{if not $secret.RequiresSub }} {{$secret.ValueFrom}} {{- else}} !Sub 'arn:${AWS::Partition}:{{$secret.Service}}:${AWS::Region}:${AWS::AccountId}:{{$secret.ValueFrom}}' {{- end}}
+  {{- end}}
+  {{- end}}
+{{- end}}
+  LogConfiguration:
+    LogDriver: awslogs
+    Options:
+      awslogs-region: !Ref AWS::Region
+      awslogs-group: !Ref LogGroup
+      awslogs-stream-prefix: copilot
+{{- if $sidecar.DockerLabels}}
+  DockerLabels:{{range $name, $value := $sidecar.DockerLabels}}
+    {{$name | printf "%q"}}: {{$value | printf "%q"}}{{end}}
+{{- end -}}
+{{- if $sidecar.DependsOn}}
+  DependsOn:
+  {{- range $name, $conditionFrom := $sidecar.DependsOn}}
+    - Condition: {{$conditionFrom}}
+      ContainerName: {{$name}}
+  {{- end}}
+{{- end}}
+{{- if $sidecar.CredsParam}}
+  RepositoryCredentials:
+    CredentialsParameter: {{$sidecar.CredsParam}}
+{{- end}}
+{{- if $sidecar.Storage.MountPoints}}
+  MountPoints:
+  {{- range $mp := $sidecar.Storage.MountPoints}}
+    - SourceVolume: {{$mp.SourceVolume}}
+      ReadOnly: {{$mp.ReadOnly}}
+      ContainerPath: '{{$mp.ContainerPath}}'
+  {{- end}}
+{{- end}}
+{{- end}}

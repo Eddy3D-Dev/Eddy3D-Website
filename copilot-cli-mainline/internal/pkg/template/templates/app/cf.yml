@@ -1,0 +1,190 @@
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+AWSTemplateFormatVersion: '2010-09-09'{{$accounts := .Accounts}}{{$app := .App}}{{$workloads := .Workloads}}{{$svcTag := .ServiceTagKey}}
+# Cross-regional resources deployed via a stackset in the tools account
+# to support the CodePipeline for a workspace
+Description: Cross-regional resources to support the CodePipeline for a workspace
+Metadata:
+  TemplateVersion: '{{.TemplateVersion}}'
+  Version: {{.Version}}
+  Workloads:{{if not $workloads}} []{{else}}{{range $workload := $workloads}}
+    - Name: {{$workload.Name}}
+      WithECR: {{$workload.WithECR}}{{end}}{{end}}
+  Accounts:{{if not $accounts}} []{{else}}{{range $account := $accounts}}
+    - {{$account}}{{end}}{{end}}
+  Services: "See #5140"
+Resources:
+  KMSKey:
+    Metadata:
+      'aws:copilot:description': 'KMS key to encrypt pipeline artifacts between stages'
+    # Used by the CodePipeline in the tools account to en/decrypt the
+    # artifacts between stages
+    Type: AWS::KMS::Key
+    Properties:
+      EnableKeyRotation: true
+      KeyPolicy:
+        Version: '2012-10-17'
+        Id: !Ref AWS::StackName
+        Statement:
+          -
+            # Allows the key to be administered in the tools account
+            Effect: Allow
+            Principal:
+              AWS: !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root
+            Action:
+              - "kms:Create*"
+              - "kms:Describe*"
+              - "kms:Enable*"
+              - "kms:List*"
+              - "kms:Put*"
+              - "kms:Update*"
+              - "kms:Revoke*"
+              - "kms:Disable*"
+              - "kms:Get*"
+              - "kms:Delete*"
+              - "kms:ScheduleKeyDeletion"
+              - "kms:CancelKeyDeletion"
+              - "kms:Tag*"
+              - "kms:UntagResource"
+            Resource: "*"
+          -
+            # Allow use of the key in the tools account and all environment accounts
+            Effect: Allow
+            Principal:
+              AWS:
+                - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root{{range $accounts}}
+                - !Sub arn:${AWS::Partition}:iam::{{.}}:root{{end}}
+            Action:
+              - kms:Encrypt
+              - kms:Decrypt
+              - kms:ReEncrypt*
+              - kms:GenerateDataKey*
+              - kms:DescribeKey
+            Resource: "*"
+  PipelineBuiltArtifactBucketPolicy:
+    Metadata:
+      'aws:copilot:description': 'S3 Bucket to store local artifacts'
+    Type: AWS::S3::BucketPolicy
+    DependsOn: PipelineBuiltArtifactBucket
+    Properties:
+      Bucket: !Ref PipelineBuiltArtifactBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          -
+            Action:
+              - s3:*
+            Effect: Allow
+            Resource:
+              - !Sub arn:${AWS::Partition}:s3:::${PipelineBuiltArtifactBucket}
+              - !Sub arn:${AWS::Partition}:s3:::${PipelineBuiltArtifactBucket}/*
+            Principal:
+              AWS:
+                - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root{{range $accounts}}
+                - !Sub arn:${AWS::Partition}:iam::{{.}}:root{{end}}
+          - Action: s3:PutObject
+            Effect: Deny
+            Resource: !Sub arn:${AWS::Partition}:s3:::${PipelineBuiltArtifactBucket}/*
+            Principal: '*'
+            Condition:
+              StringNotEqualsIfExists:
+                s3:x-amz-server-side-encryption: 'aws:kms'
+              'Null':
+                s3:x-amz-server-side-encryption: false
+          - Sid: ForceHTTPS
+            Effect: Deny
+            Principal: "*"
+            Action: s3:*
+            Resource:
+              - !Sub ${PipelineBuiltArtifactBucket.Arn}
+              - !Sub ${PipelineBuiltArtifactBucket.Arn}/*
+            Condition:
+              Bool:
+                aws:SecureTransport: false
+
+  PipelineBuiltArtifactBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'aws:kms'
+              KMSMasterKeyID: !GetAtt KMSKey.Arn
+            BucketKeyEnabled: true
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireLocalAssets
+            Status: Enabled
+            Prefix: local-assets
+            ExpirationInDays: 30
+            NoncurrentVersionExpirationInDays: 1
+            AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: 1
+
+{{range $workload := $workloads}}
+{{- if $workload.WithECR}}
+  ECRRepo{{logicalIDSafe $workload.Name}}:
+    Metadata:
+      'aws:copilot:description': 'ECR container image repository for "{{$workload.Name}}"'
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: {{$app}}/{{$workload.Name}}
+      Tags:
+        - Key: {{$svcTag}}
+          Value: {{$workload.Name}}
+      RepositoryPolicyText:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowPushPull
+            Effect: Allow
+            Principal:
+              AWS:
+                - !Sub arn:${AWS::Partition}:iam::${AWS::AccountId}:root{{range $accounts}}
+                - !Sub arn:${AWS::Partition}:iam::{{.}}:root{{end}}
+            Action:
+              - ecr:GetDownloadUrlForLayer
+              - ecr:BatchGetImage
+              - ecr:BatchCheckLayerAvailability
+              - ecr:PutImage
+              - ecr:InitiateLayerUpload
+              - ecr:UploadLayerPart
+              - ecr:CompleteLayerUpload
+{{- end}}
+{{end}}
+Outputs:
+  KMSKeyARN:
+    Description: KMS Key used by CodePipeline for encrypting artifacts.
+    Value: !GetAtt KMSKey.Arn
+    Export:
+      Name: {{$app}}-ArtifactKey
+  PipelineBucket:
+    Description: "A bucket used for any Copilot artifacts that must be stored in S3 (pipelines, env files, etc)."
+    Value: !Ref PipelineBuiltArtifactBucket
+{{- range $workload := $workloads}} 
+{{- if $workload.WithECR}}
+  ECRRepo{{logicalIDSafe $workload.Name}}:
+    Description: ECR Repo used to store images of the {{$workload.Name}} workload.
+    Value: !GetAtt ECRRepo{{logicalIDSafe $workload.Name}}.Arn
+{{- end}}
+{{- end}}
+  TemplateVersion:
+    Description: Required output to force the stackset to update if mutating version.
+    Value: {{.TemplateVersion}}
+  StackSetOpId:
+    {{/*
+      We force an upgrade on every operation so that the stack renderer
+      doesn't hang indefinitely on upgrades that don't result in changes
+      for some/all instances of the stack set.
+     */ -}}
+    Description: Required output to force stackset instances to update on every operation.
+    Value: {{.Version}}

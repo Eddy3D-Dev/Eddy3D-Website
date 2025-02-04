@@ -1,0 +1,25 @@
+{
+	"Parameters": {
+		"AppName": "my-app",
+		"EnvName": "my-env",
+		"WorkloadName": "https-path-alias",
+		"ContainerImage": "",
+		"AddonsTemplateURL": "",
+		"TaskCPU": "512",
+		"TaskMemory": "1024",
+		"TaskCount": "1",
+		"LogRetention": "30",
+		"ContainerPort": "80",
+		"EnvFileARN": "",
+		"ArtifactKeyARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+		"TargetContainer": "https-path-alias",
+		"TargetPort": "80",
+		"RulePath": "https-path-alias-path",
+		"HTTPSEnabled": "true"
+	},
+	"Tags": {
+		"copilot-application": "my-app",
+		"copilot-environment": "my-env",
+		"copilot-service": "https-path-alias"
+	}
+}

@@ -1,0 +1,18 @@
+name: test
+type: Environment
+observability:
+  container_insights: false
+
+http: 
+  public:
+    security_groups:
+      ingress:
+        restrict_to:
+          cdn: true
+
+cdn:
+  terminate_tls: true
+  static_assets:
+    location: ${BUCKETNAME}.s3.eu-central-1.amazonaws.com
+    alias: frontend-${TIMENOW}.${DOMAINNAME}
+    path: static/*

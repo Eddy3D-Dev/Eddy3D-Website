@@ -1,0 +1,116 @@
+PlatformVersion: {{.Platform.Version}}
+Cluster:
+  Fn::ImportValue:
+    !Sub '${AppName}-${EnvName}-ClusterId'
+TaskDefinition: !Ref TaskDefinition
+{{- if .DesiredCountOnSpot}}
+DesiredCount: !Ref TaskCount
+{{- else if .Autoscaling}}
+DesiredCount: !GetAtt DynamicDesiredCountAction.DesiredCount
+{{- else }}
+DesiredCount: !Ref TaskCount
+{{- end}}
+DeploymentConfiguration:
+  DeploymentCircuitBreaker:
+    Enable: true
+    Rollback: true
+  MinimumHealthyPercent: {{ .DeploymentConfiguration.MinHealthyPercent }}
+  MaximumPercent: {{ .DeploymentConfiguration.MaxPercent }}
+  Alarms:
+  {{- if .DeploymentConfiguration.Rollback.HasRollbackAlarms }}
+    {{- if .DeploymentConfiguration.Rollback.AlarmNames }}
+    AlarmNames: {{ fmtSlice (quoteSlice .DeploymentConfiguration.Rollback.AlarmNames) }}
+    {{- else if .DeploymentConfiguration.Rollback.HasCustomAlarms }}
+    AlarmNames:
+      {{- if .DeploymentConfiguration.Rollback.CPUUtilization }}
+      - {{.DeploymentConfiguration.Rollback.TruncateAlarmName .AppName .EnvName .WorkloadName "CopilotRollbackCPUAlarm"}}
+      {{- end }}
+      {{- if .DeploymentConfiguration.Rollback.MemoryUtilization }}
+      - {{.DeploymentConfiguration.Rollback.TruncateAlarmName .AppName .EnvName .WorkloadName "CopilotRollbackMemAlarm"}}
+      {{- end }}
+      {{- if .DeploymentConfiguration.Rollback.MessagesDelayed }}
+      - {{.DeploymentConfiguration.Rollback.TruncateAlarmName .AppName .EnvName .WorkloadName "CopilotRollbackMsgsDelayedAlarm"}}
+      {{- end }}
+    {{- end }}
+    Enable: true
+    Rollback: true
+  {{- else }}
+    !If
+    - IsGovCloud
+    - !Ref AWS::NoValue
+    - Enable: false
+      AlarmNames: []
+      Rollback: true
+  {{- end }}
+PropagateTags: SERVICE
+{{- if .ExecuteCommand }}
+EnableExecuteCommand: true
+{{- end }}
+{{- if not .CapacityProviders }}
+LaunchType: FARGATE
+{{- end }}
+{{- if .CapacityProviders }}
+CapacityProviderStrategy:
+  {{- range $cps := .CapacityProviders}}
+  - CapacityProvider: {{$cps.CapacityProvider}}
+    Weight: {{$cps.Weight}}
+    {{- if $cps.Base }}
+    Base: {{$cps.Base}}
+    {{- end}}
+  {{- end}}
+{{- end }}
+ServiceConnectConfiguration:
+  {{- if .ServiceConnectOpts.Client }}
+  Enabled: True
+  Namespace: {{.ServiceDiscoveryEndpoint}}
+  LogConfiguration:
+    LogDriver: awslogs
+    Options:
+      awslogs-region: !Ref AWS::Region
+      awslogs-group: !Ref LogGroup
+      awslogs-stream-prefix: copilot
+  {{- if .ServiceConnectOpts.Server }}
+  Services:
+    - PortName: target
+      # Avoid using the same service with Service Discovery in a namespace.
+      DiscoveryName: !Join ["-", [!Ref WorkloadName, "sc"]] 
+      ClientAliases:
+        - Port: !Ref TargetPort
+          {{- if eq .ServiceConnectOpts.Server.Alias ""}}
+          DnsName: !Ref WorkloadName
+          {{- else}}
+          DnsName: {{.ServiceConnectOpts.Server.Alias}}
+          {{- end}}
+  {{- end}}
+  {{- else}}
+  !If
+    - IsGovCloud
+    - !Ref AWS::NoValue
+    - Enabled: False
+  {{- end}}
+NetworkConfiguration:
+  AwsvpcConfiguration:
+    AssignPublicIp: {{.Network.AssignPublicIP}}
+    Subnets:
+    {{- if .Network.SubnetIDs}}
+      {{- range $id := .Network.SubnetIDs}}
+      - {{$id}}
+      {{- end}}
+    {{- else}}
+      Fn::Split:
+        - ','
+        - Fn::ImportValue: !Sub '${AppName}-${EnvName}-{{.Network.SubnetsType}}'
+    {{- end}}
+    SecurityGroups:
+      {{- if not .Network.DenyDefaultSecurityGroup}}
+      - Fn::ImportValue: !Sub '${AppName}-${EnvName}-EnvironmentSecurityGroup'
+      {{- end}}
+      {{- range $sg := .Network.SecurityGroups}}
+      {{- if not $sg.RequiresImport}}
+      - {{$sg.Value}}
+      {{- else}}
+      - Fn::ImportValue: {{$sg.Value}} {{- end}}
+      {{- end}}
+      {{- if .NestedStack}}{{$stackName := .NestedStack.StackName}}{{range $sg := .NestedStack.SecurityGroupOutputs}}
+      - Fn::GetAtt: [{{$stackName}}, Outputs.{{$sg}}]
+      {{- end}}{{end}}

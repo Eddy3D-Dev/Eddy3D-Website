@@ -1,0 +1,117 @@
+StateMachine:
+  Metadata:
+    'aws:copilot:description': 'A state machine to invoke your job and handle retry and timeout logic'
+  Type: AWS::StepFunctions::StateMachine
+  Properties:
+    StateMachineName: !Sub '${AppName}-${EnvName}-${WorkloadName}'
+    RoleArn: !GetAtt StateMachineRole.Arn
+    LoggingConfiguration:
+      Destinations:
+        - CloudWatchLogsLogGroup:
+            LogGroupArn: !GetAtt LogGroup.Arn
+      IncludeExecutionData: True
+      Level: ALL
+    DefinitionSubstitutions:
+      ContainerName: !Ref WorkloadName
+      Cluster: 
+        Fn::ImportValue:
+          !Sub '${AppName}-${EnvName}-ClusterId'
+      TaskDefinition: !Ref TaskDefinition
+      Partition: !Ref AWS::Partition
+      Subnets:
+      {{- if .Network.SubnetIDs}}
+        Fn::Join:
+          - '","'
+          - {{- range $id := .Network.SubnetIDs}}
+            - {{$id}}
+            {{- end}}
+      {{- else}}
+        Fn::Join:
+          - '","'
+          - Fn::Split:
+            - ','
+            - Fn::ImportValue: !Sub '${AppName}-${EnvName}-{{.Network.SubnetsType}}'
+      {{- end}}
+      AssignPublicIp: {{.Network.AssignPublicIP}}
+      SecurityGroups:
+        Fn::Join:
+          - '","'
+          - {{if not .Network.DenyDefaultSecurityGroup}}- Fn::ImportValue: !Sub "${AppName}-${EnvName}-EnvironmentSecurityGroup" {{end}}
+            {{- range $sg := .Network.SecurityGroups}}
+            {{- if not $sg.RequiresImport}}
+            - {{$sg.Value}}
+            {{- else}}
+            - Fn::ImportValue: {{$sg.Value}} {{- end}}
+            {{- end}}
+            {{- if .NestedStack}}{{$stackName := .NestedStack.StackName}}{{range $sg := .NestedStack.SecurityGroupOutputs}}
+            - Fn::GetAtt: [ {{$stackName}}, Outputs.{{$sg}}]
+            {{- end}}{{end}}
+    DefinitionString: |-
+{{include "state-machine-definition.json" . | indent 6}}      
+      
+StateMachineRole:
+  Metadata:
+    'aws:copilot:description': 'An IAM role {{- if .PermissionsBoundary}} with permissions boundary {{.PermissionsBoundary}} {{- end}} for a state machine to run ECS tasks in your cluster'
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+      - Effect: Allow
+        Principal:
+          Service: states.amazonaws.com
+        Action: sts:AssumeRole
+    {{- if .PermissionsBoundary}}
+    PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+    {{- end}}
+    Policies:
+    - PolicyName: StateMachine
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action: iam:PassRole
+          Resource:
+          - !GetAtt ExecutionRole.Arn
+          - !GetAtt TaskRole.Arn
+        - Effect: Allow
+          Action: ecs:RunTask
+          Resource: !Ref TaskDefinition
+          Condition:
+            ArnEquals:
+              'ecs:cluster':
+                Fn::Sub:
+                  - arn:${AWS::Partition}:ecs:${AWS::Region}:${AWS::AccountId}:cluster/${ClusterID}
+                  - ClusterID:
+                      Fn::ImportValue:
+                        !Sub '${AppName}-${EnvName}-ClusterId'
+        - Effect: Allow
+          Action:
+          - ecs:StopTask
+          - ecs:DescribeTasks
+          Resource: "*"
+          Condition:
+            ArnEquals:
+              'ecs:cluster':
+                Fn::Sub:
+                  - arn:${AWS::Partition}:ecs:${AWS::Region}:${AWS::AccountId}:cluster/${ClusterID}
+                  - ClusterID:
+                      Fn::ImportValue:
+                        !Sub '${AppName}-${EnvName}-ClusterId'
+        - Effect: Allow
+          Action:
+            - logs:CreateLogDelivery
+            - logs:GetLogDelivery
+            - logs:UpdateLogDelivery
+            - logs:DeleteLogDelivery
+            - logs:ListLogDeliveries
+            - logs:PutResourcePolicy
+            - logs:DescribeResourcePolicies
+            - logs:DescribeLogGroups
+          Resource: "*" # CWL doesn't support resource-level permissions
+        - Effect: Allow
+          Action:
+          - events:PutTargets
+          - events:PutRule
+          - events:DescribeRule
+          Resource: !Sub arn:${AWS::Partition}:events:${AWS::Region}:${AWS::AccountId}:rule/StepFunctionsGetEventsForECSTaskRule

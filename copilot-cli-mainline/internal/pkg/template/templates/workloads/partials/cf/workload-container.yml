@@ -1,0 +1,69 @@
+- Name: !Ref WorkloadName
+  Image: !Ref ContainerImage
+{{include "secrets" . | indent 2}}
+  Environment:
+{{include "envvars-common" . | indent 2}}
+{{include "envvars-container" . | indent 2}}
+  EnvironmentFiles:
+    - !If
+      - HasEnvFile
+      - Type: s3
+        Value: !Ref EnvFileARN
+      - !Ref AWS::NoValue
+{{include "logconfig" . | indent 2}}
+{{include "image-overrides" . | indent 2}}
+{{- if .Storage -}}
+{{include "mount-points" . | indent 2}}
+{{- end -}}
+{{- if .DockerLabels}}
+  DockerLabels:{{range $name, $value := .DockerLabels}}
+    {{$name | printf "%q"}}: {{$value | printf "%q"}}{{end}}
+{{- end}}
+{{- if .DependsOn}}
+  DependsOn:
+  {{- range $name, $conditionFrom := .DependsOn}}
+    - Condition: {{$conditionFrom}}
+      ContainerName: {{$name}}
+  {{- end}}
+{{- end}}
+{{- if eq .WorkloadType "Load Balanced Web Service"}}
+  PortMappings:
+  {{- range $portMapping := .PortMappings }}
+    - ContainerPort: {{ $portMapping.ContainerPort }}
+      Protocol: {{ $portMapping.Protocol }}
+  {{- if $.ServiceConnectOpts.Server}}
+  {{- if and (eq $.ServiceConnectOpts.Server.Name $.WorkloadName) (eq $.ServiceConnectOpts.Server.Port (strconvUint16 $portMapping.ContainerPort ))}}
+      Name: target
+  {{- end}} 
+  {{- end}}
+  {{- end}}
+{{- end}} {{/* end if eq .WorkloadType "Load Balanced Web Service"*/}}
+{{- if eq .WorkloadType "Backend Service"}}
+{{- if .PortMappings}}
+  PortMappings:
+  {{- range $portMapping := .PortMappings}}
+    - ContainerPort: {{$portMapping.ContainerPort}}
+      Protocol: {{ $portMapping.Protocol }}
+  {{- if $.ServiceConnectOpts.Server}}
+  {{- if and (eq $.ServiceConnectOpts.Server.Name $.WorkloadName) (eq $.ServiceConnectOpts.Server.Port (strconvUint16 $portMapping.ContainerPort ))}}
+      Name: target
+  {{- end}}
+  {{- end}}
+  {{- end}}
+{{- end}}
+{{- end}}
+{{- if .HealthCheck}}
+  HealthCheck:
+    Command: {{quoteSlice .HealthCheck.Command | fmtSlice}}
+    Interval: {{.HealthCheck.Interval}}
+    Retries: {{.HealthCheck.Retries}}
+    StartPeriod: {{.HealthCheck.StartPeriod}}
+    Timeout: {{.HealthCheck.Timeout}}
+{{- end}}
+{{- if and .Storage .Storage.ReadonlyRootFS}}
+  ReadonlyRootFilesystem: {{.Storage.ReadonlyRootFS}}
+{{- end}}
+{{- if .CredentialsParameter}}
+  RepositoryCredentials:
+    CredentialsParameter: {{.CredentialsParameter}}
+{{- end}}

@@ -1,0 +1,311 @@
+PublicNetworkLoadBalancerV2:
+  Metadata:
+    'aws:copilot:description': 'A Network Load Balancer to distribute public traffic to your service'
+  Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+  Properties:
+    Scheme: internet-facing
+    Subnets:
+      Fn::Split:
+        - ","
+        - Fn::ImportValue:
+            !Sub '${AppName}-${EnvName}-PublicSubnets'
+    Type: network
+    SecurityGroups:
+      - !GetAtt NetworkLoadBalancerSecurityGroup.GroupId
+NetworkLoadBalancerSecurityGroup:
+  Metadata:
+    'aws:copilot:description': 'A security group for your network load balancer allowing public traffic'
+  Type: AWS::EC2::SecurityGroup
+  Properties:
+    GroupDescription: Allow traffic to the public facing load balancer on listener ports
+    SecurityGroupIngress:
+{{- range $listener := .NLB.Listener }}
+      - CidrIp: 0.0.0.0/0
+        Description: Allow {{- if eq $listener.Protocol "TLS" }} TCP {{- else }} {{ $listener.Protocol }} {{- end}} traffic from anyone on listener port {{ $listener.Port }}
+        FromPort: {{ $listener.Port }}
+        IpProtocol: {{- if eq $listener.Protocol "TLS" }} TCP {{- else }} {{ $listener.Protocol }} {{- end}}
+        ToPort: {{ $listener.Port }}
+{{- end}}
+    VpcId:
+      Fn::ImportValue:
+        !Sub "${AppName}-${EnvName}-VpcId"
+    Tags:
+      - Key: Name
+        Value: !Sub 'copilot-${AppName}-${EnvName}-${WorkloadName}-nlb'
+EnvironmentSecurityGroupIngressFromNetworkLoadBalancerSecurityGroup:
+  Type: AWS::EC2::SecurityGroupIngress
+  Metadata:
+    'aws:copilot:description': 'Allow ingress from the network load balancer to services in your environment'
+  Properties:
+    GroupId:
+      Fn::ImportValue:
+        !Sub '${AppName}-${EnvName}-EnvironmentSecurityGroup'
+    IpProtocol: -1
+    SourceSecurityGroupId: !GetAtt NetworkLoadBalancerSecurityGroup.GroupId
+
+{{- range $i, $listener := .NLB.Listener }}
+NLBListener{{- if ne $i 0 }}{{$i}}{{end}}:
+  Metadata:
+    'aws:copilot:description': 'A {{$listener.Protocol}} listener on port `{{$listener.Port}}` that forwards traffic to your tasks'
+  Type: AWS::ElasticLoadBalancingV2::Listener
+  Properties:
+    DefaultActions:
+      - TargetGroupArn: !Ref NetworkLoadBalancerTargetGroup{{- if ne $i 0 }}{{$i}}{{end}}
+        Type: forward
+    LoadBalancerArn: !Ref PublicNetworkLoadBalancerV2
+    Port: {{ $listener.Port }}
+    Protocol: {{ $listener.Protocol }}
+  {{- if eq $listener.Protocol "TLS" }}
+    Certificates:
+      - CertificateArn: !Ref NLBCertValidatorAction
+    SslPolicy: {{ if $listener.SSLPolicy }}{{ $listener.SSLPolicy }}{{ else }} ELBSecurityPolicy-TLS13-1-2-2021-06 {{ end }}
+  {{- end}}
+NetworkLoadBalancerTargetGroup{{- if ne $i 0 }}{{$i}}{{end}}:
+  Metadata:
+    'aws:copilot:description': 'A target group to connect the network load balancer to your service on port {{$listener.TargetPort}}'
+  Type: AWS::ElasticLoadBalancingV2::TargetGroup
+  Properties:
+    {{- if $listener.HealthCheck.HealthyThreshold }}
+    HealthyThresholdCount: {{$listener.HealthCheck.HealthyThreshold}}
+    {{- end }}
+    {{- if $listener.HealthCheck.UnhealthyThreshold }}
+    UnhealthyThresholdCount: {{$listener.HealthCheck.UnhealthyThreshold}}
+    {{- end }}
+    {{- if $listener.HealthCheck.Interval }}
+    HealthCheckIntervalSeconds: {{$listener.HealthCheck.Interval}}
+    {{- end }}
+    {{- if $listener.HealthCheck.Timeout }}
+    HealthCheckTimeoutSeconds: {{$listener.HealthCheck.Timeout}}
+    {{- end }}
+    {{- if $listener.HealthCheck.Port }}
+    HealthCheckPort: {{$listener.HealthCheck.Port}}
+    {{- end }}
+    Port: {{ $listener.TargetPort }}
+    Protocol: {{- if eq $listener.Protocol "TLS"}} TCP {{- else}} {{ $listener.Protocol }} {{- end}}
+    TargetGroupAttributes:
+      - Key: deregistration_delay.timeout_seconds
+        Value: {{$listener.DeregistrationDelay}}  # ECS Default is 300; Copilot default is 60.
+{{- if ne $listener.Protocol "TLS"}}
+{{- if $listener.Stickiness }} {{/*Sticky sessions are not supported with TLS listeners and TLS target groups.*/}}
+      - Key: stickiness.enabled
+        Value: {{ $listener.Stickiness }}
+{{- end}}
+{{- end}}
+    TargetType: ip
+    VpcId:
+      Fn::ImportValue:
+        !Sub "${AppName}-${EnvName}-VpcId"
+{{- end}}
+
+{{- if not .NLB.Aliases}}
+NLBDNSAlias:
+  Metadata:
+    'aws:copilot:description': 'The default alias record for the network load balancer'
+  Type: AWS::Route53::RecordSetGroup
+  Condition: HasAssociatedDomain
+  Properties:
+    HostedZoneId:
+      Fn::ImportValue:
+        !Sub "${AppName}-${EnvName}-HostedZone"
+    Comment: !Sub "Default NetworkLoadBalancer alias for service ${WorkloadName}"
+    RecordSets:
+      - Name:
+          !Join
+          - '.'
+          - - !Sub "${WorkloadName}-nlb"
+            - Fn::ImportValue:
+                !Sub "${AppName}-${EnvName}-SubDomain"
+            - ""
+        Type: A
+        AliasTarget:
+          HostedZoneId: !GetAtt PublicNetworkLoadBalancerV2.CanonicalHostedZoneID
+          DNSName: !GetAtt PublicNetworkLoadBalancerV2.DNSName
+{{- else}}
+NLBCustomDomainAction:
+  Metadata:
+    'aws:copilot:description': "Add A-records for your Network Load Balancer aliases"
+  Type: Custom::NLBCustomDomainFunction
+  Condition: HasAssociatedDomain
+  Properties:
+    ServiceToken: !GetAtt NLBCustomDomainFunction.Arn
+    PublicAccessHostedZoneID: !GetAtt PublicNetworkLoadBalancerV2.CanonicalHostedZoneID
+    PublicAccessDNS: !GetAtt PublicNetworkLoadBalancerV2.DNSName
+    EnvHostedZoneId:
+      Fn::ImportValue:
+        !Sub "${AppName}-${EnvName}-HostedZone"
+    EnvName: !Ref EnvName
+    AppName: !Ref AppName
+    ServiceName: !Ref WorkloadName
+    RootDNSRole: {{ .AppDNSDelegationRole }}
+    DomainName:  {{ .AppDNSName }}
+    Aliases: {{ if .NLB.Aliases }} {{ fmtSlice .NLB.Aliases }} {{ else }} [] {{ end }}
+
+NLBCustomDomainFunction:
+  Type: AWS::Lambda::Function
+  Condition: HasAssociatedDomain
+  Properties:
+    {{- with $cr := index .CustomResources "NLBCustomDomainFunction" }}
+    Code:
+      S3Bucket: {{$cr.Bucket}}
+      S3Key: {{$cr.Key}}
+    {{- end }}
+    Handler: "index.handler"
+    Timeout: 900
+    MemorySize: 512
+    Role: !GetAtt 'NLBCustomDomainRole.Arn'
+    Runtime: nodejs20.x
+
+NLBCustomDomainRole:
+  Metadata:
+    'aws:copilot:description': "An IAM role {{- if .PermissionsBoundary}} with permissions boundary {{.PermissionsBoundary}} {{- end}} to update the environment Route 53 hosted zone"
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        -
+          Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+          Action:
+            - sts:AssumeRole
+    {{- if .PermissionsBoundary}}
+    PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+    {{- end}}
+    Path: /
+    Policies:
+      - PolicyName: "NLBCustomDomainPolicy"
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Sid: AllowAssumeRole
+              Effect: Allow
+              Action: sts:AssumeRole
+              Resource: "*"
+            - Sid: EnvHostedZoneUpdateAndWait
+              Effect: Allow
+              Action: route53:ChangeResourceRecordSets
+              Resource:
+                !Sub
+                - arn:${AWS::Partition}:route53:::hostedzone/${EnvHostedZone}
+                - EnvHostedZone:
+                    Fn::ImportValue:
+                      !Sub "${AppName}-${EnvName}-HostedZone"
+            - Sid: EnvHostedZoneRead
+              Effect: Allow
+              Action:
+                - route53:ListResourceRecordSets
+                - route53:GetChange
+              Resource: "*"
+    ManagedPolicyArns:
+      - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+{{- end}}
+{{- if .NLB.CertificateRequired }}
+NLBCertValidatorAction:
+  Metadata:
+    'aws:copilot:description': "Request and validate the certificate for your Network Load Balancer"
+  Type: Custom::NLBCertValidatorFunction
+  Condition: HasAssociatedDomain
+  Properties:
+    ServiceToken: !GetAtt NLBCertValidatorFunction.Arn
+    LoadBalancerDNS: !GetAtt PublicNetworkLoadBalancerV2.DNSName
+    EnvHostedZoneId:
+      Fn::ImportValue:
+        !Sub "${AppName}-${EnvName}-HostedZone"
+    EnvName: !Ref EnvName
+    AppName: !Ref AppName
+    ServiceName: !Ref WorkloadName
+    RootDNSRole: {{ .AppDNSDelegationRole }}
+    DomainName:  {{ .AppDNSName }}
+    Aliases: {{ if .NLB.Aliases }} {{ fmtSlice .NLB.Aliases }} {{ else }} [] {{ end }}
+
+NLBCertValidatorFunction:
+  Type: AWS::Lambda::Function
+  Condition: HasAssociatedDomain
+  Properties:
+    {{- with $cr := index .CustomResources "NLBCertValidatorFunction" }}
+    Code:
+      S3Bucket: {{$cr.Bucket}}
+      S3Key: {{$cr.Key}}
+    {{- end }}
+    Handler: "index.handler"
+    Timeout: 900
+    MemorySize: 512
+    Role: !GetAtt 'NLBCertValidatorRole.Arn'
+    Runtime: nodejs20.x
+
+NLBCertValidatorRole:
+  Metadata:
+    'aws:copilot:description': "An IAM role {{- if .PermissionsBoundary}} with permissions boundary {{.PermissionsBoundary}} {{- end}} to request and validate a certificate for your service"
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        -
+          Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+          Action:
+            - sts:AssumeRole
+    {{- if .PermissionsBoundary}}
+    PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+    {{- end}}
+    Path: /
+    Policies:
+      - PolicyName: "NLBCertValidatorPolicy"
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Sid: AllowAssumeRole
+              Effect: Allow
+              Action: sts:AssumeRole
+              Resource: "*"
+            - Sid: EnvHostedZoneUpdateAndWait
+              Effect: Allow
+              Action: route53:ChangeResourceRecordSets
+              Resource:
+                !Sub
+                  - arn:${AWS::Partition}:route53:::hostedzone/${EnvHostedZone}
+                  - EnvHostedZone:
+                      Fn::ImportValue:
+                        !Sub "${AppName}-${EnvName}-HostedZone"
+            - Sid: EnvHostedZoneRead
+              Effect: Allow
+              Action:
+                - route53:ListResourceRecordSets
+                - route53:GetChange
+              Resource: "*"
+            - Sid: ServiceCertificateDelete
+              Effect: Allow
+              Action: acm:DeleteCertificate
+              Resource: "*"
+              Condition:
+                StringEquals:
+                  'aws:ResourceTag/copilot-application': !Sub '${AppName}'
+                  'aws:ResourceTag/copilot-environment': !Sub '${EnvName}'
+                  'aws:ResourceTag/copilot-service': !Sub '${WorkloadName}'
+            - Sid: TaggedResourcesRead
+              Effect: Allow
+              Action: tag:GetResources
+              Resource: "*"
+            - Sid: ServiceCertificateCreate
+              Effect: Allow
+              Action:
+                - acm:RequestCertificate
+                - acm:AddTagsToCertificate
+              Resource: "*"
+              Condition:
+                StringEquals:
+                  'aws:ResourceTag/copilot-application': !Sub '${AppName}'
+                  'aws:ResourceTag/copilot-environment': !Sub '${EnvName}'
+                  'aws:ResourceTag/copilot-service': !Sub '${WorkloadName}'
+            - Sid: CertificateRead
+              Effect: Allow
+              Action: acm:DescribeCertificate
+              Resource: "*"
+    ManagedPolicyArns:
+      - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+{{- end}}

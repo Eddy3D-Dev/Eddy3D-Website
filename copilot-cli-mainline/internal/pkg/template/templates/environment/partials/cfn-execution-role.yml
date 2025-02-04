@@ -1,0 +1,39 @@
+# The CloudformationExecutionRole definition must be immediately followed with DeletionPolicy: Retain.
+# See #1533.
+CloudformationExecutionRole:
+  Metadata:
+    'aws:copilot:description': 'An IAM Role {{- if .PermissionsBoundary}} with permissions boundary {{.PermissionsBoundary}} {{- end}} for AWS CloudFormation to manage resources'
+  DeletionPolicy: Retain
+  Type: AWS::IAM::Role
+  Properties:
+    RoleName: !Sub ${AWS::StackName}-CFNExecutionRole
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+      - Effect: Allow
+        Principal:
+          Service:
+          - 'cloudformation.amazonaws.com'
+        Action: sts:AssumeRole
+  {{- if .PermissionsBoundary}}
+    PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+  {{- end}}
+    Path: /
+    Policies:
+      - PolicyName: executeCfn
+        # This policy is more permissive than the managed PowerUserAccess
+        # since it allows arbitrary role creation, which is needed for the
+        # ECS task role specified by the customers.
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            NotAction:
+              - 'organizations:*'
+              - 'account:*'
+            Resource: '*'
+          - Effect: Allow
+            Action:
+              - 'organizations:DescribeOrganization'
+              - 'account:ListRegions'
+            Resource: '*'

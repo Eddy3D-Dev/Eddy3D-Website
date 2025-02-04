@@ -1,0 +1,76 @@
+{{- if eq $.WorkloadType "Backend Service"}}
+LoadBalancerInternalDNSAlias:
+  Metadata:
+    'aws:copilot:description': 'Alias for {{.WorkloadName}}.{{.EnvName}}.{{.AppName}}.internal to the internal load balancer'
+  Type: AWS::Route53::RecordSetGroup
+  Properties:
+    Comment: !Sub "Load balancer alias for service ${WorkloadName}"
+    HostedZoneId: !GetAtt EnvControllerAction.InternalWorkloadsHostedZone
+    RecordSets:
+      - Type: A
+        AliasTarget:
+          HostedZoneId: !GetAtt EnvControllerAction.InternalLoadBalancerHostedZone
+          DNSName: !GetAtt EnvControllerAction.InternalLoadBalancerDNSName
+        Name: !Join
+          - '.'
+          - - !Ref WorkloadName
+            - !GetAtt EnvControllerAction.InternalWorkloadsHostedZoneName
+{{- end}}
+
+HTTPRulePriorityAction:
+  Metadata:
+    'aws:copilot:description': 'A custom resource assigning priority for HTTP listener rules'
+  Type: Custom::RulePriorityFunction
+  Properties:
+    ServiceToken: !GetAtt RulePriorityFunction.Arn
+    RulePath: {{ fmtSlice (quoteSlice .ALBListener.RulePaths) }}
+    {{- if eq $.WorkloadType "Backend Service"}}
+    ListenerArn: !GetAtt EnvControllerAction.InternalHTTPListenerArn
+    {{- else}}
+    ListenerArn: !GetAtt EnvControllerAction.HTTPListenerArn
+    {{- end}}
+
+{{- range $i, $rule := .ALBListener.Rules}}
+HTTPListenerRule{{ if ne $i 0 }}{{ $i }}{{ end }}:
+  Metadata:
+    'aws:copilot:description': 'An HTTP listener rule for path `{{$rule.Path}}` that forwards HTTP traffic to your tasks'
+  Type: AWS::ElasticLoadBalancingV2::ListenerRule
+  Properties:
+    Actions:
+      - TargetGroupArn: !Ref TargetGroup{{ if ne $i 0 }}{{ $i }}{{ end }}
+        Type: forward
+    Conditions:
+      {{- if $rule.AllowedSourceIps}}
+      - Field: 'source-ip'
+        SourceIpConfig:
+          Values:
+            {{- range $sourceIP := $rule.AllowedSourceIps}}
+            - {{$sourceIP}}
+            {{- end}}
+      {{- end}}
+      {{- if eq $.WorkloadType "Backend Service"}}
+      - Field: 'host-header'
+        HostHeaderConfig:
+          Values:
+            - !GetAtt EnvControllerAction.InternalLoadBalancerDNSName
+            - !Join
+              - '.'
+              - - !Ref WorkloadName
+                - !GetAtt EnvControllerAction.InternalWorkloadsHostedZoneName
+      {{- end}}
+      - Field: 'path-pattern'
+        PathPatternConfig:
+          Values:
+            {{- if eq $rule.Path "/" }}
+            - /*
+            {{- else }}
+            - {{ $rule.Path }}
+            - {{ $rule.Path }}/*
+            {{- end }}
+    {{- if eq $.WorkloadType "Backend Service"}}
+    ListenerArn: !GetAtt EnvControllerAction.InternalHTTPListenerArn
+    {{- else}}
+    ListenerArn: !GetAtt EnvControllerAction.HTTPListenerArn
+    {{- end}}
+    Priority: !GetAtt HTTPRulePriorityAction.Priority{{ if ne $i 0 }}{{ $i }}{{ end }}
+{{- end }}

@@ -1,0 +1,316 @@
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CodePipeline for {{$.AppName}}
+Metadata:
+  Version: {{ .Version }}
+Resources:
+  {{- if isCodeStarConnection .Source}}
+  {{if eq .Source.ConnectionARN ""}}
+  SourceConnection:
+    Type: AWS::CodeStarConnections::Connection
+    Properties:
+      ConnectionName: {{.Source.ConnectionName}}
+      ProviderType: {{.Source.ProviderName}}
+  {{- end}}
+  {{- end}}
+{{ include "build-action" . | indent 2}}
+{{ include "test" . | indent 2 }}
+{{ include "actions" . | indent 2}}
+  PipelineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - codepipeline.amazonaws.com
+            Action:
+              - sts:AssumeRole
+      Path: /
+      {{- if .PermissionsBoundary}}
+      PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+      {{- end}}
+  PipelineRolePolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyName: !Sub ${AWS::StackName}-CodepipelinePolicy
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - codepipeline:*
+              - codecommit:GetBranch
+              - codecommit:GetCommit
+              - codecommit:UploadArchive
+              - codecommit:GetUploadArchiveStatus
+              - codecommit:CancelUploadArchive
+{{- if eq .Source.ProviderName "CodeCommit" }}
+{{- if ne .Source.OutputArtifactFormat "" }}
+              - codecommit:GetRepository
+{{- end }}
+{{- end }}
+              - iam:ListRoles
+              - cloudformation:Describe*
+              - cloudFormation:List*
+              - codebuild:BatchGetBuilds
+              - codebuild:StartBuild
+              - cloudformation:CreateStack
+              - cloudformation:DeleteStack
+              - cloudformation:DescribeStacks
+              - cloudformation:UpdateStack
+              - cloudformation:CreateChangeSet
+              - cloudformation:DeleteChangeSet
+              - cloudformation:DescribeChangeSet
+              - cloudformation:ExecuteChangeSet
+              - cloudformation:SetStackPolicy
+              - cloudformation:ValidateTemplate
+              - iam:PassRole
+              - s3:ListAllMyBuckets
+              - s3:GetBucketLocation
+            Resource:
+              - "*"
+          {{- if isCodeStarConnection .Source}}
+          - Effect: Allow
+            Action:
+              - codestar-connections:CreateConnection
+              - codestar-connections:DeleteConnection
+              - codestar-connections:GetConnection
+              - codestar-connections:ListConnections
+              - codestar-connections:GetIndividualAccessToken
+              - codestar-connections:GetInstallationUrl
+              - codestar-connections:ListInstallationTargets
+              - codestar-connections:StartOAuthHandshake
+              - codestar-connections:UpdateConnectionInstallation
+              - codestar-connections:UseConnection
+              - codestar-connections:RegisterAppCode
+              - codestar-connections:StartAppRegistrationHandshake
+              - codestar-connections:StartUploadArchiveToS3
+              - codestar-connections:GetUploadArchiveToS3Status
+              - codestar-connections:PassConnection
+              - codestar-connections:PassedToService
+            Resource:
+              {{- if eq .Source.ConnectionARN ""}}
+              - !Ref SourceConnection
+              {{- else}}
+              - {{$.Source.Connection}}
+              {{- end}}
+          {{- end}}
+          - Effect: Allow
+            Action:
+              - kms:Decrypt
+              - kms:Encrypt
+              - kms:GenerateDataKey
+            Resource:{{range .ArtifactBuckets}}
+              - {{.KeyArn}}{{end}}
+          - Effect: Allow
+            Action:
+              - s3:PutObject
+              - s3:GetBucketPolicy
+              - s3:GetObject
+              - s3:ListBucket
+              {{- if isCodeStarConnection .Source}}
+              - s3:PutObjectAcl
+              - s3:GetObjectAcl
+              {{- end}}
+            Resource:{{range .ArtifactBuckets}}
+              - !Join ['', ['arn:aws:s3:::', '{{.BucketName}}']]
+              - !Join ['', ['arn:aws:s3:::', '{{.BucketName}}', '/*']]{{end}}
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Resource:{{range $stage := .Stages}}
+              - arn:aws:iam::{{$stage.AccountID}}:role/{{$.AppName}}-{{$stage.Name}}-EnvManagerRole{{end}}
+      Roles:
+        - !Ref PipelineRole
+
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    DependsOn:
+      - PipelineRole
+      - PipelineRolePolicy
+    Properties:
+      ArtifactStores:{{range .ArtifactBuckets}}
+        - Region: {{.Region}}
+          ArtifactStore:
+            Type: S3
+            Location: {{.BucketName}}
+            EncryptionKey:
+              Id: {{.KeyArn}}
+              Type: KMS{{end}}
+      RoleArn: !GetAtt PipelineRole.Arn
+      {{- if .IsLegacy }}
+      Name: !Ref AWS::StackName
+      {{- end }}
+      Stages:
+        {{- if eq .Source.ProviderName "GitHubV1"}}
+        - Name: Source
+          Actions:
+            - Name: SourceCodeFor-{{$.AppName}}
+              ActionTypeId:
+                Category: Source
+                Owner: ThirdParty
+                Version: 1
+                Provider: GitHub
+              Configuration:
+                Owner: {{$.Source.Owner}}
+                Repo: {{$.Source.Repository}}
+                Branch: {{$.Source.Branch}}
+                # https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html#dynamic-references-secretsmanager
+                # Use the *entire* SecretString with version AWSCURRENT
+                OAuthToken: !Sub
+                  - '{{"{{"}}resolve:secretsmanager:${SecretId}{{"}}"}}'
+                  - SecretId: {{$.Source.GitHubPersonalAccessTokenSecretID}}
+              OutputArtifacts:
+                - Name: SCCheckoutArtifact
+              RunOrder: 1
+        {{- else if isCodeStarConnection .Source}}
+        - Name: Source
+          Actions:
+            - Name: SourceCodeFor-{{$.AppName}}
+              ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Version: 1
+                Provider: CodeStarSourceConnection
+              Configuration:
+                ConnectionArn:
+                {{- if eq .Source.ConnectionARN ""}}
+                  !Ref SourceConnection
+                {{- else}}
+                  {{$.Source.Connection}}
+                {{- end}}
+                FullRepositoryId: {{$.Source.Repository}}
+                BranchName: {{$.Source.Branch}}
+                {{- if ne .Source.OutputArtifactFormat "" }}
+                OutputArtifactFormat: {{$.Source.OutputArtifactFormat}}
+                {{- end}}
+              OutputArtifacts:
+                - Name: SCCheckoutArtifact
+              RunOrder: 1
+        {{- else if eq .Source.ProviderName "CodeCommit"}}
+        - Name: Source
+          Actions:
+            - Name: SourceCodeFor-{{$.AppName}}
+              ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Version: 1
+                Provider: CodeCommit
+              Configuration:
+                RepositoryName: {{$.Source.Repository}}
+                BranchName: {{$.Source.Branch}}
+                {{- if ne .Source.OutputArtifactFormat "" }}
+                OutputArtifactFormat: {{$.Source.OutputArtifactFormat}}
+                {{- end}}
+              OutputArtifacts:
+                - Name: SCCheckoutArtifact
+              RunOrder: 1
+        {{- end }}
+        - Name: Build
+          Actions:
+          - Name: Build
+            ActionTypeId:
+              Category: Build
+              Owner: AWS
+              Version: 1
+              Provider: CodeBuild
+            Configuration:
+              ProjectName: !Ref BuildProject
+            RunOrder: 1
+            InputArtifacts:
+              - Name: SCCheckoutArtifact
+            OutputArtifacts:
+              - Name: BuildOutput
+        {{- range $stage := .Stages}}
+        {{- $numDeployments := len $stage.Deployments}}{{- if gt $numDeployments 0}}
+        - Name: {{$stage.FullName}}
+          Actions:
+            {{- if $stage.Approval }}
+            - Name: {{$stage.Approval.Name}}
+              ActionTypeId:
+                Category: Approval
+                Owner: AWS
+                Version: 1
+                Provider: Manual
+              RunOrder: {{$stage.Approval.RunOrder}}
+            {{- end}}
+            {{- range $action := $stage.PreDeployments }}
+            - Name: {{ $action.Name }}
+              RunOrder: {{ $action.RunOrder}}
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: 1
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref Pre{{alphanumeric $stage.Name}}DeploymentAction{{alphanumeric $action.Name}}
+              InputArtifacts:
+                - Name: SCCheckoutArtifact
+              OutputArtifacts:
+                - Name: Pre{{alphanumeric $stage.Name}}DeploymentAction{{alphanumeric $action.Name}}Output
+            {{- end}}
+            {{- range $action := $stage.PostDeployments }}
+            - Name: {{ $action.Name }}
+              RunOrder: {{ $action.RunOrder}}
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Version: 1
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref Post{{alphanumeric $stage.Name}}DeploymentAction{{alphanumeric $action.Name}}
+              InputArtifacts:
+                - Name: SCCheckoutArtifact
+              OutputArtifacts:
+                - Name: Post{{alphanumeric $stage.Name}}DeploymentAction{{alphanumeric $action.Name}}Output
+            {{- end}}
+            {{- range $deployment := $stage.Deployments}}
+            - Name: {{$deployment.Name}}
+              Region: {{$stage.Region}}
+              ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Version: 1
+                Provider: CloudFormation
+              Configuration:
+                ActionMode: CREATE_UPDATE
+                StackName: {{$deployment.StackName}}
+                Capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
+                TemplatePath: BuildOutput::{{$deployment.TemplatePath}}
+                TemplateConfiguration: BuildOutput::{{$deployment.TemplateConfigPath}}
+                RoleArn: {{$stage.ExecRoleARN}}
+              InputArtifacts:
+                - Name: BuildOutput
+              RunOrder: {{$deployment.RunOrder}}
+              RoleArn: {{$stage.EnvManagerRoleARN}}
+            {{- end}}
+            {{- if $stage.Test }}
+            - Name: {{$stage.Test.Name}}
+              ActionTypeId:
+                Category: Test
+                Owner: AWS
+                Version: 1
+                Provider: CodeBuild
+              Configuration:
+                ProjectName: !Ref BuildTestCommands{{logicalIDSafe $stage.Name}}
+              RunOrder: {{$stage.Test.RunOrder}}
+              InputArtifacts:
+                - Name: SCCheckoutArtifact
+            {{- end}}
+        {{- end}} {{/* if gt $numDeployments 0 */}}
+        {{- end}} {{/* range $stage := .Stages */}}
+{{- if isCodeStarConnection .Source}}
+Outputs:
+  PipelineConnectionARN:
+    Description: "ARN of CodeStar Connections connection"
+    Value:
+    {{- if eq .Source.ConnectionARN ""}}
+      !Ref SourceConnection
+    {{- else}}
+      {{$.Source.Connection}}
+    {{- end}}
+{{- end}}

@@ -1,0 +1,108 @@
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+AWSTemplateFormatVersion: 2010-09-09
+Description: CloudFormation template that represents a worker service on Amazon ECS.
+Metadata:
+  Version: {{ .Version }}
+{{- if .SerializedManifest }}
+  Manifest: |
+{{indent 4 .SerializedManifest}}
+{{- end }}
+Parameters:
+  AppName:
+    Type: String
+  EnvName:
+    Type: String
+  WorkloadName:
+    Type: String
+  ContainerImage:
+    Type: String
+  TaskCPU:
+    Type: String
+  TaskMemory:
+    Type: String
+  TaskCount:
+    Type: Number
+  AddonsTemplateURL:
+    Description: 'URL of the addons nested stack template within the S3 bucket.'
+    Type: String
+    Default: ""
+  EnvFileARN:
+    Description: 'URL of the environment file.'
+    Type: String
+    Default: ""
+{{- if .LogConfig}}
+  LoggingEnvFileARN:
+    Type: String
+    Description: 'URL of the environment file for the logging sidecar.'
+    Default: ""
+{{- end}}
+{{- range $sidecar := .Sidecars }}
+  EnvFileARNFor{{ logicalIDSafe $sidecar.Name}}:
+    Type: String
+    Description: 'URL of the environment file for the {{$sidecar.Name}} sidecar.'
+    Default: ""
+{{- end }}
+  ArtifactKeyARN:
+    Type: String
+    Description: 'KMS Key used for encrypting artifacts'
+  LogRetention:
+    Type: Number
+    Default: 30
+Conditions:
+  IsGovCloud:
+    !Equals [!Ref "AWS::Partition", "aws-us-gov"]
+  HasAddons:
+    !Not [!Equals [!Ref AddonsTemplateURL, ""]]
+  HasEnvFile:
+    !Not [!Equals [!Ref EnvFileARN, ""]]
+{{- if .LogConfig}}
+  HasLoggingEnvFile:
+    !Not [!Equals [!Ref LoggingEnvFileARN, ""]]
+{{- end}}
+{{- range $sidecar := .Sidecars }}
+  HasEnvFileFor{{ logicalIDSafe $sidecar.Name}}:
+    !Not [!Equals [!Ref EnvFileARNFor{{ logicalIDSafe $sidecar.Name}}, ""]]
+{{- end }}
+Resources:
+{{include "loggroup" . | indent 2}}
+
+  TaskDefinition:
+    Metadata:
+      'aws:copilot:description': 'An ECS task definition to group your containers and run them on ECS'
+    Type: AWS::ECS::TaskDefinition
+    DependsOn: LogGroup
+    Properties:
+{{include "fargate-taskdef-base-properties" . | indent 6}}
+      ContainerDefinitions:
+{{include "workload-container" . | indent 8}}
+{{include "sidecars" . | indent 8}}
+{{- if .Storage -}}
+{{include "volumes" . | indent 6}}
+{{- end}}
+{{include "executionrole" . | indent 2}}
+{{include "taskrole" . | indent 2}}
+{{- if .Autoscaling }}
+{{include "autoscaling" . | indent 2}}
+{{- end}}
+{{include "rollback-alarms" . | indent 2}}
+
+  Service:
+    DependsOn:
+    - EnvControllerAction
+    Metadata:
+      'aws:copilot:description': 'An ECS service to run and maintain your tasks in the environment cluster'
+    Type: AWS::ECS::Service
+    Properties:
+{{include "service-base-properties" . | indent 6}}
+      ServiceRegistries: !Ref 'AWS::NoValue'
+
+{{include "efs-access-point" . | indent 2}}
+
+{{include "subscribe" . | indent 2}}
+
+{{include "publish" . | indent 2}}
+
+{{include "addons" . | indent 2}}
+
+{{include "env-controller" . | indent 2}}

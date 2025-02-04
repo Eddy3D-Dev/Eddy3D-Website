@@ -1,0 +1,127 @@
+TaskRole:
+  Metadata:
+    'aws:copilot:description': 'An IAM role {{- if .PermissionsBoundary}} with permissions boundary {{.PermissionsBoundary}} {{- end}} to control permissions for the containers in your tasks'
+  Type: AWS::IAM::Role
+  Properties:{{if .NestedStack}}{{$stackName := .NestedStack.StackName}}{{if gt (len .NestedStack.PolicyOutputs) 0}}
+    ManagedPolicyArns:{{range $managedPolicy := .NestedStack.PolicyOutputs}}
+      - Fn::GetAtt: [{{$stackName}}, Outputs.{{$managedPolicy}}]{{end}}{{end}}{{end}}
+    {{- if .PermissionsBoundary}}
+    PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+    {{- end}}
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Principal:
+            Service: ecs-tasks.amazonaws.com
+          Action: 'sts:AssumeRole'
+    Policies:
+      - PolicyName: 'DenyIAM'
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Deny'
+              Action: 'iam:*'
+              Resource: '*'
+      {{- if .ExecuteCommand }}
+      - PolicyName: 'ExecuteCommand'
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Action: [
+                "ssmmessages:CreateControlChannel",
+                "ssmmessages:OpenControlChannel",
+                "ssmmessages:CreateDataChannel",
+                "ssmmessages:OpenDataChannel"
+              ]
+              Resource: "*"
+            - Effect: 'Allow'
+              Action: [
+                "logs:CreateLogStream",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams",
+                "logs:PutLogEvents"
+              ]
+              Resource: "*"
+      {{- end }}
+      {{- if .Storage}}
+      {{- range $i, $EFS := .Storage.EFSPerms}}
+      {{- if not $EFS.FilesystemID.RequiresImport}}
+      - PolicyName: 'GrantEFSAccess{{$EFS.FilesystemID.Value}}-{{$i}}'
+      {{- else}}
+      - PolicyName: !Join ['',[ 'GrantEFSAccess', !ImportValue {{$EFS.FilesystemID.Value}}, '-{{$i}}']]
+      {{- end}}
+        PolicyDocument: 
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Action:
+                - 'elasticfilesystem:ClientMount'
+                {{- if $EFS.Write}}
+                - 'elasticfilesystem:ClientWrite'
+                {{- end}}
+              {{- if $EFS.AccessPointID}}
+              Condition:
+                StringEquals:
+                  'elasticfilesystem:AccessPointArn': !Sub 'arn:${AWS::Partition}:elasticfilesystem:${AWS::Region}:${AWS::AccountId}:access-point/{{$EFS.AccessPointID}}'
+              {{- end}}
+              Resource:
+              {{- if not $EFS.FilesystemID.RequiresImport}}
+                - !Sub 'arn:${AWS::Partition}:elasticfilesystem:${AWS::Region}:${AWS::AccountId}:file-system/{{$EFS.FilesystemID}}'
+              {{- else}}
+                - !Join ['/',[!Sub 'arn:${AWS::Partition}:elasticfilesystem:${AWS::Region}:${AWS::AccountId}:file-system',!ImportValue {{$EFS.FilesystemID.Value}}]]
+              {{- end}}
+      {{- end}}
+      {{- if .Storage.ManagedVolumeInfo}}
+      - PolicyName: 'GrantAccessCopilotManagedEFS'
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Action:
+                - 'elasticfilesystem:ClientMount'
+                - 'elasticfilesystem:ClientWrite'
+              Condition:
+                StringEquals:
+                  'elasticfilesystem:AccessPointArn': !GetAtt AccessPoint.Arn
+              Resource: 
+                - Fn::Sub:
+                  - 'arn:${partition}:elasticfilesystem:${region}:${account}:file-system/${fsid}'
+                  - partition: !Ref AWS::Partition
+                    region: !Ref AWS::Region
+                    account: !Ref AWS::AccountId
+                    fsid: !GetAtt EnvControllerAction.ManagedFileSystemID
+      {{- end}}
+      {{- end -}}
+      {{- if .Publish}}{{- if .Publish.Topics}}
+      - PolicyName: 'Publish2SNS' 
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Action: 'sns:Publish'
+              Resource:
+              {{- range $topic := .Publish.Topics}}
+                - !Ref {{logicalIDSafe $topic.Name}}SNSTopic
+              {{- end}}
+      {{- end}}{{- end}}
+      {{- if eq .Observability.Tracing "AWSXRAY"}}
+      - PolicyName: 'AWSDistroOpenTelemetryPolicy' 
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: 'Allow'
+              Action:
+                - 'logs:PutLogEvents'
+                - 'logs:CreateLogGroup'
+                - 'logs:CreateLogStream'
+                - 'logs:DescribeLogStreams'
+                - 'logs:DescribeLogGroups'
+                - 'xray:PutTraceSegments'
+                - 'xray:PutTelemetryRecords'
+                - 'xray:GetSamplingRules'
+                - 'xray:GetSamplingTargets'
+                - 'xray:GetSamplingStatisticSummaries'
+              Resource: "*"
+      {{- end}}

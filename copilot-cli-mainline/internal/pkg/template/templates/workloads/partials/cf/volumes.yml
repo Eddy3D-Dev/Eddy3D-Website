@@ -1,0 +1,35 @@
+{{- if or .Storage.Volumes .Storage.ManagedVolumeInfo}}
+Volumes:
+{{- if .Storage.ManagedVolumeInfo}}
+  - Name: {{.Storage.ManagedVolumeInfo.Name}}
+    EFSVolumeConfiguration:
+      FilesystemId: !GetAtt EnvControllerAction.ManagedFileSystemID
+      RootDirectory: "/"
+      TransitEncryption: ENABLED
+      AuthorizationConfig:
+        AccessPointId: !Ref AccessPoint
+        IAM: ENABLED
+{{- end}}
+{{- range $vol := .Storage.Volumes}}
+  - Name: {{$vol.Name}}
+  {{- if $vol.EFS}}
+    EFSVolumeConfiguration:
+      {{- if not $vol.EFS.Filesystem.RequiresImport}}
+      FilesystemId: {{$vol.EFS.Filesystem.Value}}
+      {{- else}}
+      FilesystemId: !ImportValue {{$vol.EFS.Filesystem.Value}}
+      {{- end}}
+      RootDirectory: '{{$vol.EFS.RootDirectory}}'
+      TransitEncryption: ENABLED
+      {{- if or $vol.EFS.AccessPointID $vol.EFS.IAM}}
+      AuthorizationConfig:
+        {{- if $vol.EFS.AccessPointID}}
+        AccessPointId: {{$vol.EFS.AccessPointID}}
+        {{- end}}
+        {{- if $vol.EFS.IAM}}
+        IAM: {{$vol.EFS.IAM}}
+        {{- end}}
+      {{- end}}
+  {{- end}}
+{{- end -}}
+{{- end -}}

@@ -1,0 +1,98 @@
+# The manifest for the "job" job.
+# Read the full specification for the "Scheduled Job" type at:
+#  https://github.com/aws/copilot-cli/wiki/Manifests#scheduled-job
+
+# Your job name will be used in naming your resources like log groups, ECS Tasks, etc.
+name: job
+
+# The "architecture" of the job you're running.
+type: Scheduled Job
+
+image:
+  labels:
+    com.amazonaws.ecs.copilot.description: Hello world!
+  location: alpine
+  depends_on:
+    nginx: start
+
+# Number of CPU units for the task.
+cpu: 256
+# Amount of memory in MiB used by the task.
+memory: 512
+
+# The trigger for your job. You can specify a cron schedule or keyword (@weekly) or a rate (2h, 1h30m, 15m)
+on:
+  schedule: "0 12 * * MON"
+# Optional. The number of times to retry the job before failing.
+retries: 3
+# Optional. The timeout after which to stop the job if it's still running. You can use the units (h, m, s).
+timeout: 1h
+
+storage:
+  ephemeral: 200
+  volumes:
+    managedEFSVolume:
+      path: '/etc/mount1'
+      read_only: false
+      efs: true
+
+publish:
+  topics:
+    - name: mytopic
+      fifo: true
+secrets:
+  SQL_PASS: SQL_PASS
+  GIT_USERNAME:
+    from_cfn: stack-SSMGHUserName
+  DB:
+    secretsmanager: demo/test/mysql
+
+sidecars:
+  nginx:
+    essential: true
+    image: public.ecr.aws/nginx/nginx
+    port: 8080
+    mount_points:
+      - source_volume: managedEFSVolume
+        path: '/var/www'
+    variables:
+      NGINX_PORT: 8080
+    labels:
+      com.amazonaws.ecs.copilot.sidecars.nginx.description: tricky
+    secrets:
+      SQL_PASS: SQL_PASS      
+      GIT_USERNAME:
+        from_cfn: stack-SSMGHUserName
+      DB:
+        secretsmanager: 'demo/testing/mysql'
+
+network:
+  vpc:
+    security_groups:
+      deny_default: true
+      groups:
+        - sg-0c10c4fe23f5e5361
+        - sg-09295097b2a41b59d
+        - from_cfn: MyUserDBAccessSecurityGroup1
+        - from_cfn: MyUserDBAccessSecurityGroup2
+
+environments:
+  test:
+    image:
+      labels:
+        com.amazonaws.ecs.copilot.coollabel: Synecdoche
+    variables:
+      DB_NAME: # This variable should not render in template because it is guarded out by feature flag.
+        from_cfn: MYDB
+# Optional fields for more advanced use-cases.
+#
+#variables:                    # Pass environment variables as key value pairs.
+#  LOG_LEVEL: info
+#
+#secrets:                      # Pass secrets from AWS Systems Manager (SSM) Parameter Store.
+#  GITHUB_TOKEN: GITHUB_TOKEN  # The key is the name of the environment variable, the value is the name of the SSM parameter.
+
+# You can override any of the values defined above by environment.
+#environments:
+#  prod:
+#    cpu: 2048               # Larger CPU value for prod environment 

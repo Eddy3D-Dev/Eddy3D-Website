@@ -1,0 +1,214 @@
+# Copyright Amazon.com Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+AWSTemplateFormatVersion: 2010-09-09
+Description: CloudFormation template that represents a load balanced web service on Amazon ECS.
+Metadata:
+  Version: {{ .Version }}
+{{- if .SerializedManifest }}
+  Manifest: |
+{{indent 4 .SerializedManifest}}
+{{- end }}
+Parameters:
+  AppName:
+    Type: String
+  EnvName:
+    Type: String
+  WorkloadName:
+    Type: String
+  ContainerImage:
+    Type: String
+  ContainerPort:
+    Type: Number
+  TaskCPU:
+    Type: String
+  TaskMemory:
+    Type: String
+  TaskCount:
+    Type: Number
+  DNSDelegated:
+    Type: String
+    AllowedValues: [true, false]
+  LogRetention:
+    Type: Number
+  AddonsTemplateURL:
+    Description: 'URL of the addons nested stack template within the S3 bucket.'
+    Type: String
+    Default: ""
+  EnvFileARN:
+    Description: 'URL of the environment file.'
+    Type: String
+    Default: ""
+{{- if .LogConfig}}
+  LoggingEnvFileARN:
+    Type: String
+    Description: 'URL of the environment file for the logging sidecar.'
+    Default: ""
+{{- end}}
+{{- range $sidecar := .Sidecars }}
+  EnvFileARNFor{{logicalIDSafe $sidecar.Name}}:
+    Type: String
+    Description: 'URL of the environment file for the {{$sidecar.Name}} sidecar.'
+    Default: ""
+{{- end }}
+  ArtifactKeyARN:
+    Type: String
+    Description: 'KMS Key used for encrypting artifacts'
+  TargetContainer:
+    Type: String
+  TargetPort:
+    Type: Number
+{{- if .NLB }}
+  NLBAliases:
+    Type: String
+    Default: ""
+  NLBPort:
+    Type: String
+{{- end }}
+{{- if .ALBListener}}
+  HTTPSEnabled:
+    Type: String
+    AllowedValues: [true, false]
+  RulePath:
+    Type: String
+{{- end}}
+Conditions:
+  IsGovCloud:
+    !Equals [!Ref "AWS::Partition", "aws-us-gov"]
+  HasAssociatedDomain:
+    !Equals [!Ref DNSDelegated, true]
+  HasAddons: # If a bucket URL is specified, that means the template exists.
+    !Not [!Equals [!Ref AddonsTemplateURL, ""]]
+  HasEnvFile:
+    !Not [!Equals [!Ref EnvFileARN, ""]]
+{{- if .LogConfig}}
+  HasLoggingEnvFile:
+    !Not [!Equals [!Ref LoggingEnvFileARN, ""]]
+{{- end}}
+{{- range $sidecar := .Sidecars }}
+  HasEnvFileFor{{logicalIDSafe $sidecar.Name}}:
+    !Not [!Equals [!Ref EnvFileARNFor{{ logicalIDSafe $sidecar.Name}}, ""]]
+{{- end }}
+Resources:
+{{include "loggroup" . | indent 2}}
+
+  TaskDefinition:
+    Metadata:
+      'aws:copilot:description': 'An ECS task definition to group your containers and run them on ECS'
+    Type: AWS::ECS::TaskDefinition
+    DependsOn: LogGroup
+    Properties:
+{{include "fargate-taskdef-base-properties" . | indent 6}}
+      ContainerDefinitions:
+{{include "workload-container" . | indent 8}}
+{{- include "sidecars" . | indent 8}}
+
+{{if .Storage -}}
+{{include "volumes" . | indent 6}}
+{{- end}}
+{{include "executionrole" . | indent 2}}
+{{include "taskrole" . | indent 2}}
+{{include "servicediscovery" . | indent 2}}
+{{- if .Autoscaling}}
+{{include "autoscaling" . | indent 2}}
+{{- end}}
+{{include "rollback-alarms" . | indent 2}}
+{{include "env-controller" . | indent 2}}
+
+  Service:
+    Metadata:
+      'aws:copilot:description': 'An ECS service to run and maintain your tasks in the environment cluster'
+    Type: AWS::ECS::Service
+    DependsOn:
+    {{- if .ALBListener}}
+      {{- range $i, $rule := .ALBListener.Rules }}
+        {{- if $.ImportedALB}}
+          {{- if ne $.ImportedALB.HTTPSListenerARN ""}}
+      - HTTPSListenerRuleForImportedALB{{ if ne $i 0 }}{{ $i }}{{ end }}
+            {{- if ne $.ImportedALB.HTTPListenerARN ""}}
+      - HTTPListenerRedirectRuleForImportedALB{{ if ne $i 0 }}{{ $i }}{{ end }}
+            {{- end}}
+          {{- else if ne $.ImportedALB.HTTPListenerARN ""}}
+      - HTTPListenerRuleForImportedALB{{ if ne $i 0 }}{{ $i }}{{ end }}
+          {{- end}}
+        {{- else if $.ALBListener.IsHTTPS }}
+      - HTTPListenerRuleWithDomain{{ if ne $i 0 }}{{ $i }}{{ end }}
+      - HTTPSListenerRule{{ if ne $i 0 }}{{ $i }}{{ end }}
+        {{- else}}
+      - HTTPListenerRule{{ if ne $i 0 }}{{ $i }}{{ end }}
+        {{- end}}
+      {{- end}}
+    {{- end }}
+    {{- if .NLB}}
+      {{- range $i, $listener := .NLB.Listener }}
+      - NLBListener{{ if ne $i 0 }}{{ $i }}{{ end }}
+      {{- end }}
+    {{- end}}
+    Properties:
+{{include "service-base-properties" . | indent 6}}
+      # This may need to be adjusted if the container takes a while to start up
+      {{- if .GracePeriod }}
+      HealthCheckGracePeriodSeconds: {{.GracePeriod}}
+      {{- end }}
+      LoadBalancers:
+  {{- if .ALBListener}}
+    {{- range $i, $rule := .ALBListener.Rules}}
+      {{- if $.ImportedALB}}
+        - ContainerName: {{$rule.TargetContainer}}
+          ContainerPort: {{$rule.TargetPort}}
+          TargetGroupArn: !Ref TargetGroupForImportedALB{{ if ne $i 0 }}{{ $i }}{{ end }}
+      {{- else}}
+        - ContainerName: {{$rule.TargetContainer}}
+          ContainerPort: {{$rule.TargetPort}}
+          TargetGroupArn: !Ref TargetGroup{{ if ne $i 0 }}{{ $i }}{{ end }}
+      {{- end}}
+    {{- end}}
+  {{- end}}
+  {{- if .NLB}}
+    {{- range $i, $listener := .NLB.Listener }}
+        - ContainerName: {{$listener.TargetContainer}}
+          ContainerPort: {{$listener.TargetPort}}
+          TargetGroupArn: !Ref NetworkLoadBalancerTargetGroup{{ if ne $i 0 }}{{ $i }}{{ end }}
+    {{- end }}
+  {{- end }}
+      ServiceRegistries:
+        - RegistryArn: !GetAtt DiscoveryService.Arn
+          Port: !Ref TargetPort
+
+{{- if .ALBListener}}
+{{include "alb" . | indent 2}}
+{{- end}}
+
+{{- if .ImportedALB}}
+{{- range $i, $secgrp := .ImportedALB.SecurityGroups }}
+  EnvironmentSecurityGroupIngressFromImportedALB{{ if ne $i 0 }}{{ $i }}{{ end }}:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !GetAtt EnvControllerAction.EnvironmentSecurityGroup
+      Description: Ingress from the imported ALB
+      SourceSecurityGroupId: {{ $secgrp.ID }}
+      IpProtocol: -1
+{{- end}}
+{{- end}}
+
+{{- if .NLB}}
+{{include "nlb" . | indent 2}}
+{{- end}}
+
+{{include "efs-access-point" . | indent 2}}
+
+{{include "addons" . | indent 2}}
+
+{{include "publish" . | indent 2}}
+
+Outputs:
+  DiscoveryServiceARN:
+    Description: ARN of the Discovery Service.
+    Value: !GetAtt DiscoveryService.Arn
+    Export:
+      Name: !Sub ${AWS::StackName}-DiscoveryServiceARN
+  {{- if .NLB}}
+  PublicNetworkLoadBalancerDNSName:
+    Value: !GetAtt PublicNetworkLoadBalancerV2.DNSName
+    Export:
+      Name: !Sub ${AWS::StackName}-PublicNetworkLoadBalancerDNSName
+  {{- end}}

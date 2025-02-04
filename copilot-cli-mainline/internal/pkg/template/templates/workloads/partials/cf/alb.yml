@@ -1,0 +1,103 @@
+{{- range $i, $rule := .ALBListener.Rules}}
+{{- if $.ImportedALB}}
+TargetGroupForImportedALB{{ if ne $i 0 }}{{ $i }}{{ end }}:
+{{- else}}
+TargetGroup{{ if ne $i 0 }}{{ $i }}{{ end }}:
+{{- end}}
+  Metadata:
+    'aws:copilot:description': "A target group to connect the load balancer to your service on port {{$rule.TargetPort}}"
+  Type: AWS::ElasticLoadBalancingV2::TargetGroup
+  Properties:
+    HealthCheckPath: {{$rule.HTTPHealthCheck.HealthCheckPath}} # Default is '/'.
+    {{- if $rule.HTTPHealthCheck.Port}}
+    HealthCheckPort: {{$rule.HTTPHealthCheck.Port}} # Default is 'traffic-port'.
+    {{- end}}
+    {{- if $rule.HTTPHealthCheck.SuccessCodes}}
+    Matcher:
+      HttpCode: {{$rule.HTTPHealthCheck.SuccessCodes}}
+    {{- end}}
+    {{- if $rule.HTTPHealthCheck.HealthyThreshold}}
+    HealthyThresholdCount: {{$rule.HTTPHealthCheck.HealthyThreshold}}
+    {{- end}}
+    {{- if $rule.HTTPHealthCheck.UnhealthyThreshold}}
+    UnhealthyThresholdCount: {{$rule.HTTPHealthCheck.UnhealthyThreshold}}
+    {{- end}}
+    {{- if $rule.HTTPHealthCheck.Interval}}
+    HealthCheckIntervalSeconds: {{$rule.HTTPHealthCheck.Interval}}
+    {{- end}}
+    {{- if $rule.HTTPHealthCheck.Timeout}}
+    HealthCheckTimeoutSeconds: {{$rule.HTTPHealthCheck.Timeout}}
+    {{- end}}
+    {{- if $rule.HealthCheckProtocol}}
+    HealthCheckProtocol: {{$rule.HealthCheckProtocol}}
+    {{- end}}
+    Port: {{$rule.TargetPort}}
+    {{- if eq $rule.TargetPort "443" }}
+    Protocol: HTTPS
+    {{- else }}
+    Protocol: HTTP
+    {{- end }}
+    {{- if $rule.HTTPVersion}}
+    ProtocolVersion: {{$rule.HTTPVersion}}
+    {{- end}}
+    TargetGroupAttributes:
+      - Key: deregistration_delay.timeout_seconds
+        Value: {{$rule.DeregistrationDelay}} # ECS Default is 300; Copilot default is 60.
+      - Key: stickiness.enabled
+        Value: {{$rule.Stickiness}}
+    TargetType: ip
+    VpcId:
+      Fn::ImportValue:
+        !Sub "${AppName}-${EnvName}-VpcId"
+{{- end}}{{/* endrange $i, $rule := .ALBListener.Rules */}}
+RulePriorityFunction:
+  Type: AWS::Lambda::Function
+  Properties:
+    {{- with $cr := index .CustomResources "RulePriorityFunction" }}
+    Code:
+      S3Bucket: {{$cr.Bucket}}
+      S3Key: {{$cr.Key}}
+    {{- end }}
+    Handler: "index.nextAvailableRulePriorityHandler"
+    Timeout: 600
+    MemorySize: 512
+    Role: !GetAtt "RulePriorityFunctionRole.Arn"
+    Runtime: nodejs20.x
+
+RulePriorityFunctionRole:
+  Metadata:
+    'aws:copilot:description': "An IAM Role {{- if .PermissionsBoundary}} with permissions boundary {{.PermissionsBoundary}} {{- end}} to describe load balancer rules for assigning a priority"
+  Type: AWS::IAM::Role
+  Properties:
+    AssumeRolePolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+          Action:
+            - sts:AssumeRole
+    {{- if .PermissionsBoundary}}
+    PermissionsBoundary: !Sub 'arn:${AWS::Partition}:iam::${AWS::AccountId}:policy/{{.PermissionsBoundary}}'
+    {{- end}}
+    Path: /
+    ManagedPolicyArns:
+      - !Sub arn:${AWS::Partition}:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+    Policies:
+      - PolicyName: "RulePriorityGeneratorAccess"
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action:
+                - elasticloadbalancing:DescribeRules
+              Resource: "*"
+
+{{- if $.ImportedALB}}
+{{include "imported-alb-resources" .}}
+{{- else if .ALBListener.IsHTTPS}}
+{{include "https-listener" .}}
+{{- else}}
+{{include "http-listener" .}}
+{{- end}}
