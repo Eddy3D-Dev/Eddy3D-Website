@@ -1,9 +1,0 @@
-name: foo
-type: Static Site
-
-files:
-  - source: ./
-    recursive: true
-    exclude:
-      - copilot/
-      - "*.go"

@@ -1,2 +1,0 @@
-{{include "cfn-execution-role" .}}
-{{include "environment-manager-role" .}}

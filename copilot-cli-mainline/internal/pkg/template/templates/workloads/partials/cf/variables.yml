@@ -1,5 +1,0 @@
-{{range $name, $value := .Variables}}
-- Name: {{$name}}
-  Value: {{if not $value.RequiresImport}} {{- $value.Value | printf "%q"}} {{ else }}
-    Fn::ImportValue: {{ quote $value.Value -}} {{- end}}
-{{- end}}
