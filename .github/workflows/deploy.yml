@@ -36,4 +36,4 @@ jobs:
       - run: pip install mkdocs-title-casing-plugin
       - run: pip install mkdocs-glightbox
       - run: pip install markdown-include
-      - run: mkdocs gh-deploy --force
+      - run: echo 'docs.eddy3d.com' > ./CNAME && mkdocs gh-deploy --force
