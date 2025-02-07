@@ -32,7 +32,7 @@
 ## Installation
 
 ### Prerequisites
-- `bluecfd core 2020`
+- `BlueCFD-Core-2020`
 - `UMCF` plugin from `PackageManager`
 - `CheckInstallation` component
 
