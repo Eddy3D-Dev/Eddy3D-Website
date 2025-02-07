@@ -13,6 +13,7 @@ extra_css:
 
 nav:
   - Home: index.md
+  - Contact: contact.md
   - Documentation:
     - Overview: docs/overview.en.md
     - Getting Started:
