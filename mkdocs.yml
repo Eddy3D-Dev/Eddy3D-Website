@@ -5,8 +5,6 @@ repo_url: https://github.com/Eddy3D-Dev/Eddy3D-Documentation
 edit_uri: blob/main/docs/
 site_author: Patrick Kastner
 copyright: 'Copyright &copy; 2018-2025 Eddy3D'
-docs_dir: 'docs/content'
-site_dir: 'docs'
 extra_css:
   - stylesheets/extra.css
 #extra: 
@@ -105,7 +103,6 @@ markdown_extensions:
 # Plugins
 plugins:
   # - mkdocs-video
-  - search
   - title-casing
   - glightbox
   - git-revision-date-localized:
