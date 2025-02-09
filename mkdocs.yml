@@ -1,24 +1,40 @@
-site_name: Eddy3D Documentation
+site_name: Eddy3D
+site_description: 'Airflow and microclimate simulations for Rhino and Grasshopper'
 site_url: https://docs.eddy3d.com
 repo_url: https://github.com/Eddy3D-Dev/Eddy3D-Documentation
 edit_uri: blob/main/docs/
 site_author: Patrick Kastner
-site_description: >-
-  This is the Eddy3D documentation.
+copyright: 'Copyright &copy; 2018-2025 Eddy3D'
+docs_dir: 'docs/content'
+site_dir: 'docs'
+extra_css:
+  - stylesheets/extra.css
+#extra: 
 
-# Copyright
-copyright: Copyright &copy; 2018 - 2025 Eddy3D
+nav:
+  - Home: index.md
+  - Download: download.md
+  - Support: support.md
+  - Documentation: 
+        - Getting Started: documentation/getting-started.md
+        - UMCF: documentation/index.md
+
+  - Contact: contact.md
+
 
 theme:
   name: material
-  custom_dir: overrides
-  favicon: images/android-chrome-192x192.png
-  logo: images/android-chrome-192x192.png
-  #font:
-  #  text: Open Sans
-  #  code: Roboto Monno
+  custom_dir: docs/overrides
+  #font: false
+  icon:
+    logo: cd/favicon
+  favicon: cd/favicon
+  language: en
   features:
-    - announce.dismiss
+    - tabs
+    - instant
+    - navigation.tabs
+        - announce.dismiss
     - content.action.edit
     - content.action.view
     - content.code.annotate
@@ -46,93 +62,50 @@ theme:
     - search.suggest
     - toc.follow
     # - toc.integrate
+    - announce.dismiss
 
   palette:
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/link
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: black
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: black
-      accent: indigo
-      toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
-
-extra_css:
-  - stylesheets/extra.css
-
-extra:
-  analytics:
-    provider: custom
-    property: umami
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/VIP-SMUR
-    - icon: fontawesome/brands/researchgate
-      link: https://www.researchgate.net/profile/Patrick-Kastner
-    - icon: fontawesome/brands/google-scholar
-      link: https://gscholar.patrickkastner.de/
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/patrickkastner/
-    - icon: fontawesome/brands/orcid
-      link: https://orcid.org/0000-0003-4940-341X
-
-extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
+    primary: white
+    # - media: "(prefers-color-scheme)"
+    #   toggle:
+    #     icon: material/link
+    #     name: Switch to light mode
+    # - media: "(prefers-color-scheme: light)"
+    #   scheme: default
+    #   primary: black
+    #   accent: indigo
+    #   toggle:
+    #     icon: material/toggle-switch
+    #     name: Switch to dark mode
+    # - media: "(prefers-color-scheme: dark)"
+    #   scheme: slate
+    #   primary: black
+    #   accent: indigo
+    #   toggle:
+    #     icon: material/toggle-switch-off
+    #     name: Switch to system preference
 
 markdown_extensions:
+  - md_in_html
+  #- pymdownx.blocks.caption
+  - attr_list
   - admonition
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
-  - pymdownx.betterem
+  - meta
   - pymdownx.details
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight:
-      anchor_linenums: true
-      pygments_lang_class: true
-      auto_title: true
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.smartsymbols
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - attr_list
-  - md_in_html
-  - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.snippets
-  - footnotes
-  - tables
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - markdown_include.include:
-      base_path: docs
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - docs/overrides/.icons
 
 # Plugins
 plugins:
+  # - mkdocs-video
+  - search
   - title-casing
   - glightbox
   - git-revision-date-localized:
@@ -142,8 +115,9 @@ plugins:
       locale: en
       fallback_to_build_date: true
       enable_creation_date: true
-      #exclude:
-      #    - index.md
+      exclude:
+        - contact.md
+        - download.md
       enabled: true
       strict: true
   - tags
@@ -169,8 +143,4 @@ plugins:
       strict: true
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
-
-nav:
-  - Home:
-      - Overview: index.md
 

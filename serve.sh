@@ -1,1 +1,4 @@
-mkdocs serve -a 127.0.0.1:8080
+docker run --rm -it \
+  -p 8000:8000 \
+  -v $(pwd):/docs \
+  aws
