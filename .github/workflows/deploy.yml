@@ -37,4 +37,4 @@ jobs:
       - run: pip install mkdocs-glightbox
       - run: pip install markdown-include
       - run: pip install mkdocs-video
-      - run: echo 'eddy3d.com' > ./docs/CNAME && mkdocs gh-deploy --force
+      - run: echo 'www.eddy3d.com' > ./docs/CNAME && mkdocs gh-deploy --force
