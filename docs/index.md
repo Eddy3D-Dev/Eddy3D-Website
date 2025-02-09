@@ -44,6 +44,11 @@ hide:
     display: block;
     margin: 0 auto;
 }
+.black-and-white {
+   filter: grayscale(100%);
+   /* Optionally add vendor prefixes for older browser support */
+   /* -webkit-filter: grayscale(100%); */
+}
 </style>
 
 <figure markdown="span">
@@ -60,7 +65,7 @@ hide:
 
 <div align="center">
   <a href="documentation/getting-started/" class="md-button md-button--primary">Get Started</a>
-  <a href="https://www.eddy3d.com/wordpress/download-information/" class="md-button">Download</a>
+  <a href="download/" class="md-button">Download</a>
 </div>
 
 
@@ -138,25 +143,25 @@ hide:
 
 - [Young, E., Kastner, P., Dogan, T., Chokhachian, A., Mokhtar, S., & Reinhart, C. (2021). *Modeling outdoor thermal comfort along cycling routes at varying levels of physical accuracy to predict bike ridership in Cambridge, MA*. Building and Environment.](https://www.researchgate.net/publication/356303248_Modeling_outdoor_thermal_comfort_along_cycling_routes_at_varying_levels_of_physical_accuracy_to_predict_bike_ridership_in_Cambridge_MA)  
 
-- [De Simone, Z., Kastner, P., Dogan, T. (2021). *Towards Safer Work Environments During the COVID-19 Crisis: A Study of Different Floor Plan Layouts and Ventilation Strategies Coupling Open FOAM and Airborne Pathogen Data for Actionable, Simulation-based Feedback in Design.*. Building Simulation 2021 Conference.](https://www.researchgate.net/publication/351880927_Towards_Safer_Work_Environments_During_the_COVID-19_Crisis_A_Study_Of_Different_Floor_Plan_Layouts_and_Ventilation_Strategies_Coupling_Open_FOAM_and_Airborne_Pathogen_Data_for_Actionable_Simulation-ba)
+- [De Simone, Z., Kastner, P., Dogan, T. (2021). *Towards Safer Work Environments During the COVID-19 Crisis: A Study of Different Floor Plan Layouts and Ventilation Strategies Coupling Open FOAM and Airborne Pathogen Data for Actionable, Simulation-based Feedback in Design.* Building Simulation 2021 Conference.](https://www.researchgate.net/publication/351880927_Towards_Safer_Work_Environments_During_the_COVID-19_Crisis_A_Study_Of_Different_Floor_Plan_Layouts_and_Ventilation_Strategies_Coupling_Open_FOAM_and_Airborne_Pathogen_Data_for_Actionable_Simulation-ba)
 
-- [Dogan, T., Kastner, P., Mermelstein, R. (2021). *Surfer: A fast simulation algorithm to predict surface temperatures and mean radiant temperatures in large urban models.*. Journal of Building and Environment.](https://www.researchgate.net/publication/350385969_Surfer_A_fast_simulation_algorithm_to_predict_surface_temperatures_and_mean_radiant_temperatures_in_large_urban_models)
+- [Dogan, T., Kastner, P., Mermelstein, R. (2021). *Surfer: A fast simulation algorithm to predict surface temperatures and mean radiant temperatures in large urban models.* Journal of Building and Environment.](https://www.researchgate.net/publication/350385969_Surfer_A_fast_simulation_algorithm_to_predict_surface_temperatures_and_mean_radiant_temperatures_in_large_urban_models)
 
 - [Dogan, T., Kastner, P. (2020). *Streamlined CFD simulation framework to generate wind-pressure coefficients on building facades for airflow network simulations. Journal of Building Simulation.*](https://www.researchgate.net/publication/345942538_Streamlined_CFD_simulation_framework_to_generate_wind-pressure_coefficients_on_building_facades_for_airflow_network_simulations)
 
 - [Natanian, J., Kastner, P., Dogan T., Auer T. (2020). *From energy performative to livable Mediterranean cities: An annual outdoor thermal comfort and energy balance cross-climatic typological study. Energy & Buildings.*](https://www.researchgate.net/publication/342764084_From_Energy_Performative_to_Livable_Mediterranean_Cities_An_Annual_Outdoor_Thermal_Comfort_and_Energy_Balance_Cross-Climatic_Typological_Study)
 
-- [Kastner, P., Dogan, T. (2020). *Predicting space usage by multi-objective assessment of outdoor thermal comfort around a university campus.*. Proceedings of SimAUD 2020.](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus)
+- [Kastner, P., Dogan, T. (2020). *Predicting space usage by multi-objective assessment of outdoor thermal comfort around a university campus.* Proceedings of SimAUD 2020.](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus)
 
-- [Kastner, P., Dogan, T. (2020). *Solving Thermal Bridging Problems for Architectural Applications with OpenFOAM.*. Proceedings of SimAUD 2020.](https://www.researchgate.net/publication/346039320_Solving_Thermal_Bridging_Problems_for_Architectural_Applications_with_OpenFOAM)
+- [Kastner, P., Dogan, T. (2020). *Solving Thermal Bridging Problems for Architectural Applications with OpenFOAM.* Proceedings of SimAUD 2020.](https://www.researchgate.net/publication/346039320_Solving_Thermal_Bridging_Problems_for_Architectural_Applications_with_OpenFOAM)
 
-- [Kastner, P., Dogan, T. (2019). *A cylindrical meshing methodology for annual urban computational fluid dynamics simulations.*. Journal of Building Performance Simulation, 13(1), 59-68.](https://www.researchgate.net/publication/338030136_A_cylindrical_meshing_methodology_for_annual_urban_computational_fluid_dynamics_simulations)
+- [Kastner, P., Dogan, T. (2019). *A cylindrical meshing methodology for annual urban computational fluid dynamics simulations.* Journal of Building Performance Simulation, 13(1), 59-68.](https://www.researchgate.net/publication/338030136_A_cylindrical_meshing_methodology_for_annual_urban_computational_fluid_dynamics_simulations)
 
-- [Kastner, P., Dogan, T. (2019). *Towards High-Resolution Annual Outdoor Thermal Comfort Mapping In Urban Design.*. Building Simulation 2019 Conference.](https://www.researchgate.net/publication/340463509_Towards_High-Resolution_Annual_Outdoor_Thermal_Comfort_Mapping_In_Urban_Design)
+- [Kastner, P., Dogan, T. (2019). *Towards High-Resolution Annual Outdoor Thermal Comfort Mapping In Urban Design.* Building Simulation 2019 Conference.](https://www.researchgate.net/publication/340463509_Towards_High-Resolution_Annual_Outdoor_Thermal_Comfort_Mapping_In_Urban_Design)
 
-- [Kastner, P., Dogan, T. (2018). *Streamlining meshing methodologies for annual urban CFD simulations.*. Proceedings of eSim 2018.](https://www.researchgate.net/publication/325023244_Streamlining_meshing_methodologies_for_annual_urban_CFD_simulations)
+- [Kastner, P., Dogan, T. (2018). *Streamlining meshing methodologies for annual urban CFD simulations.* Proceedings of eSim 2018.](https://www.researchgate.net/publication/325023244_Streamlining_meshing_methodologies_for_annual_urban_CFD_simulations)
 
-- [Dogan, T., Kastner, P. (2018). *Streamlined CFD Simulation Framework to Generate Wind-Pressure Coefficients on Building Facades for Airflow Network Simulations.*. Proceedings of IBPC 2018.](https://www.researchgate.net/publication/328028506_Streamlined_CFD_Simulation_Framework_to_Generate_Wind-Pressure_Coefficients_on_Building_Facades_for_Airflow_Network_Simulations)
+- [Dogan, T., Kastner, P. (2018). *Streamlined CFD Simulation Framework to Generate Wind-Pressure Coefficients on Building Facades for Airflow Network Simulations.* Proceedings of IBPC 2018.](https://www.researchgate.net/publication/328028506_Streamlined_CFD_Simulation_Framework_to_Generate_Wind-Pressure_Coefficients_on_Building_Facades_for_Airflow_Network_Simulations)
 
 ---
 
@@ -164,27 +169,27 @@ hide:
 
 <div class="mdx-users">
 
-<figure class="mdx-users__testimonial">
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/kastner.jpg" alt="Patrick Kastner" loading="lazy">
     <figcaption class="md-typeset">Patrick Kastner</figcaption>
   </figure>
 
-<figure class="mdx-users__testimonial">
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/rahimi.jpg" alt="Sina Rahimi" loading="lazy">
     <figcaption class="md-typeset">Sina Rahimi</figcaption>
   </figure>
   
-  <figure class="mdx-users__testimonial">
+  <figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/vegas.jpg" alt="Gonzalo Vegas" loading="lazy">
     <figcaption class="md-typeset">Gonzalo Vegas</figcaption>
   </figure>
   
-   <figure class="mdx-users__testimonial">
+   <figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/alvarez.jpg" alt="Marcelo Álvarez" loading="lazy">
     <figcaption class="md-typeset">Marcelo Álvarez</figcaption>
   </figure>
 
-<figure class="mdx-users__testimonial">
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/dogan.jpg" alt="Patrick Kastner" loading="lazy">
     <figcaption class="md-typeset">Timur Dogan</figcaption>
   </figure>
@@ -197,17 +202,17 @@ hide:
 
 <div class="mdx-users">
 
-<figure class="mdx-users__testimonial">
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/holzmann.jpg" alt="Tobias Holzmann" loading="lazy">
     <figcaption class="md-typeset">Tobias Holzmann</figcaption>
   </figure>
-
-<figure class="mdx-users__testimonial">
+ 
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/mermelstein.jpg" alt="Remy Mermelstein" loading="lazy">
     <figcaption class="md-typeset">Remy Mermelstein</figcaption>
   </figure>
 
-<figure class="mdx-users__testimonial">
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/de-simone.jpg" alt="Zoe De Simone" loading="lazy">
     <figcaption class="md-typeset">Zoe De Simone</figcaption>
   </figure>
@@ -216,8 +221,8 @@ hide:
 
 ---
 
-![Cornell](assets/images/SustainLab.svg){width="350", align=left}  
-![Atkinson](assets/images/eslab.svg){width="300", align=right}
+![Cornell](assets/images/SustainLab.svg){width="350", .skip-lightbox, align=left}  
+![Atkinson](assets/images/eslab.svg){width="300", .skip-lightbox, align=right}
 
 <br><br><br>
 
