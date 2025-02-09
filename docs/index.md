@@ -118,6 +118,26 @@ We contribute to research in computational fluid dynamics and urban climate mode
 </div>
 
 
+## 👥 Alumni
+
+<div class="mdx-users">
+
+  <figure class="mdx-users__testimonial">
+    <img src="assets/images/users/michael-feng.jpg" alt="Michael Feng" loading="lazy">
+    <figcaption class="md-typeset"><strong>Michael Feng</strong><br>Software Engineer</figcaption>
+  </figure>
+
+  <figure class="mdx-users__testimonial">
+    <img src="assets/images/users/patrick-kastner.jpg" alt="Patrick Kastner" loading="lazy">
+    <figcaption class="md-typeset"><strong>Patrick Kastner</strong><br>Lead Developer</figcaption>
+  </figure>
+
+  <figure class="mdx-users__testimonial">
+    <img src="assets/images/users/remy-mermelstein.jpg" alt="Remy Mermelstein" loading="lazy">
+    <figcaption class="md-typeset"><strong>Remy Mermelstein</strong><br>Computational Designer</figcaption>
+  </figure>
+
+</div>
 
 ---
 ## 🎉 Supporters
