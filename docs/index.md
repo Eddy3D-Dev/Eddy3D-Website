@@ -55,7 +55,7 @@ hide:
 </style>
 
 <figure markdown="span">
-  ![Image title](assets/images/LogoEddy-01_preview-crop.png){ width="350" }
+  ![Image title](assets/images/LogoEddy-01_preview-crop.png){ width="300" }
 </figure>
 
 <p style="text-align: center; font-size: 24px;">
