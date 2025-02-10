@@ -67,7 +67,7 @@ hide:
 ![Hero Image](assets/images/combo.png)
 
 <div align="center">
-  <a href="documentation/getting-started/" class="md-button md-button--primary">Get Started</a>
+  <a href="https://docs.eddy3d.com/" class="md-button md-button--primary">Get Started</a>
   <a href="download/" class="md-button">Download</a>
 </div>
 
