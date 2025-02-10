@@ -6,9 +6,9 @@ hide:
 ---
 
 <style>
-  .md-content__button {
+.md-content__button {
     display: none;
-  }
+}
 .md-button {
   font-size: 16px;
   font-weight: bold;
@@ -35,6 +35,7 @@ hide:
 .mdx-users__testimonial {
   text-align: center;
   max-width: 220px;         /* Limits width so they stay aligned */
+  pointer-events: none; /* Disables mouse clicks and other pointer interactions */
 }
 
 .mdx-users__testimonial img {
@@ -42,6 +43,7 @@ hide:
   border: 3px solid #ddd;
   width: 150px;
   height: 150px;
+  pointer-events: none; /* Disables mouse clicks and other pointer interactions */
 }
 .center {
     display: block;
@@ -64,14 +66,12 @@ hide:
 
 <br>
 
-![Hero Image](assets/images/combo.png)
+![Hero Image](assets/images/combo.png){.skip-lightbox}
 
 <div align="center">
   <a href="https://docs.eddy3d.com/" class="md-button md-button--primary">Get Started</a>
   <a href="download/" class="md-button">Download</a>
 </div>
-
-
 
 
 ---
@@ -80,7 +80,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   ![](assets/images/asset_18.png){ width="300", .skip-lightbox , .center}
+-   ![](assets/images/asset_18.png){ width="300" loading=lazy .skip-lightbox  .center}
 
     ---
 
@@ -88,7 +88,7 @@ hide:
     
     Clean and easy-to-use UI for urban wind flow analysis.
 
--   ![](assets/images/asset_19.png){ width="255", .skip-lightbox , .center} 
+-   ![](assets/images/asset_19.png){ width="255" loading=lazy .skip-lightbox  .center} 
 
     ---
 
@@ -96,26 +96,22 @@ hide:
 
     Add realistic terrain to your simulation setup.
 
--   ![](assets/images/asset_31.png){ width="410", .skip-lightbox , .center} 
+-   ![](assets/images/asset_31.png){ width="410" loading=lazy .skip-lightbox  .center} 
 
     ---
     __OUTDOOR THERMAL COMFORT__
 
     Annual outdoor thermal comfort assessment for climate-responsive masterplanning.
-
-    
-
--   ![](assets/images/asset_25.png){ width="300", .skip-lightbox , .center} 
+ 
+-   ![](assets/images/asset_25.png){ width="300" loading=lazy .skip-lightbox  .center} 
      
 
     ---
     __SEAMLESS INTEGRATION__
 
     Post-processing of custom surfaces for Air Flow Network integration into EnergyPlus.
-
-    
-
--   ![](assets/images/asset_22.png){ width="350", .skip-lightbox , .center}  
+  
+-   ![](assets/images/asset_22.png){ width="350" loading=lazy .skip-lightbox  .center}  
     
 
     ---
@@ -123,18 +119,14 @@ hide:
 
     Urban turntable for fast outdoor airflow analysis.
 
-    
-
--   ![](assets/images/asset_29.png){ width="450", .skip-lightbox , .center} 
+-   ![](assets/images/asset_29.png){ width="450" loading=lazy .skip-lightbox  .center} 
     
 
     ---
      __VALIDATED SIMULATION ENGINE__
 
     Accurate results by using well-established solvers.
-
-    
-
+  
 </div>
 
 
@@ -169,6 +161,7 @@ hide:
 ---
 
 ## 👥 Team
+
 
 <div class="mdx-users">
 
@@ -224,8 +217,11 @@ hide:
 
 ---
 
-![Cornell](assets/images/SustainLab.svg){width="350", .skip-lightbox, align=left}  
-![Atkinson](assets/images/eslab.svg){width="300", .skip-lightbox, align=right}
+![Cornell](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}  
+![Atkinson](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
+<center>
+:octicons-plus-24:
+</center>
 
 <br><br><br>
 
@@ -242,22 +238,22 @@ Led by Dr. Timur Dogan, the ESLab investigates the intersections of architectura
 
 <div class="grid" markdown>
 
-![SoA](assets/images/CoD_SoA.jpg){width="250", .skip-lightbox, .center}
+![SoA](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![GTRI](assets/images/logo-gtri.png){width="250", .skip-lightbox, .center}
+![GTRI](assets/images/logo-gtri.png){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![AAP](assets/images/AAP_logo_stacked.png){width="75", .skip-lightbox, .center} 
+![AAP](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center} 
 { .card }
 
-![Cornell](assets/images/cornell.svg){width="75", .skip-lightbox, .center} 
+![Cornell](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center} 
 { .card }
 
-![Atkinson](assets/images/atkinson.png){width="200", .skip-lightbox, .center}
+![Atkinson](assets/images/atkinson.png){width="200", .skip-lightbox loading=lazy .center}
 { .card }
 
-![Atkinson](assets/images/logo-systemseng.svg){width="250", .skip-lightbox, .center}
+![Atkinson](assets/images/logo-systemseng.svg){width="250" .skip-lightbox, .center}
 { .card }
 
 </div>

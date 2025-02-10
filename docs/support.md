@@ -16,7 +16,7 @@
 
 # Support
 
-We are currently collecting bugs and requests for new features on [Github](https://github.com/orgs/Eddy3D-Dev/discussions). where people help each other out with questions that go beyond our [Getting Started](documentation/getting-started/) information. Please feel free to start a new thread if you have any questions.
+We are currently collecting bugs and requests for new features on [Github](https://github.com/orgs/Eddy3D-Dev/discussions). where people help each other out with questions that go beyond our [Getting Started](https://docs.eddy3d.com) information. Please feel free to start a new thread if you have any questions.
 
 If your problem is urgent, please also notify us via e-mail as we are unable to monitoring new posts 24/7.
 
