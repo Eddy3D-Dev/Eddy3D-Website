@@ -13,7 +13,8 @@ FROM squidfunk/mkdocs-material
       mkdocs-glightbox \
       markdown-include \
       mkdocs-redirects \
-	  mkdocs-video \
+      mkdocs-video \
+      mkdocs-awesome-pages-plugin \
        
 
    # You can add more RUN pip install commands for other packages

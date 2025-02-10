@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
  <!-- Additional styles for landing page -->
   <style>
     /* Application header should be static for the landing page */
@@ -10,9 +16,11 @@
         display: none;
       }
     }
+      .md-content__button {
+    display: none;
+  }
 </style>
 
-# Contact
 
 <!-- 
     This is a working contact form. To receive email, 
@@ -27,7 +35,7 @@
   max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
-  padding: 3rem 1rem;
+  /*padding: 3rem 1rem; */
 }
 
 .contact-intro > * + * {
@@ -98,13 +106,11 @@
 </style>
 
 
+Fill out the form below and we'll get back to you as soon as possible.
+ 
+
+
 <section class="contact-section">
-  <div class="contact-intro">
-    
-    <p class="contact-description">
-      Fill out the form below and we'll get back to you as soon as possible.
-    </p>
-  </div>
 
   <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
   
