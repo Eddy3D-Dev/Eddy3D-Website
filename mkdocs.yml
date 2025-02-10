@@ -12,11 +12,8 @@ extra_css:
 nav:
   - Home: index.md
   - Download: download.md
+  - Documentation: "https://docs.eddy3d.com"
   - Support: support.md
-  - Documentation: 
-        - Getting Started: documentation/getting-started.md
-        - UMCF: documentation/index.md
-
   - Contact: contact.md
 
 
@@ -143,4 +140,16 @@ plugins:
       strict: true
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+
+  #- multirepo:
+      # (optional) tells multirepo to cleanup the temporary directory after site is built.
+  #    cleanup: false
+      # if set the docs directory will not be removed when importing docs. When using this with a nav section in an imported repo
+      # you must keep the docs directory in the path (e.g., docs/path/to/file.md).
+      #keep_docs_dir: true
+      #nav_repos:
+
+        #- name: documentation
+        #  import_url: https://github.com/Eddy3D-Dev/Eddy3D-Documentation/?branch=main
+        #  imports: [/docs/*]
 

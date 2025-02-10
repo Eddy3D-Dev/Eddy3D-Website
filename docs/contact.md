@@ -33,9 +33,9 @@ hide:
 .contact-section {
   width: 100%;
   max-width: 40rem;
-  margin-left: auto;
+  /*margin-left: auto;
   margin-right: auto;
-  /*padding: 3rem 1rem; */
+  padding: 3rem 1rem; */
 }
 
 .contact-intro > * + * {
