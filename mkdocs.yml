@@ -4,13 +4,14 @@ site_url: https://eddy3d.com
 repo_url: https://github.com/Eddy3D-Dev/Eddy3D-Website
 edit_uri: blob/main/docs/
 site_author: Patrick Kastner
-copyright: 'Copyright &copy; 2018-2025 Eddy3D'
+copyright: 'Copyright &copy; 2018-<script>document.write(new Date().getFullYear())</script> Eddy3D'
 extra_css:
   - stylesheets/extra.css
 #extra: 
 
 nav:
-  - Home: index.md
+  - Home: 
+    - Eddy3D: index.md
   - Download: download.md
   - Support: support.md
   - Contact: contact.md
@@ -47,6 +48,7 @@ theme:
     - navigation.tabs
     #- navigation.tabs.sticky
     - navigation.top
+    - navigation.path
     - navigation.tracking
     - navigation.path
     - search.highlight

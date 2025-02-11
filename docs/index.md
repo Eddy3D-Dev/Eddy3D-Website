@@ -1,6 +1,5 @@
 ---
 hide:
-  - title
   - navigation
   - toc
 ---
@@ -22,9 +21,12 @@ hide:
   text-align: center;
   display: block;
 }
+/* find better solution for this later */
 .md-typeset h1 {
-    display: none;
+position: absolute;
+left: -999px;
 }
+
 .mdx-users {
   display: flex;
   justify-content: center;  /* Centers items horizontally */
