@@ -250,13 +250,8 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Versions
 
-**Beta branch**:
-
 0.4.15.1 (Jan 28, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel)  
 SHA256: 60DB2DE850CB2A8940877ED60E1EA471CDB0008C69ED8CEE746E9FE43B3ABF1C
-
-**Main branch**:  
-0.3.8.0 (Feb 17, 2021) — works with Rhino 6
 
 ## Known Issues
 
