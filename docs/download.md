@@ -244,8 +244,6 @@ Upon completing the form, you will receive an email with the download link for E
 <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 <!-- End Brevo Form -->
 
-
-
 ---
 
 ## Latest Versions
@@ -255,14 +253,7 @@ SHA256: 60DB2DE850CB2A8940877ED60E1EA471CDB0008C69ED8CEE746E9FE43B3ABF1C
 
 ## Known Issues
 
-Beta branch:
-
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
-
-Main branch:
-
-- Probing on decomposed cases doesn’t work for now (need to reconstruct first).
-- The latest release of Eddy3D (v0.3.8.0) currently *only* works with **Rhino 6**. McNeel made changes to the SDK in **Rhino 7** which renders the box-shaped simulation domain incompatible with v0.3.8.0. Fixed on beta branch.
 
 ## Changelog
 
@@ -316,6 +307,11 @@ Main branch:
 - MRT component was updated with the TwoPhase method, see [this publication](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus).
 - General stability has been improved.
 - Culling of probing points outside of domain is now robust.
+
+__Known issues__
+
+- Probing on decomposed cases doesn’t work for now (need to reconstruct first).
+- The latest release of Eddy3D (v0.3.8.0) currently *only* works with **Rhino 6**. McNeel made changes to the SDK in **Rhino 7** which renders the box-shaped simulation domain incompatible with v0.3.8.0. Fixed on beta branch.
 
 ## 0.3.6.3
 
