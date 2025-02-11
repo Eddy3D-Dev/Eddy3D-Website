@@ -257,50 +257,50 @@ SHA256: 60DB2DE850CB2A8940877ED60E1EA471CDB0008C69ED8CEE746E9FE43B3ABF1C
 
 ## Changelog
 
-## 0.4.15.1 (Jan 28, 2025)
+### 0.4.15.1 (Jan 28, 2025)
 
 - Fixed: Indoor probing issue
 
-## 0.4.15.0 (Jan 21, 2025)
+### 0.4.15.0 (Jan 21, 2025)
 
 - Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [here](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5). Please do not update to Rhino 8.9!*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
 - https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe
 - https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe
 
-## 0.4.8.0 (Mar 4, 2024)
+### 0.4.8.0 (Mar 4, 2024)
 
 - Fixed: [Wind Factor Component version 4.2 is throwing error in Annual wind study template](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9)
 
-## 0.4.2.1 (Jan 21, 2024)
+### 0.4.2.1 (Jan 21, 2024)
 
 - Recompiled for Rhino 7, due to Rhino 8 introducing breaking changes in the UI, see below.
 
-## 0.4.2.0 (Dec 23, 2023)
+### 0.4.2.0 (Dec 23, 2023)
 
 - Added: custom boundary conditions per individual wind direction.
 - Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [here](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
 
-## 0.4.1.4 (Nov 23, 2023)
+### 0.4.1.4 (Nov 23, 2023)
 
 - Fixed issue with “covid19” function object for the indoor module.
 
-## 0.4.1.1 (Apr 29, 2022)
+### 0.4.1.1 (Apr 29, 2022)
 
 - New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1) with Indoor module.
 
-## 0.4.1.0 (Apr 17, 2022)
+### 0.4.1.0 (Apr 17, 2022)
 
 - Updated both outdoor and indoor module to [BlueCFD 2020](https://github.com/blueCFD/Core/releases/download/blueCFD-Core-2020-1/blueCFD-Core-2020-1-win64-setup.exe).
 - Updated MRT calculation, still experimental.
 
-## 0.4.0.10 (Apr 6, 2022)
+### 0.4.0.10 (Apr 6, 2022)
 
 - Update to [BlueCFD 2020](https://github.com/blueCFD/Core/releases/download/blueCFD-Core-2020-1/blueCFD-Core-2020-1-win64-setup.exe).
 - Indoor Module
 - Updated MRT calculation.
 - Improved numerical robustness by [Tobias Holzmann](https://holzmann-cfd.com/).
 
-## 0.3.8.0 (Feb 17, 2021)
+### 0.3.8.0 (Feb 17, 2021)
 
 - Age of air in simulation domain can be evaluated.
 - Simulation of trees modeled as porous media is supported.
@@ -313,18 +313,18 @@ __Known issues__
 - Probing on decomposed cases doesn’t work for now (need to reconstruct first).
 - The latest release of Eddy3D (v0.3.8.0) currently *only* works with **Rhino 6**. McNeel made changes to the SDK in **Rhino 7** which renders the box-shaped simulation domain incompatible with v0.3.8.0. Fixed on beta branch.
 
-## 0.3.6.3
+### 0.3.6.3
 
 - Fix for problem with cp probing.
 - Added switch for potentialFoam initialization and mesh renumbering.
 - Added Lawson, Davenport, and NEN8100 pedestrian comfort indices.
 
-## 0.3.5
+### 0.3.5
 
 - Fix for change in latest Rhino release.
 - Probing component automatically refreshes after probing has finished.
 
-## 0.3.0
+### 0.3.0
 
 - Added: cellPoint interpolation instead of cellPointFace
 - Fix: WindFactors, MRT, UTCI running
@@ -333,11 +333,11 @@ __Known issues__
   choice
 - Added: Template engine implemented
 
-## 0.2.3
+### 0.2.3
 
 - Fix: turbulentEpsilon was 0 if the ABL BC was in use
 
-## 0.2.2
+### 0.2.2
 
 - Fix: Both Box and Cylinder are converging properly when terrain is in use
 - Fix: Alwas load the residuals for the first wind direction instead of wind direction “0” if the selection is empty
@@ -352,12 +352,12 @@ __Known issues__
 - Change: Renamed output of settings components
 - Added: div(U) batch files
 
-## 0.2.1
+### 0.2.1
 
 - New component: ParaView can now be opened from the canvas
 - Fixes:
 - The ParaView are now called as their respective wind directions which helps to distinguish them if more than one if opened in ParaView
 
-## 0.1.0
+### 0.1.0
 
 - First release
