@@ -11,8 +11,7 @@ extra_css:
 #extra: 
 
 nav:
-  - Home: 
-    - Eddy3D: index.md
+  - Home: index.md
   - Download: download.md
   - Support: support.md
   - Contact: contact.md
