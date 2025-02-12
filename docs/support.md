@@ -28,7 +28,7 @@ If your problem is urgent, please also notify us via e-mail as we are unable to 
 > Eddy3D Version: 0.3.8.0  
 > Rhino Version: 6.43.3324
 
-## How to increase to probability of receiving fast and helpful answers.
+## How to increase the probability of receiving fast and helpful answers
  
 Please include the following in your post
 
