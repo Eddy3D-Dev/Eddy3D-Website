@@ -21,7 +21,9 @@ To download the latest version of Eddy3D, please fill out the following informat
 
 Upon completing the form, you will receive an email with the download link for Eddy3D. Depending on the desired use case, you must install additional software (BlueCFD, Radiance), [see here](https://docs.eddy3d.com).
 
-*Please make sure to manually type in your information, **do not use autofill** as the text might not be submitted correctly.*
+!!! note
+
+    Please make sure to manually type in your information. Please __do not use autofill__ as the text might not be submitted correctly.
 
 <!-- Begin Brevo Form -->
 <!-- START - We recommend to place the below code in head tag of your website html  -->
