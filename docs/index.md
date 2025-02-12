@@ -59,7 +59,7 @@ left: -999px;
 </style>
 
 <figure markdown="span">
-  ![Image title](assets/images/LogoEddy-01_preview-crop.png){ width="250" }
+  ![Eddy3D Logo](assets/cd/LogoEddy-01_preview-crop.png){ width="250" .skip-lightbox }
 </figure>
 
 <p style="text-align: center; font-size: 24px;">
@@ -68,7 +68,7 @@ left: -999px;
 
 <br>
 
-![Hero Image](assets/images/combo.png){.skip-lightbox}
+![Eddy3D Example Canvas](assets/images/combo.png){.skip-lightbox}
 
 <div align="center">
   <a href="https://docs.eddy3d.com/" class="md-button md-button--primary">Get Started</a>
