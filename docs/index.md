@@ -227,9 +227,7 @@ left: -999px;
 
 <br><br><br>
 
-Eddy3D is being developed as a cross-disciplinary project under the collaboration of Georgia Tech Architecture, the Environmental Systems Lab (ES Lab) of the College of Arts, Architecture, and Planning (AAP) and the field of Systems Science and Engineering at the College of Engineering at Cornell University.
-
-Led by Dr. Timur Dogan, the ESLab investigates the intersections of architectural design, sustainability, building performance simulation and computational design. They stand for excellence in teaching and research in the area of building technology, daylight and energy modeling, passive climate control strategies and performance-driven design workflows in both urban and architectural scales.
+Eddy3D is being developed as a cross-disciplinary project through a collaboration between the Georgia Tech School of Architecture, the Environmental Systems Lab at Cornell AAP, and the Systems Engineering department at Cornell Engineering.
 
 ---
 
