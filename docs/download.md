@@ -250,14 +250,18 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Versions
 
-0.4.15.1 (Jan 28, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel)  
-SHA256: 60DB2DE850CB2A8940877ED60E1EA471CDB0008C69ED8CEE746E9FE43B3ABF1C
+0.4.15.2 (Mar 10, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel)  
+SHA256: 4871FBB12C29764A6C0439E4884B1AE90F82AEDBB8AE235700ECFE6C8CB12442
 
 ## Known Issues
 
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.4.15.2 (Mar 10, 2025)
+
+- Fixed: `5_PressureOnBuildingFacade.ghx` Template
 
 ### 0.4.15.1 (Jan 28, 2025)
 
