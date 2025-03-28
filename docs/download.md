@@ -250,14 +250,18 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Versions
 
-0.4.15.2 (Mar 10, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel)  
-SHA256: 4871FBB12C29764A6C0439E4884B1AE90F82AEDBB8AE235700ECFE6C8CB12442
+0.4.15.3 (Mar 27, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel)  
+SHA256: 103D6747C5DC6E4DF5A071F2AAA39DA6E5AB055FECB6B20A0037C75F01E8F33C
 
 ## Known Issues
 
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.4.15.3 (Mar 27, 2025)
+
+- Fixed [bug](https://github.com/orgs/Eddy3D-Dev/discussions/14#discussioncomment-12647741) in: `3_SimpleWindAnalysis.ghx` Template. Thank you `@YanivHatiel`
 
 ### 0.4.15.2 (Mar 10, 2025)
 
