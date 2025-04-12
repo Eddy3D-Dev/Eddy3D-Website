@@ -273,7 +273,7 @@ SHA256: 103D6747C5DC6E4DF5A071F2AAA39DA6E5AB055FECB6B20A0037C75F01E8F33C
 
 ### 0.4.15.0 (Jan 21, 2025)
 
-- Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [here](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5). Please do not update to Rhino 8.9!*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
+- Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [here](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
 - https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe
 - https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe
 
