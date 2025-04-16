@@ -1,9 +1,13 @@
 FROM squidfunk/mkdocs-material
 
-   # Install additional Python packages
-   RUN apk add --no-cache bash && \
-      pip install \
-      mkdocs-material \
+# ---- system packages ----------------------------------------------------
+RUN apk add --no-cache \
+      bash \
+      pandoc        # <-- this is the missing binary
+# -------------------------------------------------------------------------
+
+# ---- Python packages ----------------------------------------------------
+RUN pip install --no-cache-dir \
       mkdocs-multirepo-plugin \
       mkdocs-git-revision-date-localized-plugin \
       mkdocs-minify-plugin \
@@ -15,6 +19,5 @@ FROM squidfunk/mkdocs-material
       mkdocs-redirects \
       mkdocs-video \
       mkdocs-awesome-pages-plugin \
-       
-
-   # You can add more RUN pip install commands for other packages
+      mkdocs-bibtex
+# -------------------------------------------------------------------------
