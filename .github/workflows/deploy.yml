@@ -6,27 +6,41 @@ on:
       - main
 permissions:
   contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: '0'
+          fetch-depth: 0
+
+      # ─── Install Pandoc ─────────────────────────────────────────────────────────
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+      # ────────────────────────────────────────────────────────────────────────────
+
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
+
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+
       - uses: actions/cache@v3
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
+
       - run: pip install mkdocs-material
       - run: pip install mkdocs-multirepo-plugin
       - run: pip install mkdocs-git-revision-date-localized-plugin
@@ -39,4 +53,8 @@ jobs:
       - run: pip install mkdocs-video
       - run: pip install mkdocs-awesome-pages-plugin 
       - run: pip install mkdocs-bibtex
-      - run: echo 'www.eddy3d.com' > ./CNAME && mkdocs gh-deploy --force
+
+      - name: Build & Deploy
+        run: |
+          echo 'www.eddy3d.com' > ./CNAME
+          mkdocs gh-deploy --force
