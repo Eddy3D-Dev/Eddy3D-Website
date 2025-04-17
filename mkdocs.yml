@@ -12,10 +12,10 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Download: download.md
-  - Support: support.md
   - Publications: publications.md
+  - Download: download.md
   - Documentation: "https://docs.eddy3d.com"
+  - Support: support.md
 
 theme:
   name: material
