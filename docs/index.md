@@ -194,7 +194,7 @@ left: -999px;
 
 ![Cornell](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}  
 ![Atkinson](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
-<center>
+<center markdown="1">
 :octicons-plus-24:
 </center>
 
