@@ -211,7 +211,7 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 ![SoA](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![GTRI](assets/images/logo-gtri.png){width="250" .skip-lightbox loading=lazy .center}
+![GT](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
 ![AAP](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center} 
