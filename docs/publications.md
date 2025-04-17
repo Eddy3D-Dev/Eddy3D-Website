@@ -4,7 +4,7 @@ hide:
   # - toc
 ---
 
-Publications that relate to Eddy3D are listed below, grouped by modules. 
+Publications related to Eddy3D are listed below, grouped by modules. 
 
 ## Outdoor+
 
