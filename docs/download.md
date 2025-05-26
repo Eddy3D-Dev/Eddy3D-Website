@@ -362,10 +362,13 @@ __Known issues__
 
 ---
 
-### Download links of previous Rhino versions
+### Download links to various Rhino versions
 
 !!! note
 
+https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe
+
+    - [https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe](https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe)
     - [https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe](https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe)
     - [https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe)
     - [https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe](https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe)
