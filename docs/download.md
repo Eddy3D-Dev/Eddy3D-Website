@@ -237,7 +237,7 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Versions
 
-0.4.15.3 (Mar 27, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel). If you need to downgrade, please check the bottom of this page for previous Rhino download links.  
+0.4.15.3 (Mar 27, 2025) — works with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe) (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel). If you need to downgrade, please check the bottom of this page for previous Rhino download links.  
 `SHA256: 103D6747C5DC6E4DF5A071F2AAA39DA6E5AB055FECB6B20A0037C75F01E8F33C`
 
 ## Known Issues
