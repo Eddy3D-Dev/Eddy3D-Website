@@ -1,20 +1,3 @@
-
-<style>
-    /* Application header should be static for the landing page */
-    .md-header {
-      position: initial;
-    }
-    /* Hide navigation */
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary {
-        display: none;
-      }
-    }
-      .md-content__button {
-    display: none;
-  }
-</style>
-
 # Download
 
 To download the latest version of Eddy3D, please fill out the following information form. Any information you provide here will only be used by the Eddy3D team and will not be shared with any other individuals or organizations.
@@ -95,7 +78,7 @@ Upon completing the form, you will receive an email with the download link for E
           <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
         </svg>
         <span class="sib-form-message-panel__inner-text">
-                          Your subscription has been successful. Please check your inbox for the download link. Please also check your spam folder it the email does not arrive within the next 2 minutes.
+                          Your subscription has been successful. Please check your inbox for the download link. Please also check your spam folder if the email does not arrive within the next 2 minutes.
                       </span>
       </div>
     </div>
@@ -246,12 +229,16 @@ Upon completing the form, you will receive an email with the download link for E
 <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
 <!-- End Brevo Form -->
 
+
+
 ---
+
+
 
 ## Latest Versions
 
-0.4.15.3 (Mar 27, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel)  
-SHA256: 103D6747C5DC6E4DF5A071F2AAA39DA6E5AB055FECB6B20A0037C75F01E8F33C
+0.4.15.3 (Mar 27, 2025) — works with **Rhino 8.15** (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel). If you need to downgrade, please check the bottom of this page for previous Rhino download links.  
+`SHA256: 103D6747C5DC6E4DF5A071F2AAA39DA6E5AB055FECB6B20A0037C75F01E8F33C`
 
 ## Known Issues
 
@@ -371,3 +358,32 @@ __Known issues__
 ### 0.1.0
 
 - First release
+
+
+---
+
+### Download links of previous Rhino versions
+
+!!! note
+
+    - [https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe](https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe)
+    - [https://files.mcneel.com/dujour/exe/20241008/rhino_en-us_8.12.24282.07001.exe](https://files.mcneel.com/dujour/exe/20241008/rhino_en-us_8.12.24282.07001.exe)
+    - [https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe](https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe)
+    - [https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe](https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe)
+
+
+<style>
+    /* Application header should be static for the landing page */
+    .md-header {
+      position: initial;
+    }
+    /* Hide navigation */
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary {
+        display: none;
+      }
+    }
+      .md-content__button {
+    display: none;
+  }
+</style>
