@@ -367,6 +367,7 @@ __Known issues__
 !!! note
 
     - [https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe](https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe)
+    - [https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe)
     - [https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe](https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe)
     - [https://files.mcneel.com/dujour/exe/20241008/rhino_en-us_8.12.24282.07001.exe](https://files.mcneel.com/dujour/exe/20241008/rhino_en-us_8.12.24282.07001.exe)
     - [https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe](https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe)
