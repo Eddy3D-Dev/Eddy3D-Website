@@ -1,4 +1,3 @@
-
 # netlify.toml
 [build]
   publish = "site"                       # same as before
