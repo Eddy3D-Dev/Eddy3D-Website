@@ -15,7 +15,8 @@
                 markdown-include \
                 mkdocs-redirects \
                 mkdocs-video \
-                mkdocs-awesome-pages-plugin
+                mkdocs-awesome-pages-plugin \
+                mkdocs-bibtex
 
     # run MkDocs via the interpreter so we don’t depend on $PATH
     export PATH="$(python -m site --user-base)/bin:$PATH" &&
