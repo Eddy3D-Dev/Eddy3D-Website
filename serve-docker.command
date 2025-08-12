@@ -4,7 +4,7 @@
 cd "$(dirname "$0")"
 
 # First, build the image
-docker build -t custom-mkdocs-material .
+docker build -t custom-mkdocs-material . --no-cache
 
 # Then run it
 docker run --rm -it \
