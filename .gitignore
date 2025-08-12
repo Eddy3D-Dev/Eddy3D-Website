@@ -11,3 +11,4 @@ internal/pkg/template/templates/custom-resources/
 regression/*/copilot/
 cf-custom-resources/coverage
 gitstatus.txt
+/temp_dir

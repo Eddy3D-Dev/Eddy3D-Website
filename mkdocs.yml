@@ -15,7 +15,13 @@ extra_css:
 nav:
   - Home: index.md
   - Publications: publications.md
-  - Case Studies: case-studies/README.md
+  # Case studies are pulled from external repository
+  - Case studies:
+      - case-studies/README.md
+      - Reykjavik model: case-studies/Reykjavik_Iceland/Reykjavik_Iceland_SimulationModel.md
+      - Tropical District Masterplan: case-studies/Tropical_District_Masterplan/Tropical_District_Masterplan.md
+      - Cornell Tech Extension: "https://cornelltech.eddy3d.com"
+      - Brooklyn OTC Map: "https://brooklyn.eddy3d.com"
   - Download: download.md
   - Documentation: "https://docs.eddy3d.com"
   - Support: support.md
@@ -100,6 +106,7 @@ markdown_extensions:
 # Plugins
 plugins:
   # - mkdocs-video
+  - section-index
   - glightbox:
       skip_classes:
         - skip-lightbox
