@@ -241,9 +241,9 @@ Upon completing the form, you will receive an email with the download link for E
 
 SHA256: `0a0f8292f42572f0bd74cf8993dafdf5e3c5f42bf20e393d04a90b09205ae7f3cc951d7e7c83cb522cebc5cfe62d58f966d6abedd651dfa2a43549a79efa37af`
 
-!!! note
+!!! Compatibility
 
-    works with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe) (does not work with Rhino 7 due to incompatibility issues introduced by McNeel). If you need to downgrade, please see [here](https://www.eddy3d.com/download/#links-to-previous-rhino-versions) for previous Rhino downloads.  
+    Works with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe) (does not work with Rhino 7 due to incompatibility issues introduced by McNeel). If you need to downgrade, please see [here](https://www.eddy3d.com/download/#links-to-previous-rhino-versions) for previous Rhino downloads.  
 
 ## Previous Versions
 
@@ -378,9 +378,9 @@ __Known issues__
 
 ---
 
-###  Links to previous Rhino versions
+###  Previous Rhino versions
 
-!!! note
+!!! Links 
 
     - [rhino_en-us_8.22.25217.12451.exe](https://files.mcneel.com/dujour/exe/20250805/rhino_en-us_8.22.25217.12451.exe)
     - [rhino_en-us_8.19.25132.01001.exe](https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe)
