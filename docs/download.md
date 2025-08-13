@@ -235,16 +235,33 @@ Upon completing the form, you will receive an email with the download link for E
 
 
 
-## Latest Versions
+## Latest Version
 
-0.4.15.3 (Mar 27, 2025) — works with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe) (does not work with Rhino 7 anymore due to incompatibility issues introduced by McNeel). If you need to downgrade, please check the bottom of this page for previous Rhino download links.  
-`SHA256: 103D6747C5DC6E4DF5A071F2AAA39DA6E5AB055FECB6B20A0037C75F01E8F33C`
+0.4.15.5 (August 13, 2025) 
+
+SHA256: `0a0f8292f42572f0bd74cf8993dafdf5e3c5f42bf20e393d04a90b09205ae7f3cc951d7e7c83cb522cebc5cfe62d58f966d6abedd651dfa2a43549a79efa37af`
+
+!!! note
+
+    works with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe) (does not work with Rhino 7 due to incompatibility issues introduced by McNeel). If you need to downgrade, please check the bottom of this page for previous Rhino download links.  
+
+## Previous Versions
+
+Please use the form above to get access to previous Eddy3D versions. We will send you a link to your email inbox.
 
 ## Known Issues
 
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.4.15.5 (August 13, 2025)
+
+- Refactor cell size component and improve Weibull comfort logic
+- Refactored the Cell Size Grasshopper component for clarity, improved input validation, and updated parameter descriptions. 
+- Enhanced the wind comfort Weibull metric logic to handle edge cases, filter invalid data, and robustly select comfort thresholds. 
+- Updated Eddy version to 0.4.15.5, increased CPUs in test settings, and made minor template and Grasshopper document adjustments.
+- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/2#discussioncomment-13782927).
 
 ### 0.4.15.3 (Mar 27, 2025)
 
@@ -320,7 +337,6 @@ __Known issues__
 
 - Fix for change in latest Rhino release.
 - Probing component automatically refreshes after probing has finished.
-
 ### 0.3.0
 
 - Added: cellPoint interpolation instead of cellPointFace
@@ -362,10 +378,11 @@ __Known issues__
 
 ---
 
-### Download links to various Rhino versions
+###  Links to previous Rhino versions
 
 !!! note
 
+    - [https://files.mcneel.com/dujour/exe/20250805/rhino_en-us_8.22.25217.12451.exe](https://files.mcneel.com/dujour/exe/20250805/rhino_en-us_8.22.25217.12451.exe)
     - [https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe](https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe)
     - [https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe](https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe)
     - [https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe)
@@ -390,4 +407,6 @@ __Known issues__
       .md-content__button {
     display: none;
   }
+  /* Keep only top 2 levels in the right TOC */
+  .md-sidebar--secondary .md-nav__list .md-nav__list { display: none; }
 </style>
