@@ -243,7 +243,7 @@ SHA256: `0a0f8292f42572f0bd74cf8993dafdf5e3c5f42bf20e393d04a90b09205ae7f3cc951d7
 
 !!! Compatibility
 
-    Works with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe) (does not work with Rhino 7 due to incompatibility issues introduced by McNeel). If you need to downgrade, please see [here](https://www.eddy3d.com/download/#links-to-previous-rhino-versions) for previous Rhino downloads.  
+    Tested with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade, please see [here](https://www.eddy3d.com/download/#links-to-previous-rhino-versions) for previous Rhino downloads.  
 
 ## Previous Versions
 
