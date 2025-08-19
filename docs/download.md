@@ -237,9 +237,9 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Version
 
-0.4.15.5 (August 13, 2025) 
+0.4.15.6 (August 18, 2025) 
 
-SHA256: `0a0f8292f42572f0bd74cf8993dafdf5e3c5f42bf20e393d04a90b09205ae7f3cc951d7e7c83cb522cebc5cfe62d58f966d6abedd651dfa2a43549a79efa37af`
+SHA256: `A2890DDD2E9C6903B644B1E7B0A5B0A590C0E42E63E6F7E38B8D470E8D0AE8BB`
 
 !!! Compatibility
 
@@ -254,6 +254,16 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.4.15.6 (August 18, 2025)
+
+- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code. 
+- Updated scalar transport configuration generation in ControlDict to use a new helper method. 
+- Standardized solver settings for AoA and Covid19 in FvSolutionDict. 
+- Fixed property naming in ViralEmitter. 
+- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component. 
+- Updated Grasshopper template metadata and viewport settings.
+- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
 
 ### 0.4.15.5 (August 13, 2025)
 
