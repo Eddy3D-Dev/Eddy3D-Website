@@ -237,9 +237,9 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Version
 
-0.4.15.6 (August 18, 2025) 
+0.4.15.7 (September 12, 2025)
 
-SHA256: `A2890DDD2E9C6903B644B1E7B0A5B0A590C0E42E63E6F7E38B8D470E8D0AE8BB`
+SHA256: `99320bf1f9afdb70da2d1c3c93519fdddbc2dde794c45333af0d06c6ef243880841a5f0868efc0fa421a6cdd5b169546959462ae17cfb6679d5cb1661acecbc0`
 
 !!! Compatibility
 
@@ -253,7 +253,24 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
+
+
 ## Changelog
+
+### 0.4.15.7 (September 12, 2025)
+
+- Fixed: CellSize component in wrong tab
+- Fixed: IndoorDomain not respecting CPUs input
+
+### 0.4.15.6 (August 18, 2025)
+
+- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code. 
+- Updated scalar transport configuration generation in ControlDict to use a new helper method. 
+- Standardized solver settings for AoA and Covid19 in FvSolutionDict. 
+- Fixed property naming in ViralEmitter. 
+- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component. 
+- Updated Grasshopper template metadata and viewport settings.
+- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
 
 ### 0.4.15.6 (August 18, 2025)
 
@@ -392,6 +409,7 @@ __Known issues__
 
 !!! Links 
 
+    - [rhino_en-us_8.23.25251.13001.exe](https://files.mcneel.com/dujour/exe/20250908/rhino_en-us_8.23.25251.13001.exe)
     - [rhino_en-us_8.22.25217.12451.exe](https://files.mcneel.com/dujour/exe/20250805/rhino_en-us_8.22.25217.12451.exe)
     - [rhino_en-us_8.19.25132.01001.exe](https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe)
     - [rhino_en-us_8.17.25066.07001.exe](https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe)
