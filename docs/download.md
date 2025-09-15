@@ -237,9 +237,8 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Version
 
-0.4.15.7 (September 12, 2025)
+0.4.15.8 (September 14, 2025)
 
-SHA256: `99320bf1f9afdb70da2d1c3c93519fdddbc2dde794c45333af0d06c6ef243880841a5f0868efc0fa421a6cdd5b169546959462ae17cfb6679d5cb1661acecbc0`
 
 !!! Compatibility
 
@@ -256,6 +255,11 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.4.15.8 (September 14, 2025)
+
+- Fixed: https://github.com/orgs/Eddy3D-Dev/discussions/39 
+- Added: https://github.com/orgs/Eddy3D-Dev/discussions/35
 
 ### 0.4.15.7 (September 12, 2025)
 
