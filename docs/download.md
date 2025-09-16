@@ -258,8 +258,8 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.4.15.8 (September 14, 2025)
 
-- Fixed: https://github.com/orgs/Eddy3D-Dev/discussions/39 
-- Added: https://github.com/orgs/Eddy3D-Dev/discussions/35
+- Fixed: [39](https://github.com/orgs/Eddy3D-Dev/discussions/39)
+- Added: [35](https://github.com/orgs/Eddy3D-Dev/discussions/35)
 
 ### 0.4.15.7 (September 12, 2025)
 
