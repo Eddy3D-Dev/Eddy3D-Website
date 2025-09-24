@@ -8,6 +8,27 @@ Publications related to Eddy3D are listed below, grouped by modules. See [Resear
 
 ## Outdoor+
 
+
+<div class="annotate" markdown>
+- @rahimi2025coupled (1)(2)
+</div>
+1.  
+Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled Urban Physics in Microclimate Modeling: Validating and Enhancing Simulation Tools Building and Environment, 285, 113637.
+2.  
+```bibtex
+@article{rahimi2025coupled,
+	title        = {Coupled Urban Physics in Microclimate Modeling: Validating and Enhancing Simulation Tools},
+	author       = {Rahimi, Sina and Alvarez, Marcelo and Stone, Brian and Berardi, Umberto and Kastner, Patrick},
+	year         = 2025,
+	journal      = {Building and Environment},
+	publisher    = {Elsevier},
+	pages        = 113637
+}
+```
+
+
+
+
 <div class="annotate" markdown>
 - @rahimi2025incorporating (1)(2)
 </div>
