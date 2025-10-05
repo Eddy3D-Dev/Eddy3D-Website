@@ -257,7 +257,7 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.4.15.10 (October 4, 2025)
 
-- Improved: Stability of cylindrical domain by [@karadagi](https://github.com/karadagi).
+- Improved: Stability of cylindrical domain by @karadagi.
 
 ### 0.4.15.8 (September 14, 2025)
 
