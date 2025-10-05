@@ -146,6 +146,12 @@ left: -999px;
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
+    <img src="assets/images/team/karadag.jpg" alt="İlker Karadağ" loading="lazy">
+    <figcaption class="md-typeset">İlker Karadağ</figcaption>
+  </figure>
+
+
+<figure class="mdx-users__testimonial black-and-white">
     <img src="assets/images/team/rahimi.jpg" alt="Sina Rahimi" loading="lazy">
     <figcaption class="md-typeset">Sina Rahimi</figcaption>
   </figure>

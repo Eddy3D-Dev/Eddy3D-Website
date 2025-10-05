@@ -237,7 +237,7 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Version
 
-0.4.15.8 (September 14, 2025)
+0.4.15.10 (October 4, 2025)
 
 
 !!! Compatibility
@@ -253,8 +253,11 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 
-
 ## Changelog
+
+### 0.4.15.10 (October 4, 2025)
+
+- Improved: Stability of cylindrical domain by [@karadagi](https://github.com/karadagi).
 
 ### 0.4.15.8 (September 14, 2025)
 
