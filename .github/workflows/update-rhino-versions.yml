@@ -33,7 +33,7 @@ jobs:
         with:
           ref: dev
           fetch-depth: 0
-          persist-credentials: false  # we'll inject our own token later. :contentReference[oaicite:1]{index=1}
+          persist-credentials: false  # we'll inject our own token later
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -56,13 +56,12 @@ jobs:
           import requests
 
           USER_AGENT = "nuget-rhino-actions/1.4"
-          REG_INDEX = "https://api.nuget.org/v3/registration5-semver1/rhinocommon/index.json"  # NuGet Registration resource. :contentReference[oaicite:2]{index=2}
+          REG_INDEX = "https://api.nuget.org/v3/registration5-semver1/rhinocommon/index.json"
           STABLE_SUFFIX_RE = re.compile(r'^[0-9]+(\.[0-9]+){3}$')  # e.g., 8.24.25281.15001
           BULLET_RE = re.compile(r'^\s{4}- \[.*\]\(.*\)\s*$')
 
           # ----- config from env -----
           MAJORS_RAW = os.getenv("RHINO_MAJORS", "8")
-          # split on commas or whitespace
           tokens = [t for t in re.split(r'[,\s]+', MAJORS_RAW.strip()) if t]
           MAJORS: List[Union[int,str]] = []
           for t in tokens:
@@ -107,16 +106,15 @@ jobs:
             cands.sort(key=parse_version_tuple, reverse=True)
             return cands
 
-          # Rhino VersionNumber: major.minor.yyddd.hhmmb (yy=year-2000; ddd=day of year). :contentReference[oaicite:3]{index=3}
+          # Rhino VersionNumber: major.minor.yyddd.hhmmb (yy=year-2000; ddd=day-of-year)
           def decode_version_date(ver: str) -> dt.date:
             yyddd = ver.split(".")[2]
-            yy = int(yyddd[:-3])
-            ddd = int(yyddd[-3:])
+            yy = int(yyddd[:-3]); ddd = int(yyddd[-3:])
             year = 2000 + yy
             return dt.date(year, 1, 1) + dt.timedelta(days=ddd - 1)
 
           def _version_for_filename(ver: str) -> str:
-            # NuGet normalizes numeric identifiers (leading zeros trimmed); pad back to 5. :contentReference[oaicite:4]{index=4}
+            # NuGet normalizes numeric identifiers; pad 3rd & 4th parts back to 5 digits
             parts = ver.split(".")
             if len(parts) < 4:
               raise ValueError(f"Unexpected version: {ver}")
@@ -258,8 +256,6 @@ jobs:
             echo "- **URL**:             ${{ steps.build.outputs.url }}";
             echo "- **All entries**:     ${{ steps.build.outputs.all_count }}";
             echo "- **Changed latest.md**: ${{ steps.build.outputs.changed }}";
-            echo "";
-            echo "_Sources: NuGet V3 Registration API; Rhino GH_IO VersionNumber format._";
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Configure git (use PAT or GITHUB_TOKEN)
@@ -268,14 +264,19 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote set-url origin https://x-access-token:${PUSH_TOKEN}@github.com/${{ github.repository }}.git
 
-      - name: Commit & push if changed
+      - name: Commit & push if changed (stage first)
         run: |
           set -e
-          if ! git diff --quiet; then
-            git add "$MD_PATH" "$MD_PATH_ALL"
-            git commit -m "chore: update Rhino (${RHINO_MAJORS}) latest + all from NuGet (auto)"
-            git pull --rebase origin dev || true
-            git push origin HEAD:dev
-          else
-            echo "No changes."
+          # Always stage our targets (handles new/untracked files too)
+          git add "$MD_PATH" "$MD_PATH_ALL"
+
+          # If nothing is staged for commit, bail out
+          if git diff --cached --quiet -- "$MD_PATH" "$MD_PATH_ALL"; then
+            echo "No changes to commit."
+            exit 0
           fi
+
+          git commit -m "chore: update Rhino (${RHINO_MAJORS}) latest + all from NuGet (auto)"
+          # In case the branch moved, rebase then push
+          git pull --rebase origin dev || true
+          git push origin HEAD:dev
