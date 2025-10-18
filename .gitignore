@@ -12,3 +12,5 @@ regression/*/copilot/
 cf-custom-resources/coverage
 gitstatus.txt
 /temp_dir
+.env
+.secrets
