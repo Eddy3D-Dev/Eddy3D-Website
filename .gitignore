@@ -14,3 +14,4 @@ gitstatus.txt
 /temp_dir
 .env
 .secrets
+/.github/workflows/docs
