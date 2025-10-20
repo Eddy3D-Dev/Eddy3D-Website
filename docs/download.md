@@ -237,7 +237,7 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Version
 
-0.4.15.10 (October 4, 2025)
+0.4.15.11 (October 19, 2025)
 
 
 !!! Compatibility
@@ -254,6 +254,10 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.4.15.11 (October 19, 2025)
+
+- Added: Additional inputs for finer control of cylindrical domain by @karadagi.
 
 ### 0.4.15.10 (October 4, 2025)
 
