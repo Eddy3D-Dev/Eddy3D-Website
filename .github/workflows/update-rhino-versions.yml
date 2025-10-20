@@ -1,0 +1,282 @@
+name: Update Rhino versions from NuGet (weekly)
+
+on:
+  schedule:
+    # Mondays at 09:10 UTC (adjust as needed)
+    - cron: "10 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: update-rhino-from-nuget
+      cancel-in-progress: false
+
+    env:
+      # Track one or more majors; space- or comma-separated, e.g. "8 9" or "8,9"
+      RHINO_MAJORS: "7,8"
+      RHINO_LOCALE: "en-us"
+      MD_PATH: "docs/rhino-versions.md"         # newest-only (prepend if new)
+      MD_PATH_ALL: "docs/rhino-versions-all.md" # all versions (overwrite)
+      HEAD_CHECK_LATEST: "true"                  # require URL 200 for newest
+      HEAD_CHECK_ALL: "true"                     # require URL 200 for entries in -all
+      # Use WEBSITE_TOKEN if set, else GITHUB_TOKEN, else DEPLOY
+      PUSH_TOKEN: ${{ secrets.WEBSITE_TOKEN || secrets.GITHUB_TOKEN || secrets.DEPLOY }}
+
+    steps:
+      - name: Checkout dev branch (no persisted creds)
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          fetch-depth: 0
+          persist-credentials: false  # we'll inject our own token later
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Build latest + all versions files from NuGet
+        id: build
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import os, re, sys
+          from typing import List, Iterable, Tuple, Union
+          from urllib.parse import urlparse
+          import requests
+
+          USER_AGENT = "nuget-rhino-actions/1.4"
+          REG_INDEX = "https://api.nuget.org/v3/registration5-semver1/rhinocommon/index.json"
+          STABLE_SUFFIX_RE = re.compile(r'^[0-9]+(\.[0-9]+){3}$')  # e.g., 8.24.25281.15001
+          BULLET_RE = re.compile(r'^\s{4}- \[.*\]\(.*\)\s*$')
+
+          # ----- config from env -----
+          MAJORS_RAW = os.getenv("RHINO_MAJORS", "8")
+          tokens = [t for t in re.split(r'[,\s]+', MAJORS_RAW.strip()) if t]
+          MAJORS: List[Union[int,str]] = []
+          for t in tokens:
+            try: MAJORS.append(int(t))
+            except ValueError: MAJORS.append(t)
+
+          LOCALE = os.getenv("RHINO_LOCALE", "en-us")
+          MD_LATEST = os.getenv("MD_PATH", "docs/rhino-versions.md")
+          MD_ALL    = os.getenv("MD_PATH_ALL", "docs/rhino-versions-all.md")
+          HEAD_CHECK_LATEST = os.getenv("HEAD_CHECK_LATEST", "true").lower() == "true"
+          HEAD_CHECK_ALL    = os.getenv("HEAD_CHECK_ALL", "true").lower() == "true"
+
+          # ----- helpers -----
+          def fetch_registration_index() -> dict:
+            r = requests.get(REG_INDEX, timeout=30, headers={"User-Agent": USER_AGENT})
+            r.raise_for_status()
+            return r.json()
+
+          def versions_from_registration(reg_json: dict):
+            versions = []
+            for page in reg_json.get("items", []):
+              items = page.get("items")
+              if items is None:
+                page_url = page.get("@id")
+                pr = requests.get(page_url, timeout=30, headers={"User-Agent": USER_AGENT})
+                pr.raise_for_status()
+                items = pr.json().get("items", [])
+              for leaf in items:
+                ver = (leaf.get("catalogEntry") or {}).get("version")
+                if ver:
+                  versions.append(ver)
+            return versions
+
+          def parse_version_tuple(ver: str):
+            parts = ver.split(".")
+            return tuple(int(p) for p in parts[:4])
+
+          def list_stable_for_majors(all_versions, majors: Iterable[Union[int,str]]):
+            majors_set = {str(m) for m in majors}
+            cands = [v for v in all_versions if STABLE_SUFFIX_RE.match(v)]
+            cands = [v for v in cands if v.split(".", 1)[0] in majors_set]
+            cands.sort(key=parse_version_tuple, reverse=True)
+            return cands
+
+          # Rhino VersionNumber: major.minor.yyddd.hhmmb (yy=year-2000; ddd=day-of-year)
+          def decode_version_date(ver: str) -> dt.date:
+            yyddd = ver.split(".")[2]
+            yy = int(yyddd[:-3]); ddd = int(yyddd[-3:])
+            year = 2000 + yy
+            return dt.date(year, 1, 1) + dt.timedelta(days=ddd - 1)
+
+          def _version_for_filename(ver: str) -> str:
+            # NuGet normalizes numeric identifiers; pad 3rd & 4th parts back to 5 digits
+            parts = ver.split(".")
+            if len(parts) < 4:
+              raise ValueError(f"Unexpected version: {ver}")
+            parts[2] = parts[2].zfill(5)  # yyddd
+            parts[3] = parts[3].zfill(5)  # hhmmb
+            return ".".join(parts[:4])
+
+          def build_dujour_url(ver: str, date_obj: dt.date, locale: str) -> str:
+            ymd = date_obj.strftime("%Y%m%d")
+            ver_name = _version_for_filename(ver)
+            filename = f"rhino_{locale}_{ver_name}.exe"
+            return f"https://files.mcneel.com/dujour/exe/{ymd}/{filename}"
+
+          def url_exists(url: str) -> bool:
+            try:
+              r = requests.head(url, timeout=20, allow_redirects=True, headers={"User-Agent": USER_AGENT})
+              if r.status_code == 200:
+                return True
+              r = requests.get(url, timeout=20, stream=True, allow_redirects=True, headers={"User-Agent": USER_AGENT})
+              return r.status_code == 200
+            except requests.RequestException:
+              return False
+
+          def ensure_newline(s: str) -> str:
+            return s if s.endswith("\n") else s + "\n"
+
+          def prepend_latest(md_path: str, filename: str, url: str) -> bool:
+            bullet = f"    - [{filename}]({url})"
+            os.makedirs(os.path.dirname(md_path) or ".", exist_ok=True)
+
+            if not os.path.exists(md_path):
+              with open(md_path, "w", encoding="utf-8") as f:
+                f.write(bullet + "\n")
+              print(f"[added:newfile] {bullet}")
+              return True
+
+            with open(md_path, "r", encoding="utf-8") as f:
+              content = f.read()
+
+            if filename in content:
+              print("[ok] No update needed (already present).")
+              return False
+
+            lines = content.splitlines()
+            insert_at = next((i for i, ln in enumerate(lines) if BULLET_RE.match(ln)), None)
+
+            if insert_at is None:
+              if lines and lines[-1] != "":
+                lines.append("")
+              lines.append(bullet)
+            else:
+              lines.insert(insert_at, bullet)
+
+            new_content = ensure_newline("\n".join(lines))
+            with open(md_path, "w", encoding="utf-8") as f:
+              f.write(new_content)
+
+            print(f"[added] {bullet}")
+            return True
+
+          def write_all(md_path_all: str, entries: List[Tuple[str, str]]) -> int:
+            os.makedirs(os.path.dirname(md_path_all) or ".", exist_ok=True)
+            lines = [f"    - [{fn}]({u})" for (fn, u) in entries]
+            with open(md_path_all, "w", encoding="utf-8") as f:
+              f.write(ensure_newline("\n".join(lines)))
+            return len(entries)
+
+          # ---- run ----
+          latest_version = latest_date_iso = latest_filename = latest_url = None
+          changed_latest = False
+          all_count = 0
+
+          try:
+            reg = fetch_registration_index()
+            versions = versions_from_registration(reg)
+            stable = list_stable_for_majors(versions, MAJORS)
+
+            if not stable:
+              print(f"::notice::No stable Rhino versions for majors: {', '.join(map(str, MAJORS))}.")
+              all_count = write_all(MD_ALL, [])
+            else:
+              built = []
+              for v in stable:
+                d = decode_version_date(v)
+                u = build_dujour_url(v, d, locale=LOCALE)
+                fn = os.path.basename(urlparse(u).path)
+                live = url_exists(u) if HEAD_CHECK_ALL else True
+                if live:
+                  built.append((v, d, fn, u))
+                else:
+                  print(f"[skip] URL not reachable: {u}")
+
+              # all file (newest → oldest)
+              all_entries = [(fn, u) for (_v, _d, fn, u) in built]
+              all_count = write_all(MD_ALL, all_entries)
+              print(f"Wrote {all_count} entries to {MD_ALL}")
+
+              # latest file
+              if built:
+                v, d, fn, u = built[0]
+                latest_version, latest_date_iso, latest_filename, latest_url = v, d.isoformat(), fn, u
+                if (not HEAD_CHECK_LATEST) or url_exists(u):
+                  changed_latest = prepend_latest(MD_LATEST, fn, u)
+                else:
+                  print(f"::notice::Latest URL not reachable; skipping update: {u}")
+
+          except Exception as e:
+            print(f"::warning::Failed: {e}")
+
+          # console summary
+          if latest_version:
+            print(f"Latest version: {latest_version}")
+            print(f"Build date:     {latest_date_iso}")
+            print(f"Filename:       {latest_filename}")
+            print(f"URL:            {latest_url}")
+          print(f"All versions written: {all_count}")
+
+          # step outputs
+          out = os.environ.get("GITHUB_OUTPUT")
+          if out:
+            with open(out, "a", encoding="utf-8") as fh:
+              if latest_version:  fh.write(f"version={latest_version}\n")
+              if latest_date_iso: fh.write(f"date={latest_date_iso}\n")
+              if latest_filename: fh.write(f"filename={latest_filename}\n")
+              if latest_url:      fh.write(f"url={latest_url}\n")
+              fh.write(f"all_count={all_count}\n")
+              fh.write(f"changed={'true' if changed_latest else 'false'}\n")
+          PY
+
+      - name: Job summary
+        run: |
+          {
+            echo "### Rhino update";
+            echo "";
+            echo "- **Majors**:          ${RHINO_MAJORS}";
+            echo "- **Latest Version**:  ${{ steps.build.outputs.version }}";
+            echo "- **Build Date**:      ${{ steps.build.outputs.date }}";
+            echo "- **Filename**:        ${{ steps.build.outputs.filename }}";
+            echo "- **URL**:             ${{ steps.build.outputs.url }}";
+            echo "- **All entries**:     ${{ steps.build.outputs.all_count }}";
+            echo "- **Changed latest.md**: ${{ steps.build.outputs.changed }}";
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Configure git (use PAT or GITHUB_TOKEN)
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${PUSH_TOKEN}@github.com/${{ github.repository }}.git
+
+      - name: Commit & push if changed (stage first)
+        run: |
+          set -e
+          # Always stage our targets (handles new/untracked files too)
+          git add "$MD_PATH" "$MD_PATH_ALL"
+
+          # If nothing is staged for commit, bail out
+          if git diff --cached --quiet -- "$MD_PATH" "$MD_PATH_ALL"; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update Rhino (${RHINO_MAJORS}) latest + all from NuGet (auto)"
+          # In case the branch moved, rebase then push
+          git pull --rebase origin dev || true
+          git push origin HEAD:dev

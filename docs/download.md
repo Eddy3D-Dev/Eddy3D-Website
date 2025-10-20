@@ -237,7 +237,7 @@ Upon completing the form, you will receive an email with the download link for E
 
 ## Latest Version
 
-0.4.15.10 (October 4, 2025)
+0.4.15.11 (October 19, 2025)
 
 
 !!! Compatibility
@@ -254,6 +254,10 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.4.15.11 (October 19, 2025)
+
+- Added: Additional inputs for finer control of cylindrical domain by @karadagi.
 
 ### 0.4.15.10 (October 4, 2025)
 
@@ -416,18 +420,9 @@ __Known issues__
 
 !!! Links 
 
-    - [rhino_en-us_8.23.25251.13001.exe](https://files.mcneel.com/dujour/exe/20250908/rhino_en-us_8.23.25251.13001.exe)
-    - [rhino_en-us_8.22.25217.12451.exe](https://files.mcneel.com/dujour/exe/20250805/rhino_en-us_8.22.25217.12451.exe)
-    - [rhino_en-us_8.21.25188.17001.exe](https://files.mcneel.com/dujour/exe/20250707/rhino_en-us_8.21.25188.17001.exe)
-    - [rhino_en-us_8.19.25132.01001.exe](https://files.mcneel.com/dujour/exe/20250512/rhino_en-us_8.19.25132.01001.exe)
-    - [rhino_en-us_8.17.25066.07001.exe](https://files.mcneel.com/dujour/exe/20250307/rhino_en-us_8.17.25066.07001.exe)
-    - [rhino_en-us_8.15.25019.13001.exe](https://files.mcneel.com/dujour/exe/20250119/rhino_en-us_8.15.25019.13001.exe)
-    - [rhino_en-us_8.14.24345.15001.exe](https://files.mcneel.com/dujour/exe/20241210/rhino_en-us_8.14.24345.15001.exe)
-    - [rhino_en-us_8.12.24282.07001.exe](https://files.mcneel.com/dujour/exe/20241008/rhino_en-us_8.12.24282.07001.exe)
-    - [rhino_en-us_8.8.24170.13001.exe](https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe)
-    - [rhino_en-us_8.8.24163.12481.exe](https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe)
-    - [rhino_en-us_8.0.23304.09001.exe](https://files.mcneel.com/dujour/exe/20231031/rhino_en-us_8.0.23304.09001.exe)
-
+{%
+    include-markdown "rhino-versions-all.md"
+%}
 
 <style>
     /* Application header should be static for the landing page */

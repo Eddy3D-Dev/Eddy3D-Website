@@ -21,4 +21,5 @@ RUN pip install --no-cache-dir \
       mkdocs-awesome-pages-plugin \
       mkdocs-bibtex \
       mkdocs-section-index \
+      mkdocs-include-markdown-plugin\
 # -------------------------------------------------------------------------

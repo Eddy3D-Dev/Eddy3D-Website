@@ -108,6 +108,17 @@ markdown_extensions:
 # Plugins
 plugins:
   # - mkdocs-video
+  - include-markdown:
+      # encoding: ascii
+      preserve_includer_indent: true # important for download links to work
+      #dedent: false
+      # trailing_newlines: true
+      #comments: true
+      #rewrite_relative_urls: true
+      #heading_offset: 0
+      # start: <!--start-->
+      # end: <!--end-->
+      #recursive: true
   - section-index
   - glightbox:
       skip_classes:
