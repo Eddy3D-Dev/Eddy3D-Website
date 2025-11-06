@@ -21,7 +21,11 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.4.15.12 (November 6, 2025)
 
-- Added: XXXX by @karadagi.
+- Added: Brep to Grid Points component for fast generation of probe points from building Breps (has spacing option to better define the distances between probe points).
+
+- Added: _AccBuildingMax input on Mesh Settings component to control the maximum target cell size over/around buildings for local mesh refinement.
+
+- Improved: 3_SimpleWindAnalysis template wired to use Brep2points for sensors and passes _buildingsMax to meshing by @karadagi.
 
 ### 0.4.15.11 (October 19, 2025)
 
@@ -43,29 +47,29 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.4.15.6 (August 18, 2025)
 
-- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code. 
-- Updated scalar transport configuration generation in ControlDict to use a new helper method. 
-- Standardized solver settings for AoA and Covid19 in FvSolutionDict. 
-- Fixed property naming in ViralEmitter. 
-- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component. 
+- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code.
+- Updated scalar transport configuration generation in ControlDict to use a new helper method.
+- Standardized solver settings for AoA and Covid19 in FvSolutionDict.
+- Fixed property naming in ViralEmitter.
+- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
 - Updated Grasshopper template metadata and viewport settings.
 - Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
 
 ### 0.4.15.6 (August 18, 2025)
 
-- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code. 
-- Updated scalar transport configuration generation in ControlDict to use a new helper method. 
-- Standardized solver settings for AoA and Covid19 in FvSolutionDict. 
-- Fixed property naming in ViralEmitter. 
-- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component. 
+- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code.
+- Updated scalar transport configuration generation in ControlDict to use a new helper method.
+- Standardized solver settings for AoA and Covid19 in FvSolutionDict.
+- Fixed property naming in ViralEmitter.
+- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
 - Updated Grasshopper template metadata and viewport settings.
 - Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
 
 ### 0.4.15.5 (August 13, 2025)
 
 - Refactor cell size component and improve Weibull comfort logic
-- Refactored the Cell Size Grasshopper component for clarity, improved input validation, and updated parameter descriptions. 
-- Enhanced the wind comfort Weibull metric logic to handle edge cases, filter invalid data, and robustly select comfort thresholds. 
+- Refactored the Cell Size Grasshopper component for clarity, improved input validation, and updated parameter descriptions.
+- Enhanced the wind comfort Weibull metric logic to handle edge cases, filter invalid data, and robustly select comfort thresholds.
 - Updated Eddy version to 0.4.15.5, increased CPUs in test settings, and made minor template and Grasshopper document adjustments.
 - Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/2#discussioncomment-13782927).
 
