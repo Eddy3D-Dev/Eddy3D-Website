@@ -22,4 +22,5 @@ RUN pip install --no-cache-dir \
       mkdocs-bibtex \
       mkdocs-section-index \
       mkdocs-include-markdown-plugin\
+      tzdata\
 # -------------------------------------------------------------------------
