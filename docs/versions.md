@@ -1,5 +1,3 @@
-## Latest Version
-
 0.4.15.12 (Nov. 6, 2025)
 
 
