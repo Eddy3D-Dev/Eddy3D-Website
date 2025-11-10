@@ -1,6 +1,4 @@
-## Latest Version
-
-0.4.15.12 (Nov. 6, 2025)
+0.4.15.13 (Nov. 11, 2025)
 
 
 !!! Compatibility
@@ -18,6 +16,11 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ## Changelog
 
+### 0.4.15.13 (November 9, 2025)
+
+- Added: DatasetCurator component creates datasets ready to use by Fourier Neural Operator models. Please check the 3_SimpleWindAnalysisCylDomain_ML template file to quick start.
+
+- Improved: Most of the template files renewed.
 
 ### 0.4.15.12 (November 6, 2025)
 
