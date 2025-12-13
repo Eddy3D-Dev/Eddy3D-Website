@@ -1,4 +1,4 @@
-0.4.15.13 (Nov. 11, 2025)
+0.4.15.14 (Dec. 13, 2025)
 
 
 !!! Compatibility
@@ -15,6 +15,12 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.4.15.14 (December 13, 2025)
+
+- Improved: Cylindrical computational domain is enhanced.
+
+- Added: New template files added.
 
 ### 0.4.15.13 (November 9, 2025)
 
