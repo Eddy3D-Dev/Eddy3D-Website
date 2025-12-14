@@ -1,4 +1,4 @@
-0.4.15.14 (Dec. 13, 2025)
+0.4.15.14 (December 14, 2025)
 
 
 !!! Compatibility
