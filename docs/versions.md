@@ -1,4 +1,4 @@
-0.4.15.15 (Dec. 19, 2025)
+0.4.16.815 (Dec. 19, 2025)
 
 
 !!! Compatibility
@@ -16,7 +16,9 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ## Changelog
 
-### 0.4.15.15 (December 19, 2025)
+### 0.4.16.815 (December 19, 2025)
+
+- Add wind dataset reader and enhance dataset curator (#229).
 
 - Improved:
 
