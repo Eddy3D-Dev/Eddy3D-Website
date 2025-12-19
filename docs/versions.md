@@ -1,4 +1,4 @@
-0.4.15.14 (Dec. 13, 2025)
+0.4.15.15 (Dec. 19, 2025)
 
 
 !!! Compatibility
@@ -15,6 +15,28 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.4.15.15 (December 19, 2025)
+
+- Improved:
+
+    DatasetCuratorCMP now supports multiple wind directions
+
+    Added CSV / batch / script generation workflows
+
+    Improved output handling for more reliable exports and processing
+
+- Added:
+
+    DatasetReaderCMP component to read processed CSV datasets into Grasshopper
+
+    Supports all spatial features and simulated wind speed
+
+    New resources, icons, and Python post-processing scripts
+
+    Mesh settings updated to support nCellsBetweenLevels
+
+    Project + resource files updated to include new components and assets
 
 ### 0.4.15.14 (December 13, 2025)
 
