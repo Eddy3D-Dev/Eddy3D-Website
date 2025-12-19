@@ -25,8 +25,8 @@ If your problem is urgent, please also notify us via e-mail as we are unable to 
 > This is my question.  
 > —  
 > OS: Windows 11 Pro  
-> Eddy3D Version: 0.4.15.2 
-> Rhino Version: 8.16.25042.13001
+> Eddy3D Version: 0.4.15.14 
+> Rhino Version: 8.15.25019.13001
 
 ## How to increase the probability of receiving fast and helpful answers
  
