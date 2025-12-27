@@ -1,4 +1,4 @@
-0.4.15.16 (Dec. 27, 2025)
+0.4.17.815 (Dec. 27, 2025)
 
 
 !!! Compatibility
@@ -16,7 +16,7 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ## Changelog
 
-### 0.4.15.16 (December 27, 2025)
+### 0.4.17.815 (December 27, 2025)
 
 - Improved:
 
@@ -27,7 +27,7 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
     A new visualiser interface at https://eddy3d-dev.github.io/Eddy3D-Visualizer/
 
-### 0.4.15.15 (December 19, 2025)
+### 0.4.16.815 (December 19, 2025)
 
 - Improved:
 
