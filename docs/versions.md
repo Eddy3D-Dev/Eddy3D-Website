@@ -1,4 +1,4 @@
-0.4.16.815 (Dec. 19, 2025)
+0.4.17.815 (Dec. 27, 2025)
 
 
 !!! Compatibility
@@ -16,9 +16,18 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ## Changelog
 
-### 0.4.16.815 (December 19, 2025)
+### 0.4.17.815 (December 27, 2025)
 
-- Add wind dataset reader and enhance dataset curator (#229).
+- Improved:
+
+    Better output handling for more reliable exports and processing for DatasetCurator component.
+    Introduces a 'Run' boolean parameter to BrepGridPoints component to control execution and sets output to idle when not running. Updates DatasetCuratorCMP to check bounding boxes using only XY coordinates, improving handling of stacked geometries.
+
+- Added:
+
+    A new visualiser interface at https://eddy3d-dev.github.io/Eddy3D-Visualizer/
+
+### 0.4.16.815 (December 19, 2025)
 
 - Improved:
 
