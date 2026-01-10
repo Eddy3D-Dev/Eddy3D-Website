@@ -1,4 +1,4 @@
-0.4.17.815 (Dec. 27, 2025)
+0.4.18.815 (Jan. 10, 2026)
 
 
 !!! Compatibility
@@ -15,6 +15,12 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.4.18.815 (January 10, 2026)
+
+- Improved:
+
+    Probe component is improved to work without input mesh dependency to write to probe points.
 
 ### 0.4.17.815 (December 27, 2025)
 
