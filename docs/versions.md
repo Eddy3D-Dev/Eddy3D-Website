@@ -1,4 +1,4 @@
-0.4.17.815 (Dec. 27, 2025)
+0.5.0.815 (Jan. 12, 2026)
 
 
 !!! Compatibility
@@ -15,6 +15,21 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.5.0.815 (January 12, 2026)
+
+- Fixed:
+
+    Installer now uses user profile paths; fixed path formatting in TwoPhaseDDS.
+
+- Added:
+
+    New indoor test cases and examples; Install Engines icon.
+
+- Improved:
+
+    Templates updated; Outdoor Comfort tests and Indoor setup restored.
+    Consistent naming and general refactoring.
 
 ### 0.4.17.815 (December 27, 2025)
 
