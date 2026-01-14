@@ -1,0 +1,18 @@
+name: Prevent Main into Dev
+
+on:
+  pull_request:
+    branches:
+      - dev
+    types: [opened, synchronize, reopened]
+
+jobs:
+  guard-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        if: github.head_ref == 'main'
+        run: |
+          echo "Merging 'main' into 'dev' is not allowed."
+          echo "Please do not update 'dev' from 'main'. 'dev' should be the source of truth."
+          exit 1
