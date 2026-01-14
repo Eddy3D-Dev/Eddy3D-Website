@@ -1,4 +1,4 @@
-0.5.0.815 (Jan. 12, 2026)
+0.5.1.815 (Jan. 14, 2026)
 
 
 !!! Compatibility
@@ -15,6 +15,19 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.5.1.815 (January 14, 2026)
+
+- Fixed:
+
+    Fixed Log Parser button behavior and added explicit 'Run' toggle.
+    Resolved Radiance pathing issues for more robust installation detection.
+    Fixed various OpenFOAM simulation crashes and boundary condition errors.
+    Restored functionality for multi-region simulations including vegetation (LAD).
+
+- Added:
+
+    Ability to specify custom installation paths for simulation engines (Radiance, EnergyPlus, BlueCFD).
 
 ### 0.5.0.815 (January 12, 2026)
 
