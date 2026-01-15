@@ -1,4 +1,4 @@
-0.5.1.815 (Jan. 14, 2026)
+0.5.2.815 (Jan. 14, 2026)
 
 
 !!! Compatibility
@@ -15,6 +15,22 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.5.2.815 (January 14, 2026)
+
+- Improved:
+
+    Several improvements including better handling of batch files, and more straightforward machine learning workflow. 
+    All the batch files are being stored in the case folder for more clear case folder organization.
+    The template component and the probe component is improved.
+    The 9_ML_Basic template is redesigned.
+
+- Added:
+
+    Ability to change number of cores for both meshing and simulation without grasshopper dependency over update_cores.bat file.
+    Ability to run the simulation with all available cores without grasshopper dependency over use_all_cores.bat file.
+    Ability to run the cases in any directory then they have created for the first time. There is no hardcoded paths, anymore.
+
 
 ### 0.5.1.815 (January 14, 2026)
 
