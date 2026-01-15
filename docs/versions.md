@@ -1,4 +1,4 @@
-0.5.3.815 (Jan. 15, 2026)
+0.5.4.815 (Jan. 15, 2026)
 
 
 !!! Compatibility
@@ -15,6 +15,13 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 
 ## Changelog
+
+### 0.5.4.815 (January 15, 2026)
+
+- Improved:
+
+    Some of the batch files are renamed for better clarity.
+
 
 ### 0.5.3.815 (January 15, 2026)
 
