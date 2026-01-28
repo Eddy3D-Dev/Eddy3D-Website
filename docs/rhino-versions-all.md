@@ -1,3 +1,4 @@
+    - [rhino_en-us_8.27.26019.16021.exe](https://files.mcneel.com/dujour/exe/20260119/rhino_en-us_8.27.26019.16021.exe)
     - [rhino_en-us_8.26.25349.19001.exe](https://files.mcneel.com/dujour/exe/20251215/rhino_en-us_8.26.25349.19001.exe)
     - [rhino_en-us_8.25.25328.11001.exe](https://files.mcneel.com/dujour/exe/20251124/rhino_en-us_8.25.25328.11001.exe)
     - [rhino_en-us_8.25.25314.11001.exe](https://files.mcneel.com/dujour/exe/20251110/rhino_en-us_8.25.25314.11001.exe)
