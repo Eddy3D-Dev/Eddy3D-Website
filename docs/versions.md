@@ -1,4 +1,4 @@
-0.5.6.815 (Jan. 27, 2026)
+0.5.7.815 (Jan. 29, 2026)
 
 !!! Compatibility
 
@@ -13,6 +13,17 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.5.7.815 (January 29, 2026)
+
+- Improved:
+  - Renamed "Templates" component to "Select Template" for better clarity.
+  - Enabled left-click interaction for the "Select Template" component to trigger the selection menu directly.
+  - Updated the component button text to "Select Template".
+
+- Fixed:
+  - Resolved build issues and dependency conflicts in `EddyLib`.
+  - Optimized the plugin's loading process by making `.ghlink` dynamic and removing redundant AppData copies.
 
 ### 0.5.6.815 (January 27, 2026)
 
