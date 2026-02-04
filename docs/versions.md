@@ -2,7 +2,7 @@
 
 !!! Compatibility
 
-    Tested with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20260119/rhino_en-us_8.27.26019.16021.exe). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
+    Tested with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20260119/rhino_en-us_8.27.26019.16021.exe). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
 
 ## Previous Versions
 
@@ -16,23 +16,23 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.5.8.815 (February 4, 2026)
 
-- Added:
+- **Added**
   - GNU GPL v3 license.
   - EPW downloader for streamlined weather file handling.
   - OpenFOAM log parsing and status reporting utilities.
 
-- Improved:
+- **Improved**
   - Centralized UI strings using `GH_Strings` for consistency and easier localization.
   - Updated simulation component robustness and input handling.
 
 ### 0.5.7.815 (January 29, 2026)
 
-- Improved:
+- **Improved**
   - Renamed "Templates" component to "Select Template" for better clarity.
   - Enabled left-click interaction for the "Select Template" component to trigger the selection menu directly.
   - Updated the component button text to "Select Template".
 
-- Fixed:
+- **Fixed**
   - Resolved build issues and dependency conflicts in `EddyLib`.
   - Optimized the plugin's loading process by making `.ghlink` dynamic and removing redundant AppData copies.
 
