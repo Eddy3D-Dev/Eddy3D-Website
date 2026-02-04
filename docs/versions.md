@@ -1,4 +1,4 @@
-0.5.7.815 (Jan. 29, 2026)
+0.5.8.815 (Feb. 4, 2026)
 
 !!! Compatibility
 
@@ -13,6 +13,17 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 [Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.5.8.815 (February 4, 2026)
+
+- Added:
+  - GNU GPL v3 license.
+  - EPW downloader for streamlined weather file handling.
+  - OpenFOAM log parsing and status reporting utilities.
+
+- Improved:
+  - Centralized UI strings using `GH_Strings` for consistency and easier localization.
+  - Updated simulation component robustness and input handling.
 
 ### 0.5.7.815 (January 29, 2026)
 
