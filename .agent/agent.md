@@ -11,9 +11,11 @@ This file contains rules and conventions that the AI agent (Antigravity) must fo
 
 ## Markdown Styling
 
-- In the changelog (`versions.md`), use bold categories for changes:
-  - `**Added**`
-  - `**Improved**`
-  - `**Fixed**`
-- Use 4-space indentation for sub-bullets under these categories to ensure proper rendering in MkDocs.
+- In the changelog (`versions.md`), categories must be a bullet point followed by a colon:
+  - `- Added:`
+  - `- Improved:`
+  - `- Fixed:`
+- The actual change entries must be placed in indented blocks (**2 spaces**) under the category.
+- Change entries should **NOT** have bullets.
+- Each entry should be separated by a blank line.
 - Remove any invisible or illegal characters (like `Â`) that may appear due to encoding issues.

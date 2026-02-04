@@ -16,25 +16,35 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.5.8.815 (February 4, 2026)
 
-- **Added**
-  - GNU GPL v3 license.
-  - EPW downloader for streamlined weather file handling.
-  - OpenFOAM log parsing and status reporting utilities.
+- Added:
 
-- **Improved**
-  - Centralized UI strings using `GH_Strings` for consistency and easier localization.
-  - Updated simulation component robustness and input handling.
+  GNU GPL v3 license.
+
+  EPW downloader for streamlined weather file handling.
+
+  OpenFOAM log parsing and status reporting utilities.
+
+- Improved:
+
+  Centralized UI strings using `GH_Strings` for consistency and easier localization.
+
+  Updated simulation component robustness and input handling.
 
 ### 0.5.7.815 (January 29, 2026)
 
-- **Improved**
-  - Renamed "Templates" component to "Select Template" for better clarity.
-  - Enabled left-click interaction for the "Select Template" component to trigger the selection menu directly.
-  - Updated the component button text to "Select Template".
+- Improved:
 
-- **Fixed**
-  - Resolved build issues and dependency conflicts in `EddyLib`.
-  - Optimized the plugin's loading process by making `.ghlink` dynamic and removing redundant AppData copies.
+  Renamed "Templates" component to "Select Template" for better clarity.
+
+  Enabled left-click interaction for the "Select Template" component to trigger the selection menu directly.
+
+  Updated the component button text to "Select Template".
+
+- Fixed:
+
+  Resolved build issues and dependency conflicts in `EddyLib`.
+
+  Optimized the plugin's loading process by making `.ghlink` dynamic and removing redundant AppData copies.
 
 ### 0.5.6.815 (January 27, 2026)
 
