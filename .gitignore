@@ -16,3 +16,8 @@ gitstatus.txt
 .secrets
 /.github/workflows/docs
 /site
+
+# Agent files
+.antigravityignore
+.agent/
+.gemini/
