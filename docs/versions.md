@@ -1,18 +1,42 @@
-0.5.8.815 (Feb. 4, 2026)
+0.6.0.821 (Feb. 10, 2026)
 
 !!! Compatibility
 
-    Tested with [**Rhino 8.15**](https://files.mcneel.com/dujour/exe/20260119/rhino_en-us_8.27.26019.16021.exe). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
-
-## Previous Versions
-
-Please use the form above to get access to previous Eddy3D versions. We will send you a link to your email inbox.
+    Tested with [**Rhino 8.21**](https://files.mcneel.com/dujour/exe/20250707/rhino_en-us_8.21.25188.17001.exe). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
 
 ## Known Issues
 
-[Eddy3D-Dev · Discussions · GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
+[Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.6.0.821 (February 10, 2026)
+
+Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev)
+
+- Added:
+
+  Cross-platform Docker execution support for OpenFOAM workflows.
+
+  A Live Residuals component and icon for improved simulation monitoring.
+
+  Installer/build automation updates, including a PowerShell-based installer build script.
+
+- Improved:
+
+  Path and working-directory handling across Windows and macOS.
+
+  OpenFOAM run command generation and case portability behavior.
+
+  Template, run settings, and simulation component robustness.
+
+- Fixed:
+
+  ParaView pipeline loading behavior on macOS.
+
+  Installer version propagation and build metadata consistency.
+
+  Multiple edge cases in wind/radiation execution paths and related tests.
 
 ### 0.5.8.815 (February 4, 2026)
 
@@ -228,13 +252,13 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 
 ### 0.4.15.0 (Jan 21, 2025)
 
-- Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [here](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
+- Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [here](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
 - https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe
 - https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe
 
 ### 0.4.8.0 (Mar 4, 2024)
 
-- Fixed: [Wind Factor Component version 4.2 is throwing error in Annual wind study template](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9)
+- Fixed: [Wind Factor Component version 4.2 is throwing error in Annual wind study template](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9)
 
 ### 0.4.2.1 (Jan 21, 2024)
 
@@ -243,40 +267,40 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 ### 0.4.2.0 (Dec 23, 2023)
 
 - Added: custom boundary conditions per individual wind direction.
-- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [here](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
+- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [here](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
 
 ### 0.4.1.4 (Nov 23, 2023)
 
-- Fixed issue with “covid19” function object for the indoor module.
+- Fixed issue with "covid19" function object for the indoor module.
 
 ### 0.4.1.1 (Apr 29, 2022)
 
-- New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1) with Indoor module.
+- New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1) with Indoor module.
 
 ### 0.4.1.0 (Apr 17, 2022)
 
-- Updated both outdoor and indoor module to [BlueCFD 2020](https://github.com/blueCFD/Core/releases/download/blueCFD-Core-2020-1/blueCFD-Core-2020-1-win64-setup.exe).
+- Updated both outdoor and indoor module to [BlueCFD 2020](https://github.com/blueCFD/Core/releases/download/blueCFD-Core-2020-1/blueCFD-Core-2020-1-win64-setup.exe).
 - Updated MRT calculation, still experimental.
 
 ### 0.4.0.10 (Apr 6, 2022)
 
-- Update to [BlueCFD 2020](https://github.com/blueCFD/Core/releases/download/blueCFD-Core-2020-1/blueCFD-Core-2020-1-win64-setup.exe).
+- Update to [BlueCFD 2020](https://github.com/blueCFD/Core/releases/download/blueCFD-Core-2020-1/blueCFD-Core-2020-1-win64-setup.exe).
 - Indoor Module
 - Updated MRT calculation.
-- Improved numerical robustness by [Tobias Holzmann](https://holzmann-cfd.com/).
+- Improved numerical robustness by [Tobias Holzmann](https://holzmann-cfd.com/).
 
 ### 0.3.8.0 (Feb 17, 2021)
 
 - Age of air in simulation domain can be evaluated.
 - Simulation of trees modeled as porous media is supported.
-- MRT component was updated with the TwoPhase method, see [this publication](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus).
+- MRT component was updated with the TwoPhase method, see [this publication](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus).
 - General stability has been improved.
 - Culling of probing points outside of domain is now robust.
 
 **Known issues**
 
-- Probing on decomposed cases doesn’t work for now (need to reconstruct first).
-- The latest release of Eddy3D (v0.3.8.0) currently *only* works with **Rhino 6**. McNeel made changes to the SDK in **Rhino 7** which renders the box-shaped simulation domain incompatible with v0.3.8.0. Fixed on beta branch.
+- Probing on decomposed cases doesn't work for now (need to reconstruct first).
+- The latest release of Eddy3D (v0.3.8.0) currently *only* works with **Rhino 6**. McNeel made changes to the SDK in **Rhino 7** which renders the box-shaped simulation domain incompatible with v0.3.8.0. Fixed on beta branch.
 
 ### 0.3.6.3
 
@@ -305,7 +329,7 @@ Please use the form above to get access to previous Eddy3D versions. We will sen
 ### 0.2.2
 
 - Fix: Both Box and Cylinder are converging properly when terrain is in use
-- Fix: Alwas load the residuals for the first wind direction instead of wind direction “0” if the selection is empty
+- Fix: Alwas load the residuals for the first wind direction instead of wind direction "0" if the selection is empty
 - Fix: locationInMesh works with Terrain for BoxDomain
 - Change: fvSchemes according to SimScale
 - Change: New mesh settings
