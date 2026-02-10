@@ -1,7 +1,5 @@
 # Download
 
-Signup is no longer required to download Eddy3D.
-
 ## Latest Release
 
 - **Download:** [Latest release](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest)
