@@ -5,7 +5,7 @@ Signup is no longer required to download Eddy3D.
 ## Latest Release
 
 - **Version:** `0.6.0.821`
-- **Latest version link:** [Latest tagged release](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest)
+- **Latest version link:** [Latest release](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest)
 - **Release history:** [All Eddy3D releases](https://github.com/Eddy3D-Dev/Eddy3D/releases)
 
 Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com).
