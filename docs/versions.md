@@ -4,10 +4,6 @@
 
     Tested with [**Rhino 8.21**](https://files.mcneel.com/dujour/exe/20250707/rhino_en-us_8.21.25188.17001.exe). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
 
-## Previous Versions
-
-All previous Eddy3D versions are available on [GitHub Releases](https://github.com/Eddy3D-Dev/Eddy3D/releases).
-
 ## Known Issues
 
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
