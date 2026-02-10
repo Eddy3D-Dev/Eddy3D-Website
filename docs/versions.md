@@ -1,4 +1,4 @@
-0.6.0.821 (Feb. 10, 2026)
+0.6.1.821 (Feb. 10, 2026)
 
 !!! Compatibility
 
@@ -10,7 +10,7 @@
 
 ## Changelog
 
-### 0.6.0.821 (February 10, 2026)
+### 0.6.1.821 (February 10, 2026)
 
 Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev)
 
