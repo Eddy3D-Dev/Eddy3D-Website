@@ -19,11 +19,7 @@ Depending on your use case, you may need additional software (BlueCFD, Radiance)
 
 ## Previous Rhino Versions
 
-!!! Links
-
-{%
-    include-markdown "rhino-versions-all.md"
-%}
+Official previous Rhino versions can be found at [**rhinoversions.github.io**](https://rhinoversions.github.io/).
 
 <style>
     /* Application header should be static for the landing page */
