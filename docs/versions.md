@@ -1,4 +1,4 @@
-0.6.1.821 (Feb. 10, 2026)
+0.6.2.821 (Feb. 11, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,11 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 0.6.2.821 (February 11, 2026)
+
+- Fixed: Docker logs
+- Fixed: General fixes
 
 ### 0.6.1.821 (February 10, 2026)
 
