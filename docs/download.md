@@ -4,6 +4,7 @@
 
 - **Download:** [Latest release](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest)
 - **Release history:** [All Eddy3D releases](https://github.com/Eddy3D-Dev/Eddy3D/releases)
+- **Current version:** `0.6.2.821` (February 11, 2026)
 
 Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com).
 
@@ -19,7 +20,7 @@ Depending on your use case, you may need additional software (BlueCFD, Radiance)
 
 ## Previous Rhino Versions
 
-Required Rhino 8.27 build details are listed at [**rhinoversions.github.io (8.27.26019.16022, en-us)**](https://rhinoversions.github.io/?version=8.27.26019.16022&locale=en-us).
+Use the Rhino version selection page at [**rhinoversions.github.io**](https://rhinoversions.github.io/).
 
 <style>
     /* Application header should be static for the landing page */
