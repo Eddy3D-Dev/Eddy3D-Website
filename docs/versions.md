@@ -2,7 +2,7 @@
 
 !!! Compatibility
 
-    Tested with [**Rhino 8.27**](https://files.mcneel.com/dujour/exe/20260119/rhino_en-us_8.27.26019.16021.exe) (RhinoCommon/Grasshopper `8.27.26019.16021`). Version selection page: [**rhinoversions.github.io**](https://rhinoversions.github.io/). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
+    Tested with [**Rhino 8.27**](https://files.mcneel.com/dujour/exe/20260119/rhino_en-us_8.27.26019.16021.exe) (RhinoCommon/Grasshopper `8.27.26019.16021`). Version selection page: [**Rhino**](https://rhinoversions.github.io/?version=8.27.26019.16022&locale=en-us). It might work with newer Rhino versions but they are untested. It does not work with Rhino 7 due to incompatibility issues introduced by McNeel (see below). If you need to downgrade or upgrade, please check the bottom of this page for specific Rhino download links.
 
 ## Known Issues
 

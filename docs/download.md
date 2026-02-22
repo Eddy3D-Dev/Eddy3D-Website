@@ -20,7 +20,7 @@ Depending on your use case, you may need additional software (BlueCFD, Radiance)
 
 ## Previous Rhino Versions
 
-Use the Rhino version selection page at [**rhinoversions.github.io**](https://rhinoversions.github.io/).
+Use the Rhino version selection page at [**Rhino**](https://rhinoversions.github.io/?version=8.27.26019.16022&locale=en-us).
 
 <style>
     /* Application header should be static for the landing page */
