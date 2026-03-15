@@ -167,7 +167,7 @@ left: -999px;
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/dogan.jpg" alt="Patrick Kastner" loading="lazy">
+    <img src="assets/images/team/dogan.jpg" alt="Timur Dogan" loading="lazy">
     <figcaption class="md-typeset">Timur Dogan</figcaption>
   </figure>
 
