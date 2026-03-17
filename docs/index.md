@@ -82,7 +82,7 @@ left: -999px;
 
 <div class="grid cards" markdown>
 
--   ![](assets/images/asset_18.png){ width="300" loading=lazy .skip-lightbox  .center}
+-   ![Clean user interface for urban wind flow analysis](assets/images/asset_18.png){ width="300" loading=lazy .skip-lightbox  .center}
 
     ---
 
@@ -90,7 +90,7 @@ left: -999px;
     
     Clean and easy-to-use UI for urban wind flow analysis.
 
--   ![](assets/images/asset_19.png){ width="255" loading=lazy .skip-lightbox  .center} 
+-   ![Realistic terrain rendering for simulation setups](assets/images/asset_19.png){ width="255" loading=lazy .skip-lightbox  .center}
 
     ---
 
@@ -98,14 +98,14 @@ left: -999px;
 
     Add realistic terrain to your simulation setup.
 
--   ![](assets/images/asset_31.png){ width="410" loading=lazy .skip-lightbox  .center} 
+-   ![Annual outdoor thermal comfort assessment map](assets/images/asset_31.png){ width="410" loading=lazy .skip-lightbox  .center}
 
     ---
     __OUTDOOR THERMAL COMFORT__
 
     Annual outdoor thermal comfort assessment for climate-responsive masterplanning.
  
--   ![](assets/images/asset_25.png){ width="300" loading=lazy .skip-lightbox  .center} 
+-   ![Post-processing of custom surfaces for EnergyPlus integration](assets/images/asset_25.png){ width="300" loading=lazy .skip-lightbox  .center}
      
 
     ---
@@ -113,7 +113,7 @@ left: -999px;
 
     Post-processing of custom surfaces for Air Flow Network integration into EnergyPlus.
   
--   ![](assets/images/asset_22.png){ width="350" loading=lazy .skip-lightbox  .center}  
+-   ![Urban turntable visualization for fast airflow analysis](assets/images/asset_22.png){ width="350" loading=lazy .skip-lightbox  .center}
     
 
     ---
@@ -121,7 +121,7 @@ left: -999px;
 
     Urban turntable for fast outdoor airflow analysis.
 
--   ![](assets/images/asset_29.png){ width="450" loading=lazy .skip-lightbox  .center} 
+-   ![Validated simulation engine showing accurate computational results](assets/images/asset_29.png){ width="450" loading=lazy .skip-lightbox  .center}
     
 
     ---
