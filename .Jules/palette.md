@@ -9,3 +9,7 @@
 ## 2026-03-17 - [Missing Alt Text in MkDocs Feature Grids]
 **Learning:** MkDocs feature grids often use empty image tags (`![]()`) for layout purposes. This hides important visual context for screen reader users. Every image that conveys meaning, such as UI visualizations or key features, must have a descriptive `alt` attribute.
 **Action:** When adding or reviewing images in MkDocs, especially within feature grids or cards, explicitly write out descriptive `alt` text to ensure content is accessible to all users.
+
+## 2026-03-18 - [Accessibility Impact of pointer-events: none]
+**Learning:** Using CSS `pointer-events: none` on interactive or layout elements (like `<img>` tags) to prevent plugin behaviors (like image lightboxes) breaks standard accessibility and UX interactions, such as hover states. A much better pattern is utilizing plugin-specific mechanisms, such as assigning a `skip-lightbox` class to images that should be ignored by the lightbox plugin, allowing native pointer events like hover to function correctly and present visual feedback to the user.
+**Action:** Avoid `pointer-events: none` to disable plugins unless strictly necessary. Check the plugin documentation for intended skip classes or exclusion properties.

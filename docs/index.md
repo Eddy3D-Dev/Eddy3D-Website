@@ -37,7 +37,6 @@ left: -999px;
 .mdx-users__testimonial {
   text-align: center;
   max-width: 220px;         /* Limits width so they stay aligned */
-  pointer-events: none; /* Disables mouse clicks and other pointer interactions */
 }
 
 .mdx-users__testimonial img {
@@ -45,7 +44,6 @@ left: -999px;
   border: 3px solid #ddd;
   width: 150px;
   height: 150px;
-  pointer-events: none; /* Disables mouse clicks and other pointer interactions */
 }
 .center {
     display: block;
@@ -53,8 +51,17 @@ left: -999px;
 }
 .black-and-white {
    filter: grayscale(100%);
-   /* Optionally add vendor prefixes for older browser support */
-   /* -webkit-filter: grayscale(100%); */
+   -webkit-filter: grayscale(100%);
+   -moz-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+   transition: filter 0.3s ease, -webkit-filter 0.3s ease, -moz-filter 0.3s ease, -ms-filter 0.3s ease;
+}
+
+.black-and-white:hover {
+   filter: grayscale(0%);
+   -webkit-filter: grayscale(0%);
+   -moz-filter: grayscale(0%);
+   -ms-filter: grayscale(0%);
 }
 </style>
 
@@ -141,33 +148,33 @@ left: -999px;
 <div class="mdx-users">
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/kastner.jpg" alt="Patrick Kastner" loading="lazy">
+    <img src="assets/images/team/kastner.jpg" alt="Patrick Kastner" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Patrick Kastner</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/karadag.jpg" alt="İlker Karadağ" loading="lazy">
+    <img src="assets/images/team/karadag.jpg" alt="İlker Karadağ" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">İlker Karadağ</figcaption>
   </figure>
 
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/rahimi.jpg" alt="Sina Rahimi" loading="lazy">
+    <img src="assets/images/team/rahimi.jpg" alt="Sina Rahimi" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Sina Rahimi</figcaption>
   </figure>
   
   <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/vegas.jpg" alt="Gonzalo Vegas" loading="lazy">
+    <img src="assets/images/team/vegas.jpg" alt="Gonzalo Vegas" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Gonzalo Vegas</figcaption>
   </figure>
   
    <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/alvarez.jpg" alt="Marcelo Álvarez" loading="lazy">
+    <img src="assets/images/team/alvarez.jpg" alt="Marcelo Álvarez" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Marcelo Álvarez</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/dogan.jpg" alt="Timur Dogan" loading="lazy">
+    <img src="assets/images/team/dogan.jpg" alt="Timur Dogan" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Timur Dogan</figcaption>
   </figure>
 
@@ -180,17 +187,17 @@ left: -999px;
 <div class="mdx-users">
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/holzmann.jpg" alt="Tobias Holzmann" loading="lazy">
+    <img src="assets/images/team/holzmann.jpg" alt="Tobias Holzmann" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Tobias Holzmann</figcaption>
   </figure>
  
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/mermelstein.jpg" alt="Remy Mermelstein" loading="lazy">
+    <img src="assets/images/team/mermelstein.jpg" alt="Remy Mermelstein" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Remy Mermelstein</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/de-simone.jpg" alt="Zoe De Simone" loading="lazy">
+    <img src="assets/images/team/de-simone.jpg" alt="Zoe De Simone" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Zoe De Simone</figcaption>
   </figure>
 
