@@ -13,3 +13,6 @@
 ## 2026-03-18 - [Accessibility Impact of pointer-events: none]
 **Learning:** Using CSS `pointer-events: none` on interactive or layout elements (like `<img>` tags) to prevent plugin behaviors (like image lightboxes) breaks standard accessibility and UX interactions, such as hover states. A much better pattern is utilizing plugin-specific mechanisms, such as assigning a `skip-lightbox` class to images that should be ignored by the lightbox plugin, allowing native pointer events like hover to function correctly and present visual feedback to the user.
 **Action:** Avoid `pointer-events: none` to disable plugins unless strictly necessary. Check the plugin documentation for intended skip classes or exclusion properties.
+## 2026-03-20 - [Redundant Alt Text with Figcaptions]
+**Learning:** In `docs/index.md`, team member images within `<figure>` blocks had their names in both the `alt` attribute and the `<figcaption>`. This causes screen readers to announce the name redundantly, resulting in a poor experience. It's better to use an empty `alt=""` attribute when an adjacent visible text correctly identifies the image content.
+**Action:** When adding images inside `<figure>` tags with descriptive `<figcaption>`s, set the image's `alt` attribute to `""` to avoid redundant announcements by screen readers.
