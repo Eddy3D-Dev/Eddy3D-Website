@@ -148,33 +148,33 @@ left: -999px;
 <div class="mdx-users">
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/kastner.jpg" alt="Patrick Kastner" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/kastner.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Patrick Kastner</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/karadag.jpg" alt="İlker Karadağ" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/karadag.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">İlker Karadağ</figcaption>
   </figure>
 
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/rahimi.jpg" alt="Sina Rahimi" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/rahimi.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Sina Rahimi</figcaption>
   </figure>
   
   <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/vegas.jpg" alt="Gonzalo Vegas" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/vegas.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Gonzalo Vegas</figcaption>
   </figure>
   
    <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/alvarez.jpg" alt="Marcelo Álvarez" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/alvarez.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Marcelo Álvarez</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/dogan.jpg" alt="Timur Dogan" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/dogan.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Timur Dogan</figcaption>
   </figure>
 
@@ -187,17 +187,17 @@ left: -999px;
 <div class="mdx-users">
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/holzmann.jpg" alt="Tobias Holzmann" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/holzmann.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Tobias Holzmann</figcaption>
   </figure>
  
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/mermelstein.jpg" alt="Remy Mermelstein" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/mermelstein.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Remy Mermelstein</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/de-simone.jpg" alt="Zoe De Simone" loading="lazy" class="skip-lightbox">
+    <img src="assets/images/team/de-simone.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Zoe De Simone</figcaption>
   </figure>
 
@@ -205,8 +205,8 @@ left: -999px;
 
 ---
 
-![Cornell](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}  
-![Atkinson](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
+![Sustainable Urban Systems Lab logo](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}
+![Environmental Systems Lab logo](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
 <center markdown="1">
 :octicons-plus-24:
 </center>
@@ -221,22 +221,22 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 
 <div class="grid" markdown>
 
-![SoA](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
+![Georgia Tech School of Architecture logo](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![GT](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
+![Georgia Tech logo](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![AAP](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center} 
+![Cornell AAP logo](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Cornell](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center} 
+![Cornell University logo](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Atkinson](assets/images/atkinson.png){width="200" .skip-lightbox loading=lazy .center}
+![Cornell Atkinson Center for Sustainability logo](assets/images/atkinson.png){width="200" .skip-lightbox loading=lazy .center}
 { .card }
 
-![SysEn](assets/images/logo-systemseng.svg){width="250" .skip-lightbox loading=lazy .center}
+![Cornell Systems Engineering logo](assets/images/logo-systemseng.svg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
 </div>
