@@ -13,6 +13,10 @@ hide:
   font-weight: bold;
   padding: 12px 24px;
 }
+.md-button:focus-visible {
+  outline: 3px solid #005999;
+  outline-offset: 2px;
+}
 .md-button--primary {
   background-color: #007acc;
   color: white;

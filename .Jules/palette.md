@@ -16,3 +16,7 @@
 ## 2026-03-20 - [Redundant Alt Text with Figcaptions]
 **Learning:** In `docs/index.md`, team member images within `<figure>` blocks had their names in both the `alt` attribute and the `<figcaption>`. This causes screen readers to announce the name redundantly, resulting in a poor experience. It's better to use an empty `alt=""` attribute when an adjacent visible text correctly identifies the image content.
 **Action:** When adding images inside `<figure>` tags with descriptive `<figcaption>`s, set the image's `alt` attribute to `""` to avoid redundant announcements by screen readers.
+
+## 2026-03-20 - [Missing Focus States on Custom Buttons]
+**Learning:** When adding custom classes (like `.md-button`) or overriding MkDocs Material's default styling, it's easy to forget interactive pseudo-classes like `:focus-visible`. Without this, keyboard users lose track of their position on the page when navigating via the Tab key, which is a major accessibility issue.
+**Action:** Whenever adding or customizing interactive elements (buttons, links), always implement a `:focus-visible` state with clear contrast (e.g., `outline: 3px solid [color]; outline-offset: 2px;`) to ensure proper keyboard navigation feedback.
