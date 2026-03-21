@@ -25,10 +25,17 @@ hide:
   text-align: center;
   display: block;
 }
-/* find better solution for this later */
+/* Use modern, accessible screen-reader-only pattern to visually hide H1 */
 .md-typeset h1 {
-position: absolute;
-left: -999px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .mdx-users {
