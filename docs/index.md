@@ -76,6 +76,8 @@ hide:
 }
 </style>
 
+# Eddy3D
+
 <figure markdown="span">
   ![Eddy3D Logo](assets/cd/LogoEddy-01_preview-crop.png){ width="250" .skip-lightbox }
 </figure>
