@@ -26,8 +26,8 @@ Hi,
 This is my question.
 —
 OS: Windows 11 Pro
-Eddy3D Version: 0.4.17.815
-Rhino Version: 8.15.25019.13001
+Eddy3D Version: 0.7.0-beta.827
+Rhino Version: 8.27.26019.16022
 ```
 
 ## How to increase the probability of receiving fast and helpful answers

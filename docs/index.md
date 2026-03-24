@@ -105,6 +105,10 @@ hide:
   <a href="download/" class="md-button">Download</a>
 </div>
 
+<p style="text-align: center; margin-top: 0.75rem;">
+  Latest stable release and pre-release builds are listed on the <a href="download/">download page</a>.
+</p>
+
 
 ---
 
@@ -263,4 +267,3 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 { .card }
 
 </div>
-
