@@ -28,3 +28,7 @@
 ## 2026-03-23 - [Missing H1 Tags on Visually Custom Pages]
 **Learning:** Even when a page's visual design calls for the main title to be hidden (like on a landing page where a logo image is used instead), a level 1 heading (`<h1>` or `#`) is still strictly required for screen reader users to understand the page's primary topic and maintain a valid document outline. The existing CSS (`.md-typeset h1` using the `.sr-only` pattern) was already in place to visually hide it, but the actual markdown heading was missing.
 **Action:** Never skip the main `# Heading` on any page, even custom landing pages. If it shouldn't be visible, apply a `.sr-only` utility class or visually-hidden CSS to the heading rather than omitting it entirely.
+
+## 2026-03-24 - [Missing Hover States on Custom CTA Buttons]
+**Learning:** When adding custom classes (like `.md-button`) or overriding MkDocs Material's default styling, it's easy to forget interactive pseudo-classes like `:hover`. Without this, users lack visual feedback when interacting with buttons. Adding a simple transition (e.g. `transform`, `box-shadow`) drastically improves the tactile feel of the UI.
+**Action:** Whenever adding or customizing interactive elements (buttons, links), always implement a `:hover` state and consider small transitions (like moving the button up slightly with `transform: translateY(-2px);` or adding a `box-shadow`) to maintain a responsive, tactile UX.

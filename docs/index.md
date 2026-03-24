@@ -12,6 +12,12 @@ hide:
   font-size: 16px;
   font-weight: bold;
   padding: 12px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.md-button:hover,
+.md-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 .md-button:focus-visible {
   outline: 3px solid #005999;
@@ -20,6 +26,10 @@ hide:
 .md-button--primary {
   background-color: #007acc;
   color: white;
+}
+.md-button--primary:hover,
+.md-button--primary:focus-visible {
+  background-color: #005999;
 }
 .center-text {
   text-align: center;
