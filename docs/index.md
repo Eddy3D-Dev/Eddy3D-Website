@@ -12,19 +12,40 @@ hide:
   font-size: 16px;
   font-weight: bold;
   padding: 12px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.md-button:hover,
+.md-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.md-button:focus-visible {
+  outline: 3px solid #005999;
+  outline-offset: 2px;
 }
 .md-button--primary {
   background-color: #007acc;
   color: white;
 }
+.md-button--primary:hover,
+.md-button--primary:focus-visible {
+  background-color: #005999;
+}
 .center-text {
   text-align: center;
   display: block;
 }
-/* find better solution for this later */
+/* Use modern, accessible screen-reader-only pattern to visually hide H1 */
 .md-typeset h1 {
-position: absolute;
-left: -999px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .mdx-users {
@@ -37,7 +58,6 @@ left: -999px;
 .mdx-users__testimonial {
   text-align: center;
   max-width: 220px;         /* Limits width so they stay aligned */
-  pointer-events: none; /* Disables mouse clicks and other pointer interactions */
 }
 
 .mdx-users__testimonial img {
@@ -45,7 +65,6 @@ left: -999px;
   border: 3px solid #ddd;
   width: 150px;
   height: 150px;
-  pointer-events: none; /* Disables mouse clicks and other pointer interactions */
 }
 .center {
     display: block;
@@ -53,10 +72,21 @@ left: -999px;
 }
 .black-and-white {
    filter: grayscale(100%);
-   /* Optionally add vendor prefixes for older browser support */
-   /* -webkit-filter: grayscale(100%); */
+   -webkit-filter: grayscale(100%);
+   -moz-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+   transition: filter 0.3s ease, -webkit-filter 0.3s ease, -moz-filter 0.3s ease, -ms-filter 0.3s ease;
+}
+
+.black-and-white:hover {
+   filter: grayscale(0%);
+   -webkit-filter: grayscale(0%);
+   -moz-filter: grayscale(0%);
+   -ms-filter: grayscale(0%);
 }
 </style>
+
+# Eddy3D
 
 <figure markdown="span">
   ![Eddy3D Logo](assets/cd/LogoEddy-01_preview-crop.png){ width="250" .skip-lightbox }
@@ -75,6 +105,10 @@ left: -999px;
   <a href="download/" class="md-button">Download</a>
 </div>
 
+<p style="text-align: center; margin-top: 0.75rem;">
+  Latest stable release and pre-release builds are listed on the <a href="download/">download page</a>.
+</p>
+
 
 ---
 
@@ -82,7 +116,7 @@ left: -999px;
 
 <div class="grid cards" markdown>
 
--   ![](assets/images/asset_18.png){ width="300" loading=lazy .skip-lightbox  .center}
+-   ![Clean user interface for urban wind flow analysis](assets/images/asset_18.png){ width="300" loading=lazy .skip-lightbox  .center}
 
     ---
 
@@ -90,7 +124,7 @@ left: -999px;
     
     Clean and easy-to-use UI for urban wind flow analysis.
 
--   ![](assets/images/asset_19.png){ width="255" loading=lazy .skip-lightbox  .center} 
+-   ![Realistic terrain rendering for simulation setups](assets/images/asset_19.png){ width="255" loading=lazy .skip-lightbox  .center}
 
     ---
 
@@ -98,14 +132,14 @@ left: -999px;
 
     Add realistic terrain to your simulation setup.
 
--   ![](assets/images/asset_31.png){ width="410" loading=lazy .skip-lightbox  .center} 
+-   ![Annual outdoor thermal comfort assessment map](assets/images/asset_31.png){ width="410" loading=lazy .skip-lightbox  .center}
 
     ---
     __OUTDOOR THERMAL COMFORT__
 
     Annual outdoor thermal comfort assessment for climate-responsive masterplanning.
  
--   ![](assets/images/asset_25.png){ width="300" loading=lazy .skip-lightbox  .center} 
+-   ![Post-processing of custom surfaces for EnergyPlus integration](assets/images/asset_25.png){ width="300" loading=lazy .skip-lightbox  .center}
      
 
     ---
@@ -113,7 +147,7 @@ left: -999px;
 
     Post-processing of custom surfaces for Air Flow Network integration into EnergyPlus.
   
--   ![](assets/images/asset_22.png){ width="350" loading=lazy .skip-lightbox  .center}  
+-   ![Urban turntable visualization for fast airflow analysis](assets/images/asset_22.png){ width="350" loading=lazy .skip-lightbox  .center}
     
 
     ---
@@ -121,7 +155,7 @@ left: -999px;
 
     Urban turntable for fast outdoor airflow analysis.
 
--   ![](assets/images/asset_29.png){ width="450" loading=lazy .skip-lightbox  .center} 
+-   ![Validated simulation engine showing accurate computational results](assets/images/asset_29.png){ width="450" loading=lazy .skip-lightbox  .center}
     
 
     ---
@@ -141,33 +175,33 @@ left: -999px;
 <div class="mdx-users">
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/kastner.jpg" alt="Patrick Kastner" loading="lazy">
+    <img src="assets/images/team/kastner.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Patrick Kastner</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/karadag.jpg" alt="İlker Karadağ" loading="lazy">
+    <img src="assets/images/team/karadag.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">İlker Karadağ</figcaption>
   </figure>
 
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/rahimi.jpg" alt="Sina Rahimi" loading="lazy">
+    <img src="assets/images/team/rahimi.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Sina Rahimi</figcaption>
   </figure>
   
   <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/vegas.jpg" alt="Gonzalo Vegas" loading="lazy">
+    <img src="assets/images/team/vegas.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Gonzalo Vegas</figcaption>
   </figure>
   
    <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/alvarez.jpg" alt="Marcelo Álvarez" loading="lazy">
+    <img src="assets/images/team/alvarez.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Marcelo Álvarez</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/dogan.jpg" alt="Patrick Kastner" loading="lazy">
+    <img src="assets/images/team/dogan.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Timur Dogan</figcaption>
   </figure>
 
@@ -180,17 +214,17 @@ left: -999px;
 <div class="mdx-users">
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/holzmann.jpg" alt="Tobias Holzmann" loading="lazy">
+    <img src="assets/images/team/holzmann.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Tobias Holzmann</figcaption>
   </figure>
  
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/mermelstein.jpg" alt="Remy Mermelstein" loading="lazy">
+    <img src="assets/images/team/mermelstein.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Remy Mermelstein</figcaption>
   </figure>
 
 <figure class="mdx-users__testimonial black-and-white">
-    <img src="assets/images/team/de-simone.jpg" alt="Zoe De Simone" loading="lazy">
+    <img src="assets/images/team/de-simone.jpg" alt="" loading="lazy" class="skip-lightbox">
     <figcaption class="md-typeset">Zoe De Simone</figcaption>
   </figure>
 
@@ -198,8 +232,8 @@ left: -999px;
 
 ---
 
-![Cornell](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}  
-![Atkinson](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
+![Sustainable Urban Systems Lab logo](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}
+![Environmental Systems Lab logo](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
 <center markdown="1">
 :octicons-plus-24:
 </center>
@@ -214,23 +248,22 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 
 <div class="grid" markdown>
 
-![SoA](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
+![Georgia Tech School of Architecture logo](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![GT](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
+![Georgia Tech logo](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![AAP](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center} 
+![Cornell AAP logo](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Cornell](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center} 
+![Cornell University logo](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Atkinson](assets/images/atkinson.png){width="200" .skip-lightbox loading=lazy .center}
+![Cornell Atkinson Center for Sustainability logo](assets/images/atkinson.png){width="200" .skip-lightbox loading=lazy .center}
 { .card }
 
-![SysEn](assets/images/logo-systemseng.svg){width="250" .skip-lightbox loading=lazy .center}
+![Cornell Systems Engineering logo](assets/images/logo-systemseng.svg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
 </div>
-

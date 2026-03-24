@@ -4,10 +4,14 @@ hide:
   # - toc
 ---
 
+# Publications
+
 Publications related to Eddy3D are listed below, grouped by modules. See [Researchgate](https://www.researchgate.net/profile/Patrick-Kastner/research) for more info.
 
 ## Outdoor+
 
+!!! warning "Alpha Version"
+    Outdoor+ is currently in alpha. Use with caution.
 
 <div class="annotate" markdown>
 - @rahimi2025coupled (1)(2)

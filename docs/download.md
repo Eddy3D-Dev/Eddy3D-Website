@@ -1,10 +1,15 @@
 # Download
 
-## Latest Release
+## Current Versions
 
-- **Download:** [Latest release](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest)
+- **Package page:** [Rhino Packages](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D)
 - **Release history:** [All Eddy3D releases](https://github.com/Eddy3D-Dev/Eddy3D/releases)
 - **Current version:** `0.6.2.821` (February 11, 2026)
+
+| Channel | Version | Date | Platform | Rhino | Install | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| Pre-release | `0.7.0-beta.827` | March 24, 2026 | Windows | 8.27 | [Install beta](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D) | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.7.0-beta.827) |
+| Stable release | `0.6.2.821` | February 11, 2026 | Windows | 8.27 | [Download stable](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest) | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.6.2.821) |
 
 Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com).
 

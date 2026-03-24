@@ -7,7 +7,7 @@ span.em {
 }
 
 .separator {
-  border-bottom: 1px solid #e3e8ee;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
 }
 
 a.field {
@@ -18,22 +18,22 @@ a.field {
 
 span.parent-field {
   font-weight: 600;
-  color:#a3acb9;
+  color: var(--md-default-fg-color--light);
   font-size: .85em;
 }
 
 span.type {
-  color: #8792a2;
+  color: var(--md-default-fg-color--light);
   font-size: .7rem;
   margin-right: 4px;
 }
 
 span.version {
-  color: #8792a2;
+  color: var(--md-default-fg-color--light);
   font-size: .7rem;
   float: right;
 }
 
 span.faint {
-  color: #8792a2;
+  color: var(--md-default-fg-color--light);
 }
