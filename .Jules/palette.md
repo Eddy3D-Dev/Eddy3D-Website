@@ -32,3 +32,7 @@
 ## 2026-03-24 - [Missing Hover States on Custom CTA Buttons]
 **Learning:** When adding custom classes (like `.md-button`) or overriding MkDocs Material's default styling, it's easy to forget interactive pseudo-classes like `:hover`. Without this, users lack visual feedback when interacting with buttons. Adding a simple transition (e.g. `transform`, `box-shadow`) drastically improves the tactile feel of the UI.
 **Action:** Whenever adding or customizing interactive elements (buttons, links), always implement a `:hover` state and consider small transitions (like moving the button up slightly with `transform: translateY(-2px);` or adding a `box-shadow`) to maintain a responsive, tactile UX.
+
+## 2026-03-24 - [Ambiguous Link Text in Screen Reader Link Lists]
+**Learning:** Links like "Get Started", "Download", or "Learn More" make perfect sense visually due to surrounding context. However, screen reader users frequently navigate a page by pulling up a list of all links. Out of context, these links become ambiguous. Adding a descriptive `aria-label` (e.g., `aria-label="Download Eddy3D"`) preserves the clean visual design while providing complete context to assistive technologies.
+**Action:** Whenever creating call-to-action buttons with generic text, always add a descriptive `aria-label` to provide context for users navigating out-of-context.

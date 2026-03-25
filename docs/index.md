@@ -101,8 +101,8 @@ hide:
 ![Eddy3D Example Canvas](assets/images/combo.png){.skip-lightbox}
 
 <div align="center">
-  <a href="https://docs.eddy3d.com/" class="md-button md-button--primary">Get Started</a>
-  <a href="download/" class="md-button">Download</a>
+  <a href="https://docs.eddy3d.com/" class="md-button md-button--primary" aria-label="Get Started with Eddy3D Documentation">Get Started</a>
+  <a href="download/" class="md-button" aria-label="Download Eddy3D">Download</a>
 </div>
 
 <p style="text-align: center; margin-top: 0.75rem;">
