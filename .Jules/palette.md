@@ -40,3 +40,7 @@
 ## 2026-03-26 - [Ambiguous Repeating Links in Markdown Tables]
 **Learning:** Tables summarizing repeated items often use concise, generic link text like "3DM", "GHX", "Install", or "Release notes" in every row. While visually understandable due to column and row headers, these repeating links are confusing for screen reader users navigating via a link list, as they lack context. MkDocs supports inline attribute lists (e.g., `[Link Text](url){ aria-label="Descriptive Text" }`), which allows for adding descriptive context to these links without cluttering the visual table.
 **Action:** When creating or maintaining markdown tables with repeating, generic link text, use the `{ aria-label="..." }` syntax to provide unique, row-specific context for each link.
+
+## 2026-03-27 - [Descriptive Link Text]
+**Learning:** Using generic phrases like "here" (e.g., "see [here](url)") or "this publication" as link text creates a severe accessibility barrier for screen reader users, who frequently navigate by reading a list of links out of context. "Here" provides zero information about the link's destination or purpose.
+**Action:** Always write descriptive link text that explains the destination or purpose of the link (e.g., "see [the discussion on curve extension methods](url)"), rather than relying on the surrounding sentence for context.

@@ -287,7 +287,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.15.0 (Jan 21, 2025)
 
-- Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [here](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
+- Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [the discussion on curve extension methods](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
 - https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe
 - https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe
 
@@ -302,7 +302,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 ### 0.4.2.0 (Dec 23, 2023)
 
 - Added: custom boundary conditions per individual wind direction.
-- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [here](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
+- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [issue #9 on GitHub](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
 
 ### 0.4.1.4 (Nov 23, 2023)
 
@@ -328,7 +328,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 - Age of air in simulation domain can be evaluated.
 - Simulation of trees modeled as porous media is supported.
-- MRT component was updated with the TwoPhase method, see [this publication](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus).
+- MRT component was updated with the TwoPhase method, see [the publication on predicting space usage by multi-objective assessment](https://www.researchgate.net/publication/346039200_Predicting_space_usage_by_multi-objective_assessment_of_outdoor_thermal_comfort_around_a_university_campus).
 - General stability has been improved.
 - Culling of probing points outside of domain is now robust.
 
