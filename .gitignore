@@ -21,3 +21,4 @@ gitstatus.txt
 .antigravityignore
 .agent/
 .gemini/
+venv/
