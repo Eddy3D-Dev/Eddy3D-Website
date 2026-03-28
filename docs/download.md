@@ -8,13 +8,8 @@
 
 | Channel | Version | Date | Platform | Rhino | Install | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Pre-release | `0.7.0-beta.827` | March 24, 2026 | Windows | 8.27 | [Install beta](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D) | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.7.0-beta.827) |
-| Stable release | `0.6.2.821` | February 11, 2026 | Windows | 8.27 | [Download stable](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest) | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.6.2.821) |
-
-| Channel | Version | Date | Platform | Rhino | Install | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
-| Pre-release | `0.7.0-beta.827` | March 24, 2026 | Windows | 8.27 | [Install beta](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D) | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.7.0-beta.827) |
-| Stable release | `0.6.2.821` | February 11, 2026 | Windows | 8.27 | [Download stable](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest) | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.6.2.821) |
+| Pre-release | `0.7.0-beta.827` | March 24, 2026 | Windows | 8.27 | [Install beta](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Pre-release beta 0.7.0-beta.827" } | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.7.0-beta.827){ aria-label="Pre-release beta 0.7.0-beta.827 release notes" } |
+| Stable release | `0.6.2.821` | February 11, 2026 | Windows | 8.27 | [Download stable](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest){ aria-label="Download Stable release 0.6.2.821" } | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.6.2.821){ aria-label="Stable release 0.6.2.821 release notes" } |
 
 Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com).
 

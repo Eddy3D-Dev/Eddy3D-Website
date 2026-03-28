@@ -32,3 +32,15 @@
 ## 2026-03-24 - [Missing Hover States on Custom CTA Buttons]
 **Learning:** When adding custom classes (like `.md-button`) or overriding MkDocs Material's default styling, it's easy to forget interactive pseudo-classes like `:hover`. Without this, users lack visual feedback when interacting with buttons. Adding a simple transition (e.g. `transform`, `box-shadow`) drastically improves the tactile feel of the UI.
 **Action:** Whenever adding or customizing interactive elements (buttons, links), always implement a `:hover` state and consider small transitions (like moving the button up slightly with `transform: translateY(-2px);` or adding a `box-shadow`) to maintain a responsive, tactile UX.
+
+## 2026-03-24 - [Ambiguous Link Text in Screen Reader Link Lists]
+**Learning:** Links like "Get Started", "Download", or "Learn More" make perfect sense visually due to surrounding context. However, screen reader users frequently navigate a page by pulling up a list of all links. Out of context, these links become ambiguous. Adding a descriptive `aria-label` (e.g., `aria-label="Download Eddy3D"`) preserves the clean visual design while providing complete context to assistive technologies.
+**Action:** Whenever creating call-to-action buttons with generic text, always add a descriptive `aria-label` to provide context for users navigating out-of-context.
+
+## 2026-03-26 - [Ambiguous Repeating Links in Markdown Tables]
+**Learning:** Tables summarizing repeated items often use concise, generic link text like "3DM", "GHX", "Install", or "Release notes" in every row. While visually understandable due to column and row headers, these repeating links are confusing for screen reader users navigating via a link list, as they lack context. MkDocs supports inline attribute lists (e.g., `[Link Text](url){ aria-label="Descriptive Text" }`), which allows for adding descriptive context to these links without cluttering the visual table.
+**Action:** When creating or maintaining markdown tables with repeating, generic link text, use the `{ aria-label="..." }` syntax to provide unique, row-specific context for each link.
+
+## 2026-03-27 - [Descriptive Link Text]
+**Learning:** Using generic phrases like "here" (e.g., "see [here](url)") or "this publication" as link text creates a severe accessibility barrier for screen reader users, who frequently navigate by reading a list of links out of context. "Here" provides zero information about the link's destination or purpose.
+**Action:** Always write descriptive link text that explains the destination or purpose of the link (e.g., "see [the discussion on curve extension methods](url)"), rather than relying on the surrounding sentence for context.
