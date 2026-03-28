@@ -46,21 +46,16 @@
 
     const updateFavicons = (asset) => {
       const links = document.querySelectorAll("link[rel='icon'], link[rel='shortcut icon']");
+      const current = links[0]?.getAttribute("href");
+      if (links.length === 1 && current === asset) return;
 
-      if (!links.length) {
-        const link = document.createElement("link");
-        link.rel = "icon";
-        link.setAttribute("data-eddy-favicon", "true");
-        link.setAttribute("href", asset);
-        document.head.appendChild(link);
-        return;
-      }
+      links.forEach((link) => link.remove());
 
-      links.forEach((link) => {
-        if (link.getAttribute("href") !== asset) {
-          link.setAttribute("href", asset);
-        }
-      });
+      const link = document.createElement("link");
+      link.rel = "icon";
+      link.type = "image/svg+xml";
+      link.setAttribute("href", asset);
+      document.head.appendChild(link);
     };
 
     const applyThemeAssets = () => {
