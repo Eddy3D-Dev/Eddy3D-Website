@@ -28,6 +28,14 @@
     const heroDarkAsset = "{{ 'assets/cd/LogoEddy-01_preview-crop-white.png' | url }}";
 
     const getScheme = () => {
+      const palette = window.__md_get?.("__palette");
+      const paletteScheme = palette?.color?.scheme;
+      const paletteMedia = palette?.color?.media;
+      if (paletteMedia === "(prefers-color-scheme)") {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
+      }
+      if (paletteScheme) return paletteScheme;
+
       const scheme = document.body?.getAttribute("data-md-color-scheme");
       if (scheme) return scheme;
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
@@ -71,6 +79,9 @@
 
       updateFavicons(asset);
     };
+
+    // Update favicon links immediately in <head> so dark-mode pages don't flash the default black icon.
+    updateFavicons(getAsset());
 
     const start = () => {
       applyThemeAssets();
