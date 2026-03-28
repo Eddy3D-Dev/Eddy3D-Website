@@ -22,6 +22,8 @@
 
     const lightAsset = "{{ 'assets/cd/favicon.svg' | url }}";
     const darkAsset = "{{ 'assets/cd/favicon-light.svg' | url }}";
+    const heroLightAsset = "{{ 'assets/cd/LogoEddy-01_preview-crop.png' | url }}";
+    const heroDarkAsset = "{{ 'assets/cd/LogoEddy-01_preview-crop-white.png' | url }}";
 
     const getScheme = () => {
       const scheme = document.body?.getAttribute("data-md-color-scheme");
@@ -30,6 +32,7 @@
     };
 
     const getAsset = () => (getScheme() === "slate" ? darkAsset : lightAsset);
+    const getHeroAsset = () => (getScheme() === "slate" ? heroDarkAsset : heroLightAsset);
 
     const ensureFavicon = () => {
       let link = document.querySelector("link[rel='icon'][data-eddy-favicon]");
@@ -44,10 +47,16 @@
 
     const applyThemeAssets = () => {
       const asset = getAsset();
+      const heroAsset = getHeroAsset();
       const logo = document.querySelector(".md-header__button.md-logo img");
+      const heroLogo = document.querySelector(".hero-logo__image");
 
       if (logo && logo.getAttribute("src") !== asset) {
         logo.setAttribute("src", asset);
+      }
+
+      if (heroLogo && heroLogo.getAttribute("src") !== heroAsset) {
+        heroLogo.setAttribute("src", heroAsset);
       }
 
       ensureFavicon().setAttribute("href", asset);

@@ -41,15 +41,3 @@ span.faint {
 .hero-logo {
   text-align: center;
 }
-
-.hero-logo__dark {
-  display: none;
-}
-
-[data-md-color-scheme="slate"] .hero-logo__light {
-  display: none;
-}
-
-[data-md-color-scheme="slate"] .hero-logo__dark {
-  display: inline-block;
-}
