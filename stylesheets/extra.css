@@ -37,3 +37,7 @@ span.version {
 span.faint {
   color: var(--md-default-fg-color--light);
 }
+
+.hero-logo {
+  text-align: center;
+}

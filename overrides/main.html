@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+{{ super() }}
 {% if page and page.meta and page.meta.title %}
 <meta property="og:title" content="{{ page.meta.title }}" />
 {% endif %}
@@ -14,13 +15,86 @@
 <meta property="twitter:image" content="{{ page.meta.image }}" />
 <meta property="twitter:image:alt" content="{{ page.meta.image_alt }}" />
 {% endif %}
+<script>
+  (() => {
+    if (window.__eddyThemeAssetsInitialized) return;
+    window.__eddyThemeAssetsInitialized = true;
+
+    const lightAsset = "{{ 'assets/cd/favicon.svg' | url }}";
+    const darkAsset = "{{ 'assets/cd/favicon-light.svg' | url }}";
+    const heroLightAsset = "{{ 'assets/cd/LogoEddy-01_preview-crop.png' | url }}";
+    const heroDarkAsset = "{{ 'assets/cd/LogoEddy-01_preview-crop-white.png' | url }}";
+
+    const getScheme = () => {
+      const scheme = document.body?.getAttribute("data-md-color-scheme");
+      if (scheme) return scheme;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
+    };
+
+    const getAsset = () => (getScheme() === "slate" ? darkAsset : lightAsset);
+    const getHeroAsset = () => (getScheme() === "slate" ? heroDarkAsset : heroLightAsset);
+
+    const ensureFavicon = () => {
+      let link = document.querySelector("link[rel='icon'][data-eddy-favicon]");
+      if (!link) {
+        link = document.createElement("link");
+        link.rel = "icon";
+        link.setAttribute("data-eddy-favicon", "true");
+        document.head.appendChild(link);
+      }
+      return link;
+    };
+
+    const applyThemeAssets = () => {
+      const asset = getAsset();
+      const heroAsset = getHeroAsset();
+      const logo = document.querySelector(".md-header__button.md-logo img");
+      const heroLogo = document.querySelector(".hero-logo__image");
+
+      if (logo && logo.getAttribute("src") !== asset) {
+        logo.setAttribute("src", asset);
+      }
+
+      if (heroLogo && heroLogo.getAttribute("src") !== heroAsset) {
+        heroLogo.setAttribute("src", heroAsset);
+      }
+
+      ensureFavicon().setAttribute("href", asset);
+    };
+
+    const start = () => {
+      applyThemeAssets();
+
+      if (!window.__eddyThemeAssetObserver && document.body) {
+        const observer = new MutationObserver(applyThemeAssets);
+        observer.observe(document.body, {
+          attributes: true,
+          attributeFilter: ["data-md-color-scheme"],
+        });
+        window.__eddyThemeAssetObserver = observer;
+      }
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", start, { once: true });
+    } else {
+      start();
+    }
+
+    if (window.document$?.subscribe) {
+      window.document$.subscribe(() => {
+        requestAnimationFrame(applyThemeAssets);
+      });
+    }
+  })();
+</script>
 {% endblock %}
 
 <!-- Announcement bar -->
 {% block announce %}
   For updates follow <strong>Eddy3D</strong> on
   <a rel="me" href="https://www.linkedin.com/company/eddy3d-com">
-    <span class="twemoji linkedin">
+        <span class="twemoji linkedin" aria-hidden="true">
       {% include ".icons/fontawesome/brands/linkedin.svg" %}
     </span>
     <strong>LinkedIn</strong>
