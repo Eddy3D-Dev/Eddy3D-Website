@@ -41,3 +41,9 @@ span.faint {
 .hero-logo {
   text-align: center;
 }
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo img,
+[data-md-color-scheme="slate"] .hero-logo__image {
+  filter: brightness(0) invert(0.86);
+}
