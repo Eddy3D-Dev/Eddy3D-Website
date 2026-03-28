@@ -1,49 +1,48 @@
-<!DOCTYPE html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Airflow and microclimate simulations for Rhino and Grasshopper"><meta name=author content="Patrick Kastner"><link href=https://eddy3d.com/download/ rel=canonical><link href=../case-studies/Tropical_District_Masterplan/Tropical_District_Masterplan/ rel=prev><link href=../support/ rel=next><link rel=icon href=../assets/cd/favicon.svg><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.7.6"><title>Download - Eddy3D</title><link rel=stylesheet href=../assets/stylesheets/main.484c7ddc.min.css><link rel=stylesheet href=../assets/stylesheets/palette.ab4e12ef.min.css><style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../css/timeago.css><link rel=stylesheet href=../stylesheets/extra.css><script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><script>
+<!DOCTYPE html><html lang=en class=no-js><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Airflow and microclimate simulations for Rhino and Grasshopper"><meta name=author content="Patrick Kastner"><link href=https://eddy3d.com/download/ rel=canonical><link href=../case-studies/Tropical_District_Masterplan/Tropical_District_Masterplan/ rel=prev><link href=../support/ rel=next><link rel=icon href=../assets/cd/favicon.svg><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.7.6"><title>Download - Eddy3D</title><link rel=stylesheet href=../assets/stylesheets/main.484c7ddc.min.css><link rel=stylesheet href=../assets/stylesheets/palette.ab4e12ef.min.css><style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../css/timeago.css><link rel=stylesheet href=../stylesheets/extra.css><script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script><link rel=icon href="../assets/cd/favicon.svg?v=20260327" media="(prefers-color-scheme: light)"><link rel=icon href="../assets/cd/favicon-light.svg?v=20260327" media="(prefers-color-scheme: dark)"><script>
   (() => {
     if (window.__eddyThemeAssetsInitialized) return;
     window.__eddyThemeAssetsInitialized = true;
 
-    const lightAsset = "../assets/cd/favicon.svg";
-    const darkAsset = "../assets/cd/favicon-light.svg";
-    const heroLightAsset = "../assets/cd/LogoEddy-01_preview-crop.png";
-    const heroDarkAsset = "../assets/cd/LogoEddy-01_preview-crop-white.png";
+    const lightAsset = "../assets/cd/favicon.svg?v=20260327";
+    const darkAsset = "../assets/cd/favicon-light.svg?v=20260327";
 
     const getScheme = () => {
+      const palette = window.__md_get?.("__palette");
+      const paletteScheme = palette?.color?.scheme;
+      const paletteMedia = palette?.color?.media;
+      if (paletteMedia === "(prefers-color-scheme)") {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
+      }
+      if (paletteScheme) return paletteScheme;
+
       const scheme = document.body?.getAttribute("data-md-color-scheme");
-      if (scheme) return scheme;
+      if (scheme === "slate") return scheme;
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
     };
 
     const getAsset = () => (getScheme() === "slate" ? darkAsset : lightAsset);
-    const getHeroAsset = () => (getScheme() === "slate" ? heroDarkAsset : heroLightAsset);
 
-    const ensureFavicon = () => {
-      let link = document.querySelector("link[rel='icon'][data-eddy-favicon]");
-      if (!link) {
-        link = document.createElement("link");
-        link.rel = "icon";
-        link.setAttribute("data-eddy-favicon", "true");
-        document.head.appendChild(link);
-      }
-      return link;
+    const updateFavicons = (asset) => {
+      const links = document.querySelectorAll("link[rel='icon'], link[rel='shortcut icon']");
+      const current = links[0]?.getAttribute("href");
+      if (links.length === 1 && current === asset) return;
+
+      links.forEach((link) => link.remove());
+
+      const link = document.createElement("link");
+      link.rel = "icon";
+      link.type = "image/svg+xml";
+      link.setAttribute("href", asset);
+      document.head.appendChild(link);
     };
 
     const applyThemeAssets = () => {
       const asset = getAsset();
-      const heroAsset = getHeroAsset();
-      const logo = document.querySelector(".md-header__button.md-logo img");
-      const heroLogo = document.querySelector(".hero-logo__image");
-
-      if (logo && logo.getAttribute("src") !== asset) {
-        logo.setAttribute("src", asset);
-      }
-
-      if (heroLogo && heroLogo.getAttribute("src") !== heroAsset) {
-        heroLogo.setAttribute("src", heroAsset);
-      }
-
-      ensureFavicon().setAttribute("href", asset);
+      updateFavicons(asset);
     };
+
+    // Update favicon links immediately in <head> so dark-mode pages don't flash the default black icon.
+    updateFavicons(getAsset());
 
     const start = () => {
       applyThemeAssets();
@@ -55,6 +54,12 @@
           attributeFilter: ["data-md-color-scheme"],
         });
         window.__eddyThemeAssetObserver = observer;
+      }
+
+      if (!window.__eddySchemeMediaListener) {
+        const mq = window.matchMedia("(prefers-color-scheme: dark)");
+        mq.addEventListener("change", applyThemeAssets);
+        window.__eddySchemeMediaListener = true;
       }
     };
 
@@ -96,6 +101,6 @@
     }
     /* Keep only top 2 levels in the right TOC */
     .md-sidebar--secondary .md-nav__list .md-nav__list { display: none; }
-</style> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg> Back to top </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright © 2018-2025 Eddy3D </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <div class=md-progress data-md-component=progress role=progressbar></div> <script id=__config type=application/json>{"annotate": null, "base": "..", "features": ["tabs", "instant", "navigation.tabs", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.tracking", "navigation.path", "search.highlight", "search.share", "search.suggest", "toc.follow", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script> <script src=../assets/javascripts/bundle.79ae519e.min.js></script> <script src=../js/timeago.min.js></script> <script src=../js/timeago_mkdocs_material.js></script> <script id=init-glightbox>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+</style> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg> Back to top </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> Copyright © 2018-2026 Eddy3D </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <div class=md-progress data-md-component=progress role=progressbar></div> <script id=__config type=application/json>{"annotate": null, "base": "..", "features": ["tabs", "instant", "navigation.tabs", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.tracking", "navigation.path", "search.highlight", "search.share", "search.suggest", "toc.follow", "announce.dismiss"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script> <script src=../assets/javascripts/bundle.79ae519e.min.js></script> <script src=../js/timeago.min.js></script> <script src=../js/timeago_mkdocs_material.js></script> <script id=init-glightbox>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(()=>{ lightbox.reload(); });
 </script></body></html>
