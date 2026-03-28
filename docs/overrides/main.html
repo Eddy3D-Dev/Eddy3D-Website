@@ -37,7 +37,7 @@
       if (paletteScheme) return paletteScheme;
 
       const scheme = document.body?.getAttribute("data-md-color-scheme");
-      if (scheme) return scheme;
+      if (scheme === "slate") return scheme;
       return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
     };
 
