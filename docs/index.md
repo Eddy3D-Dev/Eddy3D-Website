@@ -88,8 +88,19 @@ hide:
 
 # Eddy3D
 
-<figure markdown="span">
-  ![Eddy3D Logo](assets/cd/LogoEddy-01_preview-crop.png){ width="250" .skip-lightbox }
+<figure class="hero-logo">
+  <img
+    src="assets/cd/LogoEddy-01_preview-crop.png"
+    alt="Eddy3D Logo"
+    width="250"
+    class="skip-lightbox hero-logo__light"
+  />
+  <img
+    src="assets/cd/LogoEddy-01_preview-crop-white.png"
+    alt="Eddy3D Logo"
+    width="250"
+    class="skip-lightbox hero-logo__dark"
+  />
 </figure>
 
 <p style="text-align: center; font-size: 24px;">
