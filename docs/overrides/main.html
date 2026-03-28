@@ -94,6 +94,12 @@
         });
         window.__eddyThemeAssetObserver = observer;
       }
+
+      if (!window.__eddySchemeMediaListener) {
+        const mq = window.matchMedia("(prefers-color-scheme: dark)");
+        mq.addEventListener("change", applyThemeAssets);
+        window.__eddySchemeMediaListener = true;
+      }
     };
 
     if (document.readyState === "loading") {
