@@ -44,3 +44,7 @@
 ## 2026-03-27 - [Descriptive Link Text]
 **Learning:** Using generic phrases like "here" (e.g., "see [here](url)") or "this publication" as link text creates a severe accessibility barrier for screen reader users, who frequently navigate by reading a list of links out of context. "Here" provides zero information about the link's destination or purpose.
 **Action:** Always write descriptive link text that explains the destination or purpose of the link (e.g., "see [the discussion on curve extension methods](url)"), rather than relying on the surrounding sentence for context.
+
+## 2026-03-29 - [Descriptive Text for Raw Links]
+**Learning:** Leaving raw URLs as links (e.g., `https://...`) forces screen readers to read out the entire URL string character by character, which is tedious and confusing. All links, even direct file downloads, should use descriptive text.
+**Action:** Always wrap raw URLs in descriptive text (e.g., `[Download Rhino 8.8](https://...)`) to provide context and a much better screen reader experience.

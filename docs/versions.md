@@ -288,8 +288,8 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 ### 0.4.15.0 (Jan 21, 2025)
 
 - Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [the discussion on curve extension methods](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
-- https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe
-- https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe
+- [Download Rhino 8.8.24170.13001](https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe)
+- [Download Rhino 8.8.24163.12481](https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe)
 
 ### 0.4.8.0 (Mar 4, 2024)
 

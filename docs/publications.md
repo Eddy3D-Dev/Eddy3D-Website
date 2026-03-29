@@ -6,7 +6,7 @@ hide:
 
 # Publications
 
-Publications related to Eddy3D are listed below, grouped by modules. See [Researchgate](https://www.researchgate.net/profile/Patrick-Kastner/research) for more info.
+Publications related to Eddy3D are listed below, grouped by modules. See [Patrick Kastner's ResearchGate profile](https://www.researchgate.net/profile/Patrick-Kastner/research) for more info.
 
 ## Outdoor+
 
