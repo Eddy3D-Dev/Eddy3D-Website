@@ -237,8 +237,8 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.15.8 (September 14, 2025)
 
-- Fixed: [39](https://github.com/orgs/Eddy3D-Dev/discussions/39)
-- Added: [35](https://github.com/orgs/Eddy3D-Dev/discussions/35)
+- Fixed: [issue #39](https://github.com/orgs/Eddy3D-Dev/discussions/39)
+- Added: [issue #35](https://github.com/orgs/Eddy3D-Dev/discussions/35)
 
 ### 0.4.15.7 (September 12, 2025)
 
@@ -253,7 +253,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Fixed property naming in ViralEmitter.
 - Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
 - Updated Grasshopper template metadata and viewport settings.
-- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
+- Fixed: [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
 
 ### 0.4.15.6 (August 18, 2025)
 
@@ -263,7 +263,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Fixed property naming in ViralEmitter.
 - Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
 - Updated Grasshopper template metadata and viewport settings.
-- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
+- Fixed: [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
 
 ### 0.4.15.5 (August 13, 2025)
 
@@ -271,7 +271,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Refactored the Cell Size Grasshopper component for clarity, improved input validation, and updated parameter descriptions.
 - Enhanced the wind comfort Weibull metric logic to handle edge cases, filter invalid data, and robustly select comfort thresholds.
 - Updated Eddy version to 0.4.15.5, increased CPUs in test settings, and made minor template and Grasshopper document adjustments.
-- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/2#discussioncomment-13782927).
+- Fixed: [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/2#discussioncomment-13782927).
 
 ### 0.4.15.3 (Mar 27, 2025)
 
