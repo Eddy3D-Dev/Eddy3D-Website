@@ -183,7 +183,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 - Added:
 
-  A new visualiser interface at https://eddy3d-dev.github.io/Eddy3D-Visualizer/
+  A new visualiser interface at [Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)
 
 ### 0.4.16.815 (December 19, 2025)
 

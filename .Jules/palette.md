@@ -48,3 +48,7 @@
 ## 2026-03-29 - [Descriptive Text for Raw Links]
 **Learning:** Leaving raw URLs as links (e.g., `https://...`) forces screen readers to read out the entire URL string character by character, which is tedious and confusing. All links, even direct file downloads, should use descriptive text.
 **Action:** Always wrap raw URLs in descriptive text (e.g., `[Download Rhino 8.8](https://...)`) to provide context and a much better screen reader experience.
+
+## 2026-03-30 - [Descriptive Link Text for Raw URLs]
+**Learning:** Found a raw URL used directly in the `versions.md` changelog. Raw URLs are highly inaccessible to screen reader users because the screen reader will read out every single character of the URL (e.g., "h t t p s colon slash slash..."), which provides poor context and is frustrating to listen to.
+**Action:** When adding URLs to documentation or changelogs, always wrap them in descriptive text, such as `[Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)`, so the screen reader announces a human-readable title.
