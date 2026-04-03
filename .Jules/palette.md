@@ -56,3 +56,11 @@
 ## 2026-04-01 - [Screen Reader Announcement of Decorative Emojis]
 **Learning:** In `docs/index.md`, there was a decorative plus sign (`:octicons-plus-24:`) between two logos. Emojis and icon fonts are often read aloud by screen readers (e.g., "plus"), which provides no value and creates a redundant, confusing experience when the element is purely for visual layout or decoration.
 **Action:** Always append `{ aria-hidden="true" }` to decorative emojis and icons (e.g., `:octicons-plus-24:{ aria-hidden="true" }`) to explicitly hide them from assistive technologies, leveraging MkDocs's `attr_list` extension.
+
+## 2026-04-01 - [Contextualizing Generic Inline Links]
+**Learning:** Found an inline link in `docs/index.md` with the text "download page". While understandable in the surrounding paragraph context ("Latest stable release and pre-release builds are listed on the..."), out of context in a screen reader link list, "download page" might be slightly ambiguous compared to explicitly stating what is being downloaded.
+**Action:** When using generic phrasing like "download page" as link text within a paragraph, consider adding a descriptive `aria-label` (e.g., `aria-label="Go to the download page for Eddy3D releases"`) to ensure absolute clarity for screen reader users navigating out of context.
+
+## 2026-04-03 - [Decorative Inline Emojis Accessibility]
+**Learning:** In MkDocs, purely decorative inline emojis (like `:octicons-plus-24:`) are announced by screen readers, which can cause redundant or confusing audio clutter. Standard HTML attributes don't apply directly to the markdown shortcode.
+**Action:** Use MkDocs' inline attribute list syntax directly after the emoji shortcode (e.g., `:octicons-plus-24:{ aria-hidden="true" }`) to properly hide these decorative elements from assistive technologies.
