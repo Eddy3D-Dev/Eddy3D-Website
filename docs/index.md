@@ -235,7 +235,7 @@ hide:
 ![Sustainable Urban Systems Lab logo](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}
 ![Environmental Systems Lab logo](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
 <center markdown="1">
-:octicons-plus-24:
+:octicons-plus-24:{ aria-hidden="true" }
 </center>
 
 <br><br><br>
