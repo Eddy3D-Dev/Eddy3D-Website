@@ -53,6 +53,10 @@
 **Learning:** Found a raw URL used directly in the `versions.md` changelog. Raw URLs are highly inaccessible to screen reader users because the screen reader will read out every single character of the URL (e.g., "h t t p s colon slash slash..."), which provides poor context and is frustrating to listen to.
 **Action:** When adding URLs to documentation or changelogs, always wrap them in descriptive text, such as `[Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)`, so the screen reader announces a human-readable title.
 
+## 2026-04-01 - [Screen Reader Announcement of Decorative Emojis]
+**Learning:** In `docs/index.md`, there was a decorative plus sign (`:octicons-plus-24:`) between two logos. Emojis and icon fonts are often read aloud by screen readers (e.g., "plus"), which provides no value and creates a redundant, confusing experience when the element is purely for visual layout or decoration.
+**Action:** Always append `{ aria-hidden="true" }` to decorative emojis and icons (e.g., `:octicons-plus-24:{ aria-hidden="true" }`) to explicitly hide them from assistive technologies, leveraging MkDocs's `attr_list` extension.
+
 ## 2026-04-01 - [Contextualizing Generic Inline Links]
 **Learning:** Found an inline link in `docs/index.md` with the text "download page". While understandable in the surrounding paragraph context ("Latest stable release and pre-release builds are listed on the..."), out of context in a screen reader link list, "download page" might be slightly ambiguous compared to explicitly stating what is being downloaded.
 **Action:** When using generic phrasing like "download page" as link text within a paragraph, consider adding a descriptive `aria-label` (e.g., `aria-label="Go to the download page for Eddy3D releases"`) to ensure absolute clarity for screen reader users navigating out of context.
