@@ -64,3 +64,7 @@
 ## 2026-04-03 - [Decorative Inline Emojis Accessibility]
 **Learning:** In MkDocs, purely decorative inline emojis (like `:octicons-plus-24:`) are announced by screen readers, which can cause redundant or confusing audio clutter. Standard HTML attributes don't apply directly to the markdown shortcode.
 **Action:** Use MkDocs' inline attribute list syntax directly after the emoji shortcode (e.g., `:octicons-plus-24:{ aria-hidden="true" }`) to properly hide these decorative elements from assistive technologies.
+
+## 2026-04-04 - [Contextualizing Generic Links in Changelogs]
+**Learning:** Changelogs and release notes frequently contain repeating generic links like "compare on GitHub", "bug", or "issue". While visual users have context from the surrounding section or heading, screen reader users navigating via a link list lose this context entirely.
+**Action:** Always add descriptive `aria-label`s to generic links in changelogs (e.g., `[compare on GitHub](url){ aria-label="Compare version X to Y on GitHub" }`) using MkDocs' inline attribute list syntax to provide necessary context for screen reader users.
