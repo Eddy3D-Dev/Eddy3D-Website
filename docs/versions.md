@@ -12,7 +12,7 @@
 
 ### 0.7.0-beta.827 (March 24, 2026)
 
-Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.6.2.821...v0.7.0-beta.827)
+Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.6.2.821...v0.7.0-beta.827){ aria-label="Compare version 0.6.2.821 to 0.7.0-beta.827 on GitHub" }
 
 - Added:
 
@@ -47,7 +47,7 @@ Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.6.1.821 (February 10, 2026)
 
-Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev)
+Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev){ aria-label="Compare version 0.5.8.815 to dev on GitHub" }
 
 - Added:
 
@@ -237,8 +237,8 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.15.8 (September 14, 2025)
 
-- Fixed: [issue #39](https://github.com/orgs/Eddy3D-Dev/discussions/39)
-- Added: [issue #35](https://github.com/orgs/Eddy3D-Dev/discussions/35)
+- Fixed: [issue #39](https://github.com/orgs/Eddy3D-Dev/discussions/39){ aria-label="View issue #39 on GitHub" }
+- Added: [issue #35](https://github.com/orgs/Eddy3D-Dev/discussions/35){ aria-label="View issue #35 on GitHub" }
 
 ### 0.4.15.7 (September 12, 2025)
 
@@ -275,7 +275,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.15.3 (Mar 27, 2025)
 
-- Fixed [bug](https://github.com/orgs/Eddy3D-Dev/discussions/14#discussioncomment-12647741) in: `3_SimpleWindAnalysis.ghx` Template. Thank you `@YanivHatiel`
+- Fixed [bug](https://github.com/orgs/Eddy3D-Dev/discussions/14#discussioncomment-12647741){ aria-label="View bug discussion for 3_SimpleWindAnalysis on GitHub" } in: `3_SimpleWindAnalysis.ghx` Template. Thank you `@YanivHatiel`
 
 ### 0.4.15.2 (Mar 10, 2025)
 
@@ -302,7 +302,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 ### 0.4.2.0 (Dec 23, 2023)
 
 - Added: custom boundary conditions per individual wind direction.
-- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [issue #9 on GitHub](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
+- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [issue #9 on GitHub](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9){ aria-label="View issue #9 regarding Rhino 8 breaking changes on GitHub" }.
 
 ### 0.4.1.4 (Nov 23, 2023)
 
@@ -310,7 +310,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.1.1 (Apr 29, 2022)
 
-- New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1) with Indoor module.
+- New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1){ aria-label="View issue #1 regarding BlueCFD 2017 on GitHub" } with Indoor module.
 
 ### 0.4.1.0 (Apr 17, 2022)
 
