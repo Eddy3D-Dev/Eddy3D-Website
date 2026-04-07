@@ -100,13 +100,13 @@ hide:
 
 ![Eddy3D Example Canvas](assets/images/combo.png){.skip-lightbox}
 
-<div align="center">
-  <a href="https://docs.eddy3d.com/" class="md-button md-button--primary" aria-label="Get Started with Eddy3D Documentation">Get Started</a>
-  <a href="download/" class="md-button" aria-label="Download Eddy3D">Download</a>
+<div align="center" markdown="1">
+  [Get Started :material-arrow-right:](https://docs.eddy3d.com/){ .md-button .md-button--primary aria-label="Get Started with Eddy3D Documentation" }
+  [Download :material-download:](download.md){ .md-button aria-label="Download Eddy3D" }
 </div>
 
 <p style="text-align: center; margin-top: 0.75rem;">
-  Latest stable release and pre-release builds are listed on the <a href="download/" aria-label="Go to the download page for Eddy3D releases">download page</a>.
+  Latest stable release and pre-release builds are listed on the <a href="download.md" aria-label="Go to the download page for Eddy3D releases">download page</a>.
 </p>
 
 
