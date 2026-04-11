@@ -112,7 +112,7 @@ hide:
 
 ---
 
-## 🚀 Features
+## :rocket:{ aria-hidden="true" } Features
 
 <div class="grid cards" markdown>
 
@@ -169,7 +169,7 @@ hide:
 
 ---
 
-## 👥 Team
+## :busts_in_silhouette:{ aria-hidden="true" } Team
 
 
 <div class="mdx-users">
@@ -209,7 +209,7 @@ hide:
 
 </div>
 
-## 👥 Advisors & Alumni 
+## :busts_in_silhouette:{ aria-hidden="true" } Advisors & Alumni
 
 <div class="mdx-users">
 
@@ -244,7 +244,7 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 
 ---
 
-## 🎉 Supporters
+## :tada:{ aria-hidden="true" } Supporters
 
 <div class="grid" markdown>
 
