@@ -68,3 +68,11 @@
 ## 2026-04-04 - [Contextualizing Generic Links in Changelogs]
 **Learning:** Changelogs and release notes frequently contain repeating generic links like "compare on GitHub", "bug", or "issue". While visual users have context from the surrounding section or heading, screen reader users navigating via a link list lose this context entirely.
 **Action:** Always add descriptive `aria-label`s to generic links in changelogs (e.g., `[compare on GitHub](url){ aria-label="Compare version X to Y on GitHub" }`) using MkDocs' inline attribute list syntax to provide necessary context for screen reader users.
+
+## 2026-04-12 - [Hide Decorative Emojis in Headings]
+**Learning:** Raw Unicode emojis in Markdown headers (like ) are read aloud by screen readers, creating redundant and confusing audio clutter when they are purely decorative.
+**Action:** Always replace raw Unicode emojis in headings with MkDocs shortcodes and append the inline attribute syntax  (e.g., ) to ensure they are hidden from assistive technologies while remaining visually identical.
+
+## 2026-04-12 - [Hide Decorative Emojis in Headings]
+**Learning:** Raw Unicode emojis in Markdown headers (like `## 🚀 Features`) are read aloud by screen readers, creating redundant and confusing audio clutter when they are purely decorative.
+**Action:** Always replace raw Unicode emojis in headings with MkDocs shortcodes and append the inline attribute syntax `{ aria-hidden="true" }` (e.g., `## :rocket:{ aria-hidden="true" } Features`) to ensure they are hidden from assistive technologies while remaining visually identical.
