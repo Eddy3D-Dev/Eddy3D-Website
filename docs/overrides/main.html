@@ -25,18 +25,20 @@
     const lightAsset = "{{ 'assets/cd/favicon.svg' | url }}?v=20260327";
     const darkAsset = "{{ 'assets/cd/favicon-light.svg' | url }}?v=20260327";
 
+    const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
     const getScheme = () => {
       const palette = window.__md_get?.("__palette");
       const paletteScheme = palette?.color?.scheme;
       const paletteMedia = palette?.color?.media;
       if (paletteMedia === "(prefers-color-scheme)") {
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
+        return darkModeQuery.matches ? "slate" : "default";
       }
       if (paletteScheme) return paletteScheme;
 
       const scheme = document.body?.getAttribute("data-md-color-scheme");
       if (scheme === "slate") return scheme;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "slate" : "default";
+      return darkModeQuery.matches ? "slate" : "default";
     };
 
     const getAsset = () => (getScheme() === "slate" ? darkAsset : lightAsset);
@@ -76,8 +78,7 @@
       }
 
       if (!window.__eddySchemeMediaListener) {
-        const mq = window.matchMedia("(prefers-color-scheme: dark)");
-        mq.addEventListener("change", applyThemeAssets);
+        darkModeQuery.addEventListener("change", applyThemeAssets);
         window.__eddySchemeMediaListener = true;
       }
     };
