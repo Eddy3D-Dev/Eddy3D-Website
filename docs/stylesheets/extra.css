@@ -46,3 +46,83 @@ span.faint {
 [data-md-color-scheme="slate"] .hero-logo__image {
   filter: brightness(0) invert(0.86);
 }
+
+.md-content__button {
+    display: none;
+}
+.md-button {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.md-button:hover,
+.md-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.md-button:focus-visible {
+  outline: 3px solid #005999;
+  outline-offset: 2px;
+}
+.md-button--primary {
+  background-color: #007acc;
+  color: white;
+}
+.md-button--primary:hover,
+.md-button--primary:focus-visible {
+  background-color: #005999;
+}
+.center-text {
+  text-align: center;
+  display: block;
+}
+/* Use modern, accessible screen-reader-only pattern to visually hide */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mdx-users {
+  display: flex;
+  justify-content: center;  /* Centers items horizontally */
+  flex-wrap: wrap;          /* Ensures they wrap on smaller screens */
+  gap: 40px;                /* Adds spacing between items */
+}
+
+.mdx-users__testimonial {
+  text-align: center;
+  max-width: 220px;         /* Limits width so they stay aligned */
+}
+
+.mdx-users__testimonial img {
+  border-radius: 50%;       /* Makes images circular */
+  border: 3px solid #ddd;
+  width: 150px;
+  height: 150px;
+}
+.center {
+    display: block;
+    margin: 0 auto;
+}
+.black-and-white {
+   filter: grayscale(100%);
+   -webkit-filter: grayscale(100%);
+   -moz-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+   transition: filter 0.3s ease, -webkit-filter 0.3s ease, -moz-filter 0.3s ease, -ms-filter 0.3s ease;
+}
+
+.black-and-white:hover {
+   filter: grayscale(0%);
+   -webkit-filter: grayscale(0%);
+   -moz-filter: grayscale(0%);
+   -ms-filter: grayscale(0%);
+}
