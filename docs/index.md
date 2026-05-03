@@ -5,9 +5,6 @@ hide:
 ---
 
 <style>
-.md-content__button {
-    display: none;
-}
 .md-button {
   font-size: 16px;
   font-weight: bold;

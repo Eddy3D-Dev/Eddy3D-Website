@@ -9,9 +9,6 @@
         display: none;
       }
     }
-      .md-content__button {
-    display: none;
-  }
 </style>
 
 # Support
