@@ -38,9 +38,6 @@ Use the [**Rhino version selection page**](https://rhinoversions.github.io/?vers
         display: none;
       }
     }
-    .md-content__button {
-      display: none;
-    }
     /* Keep only top 2 levels in the right TOC */
     .md-sidebar--secondary .md-nav__list .md-nav__list { display: none; }
 </style>
