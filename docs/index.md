@@ -7,7 +7,7 @@ hide:
 # Eddy3D {.sr-only}
 
 <figure class="hero-logo" markdown="span">
-  ![Eddy3D Logo](assets/cd/LogoEddy-01_preview-crop.png){ width="250" .skip-lightbox .hero-logo__image }
+  ![Eddy3D](assets/cd/LogoEddy-01_preview-crop.png){ width="250" .skip-lightbox .hero-logo__image }
 </figure>
 
 <p style="text-align: center; font-size: 24px;">
@@ -150,8 +150,8 @@ hide:
 
 ---
 
-![Sustainable Urban Systems Lab logo](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}
-![Environmental Systems Lab logo](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
+![Sustainable Urban Systems Lab](assets/images/SustainLab.svg){width="350" .skip-lightbox align=left loading=lazy}
+![Environmental Systems Lab](assets/images/eslab.svg){width="320" .skip-lightbox align=right loading=lazy}
 <center markdown="1">
 :octicons-plus-24:{ aria-hidden="true" }
 </center>
@@ -166,22 +166,22 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 
 <div class="grid" markdown>
 
-![Georgia Tech School of Architecture logo](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
+![Georgia Tech School of Architecture](assets/images/CoD_SoA.jpg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Georgia Tech logo](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
+![Georgia Tech](assets/images/GeorgiaTech_RGB.png){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Cornell AAP logo](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center}
+![Cornell AAP](assets/images/AAP_logo_stacked.png){width="75" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Cornell University logo](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center}
+![Cornell University](assets/images/cornell.svg){width="75" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Cornell Atkinson Center for Sustainability logo](assets/images/atkinson.png){width="200" .skip-lightbox loading=lazy .center}
+![Cornell Atkinson Center for Sustainability](assets/images/atkinson.png){width="200" .skip-lightbox loading=lazy .center}
 { .card }
 
-![Cornell Systems Engineering logo](assets/images/logo-systemseng.svg){width="250" .skip-lightbox loading=lazy .center}
+![Cornell Systems Engineering](assets/images/logo-systemseng.svg){width="250" .skip-lightbox loading=lazy .center}
 { .card }
 
 </div>
