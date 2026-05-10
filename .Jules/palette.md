@@ -76,3 +76,7 @@
 ## 2026-04-12 - [Hide Decorative Emojis in Headings]
 **Learning:** Raw Unicode emojis in Markdown headers (like `## 🚀 Features`) are read aloud by screen readers, creating redundant and confusing audio clutter when they are purely decorative.
 **Action:** Always replace raw Unicode emojis in headings with MkDocs shortcodes and append the inline attribute syntax `{ aria-hidden="true" }` (e.g., `## :rocket:{ aria-hidden="true" } Features`) to ensure they are hidden from assistive technologies while remaining visually identical.
+
+## 2026-04-14 - [Redundant Alt Text in Feature Grids]
+**Learning:** In `docs/index.md`'s `## Features` section, images were used alongside highly descriptive adjacent text. Having alt text on these images causes screen readers to read the same information twice. Additionally, images of logos often contain "logo" in their alt text (e.g., "Cornell University logo"). Screen readers already announce the element as an image, so including "logo" results in redundant announcements like "Image, Cornell University logo".
+**Action:** Always set the alt attribute to empty (e.g., `alt=""` or `![]`) when an image is immediately followed by text that perfectly describes its content. Furthermore, never include words like "logo", "image", or "picture" in the alt text to avoid redundant announcements by screen readers.
