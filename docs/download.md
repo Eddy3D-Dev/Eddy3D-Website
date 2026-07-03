@@ -4,14 +4,15 @@
 
 - **Package page:** [Rhino Packages](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D)
 - **Release history:** [All Eddy3D releases](https://github.com/Eddy3D-Dev/Eddy3D/releases)
-- **Current version:** `0.6.2.821` (February 11, 2026)
+- **Current version:** `1.0.0.827` (July 2, 2026)
+
+Install **Eddy3D** from the Rhino Package Manager: run `PackageManager` in Rhino 8 and search for **`Eddy3D`**.
 
 | Channel | Version | Date | Platform | Rhino | Install | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Pre-release | `0.7.0-beta.827` | March 24, 2026 | Windows | 8.27 | [Install beta](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Pre-release beta 0.7.0-beta.827" } | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.7.0-beta.827){ aria-label="Pre-release beta 0.7.0-beta.827 release notes" } |
-| Stable release | `0.6.2.821` | February 11, 2026 | Windows | 8.27 | [Download stable](https://github.com/Eddy3D-Dev/Eddy3D/releases/latest){ aria-label="Download Stable release 0.6.2.821" } | [Release notes](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v0.6.2.821){ aria-label="Stable release 0.6.2.821 release notes" } |
+| Stable release | `1.0.0.827` | July 2, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.0.0.827 via the Rhino Package Manager" } | [Changelog](#changelog) |
 
-Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com){ aria-label="See documentation for additional software requirements" }.
+All modules &mdash; Outdoor, Outdoor+, Indoor, MRT, and FluidX3D &mdash; now ship in the single **Eddy3D** package on **Windows and macOS**. Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com){ aria-label="See documentation for additional software requirements" }.
 
 ---
 
