@@ -3,7 +3,6 @@
 ## Current Versions
 
 - **Package page:** [Rhino Packages](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D)
-- **Release history:** [All Eddy3D releases](https://github.com/Eddy3D-Dev/Eddy3D/releases)
 - **Current version:** `1.0.0.827` (July 2, 2026)
 
 Install **Eddy3D** from the Rhino Package Manager: run `PackageManager` in Rhino 8 and search for **`Eddy3D`**.
