@@ -1,4 +1,4 @@
-1.0.0.827 stable (Jul. 2, 2026)
+1.0.0.827 (Jul. 3, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,16 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.0.0.827 (July 3, 2026)
+
+First unified stable release of Eddy3D.
+
+The previously separate plugins — wind (Outdoor), microclimate (Outdoor+ / urbanMicroclimateFoam), Indoor, MRT (Radiance/UTCI), and FluidX3D — are merged into a single **Eddy3D** package, available cross-platform on **Windows and macOS** (Rhino 8.27).
+
+**Install:** via the Rhino Package Manager — run `PackageManager` in Rhino and search for **Eddy3D**. The standalone `UMCF` package has been retired.
+
+Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
 
 ### 1.0.0.827 (July 2, 2026)
 
