@@ -1,4 +1,4 @@
-1.0.0.827 (Jul. 3, 2026)
+1.0.1.827 (Jul. 3, 2026)
 
 !!! Compatibility
 
@@ -10,6 +10,16 @@
 
 ## Changelog
 
+### 1.0.1.827 (July 3, 2026)
+
+Hotfix over `1.0.0.827` (which was yanked from Yak).
+
+- **Fixed:** generated Docker/shell scripts (e.g. `run_docker.sh`) shipped with Windows (CRLF) line endings, causing `bad interpreter: /bin/bash^M` on macOS. Scripts are now written with LF line endings.
+- **Fixed:** the Select Template component now loads examples from the correct `Eddy3D-Templates` repository.
+
+Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
+
+Changes since `v1.0.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.0.827...v1.0.1.827){ aria-label="Compare version 1.0.0.827 to 1.0.1.827 on GitHub" }
 ### 1.0.0.827 (July 3, 2026)
 
 First unified stable release of Eddy3D.
@@ -26,31 +36,22 @@ Changes since `v0.7.1-beta.827`: [compare on GitHub](https://github.com/Eddy3D-D
 
 Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.6.2.821...v0.7.0-beta.827){ aria-label="Compare version 0.6.2.821 to 0.7.0-beta.827 on GitHub" }
 
-- Added:
+- **Added:**
+  - Template Sync CLI tooling for synchronizing templates.
+  - Async loading feedback while component templates are downloading.
 
-  Template Sync CLI tooling for synchronizing templates.
+- **Improved:**
+  - Simulation progress dialogs with elapsed time, numeric percentages, copy-log support, keyboard shortcuts, confirmations, accessibility updates, and better theme support.
+  - Performance across Sky View Factor, NVAnalysis, OpenFOAM probe/log parsing, Radiance parsing and file writing, wind processing, CSV generation, and UTCI/PET calculations.
+  - Hover feedback for Grasshopper component buttons and the Live Residuals empty state.
 
-  Async loading feedback while component templates are downloading.
+- **Fixed:**
+  - Command injection in the `Probe` component.
+  - Cylindrical domain handling when geometry is not located at `Z=0`.
+  - General bug fixes, cleanup, and internal robustness updates.
 
-- Improved:
-
-  Simulation progress dialogs with elapsed time, numeric percentages, copy-log support, keyboard shortcuts, confirmations, accessibility updates, and better theme support.
-
-  Performance across Sky View Factor, NVAnalysis, OpenFOAM probe/log parsing, Radiance parsing and file writing, wind processing, CSV generation, and UTCI/PET calculations.
-
-  Hover feedback for Grasshopper component buttons and the Live Residuals empty state.
-
-- Fixed:
-
-  Command injection in the `Probe` component.
-
-  Cylindrical domain handling when geometry is not located at `Z=0`.
-
-  General bug fixes, cleanup, and internal robustness updates.
-
-- Tested:
-
-  Added test coverage for `JsonHelper`, `Deg2Rad`, and UTCI legacy regression baselines.
+- **Tested:**
+  - Added test coverage for `JsonHelper`, `Deg2Rad`, and UTCI legacy regression baselines.
 
 ### 0.6.2.821 (February 11, 2026)
 

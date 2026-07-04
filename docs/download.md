@@ -3,13 +3,13 @@
 ## Current Versions
 
 - **Package page:** [Rhino Packages](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D)
-- **Current version:** `1.0.0.827` (July 2, 2026)
+- **Current version:** `1.0.1.827` (July 3, 2026)
 
 Install **Eddy3D** from the Rhino Package Manager: run `PackageManager` in Rhino 8 and search for **`Eddy3D`**.
 
 | Channel | Version | Date | Platform | Rhino | Install | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Stable release | `1.0.0.827` | July 2, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.0.0.827 via the Rhino Package Manager" } | [Changelog](#changelog) |
+| Stable release | `1.0.1.827` | July 3, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.0.1.827 via the Rhino Package Manager" } | [Changelog](#changelog) |
 
 All modules &mdash; Outdoor, Outdoor+, Indoor, MRT, and FluidX3D &mdash; now ship in the single **Eddy3D** package on **Windows and macOS**. Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com){ aria-label="See documentation for additional software requirements" }.
 
