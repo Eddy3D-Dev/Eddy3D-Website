@@ -1,4 +1,4 @@
-1.0.0.827 (Jul. 3, 2026)
+1.0.1.827 (Jul. 3, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,17 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.0.1.827 (July 3, 2026)
+
+Hotfix over `1.0.0.827` (which was yanked from Yak).
+
+- **Fixed:** generated Docker/shell scripts (e.g. `run_docker.sh`) shipped with Windows (CRLF) line endings, causing `bad interpreter: /bin/bash^M` on macOS. Scripts are now written with LF line endings.
+- **Fixed:** the Select Template component now loads examples from the correct `Eddy3D-Templates` repository.
+
+Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
+
+Changes since `v1.0.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.0.827...v1.0.1.827){ aria-label="Compare version 1.0.0.827 to 1.0.1.827 on GitHub" }
 
 ### 1.0.0.827 (July 3, 2026)
 
