@@ -1,4 +1,4 @@
-0.7.0-beta.827 pre-release (Mar. 24, 2026)
+1.0.0.827 (Jul. 3, 2026)
 
 !!! Compatibility
 
@@ -10,9 +10,21 @@
 
 ## Changelog
 
+### 1.0.0.827 (July 3, 2026)
+
+First unified stable release of Eddy3D.
+
+The previously separate plugins — wind (Outdoor), microclimate (Outdoor+ / urbanMicroclimateFoam), Indoor, MRT (Radiance/UTCI), and FluidX3D — are merged into a single **Eddy3D** package, available cross-platform on **Windows and macOS** (Rhino 8.27).
+
+**Install:** via the Rhino Package Manager — run `PackageManager` in Rhino and search for **Eddy3D**. The standalone `UMCF` package has been retired.
+
+Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
+
+Changes since `v0.7.1-beta.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.7.1-beta.827...dev){ aria-label="Compare version 0.7.1-beta.827 to the unified release on GitHub" }
+
 ### 0.7.0-beta.827 (March 24, 2026)
 
-Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.6.2.821...v0.7.0-beta.827)
+Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.6.2.821...v0.7.0-beta.827){ aria-label="Compare version 0.6.2.821 to 0.7.0-beta.827 on GitHub" }
 
 - Added:
 
@@ -47,7 +59,7 @@ Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.6.1.821 (February 10, 2026)
 
-Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev)
+Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev){ aria-label="Compare version 0.5.8.815 to dev on GitHub" }
 
 - Added:
 
@@ -183,7 +195,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 - Added:
 
-  A new visualiser interface at https://eddy3d-dev.github.io/Eddy3D-Visualizer/
+  A new visualiser interface at [Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)
 
 ### 0.4.16.815 (December 19, 2025)
 
@@ -237,8 +249,8 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.15.8 (September 14, 2025)
 
-- Fixed: [39](https://github.com/orgs/Eddy3D-Dev/discussions/39)
-- Added: [35](https://github.com/orgs/Eddy3D-Dev/discussions/35)
+- Fixed: [issue #39](https://github.com/orgs/Eddy3D-Dev/discussions/39){ aria-label="View issue #39 on GitHub" }
+- Added: [issue #35](https://github.com/orgs/Eddy3D-Dev/discussions/35){ aria-label="View issue #35 on GitHub" }
 
 ### 0.4.15.7 (September 12, 2025)
 
@@ -253,7 +265,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Fixed property naming in ViralEmitter.
 - Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
 - Updated Grasshopper template metadata and viewport settings.
-- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
+- Fixed: [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270){ aria-label="View discussion comment #1 for issue #31 on GitHub" }
 
 ### 0.4.15.6 (August 18, 2025)
 
@@ -263,7 +275,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Fixed property naming in ViralEmitter.
 - Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
 - Updated Grasshopper template metadata and viewport settings.
-- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270)
+- Fixed: [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270){ aria-label="View discussion comment #1 for issue #31 on GitHub" }
 
 ### 0.4.15.5 (August 13, 2025)
 
@@ -271,11 +283,11 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Refactored the Cell Size Grasshopper component for clarity, improved input validation, and updated parameter descriptions.
 - Enhanced the wind comfort Weibull metric logic to handle edge cases, filter invalid data, and robustly select comfort thresholds.
 - Updated Eddy version to 0.4.15.5, increased CPUs in test settings, and made minor template and Grasshopper document adjustments.
-- Fixed: [[1]](https://github.com/orgs/Eddy3D-Dev/discussions/2#discussioncomment-13782927).
+- Fixed: [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/2#discussioncomment-13782927){ aria-label="View discussion comment #1 for issue #2 on GitHub" }.
 
 ### 0.4.15.3 (Mar 27, 2025)
 
-- Fixed [bug](https://github.com/orgs/Eddy3D-Dev/discussions/14#discussioncomment-12647741) in: `3_SimpleWindAnalysis.ghx` Template. Thank you `@YanivHatiel`
+- Fixed [bug](https://github.com/orgs/Eddy3D-Dev/discussions/14#discussioncomment-12647741){ aria-label="View bug discussion for 3_SimpleWindAnalysis on GitHub" } in: `3_SimpleWindAnalysis.ghx` Template. Thank you `@YanivHatiel`
 
 ### 0.4.15.2 (Mar 10, 2025)
 
@@ -288,8 +300,8 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 ### 0.4.15.0 (Jan 21, 2025)
 
 - Fixed: ***In Rhino 8.9 McNeel introduced a breaking change, see [the discussion on curve extension methods](https://discourse.mcneel.com/t/rhino-8-9-update-behavior-of-curve-extension-methods-changed/192560/5).*** If you upgraded to Rhino 8.9 already, below are links to downgrade to various versions Rhino 8.8:
-- https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe
-- https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe
+- [Download Rhino 8.8.24170.13001](https://files.mcneel.com/dujour/exe/20240618/rhino_en-us_8.8.24170.13001.exe)
+- [Download Rhino 8.8.24163.12481](https://files.mcneel.com/dujour/exe/20240611/rhino_en-us_8.8.24163.12481.exe)
 
 ### 0.4.8.0 (Mar 4, 2024)
 
@@ -302,7 +314,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 ### 0.4.2.0 (Dec 23, 2023)
 
 - Added: custom boundary conditions per individual wind direction.
-- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [issue #9 on GitHub](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9).
+- Added alpha/experimental Rhino 8 compatibility. R8 introduces breaking changes, see [issue #9 on GitHub](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/9){ aria-label="View issue #9 regarding Rhino 8 breaking changes on GitHub" }.
 
 ### 0.4.1.4 (Nov 23, 2023)
 
@@ -310,7 +322,7 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 0.4.1.1 (Apr 29, 2022)
 
-- New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1) with Indoor module.
+- New installer to fix BlueCFD 2017 [issue](https://github.com/EnvironmentalSystemsLab/Eddy3D-Public/issues/1){ aria-label="View issue #1 regarding BlueCFD 2017 on GitHub" } with Indoor module.
 
 ### 0.4.1.0 (Apr 17, 2022)
 

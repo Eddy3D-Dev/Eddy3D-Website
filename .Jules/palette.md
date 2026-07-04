@@ -44,3 +44,39 @@
 ## 2026-03-27 - [Descriptive Link Text]
 **Learning:** Using generic phrases like "here" (e.g., "see [here](url)") or "this publication" as link text creates a severe accessibility barrier for screen reader users, who frequently navigate by reading a list of links out of context. "Here" provides zero information about the link's destination or purpose.
 **Action:** Always write descriptive link text that explains the destination or purpose of the link (e.g., "see [the discussion on curve extension methods](url)"), rather than relying on the surrounding sentence for context.
+
+## 2026-03-29 - [Descriptive Text for Raw Links]
+**Learning:** Leaving raw URLs as links (e.g., `https://...`) forces screen readers to read out the entire URL string character by character, which is tedious and confusing. All links, even direct file downloads, should use descriptive text.
+**Action:** Always wrap raw URLs in descriptive text (e.g., `[Download Rhino 8.8](https://...)`) to provide context and a much better screen reader experience.
+
+## 2026-03-30 - [Descriptive Link Text for Raw URLs]
+**Learning:** Found a raw URL used directly in the `versions.md` changelog. Raw URLs are highly inaccessible to screen reader users because the screen reader will read out every single character of the URL (e.g., "h t t p s colon slash slash..."), which provides poor context and is frustrating to listen to.
+**Action:** When adding URLs to documentation or changelogs, always wrap them in descriptive text, such as `[Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)`, so the screen reader announces a human-readable title.
+
+## 2026-04-01 - [Screen Reader Announcement of Decorative Emojis]
+**Learning:** In `docs/index.md`, there was a decorative plus sign (`:octicons-plus-24:`) between two logos. Emojis and icon fonts are often read aloud by screen readers (e.g., "plus"), which provides no value and creates a redundant, confusing experience when the element is purely for visual layout or decoration.
+**Action:** Always append `{ aria-hidden="true" }` to decorative emojis and icons (e.g., `:octicons-plus-24:{ aria-hidden="true" }`) to explicitly hide them from assistive technologies, leveraging MkDocs's `attr_list` extension.
+
+## 2026-04-01 - [Contextualizing Generic Inline Links]
+**Learning:** Found an inline link in `docs/index.md` with the text "download page". While understandable in the surrounding paragraph context ("Latest stable release and pre-release builds are listed on the..."), out of context in a screen reader link list, "download page" might be slightly ambiguous compared to explicitly stating what is being downloaded.
+**Action:** When using generic phrasing like "download page" as link text within a paragraph, consider adding a descriptive `aria-label` (e.g., `aria-label="Go to the download page for Eddy3D releases"`) to ensure absolute clarity for screen reader users navigating out of context.
+
+## 2026-04-03 - [Decorative Inline Emojis Accessibility]
+**Learning:** In MkDocs, purely decorative inline emojis (like `:octicons-plus-24:`) are announced by screen readers, which can cause redundant or confusing audio clutter. Standard HTML attributes don't apply directly to the markdown shortcode.
+**Action:** Use MkDocs' inline attribute list syntax directly after the emoji shortcode (e.g., `:octicons-plus-24:{ aria-hidden="true" }`) to properly hide these decorative elements from assistive technologies.
+
+## 2026-04-04 - [Contextualizing Generic Links in Changelogs]
+**Learning:** Changelogs and release notes frequently contain repeating generic links like "compare on GitHub", "bug", or "issue". While visual users have context from the surrounding section or heading, screen reader users navigating via a link list lose this context entirely.
+**Action:** Always add descriptive `aria-label`s to generic links in changelogs (e.g., `[compare on GitHub](url){ aria-label="Compare version X to Y on GitHub" }`) using MkDocs' inline attribute list syntax to provide necessary context for screen reader users.
+
+## 2026-04-12 - [Hide Decorative Emojis in Headings]
+**Learning:** Raw Unicode emojis in Markdown headers (like ) are read aloud by screen readers, creating redundant and confusing audio clutter when they are purely decorative.
+**Action:** Always replace raw Unicode emojis in headings with MkDocs shortcodes and append the inline attribute syntax  (e.g., ) to ensure they are hidden from assistive technologies while remaining visually identical.
+
+## 2026-04-12 - [Hide Decorative Emojis in Headings]
+**Learning:** Raw Unicode emojis in Markdown headers (like `## 🚀 Features`) are read aloud by screen readers, creating redundant and confusing audio clutter when they are purely decorative.
+**Action:** Always replace raw Unicode emojis in headings with MkDocs shortcodes and append the inline attribute syntax `{ aria-hidden="true" }` (e.g., `## :rocket:{ aria-hidden="true" } Features`) to ensure they are hidden from assistive technologies while remaining visually identical.
+
+## 2026-04-14 - [Redundant Alt Text in Feature Grids]
+**Learning:** In `docs/index.md`'s `## Features` section, images were used alongside highly descriptive adjacent text. Having alt text on these images causes screen readers to read the same information twice. Additionally, images of logos often contain "logo" in their alt text (e.g., "Cornell University logo"). Screen readers already announce the element as an image, so including "logo" results in redundant announcements like "Image, Cornell University logo".
+**Action:** Always set the alt attribute to empty (e.g., `alt=""` or `![]`) when an image is immediately followed by text that perfectly describes its content. Furthermore, never include words like "logo", "image", or "picture" in the alt text to avoid redundant announcements by screen readers.
