@@ -126,3 +126,4 @@ span.faint {
    -moz-filter: grayscale(0%);
    -ms-filter: grayscale(0%);
 }
+.md-tabs__link, .md-nav__link { text-transform: none !important; }
