@@ -1,15 +1,36 @@
-# Support & FAQ
+---
+hide:
+  - navigation
+  - toc
+---
+# FAQ & Support
 
 We are currently collecting bugs and requests for new features on [Github](https://github.com/orgs/Eddy3D-Dev/discussions){ aria-label="Visit Eddy3D GitHub Discussions" }, where people help each other out with questions that go beyond our documentation. Please feel free to start a new thread if you have any questions!
 
 If your problem is urgent, please also notify us via e-mail as we are unable to monitor new posts 24/7.
 
-When posting a new question, **please include**:
-1. A clear question or intent.
-2. A clear description of your problem, ideally with a screenshot.
-3. What you have done so far to solve it.
-4. A minimal Grasshopper file (`.gh` or `.ghx`) that contains only the components relevant to your problem with all data internalized.
-5. Your Eddy3D Version, Rhino Version, and Windows Version.
+---
+
+## How to increase the probability of receiving fast and helpful answers
+ 
+Please include the following in your post:
+
+1. A clear question or intent
+2. Clear description of your problem, ideally with a screenshot.
+3. What have you done so far to solve it?
+4. Please add a minimal Grasshopper file (`.gh` or `.ghx`) that contains only components relevant to your problem with all data internalized.
+5. Please add your Eddy3D Version, Rhino Version, and Windows Version.
+
+**Example Template:**
+```text
+Hi,
+
+This is my question.
+—
+OS: Windows 11 Pro
+Eddy3D Version: 1.0.2.827
+Rhino Version: 8.27.26019.16022
+```
 
 ---
 
