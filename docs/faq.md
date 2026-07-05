@@ -140,7 +140,6 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
 
 ??? note "Pressure units and Pressure Coefficients (Cp)"
     In OpenFOAM's incompressible solvers (like `simpleFoam`), pressure is represented as kinematic pressure ($p / \rho$) in units of $m^2/s^2$. To get physical pressure in Pascals, you must multiply by the density of air ($\sim 1.225 \text{ kg/m}^3$). Eddy3D's Cp components calculate the dimensionless coefficient automatically.
-ho$) in units of $m^2/s^2$. To get physical pressure in Pascals, you must multiply by the density of air ($\sim 1.225 	ext{ kg/m}^3$). Eddy3D's Cp components calculate the dimensionless coefficient automatically.
 
 ??? note "ParaView doesn't automatically load the simulation"
     Ensure you have installed a compatible version of ParaView. Sometimes security settings or incorrect PATHs block the automatic launching. You can always open ParaView manually, navigate to your project folder, and create an empty `case.foam` file to load the results.
