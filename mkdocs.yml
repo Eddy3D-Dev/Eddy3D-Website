@@ -23,7 +23,6 @@ nav:
   - Download: download.md
   - Documentation: "https://docs.eddy3d.com"
   - FAQ: faq.md
-  - Support: support.md
 
 theme:
   name: material
