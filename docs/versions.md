@@ -1,4 +1,4 @@
-1.0.1.827 (Jul. 3, 2026)
+1.0.2.827 (Jul. 4, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,15 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.0.2.827 (July 4, 2026)
+
+- Fix WSL OpenFOAM 12 repository URL (HTTPS to HTTP downgrade issue).
+- Fix WSL bash grouping bug that falsely reported success on failed OpenFOAM installs.
+- Fix UI logic bug in OpenFOAM 12 installation detection.
+- Show both OpenFOAM 12 and UMF install/reinstall toggles simultaneously in WSL mode.
+- Fetch and display accurate publish dates in the Yak version update prompt dialog.
+- Clean up custom Label UI intercept hacks to restore native GH component messages.
 
 ### 1.0.1.827 (July 3, 2026)
 
