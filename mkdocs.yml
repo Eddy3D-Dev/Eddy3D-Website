@@ -22,7 +22,7 @@ nav:
       - Brooklyn OTC Map: "https://brooklyn.eddy3d.com"
   - Download: download.md
   - Documentation: "https://docs.eddy3d.com"
-  - FAQ: faq.md
+  - 'FAQ': faq.md
 
 theme:
   name: material
