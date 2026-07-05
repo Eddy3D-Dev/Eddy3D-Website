@@ -18,17 +18,13 @@
 - Show both OpenFOAM 12 and UMF install/reinstall toggles simultaneously in WSL mode.
 - Fetch and display accurate publish dates in the Yak version update prompt dialog.
 - Clean up custom Label UI intercept hacks to restore native GH component messages.
-
-### 1.0.1.827 (July 3, 2026)
-
-Hotfix over `1.0.0.827` (which was yanked from Yak).
-
 - **Fixed:** generated Docker/shell scripts (e.g. `run_docker.sh`) shipped with Windows (CRLF) line endings, causing `bad interpreter: /bin/bash^M` on macOS. Scripts are now written with LF line endings.
 - **Fixed:** the Select Template component now loads examples from the correct `Eddy3D-Templates` repository.
 
 Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
 
 Changes since `v1.0.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.0.827...v1.0.1.827){ aria-label="Compare version 1.0.0.827 to 1.0.1.827 on GitHub" }
+
 ### 1.0.0.827 (July 3, 2026)
 
 First unified stable release of Eddy3D.
@@ -71,163 +67,126 @@ Changes since `v0.6.2.821`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v0.5.8.815...dev){ aria-label="Compare version 0.5.8.815 to dev on GitHub" }
 
-- Added:
+- **Added:**
+  - Cross-platform Docker execution support for OpenFOAM workflows.
+  - A Live Residuals component and icon for improved simulation monitoring.
+  - Installer/build automation updates, including a PowerShell-based installer build script.
 
-  Cross-platform Docker execution support for OpenFOAM workflows.
+- **Improved:**
+  - Path and working-directory handling across Windows and macOS.
+  - OpenFOAM run command generation and case portability behavior.
+  - Template, run settings, and simulation component robustness.
 
-  A Live Residuals component and icon for improved simulation monitoring.
-
-  Installer/build automation updates, including a PowerShell-based installer build script.
-
-- Improved:
-
-  Path and working-directory handling across Windows and macOS.
-
-  OpenFOAM run command generation and case portability behavior.
-
-  Template, run settings, and simulation component robustness.
-
-- Fixed:
-
-  ParaView pipeline loading behavior on macOS.
-
-  Installer version propagation and build metadata consistency.
-
-  Multiple edge cases in wind/radiation execution paths and related tests.
+- **Fixed:**
+  - ParaView pipeline loading behavior on macOS.
+  - Installer version propagation and build metadata consistency.
+  - Multiple edge cases in wind/radiation execution paths and related tests.
 
 ### 0.5.8.815 (February 4, 2026)
 
-- Added:
+- **Added:**
+  - GNU GPL v3 license.
+  - EPW downloader for streamlined weather file handling.
+  - OpenFOAM log parsing and status reporting utilities.
 
-  GNU GPL v3 license.
-
-  EPW downloader for streamlined weather file handling.
-
-  OpenFOAM log parsing and status reporting utilities.
-
-- Improved:
-
-  Centralized UI strings using `GH_Strings` for consistency and easier localization.
-
-  Updated simulation component robustness and input handling.
+- **Improved:**
+  - Centralized UI strings using `GH_Strings` for consistency and easier localization.
+  - Updated simulation component robustness and input handling.
 
 ### 0.5.7.815 (January 29, 2026)
 
-- Improved:
+- **Improved:**
+  - Renamed "Templates" component to "Select Template" for better clarity.
+  - Enabled left-click interaction for the "Select Template" component to trigger the selection menu directly.
+  - Updated the component button text to "Select Template".
 
-  Renamed "Templates" component to "Select Template" for better clarity.
-
-  Enabled left-click interaction for the "Select Template" component to trigger the selection menu directly.
-
-  Updated the component button text to "Select Template".
-
-- Fixed:
-
-  Resolved build issues and dependency conflicts in `EddyLib`.
-
-  Optimized the plugin's loading process by making `.ghlink` dynamic and removing redundant AppData copies.
+- **Fixed:**
+  - Resolved build issues and dependency conflicts in `EddyLib`.
+  - Optimized the plugin's loading process by making `.ghlink` dynamic and removing redundant AppData copies.
 
 ### 0.5.6.815 (January 27, 2026)
 
-- Fixed:
-  - Resolved a bug in the `Wind Factors` component where the "No interpolation" option incorrectly reverted to wind direction 0.
-  - Fixed a "Solution exception: Input parameter index [-1] too low" error in the `Wind Simulation` component.
-  - `Dataset Curator` component now correctly handles complex geometry without requiring bounding box simplification.
+- **Fixed:**
+  - - Resolved a bug in the `Wind Factors` component where the "No interpolation" option incorrectly reverted to wind direction 0.
+  - - Fixed a "Solution exception: Input parameter index [-1] too low" error in the `Wind Simulation` component.
+  - - `Dataset Curator` component now correctly handles complex geometry without requiring bounding box simplification.
 
-- Added:
-  - New utility to delete `processor*` folders from cases to save disk space.
+- **Added:**
+  - - New utility to delete `processor*` folders from cases to save disk space.
 
-- Improved:
-  - Replaced `pause` with `timeout` in batch files for a smoother user experience.
-  - Refined `9_ML_basic` and `9_ML_FormFlux` templates.
-  - General code cleanup and removal of unused utilities.
+- **Improved:**
+  - - Replaced `pause` with `timeout` in batch files for a smoother user experience.
+  - - Refined `9_ML_basic` and `9_ML_FormFlux` templates.
+  - - General code cleanup and removal of unused utilities.
 
 ### 0.5.5.815 (January 23, 2026)
 
-- Improved:
-  - Dataset Curator component can handle complex urban geometries more accurate and quick, now.
+- **Improved:**
+  - - Dataset Curator component can handle complex urban geometries more accurate and quick, now.
 
 ### 0.5.4.815 (January 15, 2026)
 
-- Improved:
-
-  Some of the batch files are renamed for better clarity.
+- **Improved:**
+  - Some of the batch files are renamed for better clarity.
 
 ### 0.5.3.815 (January 15, 2026)
 
-- Improved:
+- **Improved:**
+  - Several improvements including better handling of batch files, and more straightforward machine learning workflow.
+  - All the batch files are being stored in the case folder for more clear case folder organization.
+  - The template component and the probe component is improved.
+  - The 9_ML_Basic template is redesigned.
 
-  Several improvements including better handling of batch files, and more straightforward machine learning workflow.
-  All the batch files are being stored in the case folder for more clear case folder organization.
-  The template component and the probe component is improved.
-  The 9_ML_Basic template is redesigned.
-
-- Added:
-
-  Ability to change number of cores for both meshing and simulation without grasshopper dependency over update_cores.bat file.
-  Ability to run the simulation with all available cores without grasshopper dependency over use_all_cores.bat file.
-  Ability to run the cases in any directory then they have created for the first time. There is no hardcoded paths, anymore.
+- **Added:**
+  - Ability to change number of cores for both meshing and simulation without grasshopper dependency over update_cores.bat file.
+  - Ability to run the simulation with all available cores without grasshopper dependency over use_all_cores.bat file.
+  - Ability to run the cases in any directory then they have created for the first time. There is no hardcoded paths, anymore.
 
 ### 0.5.1.815 (January 14, 2026)
 
-- Fixed:
+- **Fixed:**
+  - Fixed Log Parser button behavior and added explicit 'Run' toggle.
+  - Resolved Radiance pathing issues for more robust installation detection.
+  - Fixed various OpenFOAM simulation crashes and boundary condition errors.
+  - Restored functionality for multi-region simulations including vegetation (LAD).
 
-  Fixed Log Parser button behavior and added explicit 'Run' toggle.
-  Resolved Radiance pathing issues for more robust installation detection.
-  Fixed various OpenFOAM simulation crashes and boundary condition errors.
-  Restored functionality for multi-region simulations including vegetation (LAD).
-
-- Added:
-
-  Ability to specify custom installation paths for simulation engines (Radiance, EnergyPlus, BlueCFD).
+- **Added:**
+  - Ability to specify custom installation paths for simulation engines (Radiance, EnergyPlus, BlueCFD).
 
 ### 0.5.0.815 (January 12, 2026)
 
-- Fixed:
+- **Fixed:**
+  - Installer now uses user profile paths; fixed path formatting in TwoPhaseDDS.
 
-  Installer now uses user profile paths; fixed path formatting in TwoPhaseDDS.
+- **Added:**
+  - New indoor test cases and examples; Install Engines icon.
 
-- Added:
-
-  New indoor test cases and examples; Install Engines icon.
-
-- Improved:
-
-  Templates updated; Outdoor Comfort tests and Indoor setup restored.
-  Consistent naming and general refactoring.
+- **Improved:**
+  - Templates updated; Outdoor Comfort tests and Indoor setup restored.
+  - Consistent naming and general refactoring.
 
 ### 0.4.17.815 (December 27, 2025)
 
-- Improved:
+- **Improved:**
+  - Better output handling for more reliable exports and processing for DatasetCurator component.
+  - Introduces a 'Run' boolean parameter to BrepGridPoints component to control execution and sets output to idle when not running. Updates DatasetCuratorCMP to check bounding boxes using only XY coordinates, improving handling of stacked geometries.
 
-  Better output handling for more reliable exports and processing for DatasetCurator component.
-  Introduces a 'Run' boolean parameter to BrepGridPoints component to control execution and sets output to idle when not running. Updates DatasetCuratorCMP to check bounding boxes using only XY coordinates, improving handling of stacked geometries.
-
-- Added:
-
-  A new visualiser interface at [Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)
+- **Added:**
+  - A new visualiser interface at [Eddy3D Visualizer](https://eddy3d-dev.github.io/Eddy3D-Visualizer/)
 
 ### 0.4.16.815 (December 19, 2025)
 
-- Improved:
+- **Improved:**
+  - DatasetCuratorCMP now supports multiple wind directions
+  - Added CSV / batch / script generation workflows
+  - Improved output handling for more reliable exports and processing
 
-  DatasetCuratorCMP now supports multiple wind directions
-
-  Added CSV / batch / script generation workflows
-
-  Improved output handling for more reliable exports and processing
-
-- Added:
-
-  DatasetReaderCMP component to read processed CSV datasets into Grasshopper
-
-  Supports all spatial features and simulated wind speed
-
-  New resources, icons, and Python post-processing scripts
-
-  Mesh settings updated to support nCellsBetweenLevels
-
-  Project + resource files updated to include new components and assets
+- **Added:**
+  - DatasetReaderCMP component to read processed CSV datasets into Grasshopper
+  - Supports all spatial features and simulated wind speed
+  - New resources, icons, and Python post-processing scripts
+  - Mesh settings updated to support nCellsBetweenLevels
+  - Project + resource files updated to include new components and assets
 
 ### 0.4.15.14 (December 13, 2025)
 
