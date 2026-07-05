@@ -12,6 +12,12 @@
 
 ### 1.0.2.827 (July 4, 2026)
 
+First unified stable release of Eddy3D.
+
+The previously separate plugins — wind (Outdoor), microclimate (Outdoor+ / urbanMicroclimateFoam), Indoor, MRT (Radiance/UTCI), and FluidX3D — are merged into a single **Eddy3D** package, available cross-platform on **Windows and macOS** (Rhino 8.27).
+
+**Install:** via the Rhino Package Manager — run `PackageManager` in Rhino and search for **Eddy3D**. The standalone `UMCF` package has been retired.
+
 - Fix WSL OpenFOAM 12 repository URL (HTTPS to HTTP downgrade issue).
 - Fix WSL bash grouping bug that falsely reported success on failed OpenFOAM installs.
 - Fix UI logic bug in OpenFOAM 12 installation detection.
@@ -20,18 +26,6 @@
 - Clean up custom Label UI intercept hacks to restore native GH component messages.
 - **Fixed:** generated Docker/shell scripts (e.g. `run_docker.sh`) shipped with Windows (CRLF) line endings, causing `bad interpreter: /bin/bash^M` on macOS. Scripts are now written with LF line endings.
 - **Fixed:** the Select Template component now loads examples from the correct `Eddy3D-Templates` repository.
-
-Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
-
-Changes since `v1.0.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.0.827...v1.0.1.827){ aria-label="Compare version 1.0.0.827 to 1.0.1.827 on GitHub" }
-
-### 1.0.0.827 (July 3, 2026)
-
-First unified stable release of Eddy3D.
-
-The previously separate plugins — wind (Outdoor), microclimate (Outdoor+ / urbanMicroclimateFoam), Indoor, MRT (Radiance/UTCI), and FluidX3D — are merged into a single **Eddy3D** package, available cross-platform on **Windows and macOS** (Rhino 8.27).
-
-**Install:** via the Rhino Package Manager — run `PackageManager` in Rhino and search for **Eddy3D**. The standalone `UMCF` package has been retired.
 
 Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
 
