@@ -128,3 +128,4 @@ span.faint {
 }
 .md-tabs__link, .md-nav__link { text-transform: none !important; }
 .md-nav__title, .md-nav__item, .md-tabs__title { text-transform: none !important; }
+.md-nav__link[href*="faq"], .md-tabs__link[href*="faq"] { text-transform: uppercase !important; }
