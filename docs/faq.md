@@ -35,7 +35,7 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
     3. Successfully completed the automated OpenFOAM installation via the Grasshopper components.
 
 ??? note "How do I access previous versions of Eddy3D?"
-    While we encourage using the latest release for all new features and bug fixes, older versions can still be downloaded via the [Rhino Package Manager by selecting a specific version](https://yak.rhino3d.com/packages/Eddy3D).
+    While we encourage using the latest release for all new features and bug fixes, older versions can be downloaded [here](https://eddycfd.uber.space/download/download.php). Recent releases can also be found via the [Rhino Package Manager](https://yak.rhino3d.com/packages/Eddy3D).
 
 ### Geometry & Mesh Generation
 
