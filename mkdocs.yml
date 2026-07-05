@@ -13,6 +13,8 @@ extra_css:
 nav:
   - Home: index.md
   - Publications: publications.md
+  - Download: download.md
+  - Documentation: "https://docs.eddy3d.com"
   # Case studies are pulled from external repository
   - Case studies:
       - case-studies/README.md
@@ -20,8 +22,6 @@ nav:
       - Tropical District Masterplan: case-studies/Tropical_District_Masterplan/Tropical_District_Masterplan.md
       - Cornell Tech Extension: "https://cornelltech.eddy3d.com"
       - Brooklyn OTC Map: "https://brooklyn.eddy3d.com"
-  - Download: download.md
-  - Documentation: "https://docs.eddy3d.com"
   - 'FAQ': faq.md
 
 theme:
