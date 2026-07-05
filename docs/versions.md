@@ -18,14 +18,17 @@ The previously separate plugins — wind (Outdoor), microclimate (Outdoor+ / urb
 
 **Install:** via the Rhino Package Manager — run `PackageManager` in Rhino and search for **Eddy3D**. The standalone `UMCF` package has been retired.
 
-- Fix WSL OpenFOAM 12 repository URL (HTTPS to HTTP downgrade issue).
-- Fix WSL bash grouping bug that falsely reported success on failed OpenFOAM installs.
-- Fix UI logic bug in OpenFOAM 12 installation detection.
-- Show both OpenFOAM 12 and UMF install/reinstall toggles simultaneously in WSL mode.
-- Fetch and display accurate publish dates in the Yak version update prompt dialog.
-- Clean up custom Label UI intercept hacks to restore native GH component messages.
-- **Fixed:** generated Docker/shell scripts (e.g. `run_docker.sh`) shipped with Windows (CRLF) line endings, causing `bad interpreter: /bin/bash^M` on macOS. Scripts are now written with LF line endings.
-- **Fixed:** the Select Template component now loads examples from the correct `Eddy3D-Templates` repository.
+- **Fixed:**
+  - WSL OpenFOAM 12 repository URL (HTTPS to HTTP downgrade issue).
+  - WSL bash grouping bug that falsely reported success on failed OpenFOAM installs.
+  - UI logic bug in OpenFOAM 12 installation detection.
+  - Generated Docker/shell scripts (e.g. `run_docker.sh`) shipped with Windows (CRLF) line endings, causing `bad interpreter: /bin/bash^M` on macOS. Scripts are now written with LF line endings.
+  - The Select Template component now loads examples from the correct `Eddy3D-Templates` repository.
+
+- **Improved:**
+  - Show both OpenFOAM 12 and UMF install/reinstall toggles simultaneously in WSL mode.
+  - Fetch and display accurate publish dates in the Yak version update prompt dialog.
+  - Clean up custom Label UI intercept hacks to restore native GH component messages.
 
 Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
 
@@ -101,22 +104,22 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 ### 0.5.6.815 (January 27, 2026)
 
 - **Fixed:**
-  - - Resolved a bug in the `Wind Factors` component where the "No interpolation" option incorrectly reverted to wind direction 0.
-  - - Fixed a "Solution exception: Input parameter index [-1] too low" error in the `Wind Simulation` component.
-  - - `Dataset Curator` component now correctly handles complex geometry without requiring bounding box simplification.
+  - Resolved a bug in the `Wind Factors` component where the "No interpolation" option incorrectly reverted to wind direction 0.
+  - Fixed a "Solution exception: Input parameter index [-1] too low" error in the `Wind Simulation` component.
+  - `Dataset Curator` component now correctly handles complex geometry without requiring bounding box simplification.
 
 - **Added:**
-  - - New utility to delete `processor*` folders from cases to save disk space.
+  - New utility to delete `processor*` folders from cases to save disk space.
 
 - **Improved:**
-  - - Replaced `pause` with `timeout` in batch files for a smoother user experience.
-  - - Refined `9_ML_basic` and `9_ML_FormFlux` templates.
-  - - General code cleanup and removal of unused utilities.
+  - Replaced `pause` with `timeout` in batch files for a smoother user experience.
+  - Refined `9_ML_basic` and `9_ML_FormFlux` templates.
+  - General code cleanup and removal of unused utilities.
 
 ### 0.5.5.815 (January 23, 2026)
 
 - **Improved:**
-  - - Dataset Curator component can handle complex urban geometries more accurate and quick, now.
+  - Dataset Curator component can handle complex urban geometries more accurate and quick, now.
 
 ### 0.5.4.815 (January 15, 2026)
 
