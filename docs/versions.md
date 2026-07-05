@@ -297,16 +297,16 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - Probing on decomposed cases doesn't work for now (need to reconstruct first).
 - The latest release of Eddy3D (v0.3.8.0) currently *only* works with **Rhino 6**. McNeel made changes to the SDK in **Rhino 7** which renders the box-shaped simulation domain incompatible with v0.3.8.0. Fixed on beta branch.
 
-### 0.3.6.3
+### 0.3.6.3 (June 28, 2020)
 - Fix for problem with cp probing.
 - Added switch for potentialFoam initialization and mesh renumbering.
 - Added Lawson, Davenport, and NEN8100 pedestrian comfort indices.
 
-### 0.3.5
+### 0.3.5 (November 27, 2019)
 - Fix for change in latest Rhino release.
 - Probing component automatically refreshes after probing has finished.
 
-### 0.3.0
+### 0.3.0 (July 16, 2019)
 - **Added:**
     - cellPoint interpolation instead of cellPointFace
     - Fix: WindFactors, MRT, UTCI running
@@ -315,10 +315,10 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
       choice
     - Template engine implemented
 
-### 0.2.3
+### 0.2.3 (April 11, 2019)
 - Fix: turbulentEpsilon was 0 if the ABL BC was in use
 
-### 0.2.2
+### 0.2.2 (April 7, 2019)
 - Fix: Both Box and Cylinder are converging properly when terrain is in use
 - Fix: Alwas load the residuals for the first wind direction instead of wind direction "0" if the selection is empty
 - Fix: locationInMesh works with Terrain for BoxDomain
@@ -333,10 +333,10 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
     - Change: Renamed output of settings components
     - div(U) batch files
 
-### 0.2.1
+### 0.2.1 (March 25, 2019)
 - New component: ParaView can now be opened from the canvas
 - Fixes:
 - The ParaView are now called as their respective wind directions which helps to distinguish them if more than one if opened in ParaView
 
-### 0.1.0
+### 0.1.0 (March 21, 2019)
 - First release
