@@ -38,16 +38,28 @@ Rhino Version: 8.27.26019.16022
 
 Welcome to the Eddy3D FAQ! We have compiled the most common questions from our Discourse community to help you resolve issues quickly.
 
-### Installation, Setup, and Compatibility
+### 1. Installation, Setup, and Compatibility
 
 ??? note "Is Eddy3D compatible with Rhino 8?"
     Yes, starting from version `1.0.2.827`, Eddy3D supports Rhino 8 (8.27 or higher) natively on both Windows and macOS. Earlier versions (0.4.x) may require legacy configurations or exhibit issues in Rhino 8. We highly recommend upgrading to the latest version via the Rhino Package Manager (`PackageManager`).
 
+??? note "Does Eddy3D support macOS?"
+    Yes! With the unified release (`1.0.2.827` and higher), Eddy3D is available cross-platform for both Windows and macOS users directly from the Rhino Package Manager.
+
 ??? note "How do I install Eddy3D and where are the files located?"
-    The easiest and recommended way to install Eddy3D is through the Rhino Package Manager (`PackageManager` command in Rhino). Search for "Eddy3D" and install the latest stable version. Yak (the package manager) automatically manages the folder location, usually under `%APPDATA%\McNeel\Rhinoceros\packages\`.
+    The easiest and recommended way to install Eddy3D is through the Rhino Package Manager (`PackageManager` command in Rhino). Search for "Eddy3D" and install the latest stable version. Yak (the package manager) automatically manages the folder location, usually under `%APPDATA%\McNeel\Rhinoceros\packages\` on Windows and `~/Library/Application Support/McNeel/Rhinoceros/packages/` on macOS.
+
+??? note "Eddy3D is not showing up in Grasshopper after installation"
+    Ensure you have completely restarted Rhino and Grasshopper after installing via the Package Manager. Check that you are not running multiple conflicting versions. Sometimes running the `_GrasshopperDeveloperSettings` command and unchecking "Memory Load" can resolve conflicts.
 
 ??? note "Why does my Eddy3D script show a 'license expired' warning?"
-    Older beta and pre-release builds (like 0.4.8 and earlier) contained hardcoded expiration dates. To fix this, simply upgrade to the latest Eddy3D version using the Rhino Package Manager.
+    Older beta and pre-release builds (like 0.4.8 and earlier) contained hardcoded expiration dates. To fix this, simply upgrade to the latest Eddy3D version using the Rhino Package Manager. 
+
+??? note "Version 0.4.8.0 requires admin rights / Rhino 7 run with Admin Issue"
+    Older installer-based versions of Eddy3D (like 0.4.x) required admin rights because they installed BlueCFD globally. The modern Yak packages (0.6.x and higher) **do not** require admin rights to install the Grasshopper plugin, though WSL OpenFOAM setup may prompt for initial elevation.
+
+??? note "How do I access previous versions of Eddy3D?"
+    While we encourage using the latest release for all new features and bug fixes, older versions can be downloaded [here](https://eddycfd.uber.space/download/download.php). Recent releases can also be found via the [Rhino Package Manager](https://yak.rhino3d.com/packages/Eddy3D).
 
 ??? note "Eddy3D is not able to find BlueCFD / I get Docker errors"
     Starting from the unified stable release, Eddy3D has transitioned from BlueCFD to **WSL (Windows Subsystem for Linux) / Docker** running **OpenFOAM 12**. If you see errors about BlueCFD, ensure you have:
@@ -55,10 +67,7 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
     2. Switched to WSL or Docker mode in the Eddy3D Engine Settings.
     3. Successfully completed the automated OpenFOAM installation via the Grasshopper components.
 
-??? note "How do I access previous versions of Eddy3D?"
-    While we encourage using the latest release for all new features and bug fixes, older versions can be downloaded [here](https://eddycfd.uber.space/download/download.php). Recent releases can also be found via the [Rhino Package Manager](https://yak.rhino3d.com/packages/Eddy3D).
-
-### Geometry & Mesh Generation
+### 2. Geometry, Meshing & Domain Generation
 
 ??? note "Error says 'Your building geometries are too far from the origin'"
     OpenFOAM and general CFD processes rely on specific geometric tolerances that degrade far from the origin. Always center your model around `(0, 0, 0)` in Rhino before generating your bounding box or running simulations.
@@ -66,33 +75,71 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
 ??? note "The mesh folder does not exist. Please create a mesh first"
     This error means the mesh generation step either failed or hasn't been run. Ensure you have successfully executed the `Run Mesh` component and that it completed without OpenFOAM errors before attempting to run the simulation.
 
-??? note "How do I define trees and Z0 roughness?"
-    In Eddy3D, trees can be defined using porous zones. You can assign tree volumes as inputs to the mesh components. Surface roughness ($Z_0$) is assigned globally in the ABL settings or locally on specific surfaces to model ground friction accurately.
+??? note "Eddy3D Bounding Box domain not generating / Fails for East-West on Terrain"
+    When combining a cylindrical domain with terrain, edge intersections can fail if the geometry isn't aligned or overlaps the domain boundaries exactly. Ensure your terrain extends well past the bounding box and try slightly adjusting your base geometry's elevation.
 
-### Simulation Configuration & Execution
-
-??? note "What CPU settings should I use? / Errors in parallel calculation"
-    Eddy3D supports parallel calculation. By default, it will detect your logical cores. We recommend reserving at least 1-2 cores for your OS to prevent system freezes. For example, if you have 8 physical cores, setting it to 6 is a safe bet. Setting it higher than your physical core count will actually slow down the simulation.
+??? note "Missing Surfaces / Decompose and Scale Up Mesh"
+    If decomposed mesh components are missing surfaces, ensure your input geometry consists of closed, valid polysurfaces. Naked edges or non-manifold geometry can cause snappyHexMesh to fail at snapping to specific regions.
 
 ??? note "Value cannot be null (Parameter 's') / Input parameter index [-1] too low"
     This usually indicates an issue with missing geometry, disconnected inputs, or empty lists being passed to Eddy3D components. Ensure your building and context geometries are properly baked/referenced and that list lengths match expected inputs.
 
-??? note "Template 5 PressureOnBuildingFacade fails to load in the latest version"
+??? note "How do I include trees and porous zones?"
+    In Eddy3D, trees can be defined using porous zones. You can assign tree volumes as inputs to the mesh components. Ensure you are grouping your trees correctly; too many separate dense tree instances can significantly increase mesh complexity and cause crashes.
+
+### 3. Simulation Configuration
+
+??? note "What CPU settings should I use? / Errors in parallel calculation"
+    Eddy3D supports parallel calculation via OpenFOAM MPI. By default, it will detect your logical cores. We recommend reserving at least 1-2 cores for your OS to prevent system freezes. Setting it higher than your physical core count will slow down the simulation.
+
+??? note "Simulation keeps rerunning / Optimizing with Evolutionary Engines"
+    If you are using evolutionary solvers (like Galapagos or Wallacei), ensure you use the synchronous run components and toggle the Boolean correctly so Grasshopper waits for the CFD solve to finish before evaluating the next genome.
+
+??? note "Pressure residuals stalling / Solution not converging"
+    If your residuals stall (e.g., at $10^{-2}$) or oscillate heavily, you may have high-speed impingement zones, poor mesh quality (check your `y+`), or a domain that is too small for the wake to dissipate. Increasing iterations beyond 4000 rarely fixes fundamentally diverging cases.
+
+??? note "Weather Files (EPW) & Adjusting Wind Directions"
+    Eddy3D automatically extracts dominant wind directions from the `.epw` file. If you wish to filter for specific seasons, use the Ladybug tools to parse the EPW file first, and feed the filtered wind profile data directly into Eddy3D.
+
+??? note "Customized Inlet Boundary / Atmospheric Boundary Layer (ABL) vs Uniform Flow"
+    By default, Eddy3D uses an Atmospheric Boundary Layer profile (logarithmic wind speed increase with height). You can explicitly override this by setting a uniform flow profile or modifying the `U` dictionary in the `0` folder prior to running the simulation.
+
+??? note "Template 5 PressureOnBuildingFacade fails to load"
     We occasionally update templates to match the latest OpenFOAM configurations. If a template is failing to load, try deleting the local `Eddy3D-Templates` folder in your Documents directory and let the plugin re-download the latest templates from GitHub.
 
-### Post-Processing & Visualization
+??? note "Command Error 1726 / MPI Run Error / simpleFoam abort code 1"
+    These are fatal OpenFOAM crashes. They usually happen due to:
+    - Out of Memory (OOM) errors during meshing or solving.
+    - Floating point exceptions (divergence) in the first few iterations due to bad mesh cells. Check your `log.simpleFoam` for exact details.
 
-??? note "The vectors are not visible or look like random fuzzy lines"
+### 4. Post-Processing & Visualization
+
+??? note "The vectors are not visible / Random fuzzy vectors"
     Check your visualization scale settings. Often, the vector length multiplier in the visualization component is too small or too large for your scene scale. Try scaling it significantly up or down. Also, ensure your geometries are modeled in Meters.
 
 ??? note "There are multiple arrows coming from one place"
     If you probed multiple wind directions without clearing or grouping the points properly, you will see superimposed vectors. Try visualizing a single wind direction at a time or adjusting the point cull settings in the probe component.
 
+??? note "Probing Result Magnitude / Unreasonable Values / Velocity Validation"
+    If wind speeds are returning in the thousands, you might have probed exactly inside a building volume or boundary layer where OpenFOAM creates singularity artifacts. Adjust your probe height slightly (e.g., 1.5m above ground instead of exactly on it).
+
+??? note "'Failed to find the path' / Can't read U File / VisProbes doesn't work"
+    This means the OpenFOAM probe data wasn't successfully written, or the simulation crashed before it reached the probe time. Check the OpenFOAM logs in the component's output to verify the simulation completed.
+
+??? note "Flow rates centers do not match probing points"
+    Ensure you are using the exact same mesh reference that was used during the solve. Regenerating the grid after solving will misalign the indices.
+
+??? note "Grid is visible in results / Heatmap Results"
+    When viewing heatmaps or colored surfaces, if you see the underlying triangular grid, you can toggle Rhino's display mode to hide mesh edges, or adjust the mesh smoothing parameters in the display component.
+
+??? note "Annual Wind Analysis & Comfort Output Discrepancies"
+    Annual wind comfort requires simulating at least 8 to 16 wind directions and compounding them with EPW frequency data. If a specific direction is missing or failed to run, the entire comfort calculation will be skewed. Ensure every wind direction folder contains valid results.
+
+??? note "How can I extract data or import results to Excel?"
+    Eddy3D includes components to write probing results directly to CSV format. Once the simulation is done and probed, connect the data tree to a `CSV Writer` component to export the values for Excel.
+
+??? note "Pressure units and Pressure Coefficients (Cp)"
+    In OpenFOAM's incompressible solvers (like `simpleFoam`), pressure is represented as kinematic pressure ($p / ho$) in units of $m^2/s^2$. To get physical pressure in Pascals, you must multiply by the density of air ($\sim 1.225 	ext{ kg/m}^3$). Eddy3D's Cp components calculate the dimensionless coefficient automatically.
+
 ??? note "ParaView doesn't automatically load the simulation"
     Ensure you have installed a compatible version of ParaView. Sometimes security settings or incorrect PATHs block the automatic launching. You can always open ParaView manually, navigate to your project folder, and create an empty `case.foam` file to load the results.
-
-??? note "Probing always reports an error: 'Failed to find the path'"
-    This means the OpenFOAM probe data wasn't successfully written, or the simulation crashed before it reached the probe time. Check the OpenFOAM logs in the component's output to see if the simulation diverged or failed.
-
-??? note "How can I import results to Excel?"
-    Eddy3D includes components to write probing results directly to CSV format. Once the simulation is done and probed, connect the data tree to a CSV Writer component to export the values for Excel.
