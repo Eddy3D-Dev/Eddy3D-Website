@@ -85,7 +85,22 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
     This usually indicates an issue with missing geometry, disconnected inputs, or empty lists being passed to Eddy3D components. Ensure your building and context geometries are properly baked/referenced and that list lengths match expected inputs.
 
 ??? note "How do I include trees and porous zones?"
-    In Eddy3D, trees can be defined using porous zones. You can assign tree volumes as inputs to the mesh components. Ensure you are grouping your trees correctly; too many separate dense tree instances can significantly increase mesh complexity and cause crashes.
+    In Eddy3D, trees are modeled as porous zones using **Darcy-Forchheimer coefficients** (D and F) rather than solid geometry. Assign tree volumes — simple 3D objects like thick cylinders or ellipsoids — as inputs to the Tree component. Trunks can be modeled with very high D and F values (very low permeability) so the crown floats without requiring solid trunk geometry.
+
+    Keep in mind:
+    - Per-tree refinement levels are not currently supported; use the `AccBuilding` parameter for uniform surface accuracy.
+    - Too many separate dense tree instances significantly increase mesh complexity and can cause crashes. Group crowns into larger volumes where possible.
+    - Directional variation of surface roughness (z₀) is not yet supported.
+
+??? note "What units does Eddy3D require?"
+    Eddy3D requires all geometry to be in **meters**. Using millimeters or other units will cause simulations to fail or produce incorrect results. Before running any analysis, confirm your Rhino document units are set to meters and your model is at real-world scale. A grid density of 10–100 cells per meter is typical for architectural elements.
+
+??? note "Can I reuse the same mesh for different wind speeds or directions?"
+    - **Different wind speed, same direction**: Yes — wind speed has no effect on mesh geometry. Reuse the same mesh and re-run only the solver.
+    - **Different wind direction**: No — each direction requires its own mesh, because the domain orientation and inlet/outlet face assignments are direction-dependent. Run separate mesh and solve steps per direction.
+
+??? note "Can I run a terrain-only simulation without buildings?"
+    Yes. Keep the building geometry input populated — you can use the terrain surface itself as a placeholder if there are no structures. When probing results over sloped terrain, offset probe points upward from the actual terrain surface rather than placing them on a flat horizontal plane at z=0, or you will sample incorrect values inside the terrain volume.
 
 ### 3. Simulation Configuration
 
@@ -96,7 +111,14 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
     If you are using evolutionary solvers (like Galapagos or Wallacei), ensure you use the synchronous run components and toggle the Boolean correctly so Grasshopper waits for the CFD solve to finish before evaluating the next genome.
 
 ??? note "Pressure residuals stalling / Solution not converging"
-    If your residuals stall (e.g., at $10^{-2}$) or oscillate heavily, you may have high-speed impingement zones, poor mesh quality (check your `y+`), or a domain that is too small for the wake to dissipate. Increasing iterations beyond 4000 rarely fixes fundamentally diverging cases.
+    If residuals stall (e.g., at $10^{-2}$) or oscillate, the most common root cause is **poor mesh quality around building geometry** — specifically concave cells and high non-orthogonality (>65°) caused by jagged or uncleaned surface geometry. Increasing iterations beyond 4000 will not fix a fundamentally diverging case.
+
+    Diagnostic checklist:
+    - Run `checkMesh` and look for concave cells, high non-orthogonality, and low face-flatness values. Even a few thousand concave cells can block convergence.
+    - Clean input geometry before importing: remove naked edges, non-manifold faces, and sharp extrusion artifacts.
+    - Try the **Robust** mesh mode in Eddy3D's mesh settings for more conservative snapping tolerances.
+    - Ensure your domain is large enough for the wake to dissipate (≥5H clearance downwind is a common minimum).
+    - For k-ε with wall functions, target y⁺ between 30 and 300 on wall-adjacent cells.
 
 ??? note "Weather Files (EPW) & Adjusting Wind Directions"
     Eddy3D automatically extracts dominant wind directions from the `.epw` file. If you wish to filter for specific seasons, use the Ladybug tools to parse the EPW file first, and feed the filtered wind profile data directly into Eddy3D.
@@ -111,6 +133,9 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
     These are fatal OpenFOAM crashes. They usually happen due to:
     - Out of Memory (OOM) errors during meshing or solving.
     - Floating point exceptions (divergence) in the first few iterations due to bad mesh cells. Check your `log.simpleFoam` for exact details.
+
+??? note "Does Eddy3D support custom or measured wind profiles?"
+    Natively, Eddy3D accepts only a reference velocity (`U_ref`) at a reference height (`z_ref`) and generates a logarithmic ABL profile internally. Importing a custom velocity-vs-height profile from an external file (CSV, Excel, txt) is not currently supported. Advanced users can manually edit the `0/U` file in the OpenFOAM case folder after Eddy3D generates it, but this will be overwritten if the mesh or solver is re-run from the Grasshopper components.
 
 ### 4. Post-Processing & Visualization
 
@@ -143,3 +168,21 @@ Welcome to the Eddy3D FAQ! We have compiled the most common questions from our D
 
 ??? note "ParaView doesn't automatically load the simulation"
     Ensure you have installed a compatible version of ParaView. Sometimes security settings or incorrect PATHs block the automatic launching. You can always open ParaView manually, navigate to your project folder, and create an empty `case.foam` file to load the results.
+
+??? note "How do I load a previous simulation result / results from a different folder?"
+    Connect the path to your Eddy3D **analysis folder** to the `Dir` input of the post-processing components. Point to the folder, not to an individual result file. If you reopen a Grasshopper file where the folder path is already connected, re-enabling the component will reload the previous results. This works with paths on any drive or network location as long as the simulation folder structure is intact.
+
+??? note "How do I visualize airflow velocity on building facades (instead of pressure coefficients)?"
+    Eddy3D's default templates display pressure coefficient (Cp) on building surfaces and velocity on horizontal cut planes only. To extract velocity on a facade:
+    1. Open ParaView and load your case via `case.foam`.
+    2. Apply the **Extract Surface** filter to isolate the building geometry.
+    3. Sample the `U` field on that surface to get velocity magnitude and direction per face.
+    There is currently no native Eddy3D component for facade velocity extraction — ParaView is required.
+
+??? note "How do I couple exterior Eddy3D pressure results to an interior CFD model?"
+    The standard workflow:
+    1. Run the external simulation in Eddy3D and extract Cp at each window or opening centroid.
+    2. If pressure is non-uniform across an opening, compute an area-weighted average Cp for that opening.
+    3. Back-calculate physical pressure: `P = Cp × 0.5 × ρ × U_ref²` where ρ ≈ 1.225 kg/m³ and `U_ref` is the reference velocity at building height.
+    4. Apply the resulting pressure values as boundary conditions in your interior CFD tool.
+    Use the same `U_ref` in both the external and internal models to maintain consistency.
