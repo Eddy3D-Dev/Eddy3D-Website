@@ -1,4 +1,4 @@
-1.0.2.827 (Jul. 4, 2026)
+1.0.4.827 (Jul. 7, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,19 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.0.4.827 (July 7, 2026)
+- **Fixed:**
+    - **Outdoor / WSL:** After a simulation on a machine without the Windows symbolic-link privilege (no admin rights / Developer Mode), the mesh link `constant/polyMesh` was unreadable from Windows — Explorer showed "The file cannot be accessed by the system" and ParaView reported the case "contains no meshes". Direction cases now provision the mesh as an NTFS directory junction (works without any privilege), and the Open In ParaView component repairs existing broken cases automatically.
+    - Headless-safe BlueCFD environment setup and distro-aware WSL engine installation (Install Engines no longer assumes a hardcoded WSL distribution).
+    - BlueCFD/UMF build environment on newer Windows 11 builds.
+- **Improved:**
+    - Faster terrain vertex projection (batched into a single interop call).
+    - Cached wind-comfort threshold tables to cut per-probe allocations, plus string/allocation optimizations across UTCI/PET, thermal comfort, and WSL command generation.
+    - Progress dialogs: tooltips, word wrap, interactive hand cursor, and larger clickable areas for toggles and dropdowns.
+
+Distributed via Yak: https://yak.rhino3d.com/packages/Eddy3D
+Changes since `v1.0.2.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.2.827...v1.0.4.827){ aria-label="Compare version 1.0.2.827 to 1.0.4.827 on GitHub" }
 
 ### 1.0.2.827 (July 4, 2026)
 First unified stable release of Eddy3D.
