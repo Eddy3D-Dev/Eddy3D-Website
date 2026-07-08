@@ -34,9 +34,9 @@ Rhino Version: 8.27.26019.16022
 
 ---
 
-## Frequently Asked Questions
+## FAQ
 
-Welcome to the Eddy3D FAQ! We have compiled the most common questions from our Discourse community to help you resolve issues quickly.
+We have compiled the most common questions from our Discourse community to help you resolve issues quickly.
 
 ### 1. Installation, Setup, and Compatibility
 

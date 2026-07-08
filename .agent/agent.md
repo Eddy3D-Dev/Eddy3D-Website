@@ -19,3 +19,7 @@ This file contains rules and conventions that the AI agent (Antigravity) must fo
 - Change entries should **NOT** have bullets.
 - Each entry should be separated by a blank line.
 - Remove any invisible or illegal characters (like `Â`) that may appear due to encoding issues.
+
+## Terminology
+
+- Always write **FAQ** in all-caps — never `Faq`, `faq`, or `Frequently Asked Questions` in headings or navigation labels.
