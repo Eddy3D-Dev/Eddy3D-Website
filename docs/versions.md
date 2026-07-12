@@ -10,6 +10,17 @@
 
 ## Changelog
 
+### 1.0.6-beta.827 (July 12, 2026)
+Pre-release — install by ticking *Include pre-releases* in the Rhino Package Manager.
+
+- **Added:**
+    - **blueCFD install-path check:** if blueCFD-Core 2024 is installed in a folder with spaces in the name (e.g. `C:\Program Files\...`), Eddy3D now warns everywhere the engine is used — the Install Engines component flags it directly in its callout (`BlueCFD ⚠ spaces in path`), in its status log, and on the Run components. Spaces break the OpenFOAM toolchain, so the UMF solver could never be built; previously this failed silently with "UMF Solver: Not Found". Install to a path like `C:\blueCFD-Core\2024` instead.
+
+- **Improved:**
+    - Check Geometry preview: display materials are cached per status color and mesh buffers are bulk-marshalled — smoother canvas on large models.
+
+Changes since `v1.0.5-beta.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.5-beta.827...v1.0.6-beta.827){ aria-label="Compare version 1.0.5-beta.827 to 1.0.6-beta.827 on GitHub" }
+
 ### 1.0.4.827 (July 7, 2026)
 - **Fixed:**
     - **Outdoor / WSL:** After a simulation on a machine without the Windows symbolic-link privilege (no admin rights / Developer Mode), the mesh link `constant/polyMesh` was unreadable from Windows — Explorer showed "The file cannot be accessed by the system" and ParaView reported the case "contains no meshes". Direction cases now provision the mesh as an NTFS directory junction (works without any privilege), and the Open In ParaView component repairs existing broken cases automatically.
