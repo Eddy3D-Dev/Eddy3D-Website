@@ -1,4 +1,4 @@
-1.0.7-beta.827 (Jul. 13, 2026)
+1.0.8.827 (Jul. 13, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,42 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.0.8.827 (July 13, 2026)
+
+## What's Changed
+* 1.0.4.827 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/620
+* CI: auto-create the Eddy3D-Templates version branch on release/pre-release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/621
+* ⚡ Bolt: cache preview DisplayMaterials in Check Geometry (fewer per-frame allocations) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/622
+* test: pin DisplayMaterial caching in Check Geometry preview (PR #622) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/623
+* ⚡ Bolt: RTree-index nearest-sample coloring in Wind Field Viewer by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/624
+* test: pin Wind Field Viewer nearest-sample heatmap coloring (PR #624) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/625
+* TemplateSync.Cli: parse library ids from source; warn on template drift before release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/626
+* Retarget OutdoorPlus to plain net8.0 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/627
+* test: pin CreateMesh face-selection overload behavior by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/635
+* ⚡ Bolt: resolve GH_Structure face branches once in CreateMesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/634
+* Vegetation Properties: show only kc / l / rsMin by default; advanced coefficients behind right-click (#600) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/630
+* Probe: select the result time to probe — latest (default), a specific time, or all (#124) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/631
+* Finish native age-of-air: limitMag guard, probe/ParaView field wiring (#217, #211) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/632
+* Auto-stop the solver when residuals plateau (#598) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/629
+* Comfort Hours: seasonal/period binning and %-hours-in-comfort-band (#185) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/633
+* Warn when Outdoor Case gets a direction-less Boundary Conditions value (discussion #86) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/637
+* Warn when blueCFD-Core is installed in a path with spaces by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/639
+* ⚡ Bolt: bulk-append combined buildings mesh in Check Geometry by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/638
+* ⚡ Bolt: bulk-marshal mesh in RhinoMeshToSTLMesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/636
+* CI tests, one-click release cut, RELEASE_TOKEN wiring, session-start hook by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/640
+* Track Outdoor and Indoor usage in Umami, not just Outdoor+ by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/641
+* ⚡ Bolt: inline sample selection in ComfortBinning (drop yield iterator) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/642
+* Add oracle-based regression guard for ComfortBinning selection (post #642) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/643
+* Repo hygiene: remove stale AGENT_SUMMARY.md + weekly artifact cleanup by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/645
+* CI: consolidate release workflows (github + yak pairs) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/646
+* Probe: move Run to the last input, after Time by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/648
+* ABL z0 rewire (#628), engine warning at selection time, mac auto-close fix by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/649
+* Install Engine: report every engine's status, not just the selected one by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/650
+* Install Engine: include Radiance/EnergyPlus/FluidX3D in the status report by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/651
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.4.827...v1.0.8.827
 
 ### 1.0.7-beta.827 (July 13, 2026)
 Pre-release — install by ticking *Include pre-releases* in the Rhino Package Manager.
