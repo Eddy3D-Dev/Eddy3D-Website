@@ -10,6 +10,18 @@
 
 ## Changelog
 
+### 1.0.7-beta.827 (July 13, 2026)
+Pre-release — install by ticking *Include pre-releases* in the Rhino Package Manager.
+
+- **Added:**
+    - Anonymous usage analytics now cover all three modules (Outdoor, Outdoor+, Indoor) — see the [analytics disclosure](https://docs.eddy3d.com/#anonymous-usage-analytics) for what is and isn't collected.
+
+- **Improved:**
+    - Check Geometry preview performance (cached display materials, bulk mesh marshalling).
+    - Internal: tests now run in CI on every change; one-click channel-switched release pipeline.
+
+Changes since `v1.0.6-beta.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.6-beta.827...v1.0.7-beta.827){ aria-label="Compare version 1.0.6-beta.827 to 1.0.7-beta.827 on GitHub" }
+
 ### 1.0.6-beta.827 (July 12, 2026)
 Pre-release — install by ticking *Include pre-releases* in the Rhino Package Manager.
 
