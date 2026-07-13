@@ -11,19 +11,6 @@
 ## Changelog
 
 ### 1.0.7-beta.827 (July 13, 2026)
-
-## What's Changed
-* CI tests, one-click release cut, RELEASE_TOKEN wiring, session-start hook by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/640
-* Track Outdoor and Indoor usage in Umami, not just Outdoor+ by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/641
-* ⚡ Bolt: inline sample selection in ComfortBinning (drop yield iterator) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/642
-* Add oracle-based regression guard for ComfortBinning selection (post #642) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/643
-* Repo hygiene: remove stale AGENT_SUMMARY.md + weekly artifact cleanup by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/645
-* CI: consolidate release workflows (github + yak pairs) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/646
-
-
-**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.6-beta.827...v1.0.7-beta.827
-
-### 1.0.7-beta.827 (July 13, 2026)
 Pre-release — install by ticking *Include pre-releases* in the Rhino Package Manager.
 
 - **Added:**
