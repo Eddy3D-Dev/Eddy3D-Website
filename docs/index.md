@@ -24,7 +24,7 @@ hide:
 </div>
 
 <p style="text-align: center; margin-top: 0.75rem;">
-  Latest stable release and pre-release builds are listed on the <a href="download.md" aria-label="Go to the download page for Eddy3D releases">download page</a>.
+  Latest stable release and pre-release builds are listed on the <a href="download" aria-label="Go to the download page for Eddy3D releases">download page</a>.
 </p>
 
 
