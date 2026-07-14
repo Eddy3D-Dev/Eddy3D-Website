@@ -135,7 +135,7 @@ We have compiled the most common questions from our Discourse community to help 
     - Floating point exceptions (divergence) in the first few iterations due to bad mesh cells. Check your `log.simpleFoam` for exact details.
 
 ??? note "Does Eddy3D support custom or measured wind profiles?"
-    Natively, Eddy3D accepts only a reference velocity (`U_ref`) at a reference height (`z_ref`) and generates a logarithmic ABL profile internally. Importing a custom velocity-vs-height profile from an external file (CSV, Excel, txt) is not currently supported. Advanced users can manually edit the `0/U` file in the OpenFOAM case folder after Eddy3D generates it, but this will be overwritten if the mesh or solver is re-run from the Grasshopper components.
+    Yes. The [Manual Inflow Profile](https://docs.eddy3d.com/components/Manual_Inflow_Profile/) component accepts a vertical profile as lists of normalized heights (`z/zR`), velocities (`U/UR`), and turbulent kinetic energies (`k/UR²`), together with the boundary layer height `zR` and reference velocity `UR`. Eddy3D then writes `fixedProfile` inlet conditions for `U`, `k`, and `epsilon` instead of the parametric log-law ABL. To use a measured profile from an external file (CSV, Excel, txt), read the file with standard Grasshopper file/text components and feed the columns into the component — no manual editing of the `0/U` file is needed, and the profile survives mesh or solver re-runs.
 
 ### 4. Post-Processing & Visualization
 
