@@ -1,4 +1,4 @@
-1.0.8.827 (Jul. 13, 2026)
+1.0.9.827 (Jul. 14, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,16 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.0.9.827 (July 14, 2026)
+
+## What's Changed
+* Add CI-runnable PET regression test guarding the Syst() hot path by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/654
+* OutdoorCase: overhaul the viewport domain preview by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/655
+* Merge PET.Tests and UTCI tests into Comfort.Tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/656
+* OutdoorCase preview: tree visibility, speed-scaled inflow columns, thicker refinement cage by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/657
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.8.827...v1.0.9.827
 
 ### 1.0.8.827 (July 13, 2026)
 
