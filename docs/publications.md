@@ -77,6 +77,56 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 }
 ```
 
+## Machine Learning
+
+<div class="annotate" markdown>
+- @KARADAG2026107614 (1)(2)
+</div>
+1. Karadag, I., Smyl, D., & Kastner, P. (2026). Machine learning for urban wind simulation: A comprehensive review. *Sustainable Cities and Society*, 107614.
+2.  
+```bibtex
+@article{KARADAG2026107614,
+  title   = {Machine learning for urban wind simulation: A comprehensive review},
+  author  = {Karadag, Ilker and Smyl, Danny and Kastner, Patrick},
+  journal = {Sustainable Cities and Society},
+  pages   = {107614},
+  year    = {2026},
+  doi     = {10.1016/j.scs.2026.107614}
+}
+```
+
+<div class="annotate" markdown>
+- @kastner2026physicsgan (1)(2)
+</div>
+1. Kastner, P., Chen, K., Manivasakan, V., Michalatos, P., Karadag, I., & Dogan, T. (2026). A Physics-informed GAN Framework for Urban Wind Analysis with Arbitrary Input and Output Channels. *Available at SSRN 6401886*.
+2.  
+```bibtex
+@article{kastner2026physicsgan,
+  title   = {A Physics-informed GAN Framework for Urban Wind Analysis with Arbitrary Input and Output Channels},
+  author  = {Kastner, Patrick and Chen, Kefan and Manivasakan, Vishnu and Michalatos, Panagiotis and Karadag, Ilker and Dogan, Timur},
+  journal = {Available at SSRN 6401886},
+  year    = {2026},
+  doi     = {10.2139/ssrn.6401886}
+}
+```
+
+<div class="annotate" markdown>
+- @kastner2023gan (1)(2)
+</div>
+1. Kastner, P. & Dogan, T. (2023). A GAN-based surrogate model for instantaneous urban wind flow prediction. *Building and Environment*, 242, 110384.
+2.  
+```bibtex
+@article{kastner2023gan,
+  title     = {A GAN-based surrogate model for instantaneous urban wind flow prediction},
+  author    = {Kastner, Patrick and Dogan, Timur},
+  journal   = {Building and Environment},
+  volume    = {242},
+  pages     = {110384},
+  year      = {2023},
+  publisher = {Elsevier}
+}
+```
+
 ## Outdoor
 
 <div class="annotate" markdown>
