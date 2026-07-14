@@ -52,6 +52,9 @@ We have compiled the most common questions from our Discourse community to help 
 ??? note "Eddy3D is not showing up in Grasshopper after installation"
     Ensure you have completely restarted Rhino and Grasshopper after installing via the Package Manager. Check that you are not running multiple conflicting versions. Sometimes running the `_GrasshopperDeveloperSettings` command and unchecking "Memory Load" can resolve conflicts.
 
+??? note "Eddy3D is not showing up in the Package Manager"
+    This is typically caused by running an outdated version of Rhino. Each Eddy3D release requires a minimum Rhino service release — the last two digits of the version number encode it (e.g. `1.0.8.827` requires Rhino 8.27 or newer). The Package Manager hides packages that require a newer Rhino than the one installed, so Eddy3D simply won't appear in the search results. Update Rhino via `Help → Check for Updates...` (Windows) or `Rhinoceros → Check for Updates...` (macOS), restart, and search again.
+
 ??? note "Why does my Eddy3D script show a 'license expired' warning?"
     Older beta and pre-release builds (like 0.4.8 and earlier) contained hardcoded expiration dates. To fix this, simply upgrade to the latest Eddy3D version using the Rhino Package Manager. 
 
