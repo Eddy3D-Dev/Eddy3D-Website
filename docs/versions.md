@@ -1,4 +1,4 @@
-1.0.9.827 (Jul. 14, 2026)
+1.1.0.827 (Jul. 15, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,29 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.1.0.827 (July 15, 2026)
+
+## What's Changed
+* Release 1.0.7.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/647
+* Fix Docker --cpus cap starving parallel wind runs on one core by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/658
+* Fix blueCFD run scripts failing at the auto-close timeout by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/659
+* MRT perf, indoor engine fixes, WSL Server-2022 guard, arm64 Radiance image by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/660
+* Scan #2 fixes: WSL drive letters, UMF MPI/CPU caps, MRT robustness, widget dedupe by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/661
+* MRT Settings: high-fidelity defaults + Engine Timeout input by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/662
+* Probing without Grasshopper: per-setup post-process scripts + missing-dict guard by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/663
+* chore: remove orphaned FluidX3D icons by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/664
+* Dial-staged nNonOrthogonalCorrectors: drop pressure passes once stable by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/665
+* perf: bounded-pass nearest-neighbour selection in Interpolate UMag + CI regression tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/667
+* Plateau auto-stop: 1000-iteration floor, 300 window, deeper-baseline metric by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/668
+* Silence vtkPolyhedron non-manifold warning wall in generated ParaView scripts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/669
+* ParaView component: right-click version selector with Auto default by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/670
+* refactor: dedupe macOS Docker paths, Util dead-code sweep, shared solve/subdomain helpers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/671
+* Fix veg-stage log filenames (BlueCFD serial) + terrain WSL hardcoded distro by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/672
+* Mesh-aware CPU counts: 50k cells/core + pre-mesh estimator + domain-model docs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/674
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.0.9.827...v1.1.0.827
 
 ### 1.0.9.827 (July 14, 2026)
 
