@@ -52,6 +52,9 @@ We have compiled the most common questions from our Discourse community to help 
 ??? note "Eddy3D is not showing up in Grasshopper after installation"
     Ensure you have completely restarted Rhino and Grasshopper after installing via the Package Manager. Check that you are not running multiple conflicting versions. Sometimes running the `_GrasshopperDeveloperSettings` command and unchecking "Memory Load" can resolve conflicts.
 
+??? note "Eddy3D is not showing up in the Package Manager"
+    This is typically caused by running an outdated version of Rhino. Each Eddy3D release requires a minimum Rhino service release — the last two digits of the version number encode it (e.g. `1.0.8.827` requires Rhino 8.27 or newer). The Package Manager hides packages that require a newer Rhino than the one installed, so Eddy3D simply won't appear in the search results. Update Rhino via `Help → Check for Updates...` (Windows) or `Rhinoceros → Check for Updates...` (macOS), restart, and search again.
+
 ??? note "Why does my Eddy3D script show a 'license expired' warning?"
     Older beta and pre-release builds (like 0.4.8 and earlier) contained hardcoded expiration dates. To fix this, simply upgrade to the latest Eddy3D version using the Rhino Package Manager. 
 
@@ -135,7 +138,7 @@ We have compiled the most common questions from our Discourse community to help 
     - Floating point exceptions (divergence) in the first few iterations due to bad mesh cells. Check your `log.simpleFoam` for exact details.
 
 ??? note "Does Eddy3D support custom or measured wind profiles?"
-    Natively, Eddy3D accepts only a reference velocity (`U_ref`) at a reference height (`z_ref`) and generates a logarithmic ABL profile internally. Importing a custom velocity-vs-height profile from an external file (CSV, Excel, txt) is not currently supported. Advanced users can manually edit the `0/U` file in the OpenFOAM case folder after Eddy3D generates it, but this will be overwritten if the mesh or solver is re-run from the Grasshopper components.
+    Yes. The [Manual Inflow Profile](https://docs.eddy3d.com/components/Manual_Inflow_Profile/) component accepts a vertical profile as lists of normalized heights (`z/zR`), velocities (`U/UR`), and turbulent kinetic energies (`k/UR²`), together with the boundary layer height `zR` and reference velocity `UR`. Eddy3D then writes `fixedProfile` inlet conditions for `U`, `k`, and `epsilon` instead of the parametric log-law ABL. To use a measured profile from an external file (CSV, Excel, txt), read the file with standard Grasshopper file/text components and feed the columns into the component — no manual editing of the `0/U` file is needed, and the profile survives mesh or solver re-runs.
 
 ### 4. Post-Processing & Visualization
 
