@@ -1,4 +1,4 @@
-1.1.0.827 (Jul. 15, 2026)
+1.1.0.827 (Jul. 15, 2026) &mdash; latest beta: 1.2.1-beta.827 (Jul. 25, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,38 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.2.1-beta.827 (July 25, 2026)
+
+Beta channel. Tick *Include pre-releases* in the Rhino Package Manager to install.
+
+**Outdoor+ / urbanMicroclimateFoam**
+
+* Fixed a solver crash (SIGFPE) on mapped patches &mdash; the coupled boundary no longer selects the `patchToPatch` nearest engine.
+* Extruded-region mapped patches now keep `isExtrudedRegion` through `changeDictionary`.
+* Stale result-time directories from an earlier run no longer poison the next solve; the cleanup now also covers the blueCFD meshing path.
+* Building material selection no longer reaches the case as a raw dropdown index.
+* Interactive run windows close on the shared countdown instead of waiting for a keypress.
+* Docker and WSL now use the Eddy3D urbanMicroclimateFoam fork with the mapper fix, on a rebuilt multi-architecture image; blueCFD is pinned to the matching solver build.
+
+**Engines and robustness**
+
+* Selecting Docker while Docker Desktop is stopped now warns instead of failing later as a missing-file error.
+* WSL interactive commands are escaped so Windows Terminal no longer splits them at semicolons.
+* The ParaView component opens multi-region (Outdoor+) cases.
+
+**Updates and templates**
+
+* Update notifications follow your installed channel: beta users are offered newer betas, stable users are never offered a beta.
+* Shipped templates are now gated against stale component parameter layouts, fixing canvases that raised errors such as `Input parameter index [5] too high for Component Probe`.
+
+Changes since `v1.2.0-beta.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.2.0-beta.827...v1.2.1-beta.827){ aria-label="Compare version 1.2.0-beta.827 to 1.2.1-beta.827 on GitHub" }
+
+### 1.2.0-beta.827 (July 24, 2026)
+
+Beta channel. Superseded by `1.2.1-beta.827`.
+
+Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.1.0.827...v1.2.0-beta.827){ aria-label="Compare version 1.1.0.827 to 1.2.0-beta.827 on GitHub" }
 
 ### 1.1.0.827 (July 15, 2026)
 
