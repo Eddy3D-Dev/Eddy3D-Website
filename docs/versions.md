@@ -1,4 +1,4 @@
-1.4.0.827 (Aug. 4, 2026)
+1.4.0.827 (Aug. 4, 2026) &mdash; latest beta: 1.3.0-beta.827 (Jul. 28, 2026)
 
 !!! Compatibility
 
@@ -12,51 +12,32 @@
 
 ### 1.4.0.827 (August 4, 2026)
 
-## What's Changed
-* Release 1.0.8.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/652
-* ⚡ Bolt: hoist hour-invariant solar-gain trig out of the per-probe MRT loop by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/677
-* refactor: dedupe RunHeadless execute-and-throw tail across OpenFOAM engines by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/675
-* FluidX3D: v3.7 pin + macOS patch removal, Cp export, probe time-averaging, field validation by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/678
-* refactor: dedupe TemplateSync.Cli item lookups + shared interactive-terminal launch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/680
-* ⚡ Bolt: hoist per-hour UTCI vapour pressure out of the per-probe annual loop by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/681
-* test: pin FluidX3D probe time-mode selection (regression guard for #678) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/679
-* ⚡ Bolt: fix parallel grain in WindSystem.ComputeSpatialFactors (2.4× faster) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/685
-* refactor: dedupe wsl.exe path resolution + Eddy3DCli workDir validation by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/684
-* ⚡ Bolt: build UTCI/MRT result trees with DataTree.AddRange instead of per-item Add by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/683
-* test: pin absolute UTCI output to guard the hoisted per-probe split by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/682
-* Fix the blueCFD calcLAI ~300x stall: core boundBox patch automation + step-23 dialect fixes (#686) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/690
-* Refactor: DRY up test temp-dir boilerplate, remove dead code, dedup VTK sample reads by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/687
-* ⚡ Bolt: batch SurfaceTempCMP output tree with AddRange by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/688
-* Merge safe refactors #687 + #688 into dev with locking regression tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/689
-* chore: remove 162 MB of committed binaries (.codex-test, Build/) + guard .gitignore by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/691
-* ⚡ Bolt: probe-parallel grain for WindComfortPredictorCMP spatial factors by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/693
-* refactor: derive blueCFD meshing commands from GetMeshingSteps like simulation does by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/692
-* perf(wind-comfort): probe-parallel spatial-factor fill, extracted + CI-tested by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/694
-* fix: engine failures surface instead of masking as 'terrain.obj not found' by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/695
-* fix: material dropdown index no longer reaches the case as buildingMaterialModel by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/696
-* fix: extruded-region mapped patches keep isExtrudedRegion through changeDictionary by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/698
-* fix: wt.exe splits WSL interactive commands at semicolons — escape them by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/699
-* fix: ParaView component opens multi-region UMF (Outdoor+) cases by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/697
-* fix: UMF SIGFPE — mapped patches must not select OF12's patchToPatch nearest engine (kills #698 theory) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/700
-* feat: every component draws from the shared v4 icon set by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/706
-* feat(icons): the 12 remaining components get v4 glyphs (set now 106) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/708
-* fix(outdoor+): make Simulation Mesh Settings verifiable instead of silently inert by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/731
-* fix(analytics): bound Umami event volume so tracking survives the month by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/732
-* chore: drop inert version pins and fix the release-cut guard by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/733
-* feat(engines): Podman as a drop-in container engine (#715) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/719
-* feat(mrt): Result objects, per-orientation solve, Radiance quality + parallelism, ribbon split; fixes 5 silent bugs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/734
-* chore: drop stray test-output files from the repo root by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/735
-* fix(mrt): container DDS chain died on `& &&` before any Radiance ran by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/736
-* test(mrt): make the chunk parity check test alignment, not values by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/737
-* feat(mrt): narrate the run in real steps, with sizes and timings by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/738
-* feat(mrt): auto-name the project folder, shared with the wind case by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/739
-* feat(mrt): interactive Sun Hours preview by shadow ray casting by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/721
-* feat(mrt): curate the solved MRT field into an ML dataset by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/722
-* feat(weather): expose solar elevation and azimuth on Deconstruct Weather by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/740
-* perf(mrt): 4-wide SIMD BVH for Sun Hours — 3-7x faster, bit-identical answers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/741
+First stable release since 1.1.0.827 &mdash; includes everything from the 1.2.0, 1.2.1 and 1.3.0 betas below.
 
+**MRT / Comfort**
 
-**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.1.0.827...v1.4.0.827
+* Sun Hours: a new interactive direct-sun preview by shadow ray casting &mdash; annual studies in about a second, accelerated by a SIMD BVH. A preview tool; use the MRT/UTCI path for defensible numbers.
+* Deconstruct Weather now outputs hourly Solar Elevation and Solar Azimuth, ready to wire into Sun Hours.
+* MRT results become first-class Result objects with per-orientation solving, a Radiance quality preset (Draft to Reference) and sensor-chunk parallelism; fixes five silent bugs in the previous chain.
+* The MRT run log narrates real steps with sizes and timings, and the run's progress bar tracks the Radiance stage instead of freezing.
+* MRT projects without a name get a friendly auto-generated folder, shared with the wind case in the same document.
+* A new dataset curator turns a solved MRT field into an ML-ready dataset.
+* EnergyPlus surface-temperature runs move from 9.4.0 to 26.1.0.
+* Fixed: the containerised Radiance chain failed before tracing anything (a shell syntax error).
+
+**Engines / Outdoor+**
+
+* Podman is now a drop-in alternative to Docker for every container engine.
+* Simulation Mesh Settings are verifiable instead of silently inert.
+* ParaView state files open across platforms (path-separator conversion).
+
+### 1.3.0-beta.827 (July 28, 2026)
+
+Beta channel. Tick *Include pre-releases* in the Rhino Package Manager to install.
+
+* Every component now draws from the shared v4 icon set (106 glyphs; the last 12 components got theirs).
+* The Docker availability probe no longer times out on a busy machine (3 s to 10 s), which had made healthy setups read as "no Docker".
+
 
 ### 1.2.1-beta.827 (July 25, 2026)
 
