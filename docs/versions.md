@@ -1,4 +1,4 @@
-1.1.0.827 (Jul. 15, 2026) &mdash; latest beta: 1.2.1-beta.827 (Jul. 25, 2026)
+1.4.0.827 (Aug. 4, 2026) &mdash; latest beta: 1.3.0-beta.827 (Jul. 28, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,35 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.4.0.827 (August 4, 2026)
+
+First stable release since 1.1.0.827 &mdash; includes everything from the 1.2.0, 1.2.1 and 1.3.0 betas below.
+
+**MRT / Comfort**
+
+* Sun Hours: a new interactive direct-sun preview by shadow ray casting &mdash; annual studies in about a second, accelerated by a SIMD BVH. A preview tool; use the MRT/UTCI path for defensible numbers.
+* Deconstruct Weather now outputs hourly Solar Elevation and Solar Azimuth, ready to wire into Sun Hours.
+* MRT results become first-class Result objects with per-orientation solving, a Radiance quality preset (Draft to Reference) and sensor-chunk parallelism; fixes five silent bugs in the previous chain.
+* The MRT run log narrates real steps with sizes and timings, and the run's progress bar tracks the Radiance stage instead of freezing.
+* MRT projects without a name get a friendly auto-generated folder, shared with the wind case in the same document.
+* A new dataset curator turns a solved MRT field into an ML-ready dataset.
+* EnergyPlus surface-temperature runs move from 9.4.0 to 26.1.0.
+* Fixed: the containerised Radiance chain failed before tracing anything (a shell syntax error).
+
+**Engines / Outdoor+**
+
+* Podman is now a drop-in alternative to Docker for every container engine.
+* Simulation Mesh Settings are verifiable instead of silently inert.
+* ParaView state files open across platforms (path-separator conversion).
+
+### 1.3.0-beta.827 (July 28, 2026)
+
+Beta channel. Tick *Include pre-releases* in the Rhino Package Manager to install.
+
+* Every component now draws from the shared v4 icon set (106 glyphs; the last 12 components got theirs).
+* The Docker availability probe no longer times out on a busy machine (3 s to 10 s), which had made healthy setups read as "no Docker".
+
 
 ### 1.2.1-beta.827 (July 25, 2026)
 
