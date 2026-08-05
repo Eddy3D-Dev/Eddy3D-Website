@@ -1,4 +1,4 @@
-1.4.0.827 (Aug. 4, 2026) &mdash; latest beta: 1.3.0-beta.827 (Jul. 28, 2026)
+1.4.1.827 (Aug. 5, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,17 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.4.1.827 (August 5, 2026)
+
+## What's Changed
+* Release 1.4.0.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/742
+* perf(mrt): build the Sun Hours BVH in parallel by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/743
+* fix(mrt): Sun Hours stalls when Rhino's ThreadPool is busy by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/744
+* fix(package): stop shipping Rhino's System.Resources.Extensions (Grasshopper fails to open) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/745
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.4.0.827...v1.4.1.827
 
 ### 1.4.0.827 (August 4, 2026)
 
