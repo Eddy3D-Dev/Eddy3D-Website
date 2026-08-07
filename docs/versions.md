@@ -1,4 +1,4 @@
-1.4.1.827 (Aug. 5, 2026)
+1.5.0-beta.827 (Aug. 7, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,14 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.5.0-beta.827 (August 7, 2026)
+
+## What's Changed
+* Urban radiance validation tests + SolarCal shortwave dMRT fix (discussion #91) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/747
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.4.1.827...v1.5.0-beta.827
 
 ### 1.4.1.827 (August 5, 2026)
 
