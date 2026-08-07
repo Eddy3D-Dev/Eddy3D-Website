@@ -14,6 +14,7 @@
 
 ## What's Changed
 * Urban radiance validation tests + SolarCal shortwave dMRT fix (discussion #91) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/747
+* New *Settle Data* component (Outdoor) by @kastnerp
 
 
 **Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.4.1.827...v1.5.0-beta.827
