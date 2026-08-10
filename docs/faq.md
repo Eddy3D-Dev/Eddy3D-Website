@@ -189,3 +189,24 @@ We have compiled the most common questions from our Discourse community to help 
     3. Back-calculate physical pressure: `P = Cp × 0.5 × ρ × U_ref²` where ρ ≈ 1.225 kg/m³ and `U_ref` is the reference velocity at building height.
     4. Apply the resulting pressure values as boundary conditions in your interior CFD tool.
     Use the same `U_ref` in both the external and internal models to maintain consistency.
+
+### 5. Standards & Compliance
+
+??? note "How does Eddy3D relate to the ASCE/SEI Prestandard for Computational Wind Engineering (2026)?"
+    The *Prestandard for Use of Computational Wind Engineering in Building Design* (ASCE/SEI + NIST, 2026) is the first US standardization effort for CFD-based wind engineering. Its normative scope is **structural wind loads**, for which it mandates turbulence-resolving LES — that is not what Eddy3D does (see the next question). For **pedestrian wind comfort**, however, the Prestandard explicitly states that steady-state RANS approaches "give acceptable results", deferring to the established guidelines Eddy3D follows (AIJ 2008, AWES-QAM, Franke et al. 2011). Its approach-flow and QA chapters transfer to comfort studies, and Eddy3D already aligns with the core of them:
+
+    - **Domain sizing** follows the COST 732 / Franke best practice the Prestandard builds on (5H inflow, 15H wake, 5H sides/top for box domains), and every written case is checked against the Prestandard's blockage limits (frontal ≤ 3%, lateral/vertical ≤ 17%, AC 6-8b) — exceedances surface as a component warning with a fix hint (shipping with the next release).
+    - **Atmospheric boundary layer modeling** uses the log-law `atmBoundaryLayerInletVelocity` inlet and the z0-based atmospheric rough-wall ground treatment — exactly the roughness formulation the Prestandard's commentary prefers over generic sand-grain wall functions (AC 5-4).
+    - **Topography** is modeled explicitly in the domain ("Topography Method 2", AC 3-4), with the same rough-wall treatment on terrain.
+    - **Vegetation** enters as porous canopy zones rather than a roughness fudge — the approach the Prestandard's commentary recommends for forested/vegetated areas (AC 6-11).
+    - **Mesh quality** is gated by an automatic `checkMesh` step whose skewness / non-orthogonality results are parsed and surfaced on the canvas (AC 6-9).
+    - **Convergence** is monitored live with automatic residual-plateau detection and graceful solver stop (AC 4-6).
+    - **Wall treatment** is verified: per-patch y+ statistics are reported after every run, warning when averages leave the wall-function validity range (AC 6-10a; shipping with the next release).
+    - **Full-scale simulation** means the Prestandard's Reynolds-number criterion (Re ≥ 11,000, AC 4-7) is always satisfied — and stated per study (shipping with the next release).
+    - **Wind climate statistics** combine per-direction CFD results with directional Weibull fits and the Lawson (three variants), Davenport, and NEN 8100 comfort/safety criteria — the sector-method family the Prestandard lists for combining climate with simulation data.
+    - **Second-order numerics** per the Prestandard's discretization requirement (AC 4-3) are available on the Run Settings robustness dial (levels 1–3); the robust default is first-order, and the input description tells you where the standard-aligned range is.
+
+    Remaining gaps (empty-domain inflow verification, automated grid-independence studies, a generated compliance report) are tracked in the repository's compliance matrix and on the roadmap.
+
+??? note "Can Eddy3D calculate design wind loads (MWFRS / cladding) per the Prestandard?"
+    No — and no steady-RANS tool can. The Prestandard requires turbulence-resolving large-eddy simulation for peak load prediction and explicitly rules out RANS for structural wind loads. Eddy3D targets pedestrian-level wind, comfort, and microclimate — the application class for which the Prestandard itself endorses steady-state methods. For code wind loads, use wind tunnel testing per ASCE 49 or an LES-based study executed under the Prestandard's full QA and peer-review process.
