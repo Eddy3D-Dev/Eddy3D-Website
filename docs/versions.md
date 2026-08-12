@@ -416,16 +416,6 @@ Changes since `v0.5.8.815`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 - **Fixed:**
     - [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270){ aria-label="View discussion comment #1 for issue #31 on GitHub" }
 
-### 0.4.15.6 (August 18, 2025)
-- Refactored and cleaned up code for function object handling in the indoor domain, including removal of obsolete and commented-out code.
-- Updated scalar transport configuration generation in ControlDict to use a new helper method.
-- Standardized solver settings for AoA and Covid19 in FvSolutionDict.
-- Fixed property naming in ViralEmitter.
-- Updated parameter descriptions in CO2Emitter_Component and ViralEmitter_Component.
-- Updated Grasshopper template metadata and viewport settings.
-- **Fixed:**
-    - [discussion comment #1](https://github.com/orgs/Eddy3D-Dev/discussions/31#discussioncomment-14137270){ aria-label="View discussion comment #1 for issue #31 on GitHub" }
-
 ### 0.4.15.5 (August 13, 2025)
 - Refactor cell size component and improve Weibull comfort logic
 - Refactored the Cell Size Grasshopper component for clarity, improved input validation, and updated parameter descriptions.
