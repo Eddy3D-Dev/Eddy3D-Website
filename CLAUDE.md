@@ -23,4 +23,11 @@ On every Eddy3D plugin release (see the main repo's `.claude/skills/release-eddy
 - `docs/versions.md`: bump the top marker line and **add** a `### NEW.VER (Month D, YYYY)`
   changelog entry above the previous one (body from
   `gh release view v<NEW.VER> --repo Eddy3D-Dev/Eddy3D --json body`); keep old entries.
+  **Strip the leading `## What's Changed` heading** that GitHub's auto-generated notes
+  always start with. `download.md` includes `versions.md`, so any `##` inside a release
+  body lands at the same level as `## Changelog` and shows up as a duplicate
+  "What's Changed" entry in the page's table of contents (`#whats-changed`,
+  `#whats-changed_1`, …). Keep release bodies to `###` and below — the `### NEW.VER`
+  heading already says which release the notes belong to. Same for any other `##` a
+  release body may carry.
 - Then the `dev → main` PR — the release is not done until it merges and the deploy runs.

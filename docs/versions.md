@@ -12,7 +12,6 @@
 
 ### 1.6.0-beta.827 (August 7, 2026)
 
-## What's Changed
 * Legend mode for actual UTCI/PET values by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/749
 
 
@@ -20,7 +19,6 @@
 
 ### 1.5.0-beta.827 (August 7, 2026)
 
-## What's Changed
 * Urban radiance validation tests + SolarCal shortwave dMRT fix (discussion #91) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/747
 * New *Settle Data* component (Outdoor) by @kastnerp
 
@@ -29,7 +27,6 @@
 
 ### 1.4.1.827 (August 5, 2026)
 
-## What's Changed
 * Release 1.4.0.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/742
 * perf(mrt): build the Sun Hours BVH in parallel by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/743
 * fix(mrt): Sun Hours stalls when Rhino's ThreadPool is busy by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/744
@@ -101,7 +98,6 @@ Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 1.1.0.827 (July 15, 2026)
 
-## What's Changed
 * Release 1.0.7.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/647
 * Fix Docker --cpus cap starving parallel wind runs on one core by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/658
 * Fix blueCFD run scripts failing at the auto-close timeout by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/659
@@ -124,7 +120,6 @@ Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 1.0.9.827 (July 14, 2026)
 
-## What's Changed
 * Add CI-runnable PET regression test guarding the Syst() hot path by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/654
 * OutdoorCase: overhaul the viewport domain preview by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/655
 * Merge PET.Tests and UTCI tests into Comfort.Tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/656
@@ -134,7 +129,6 @@ Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 1.0.8.827 (July 13, 2026)
 
-## What's Changed
 * 1.0.4.827 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/620
 * CI: auto-create the Eddy3D-Templates version branch on release/pre-release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/621
 * ⚡ Bolt: cache preview DisplayMaterials in Check Geometry (fewer per-frame allocations) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/622
