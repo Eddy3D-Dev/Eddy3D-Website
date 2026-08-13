@@ -1,4 +1,4 @@
-1.6.0-beta.827 (Aug. 7, 2026)
+1.7.0.827 (Aug. 13, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,19 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.7.0.827 (August 13, 2026)
+
+First stable release since `1.4.1.827`, superseding the never-promoted `1.5.0`/`1.6.0` beta line.
+
+* **LBM/OpenLB container engine** — GPU-accelerated wind solves via Docker/podman, with automatic CPU fallback
+* **Indoor species + buoyant thermal** — CO<sub>2</sub> as a transported species, breathing manikin, IAQ against 7 standards, and the two-node comfort models
+* **Staged MRT components** with Embree occlusion (2.7–6× faster)
+* **ASCE CWE Prestandard** checks
+* **Wind Predictor ML** with CoreML acceleration on Apple silicon
+* **Wind & comfort visualization** — Wind Legend, speed-coloured streamlines, and class-coloured comfort meshes with colourblind-safe palettes
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.4.1.827...v1.7.0.827
 
 ### 1.6.0-beta.827 (August 7, 2026)
 
