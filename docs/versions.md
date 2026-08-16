@@ -1,4 +1,4 @@
-1.7.0.827 (Aug. 13, 2026)
+1.8.0.827 (Aug. 16, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,21 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.8.0.827 (August 16, 2026)
+
+No breaking changes — Grasshopper documents saved with `1.7.0.827` open unchanged.
+
+* **Trees as porous media in the LBM engine** — crowns become HLBM porous cells driven by a physical Cd&middot;LAD, so vegetation slows wind without blocking it
+* **Vegetation library** — 30 tree types (5 archetypes + 25 urban species) carrying crown-average LAD and foliage Cd; one trees object now feeds both the OpenFOAM and LBM engines
+* **Inflow direction jitter and a perturbed-inflow UQ ensemble**, with a per-point speed *Spread* output flagging wake regions where results are inflow-sensitive
+* **Native Apple silicon LBM solver** — the container image is now multi-arch, ending emulation on M-series Macs; thread count is pinned to the container's real CPU allotment, with a warning when the VM is starved
+* **Davenport roughness dropdown** on the ABL component — eight canonical z<sub>0</sub> classes from open sea to city core
+* **Named dropdowns** replacing raw numeric selectors across CO<sub>2</sub> standards, facade zones, terrain categories, occupant activity, UTCI legend metric, and tree density
+* **MRT fix** — View Factors and MRT Run now solve one scene regardless of upstream tree branching; previously they split into per-branch solves that never saw each other's geometry
+* **ParaView pedestrian layer follows the terrain** instead of a flat plane
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.7.0.827...v1.8.0.827
 
 ### 1.7.0.827 (August 13, 2026)
 
