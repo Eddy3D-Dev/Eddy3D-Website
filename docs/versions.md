@@ -1,4 +1,4 @@
-1.8.0.827 (Aug. 16, 2026)
+1.9.0.827 (Aug. 20, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,21 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.9.0.827 (August 20, 2026)
+
+No breaking changes — Grasshopper documents saved with `1.8.0.827` open unchanged.
+
+* **Surface runoff / Stormwater plugin** — design storms, DEM rasterization with breaklines, and ponding/velocity/hazard maps on graded terrain
+* **OpenLB native (container-free) runtime** — the GPU/CPU LBM wind engine now installs and runs directly on Windows, no Docker/Podman required; the container path remains available
+* **EPW-driven Sun &middot; Shadow panel** — Sun Hours, Shadow, and Solar Irradiation now sample sub-hourly straight from the weather file, plus daylight factor and annual sDA/ASE/UDI
+* **Future climate morphing** — morph an EPW to a projected future climate scenario
+* **UTCI output carries the annual comfort field as one item** (Deconstruct UTCI), and ML wind prediction now connects through to annual UTCI via the VAF component
+* **Wind CFD point probing under MPI** — 96.6 s &rarr; 1.9 s on a 6k-point grid
+* Inline dropdowns for wind comfort and VAF settings; Deconstruct Wind gains an inline legend
+* Land-cover fetch no longer silently returns empty results from a region-limited Overpass mirror
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.8.0.827...v1.9.0.827
 
 ### 1.8.0.827 (August 16, 2026)
 
