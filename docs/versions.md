@@ -1,4 +1,4 @@
-1.9.0.827 (Aug. 20, 2026)
+1.10.0.827 (Aug. 25, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,30 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.10.0.827 (August 25, 2026)
+
+No breaking changes — Grasshopper documents saved with `1.9.0.827` open unchanged.
+
+**The ribbon is reorganised**: 19 panels become 13, one panel per workflow instead of one per stage. The five `Outdoor &middot; …` panels collapse into a single **02 | Outdoor**, and the two `MRT &middot; …` panels into **06 | MRT**. Saved documents are unaffected (Grasshopper finds components by GUID, not by panel), but where you click has moved.
+
+* **Esinti** — a new assistant plugin on `00 | Setup`. Opens a Codex, Claude Code or Antigravity session against a generated workspace, reads the live canvas, and inserts a confirmed template or STL connection
+* **Transient (URANS) wind runs** — pick `PIMPLE` on Run Settings for a time-marching solve, with Duration / Time Step / Max Courant / Averaging Window controls; read `UMean`/`pMean` downstream
+* **Outdoor pollutant dispersion** — passive-scalar sources on the wind case, with species selection
+* **Indoor mean age of air**, and the CO&#8322;/species case is now runnable, openable and clearable straight from the canvas
+* **Study Report** — a CWE study report generator backed by a persisted study manifest (ASCE F5), with the report path autofilled from the study
+* **Facade Cp export into the EnergyPlus AirflowNetwork**
+* **EN ISO 7730 PMV and PPD**, pinned against the standard's published reference rows
+* **Probe a parallel case in its decomposition** — no `reconstructPar` needed to read points out of a running or unreconstructed solve
+* **Scalar Field Viewer**, beside the renamed **Vector Field Viewer** (formerly Wind Field Viewer — same component and GUID, so existing documents keep working)
+* Setup panel now shows the engine diagnostics it already computed, detects the native OpenLB solver, and can build it locally (installing MSYS2 via winget when missing)
+* Fixed: the indoor fan did nothing, the Heat Source wrote watts where it asked for K/s, emitter sources were ignored, and a source zone smaller than the background cell was silently dropped
+* Fixed: Cp used the dynamic head where `pInf` is the free-stream static pressure
+* Fixed: indoor and UMF cases could not be meshed on a comma-decimal locale
+* Fixed: containers are isolated from Podman networking, which could abort a valid run before OpenFOAM started; the CUDA image now covers every GPU generation, not just Ada
+* ~1.4x faster FluidX3D solves, plus batched wind comfort, a PET batch API and a tiled DDS transpose
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.9.0.827...v1.10.0.827
 
 ### 1.9.0.827 (August 20, 2026)
 
