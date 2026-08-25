@@ -32,8 +32,6 @@ No breaking changes — Grasshopper documents saved with `1.9.0.827` open unchan
 * Fixed: containers are isolated from Podman networking, which could abort a valid run before OpenFOAM started; the CUDA image now covers every GPU generation, not just Ada
 * ~1.4x faster FluidX3D solves, plus batched wind comfort, a PET batch API and a tiled DDS transpose
 
-`09 | Daylight & Views` and `10 | Stormwater` remain preview-only and do not appear in this release's ribbon; set `EDDY3D_SHOW_HIDDEN=1` before launching Rhino to see them.
-
 **Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.9.0.827...v1.10.0.827
 
 ### 1.9.0.827 (August 20, 2026)
