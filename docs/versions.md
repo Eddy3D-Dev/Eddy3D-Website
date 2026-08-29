@@ -1,4 +1,4 @@
-1.10.0.827 (Aug. 25, 2026)
+1.11.0-beta.827 (Aug. 29, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,24 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.11.0-beta.827 (August 29, 2026)
+
+Two components were folded into others and no longer exist under their old names: **FluidX3D Run** (use **LBM Run**, which now drives both LBM engines — pick a FluidX3D Run Settings to select the FluidX3D engine) and **Wind Legend** (use **Flex Legend**, which now also speaks Viewshed's Openness/Visibility metrics). Saved documents wired to either will show an unresolved component; everything else opens unchanged.
+
+* **WRF mesoscale front end** — drive Eddy3D's CFD from a WRF/WPS run: WRF Map (Natural Earth base map, terrain probing), WRF Animate, WRF Probe and WRF Progress, one case-folder contract across all of them, plus a published WRF+WPS container image wired into Setup
+* **CHT (conjugate heat transfer) and HAM (heat-and-moisture) solvers** — steady-state and transient conduction through building envelopes, pinned against the ISO 10211 A.3 ten-region benchmark and the HAMSTAD tutorials
+* **Viewshed and View Target** — one merged BVH instead of two, parallelized ray casting, view cones rendered as real geometry and truncated against context; Flex Legend now speaks Viewshed's Openness/Visibility metrics on a fixed 0–1 ramp
+* **Ribbon reorganized again**: Sun &middot; Shadow &middot; Daylight and Post &middot; Comfort panels each merge into one
+* **UMF water surfaces** — ponds as a case region, with evapotranspiration
+* **Esinti** — busy-vs-dead bridge, a mid-solve guard, port data modifiers, and a new component defaults to the machine's last-used agent
+* **Validation**: Zhang & Chen (2006) UFAD chamber and Jiang (2003) cross-ventilated cube (Indoor + Outdoor), plus COSMO pond studies against Syafii and Robitu/Fleuriot
+* **Radiance**: Vertical Sky Component and Daily Light Integral
+* Streamlines now trace while a solve is still running
+* EPW-driven wind rose on the wind compass
+* Setup window reports whether anything actually needs doing before you open it, installs blueCFD elevated, and tells Windows users when they need a container runtime
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.10.0.827...v1.11.0-beta.827
 
 ### 1.10.0.827 (August 25, 2026)
 
