@@ -17,7 +17,7 @@ Publications related to Eddy3D are listed below, grouped by modules. See [Patric
 - @rahimi2025coupled (1)(2)
 </div>
 1.  
-Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled Urban Physics in Microclimate Modeling: Validating and Enhancing Simulation Tools Building and Environment, 285, 113637.
+Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled Urban Physics in Microclimate Modeling: Validating and Enhancing Simulation Tools. *Building and Environment*, 285, 113637. [doi:10.1016/j.buildenv.2025.113637](https://doi.org/10.1016/j.buildenv.2025.113637)
 2.  
 ```bibtex
 @article{rahimi2025coupled,
@@ -26,7 +26,9 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 	year         = 2025,
 	journal      = {Building and Environment},
 	publisher    = {Elsevier},
-	pages        = 113637
+	volume       = 285,
+	pages        = 113637,
+	doi          = {10.1016/j.buildenv.2025.113637}
 }
 ```
 
@@ -36,16 +38,18 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 <div class="annotate" markdown>
 - @rahimi2025incorporating (1)(2)
 </div>
-1.  Rahimi, S., Kastner, P., & Berardi, U. (2025). Incorporating Convective Heat Transfer and Humidity Effects in Urban Microclimate Modeling: Should we care?. *Building and Environment*, 112858.  
+1.  Rahimi, S., Kastner, P., & Berardi, U. (2025). Incorporating Convective Heat Transfer and Humidity Effects in Urban Microclimate Modeling: Should we care?. *Building and Environment*, 276, 112858. [doi:10.1016/j.buildenv.2025.112858](https://doi.org/10.1016/j.buildenv.2025.112858)  
 2.  
 ```bibtex
 @article{rahimi2025incorporating,
   title     = {Incorporating Convective Heat Transfer and Humidity Effects in Urban Microclimate Modeling: Should we care?},
   author    = {Rahimi, Sina and Kastner, Patrick and Berardi, Umberto},
   journal   = {Building and Environment},
+  volume    = {276},
   pages     = {112858},
   year      = {2025},
-  publisher = {Elsevier}
+  publisher = {Elsevier},
+  doi       = {10.1016/j.buildenv.2025.112858}
 }
 ```
 
@@ -82,13 +86,14 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 <div class="annotate" markdown>
 - @KARADAG2026107614 (1)(2)
 </div>
-1. Karadag, I., Smyl, D., & Kastner, P. (2026). Machine learning for urban wind simulation: A comprehensive review. *Sustainable Cities and Society*, 107614.
+1. Karadag, I., Smyl, D., & Kastner, P. (2026). Machine learning for urban wind simulation: A comprehensive review. *Sustainable Cities and Society*, 148, 107614. [doi:10.1016/j.scs.2026.107614](https://doi.org/10.1016/j.scs.2026.107614)
 2.  
 ```bibtex
 @article{KARADAG2026107614,
   title   = {Machine learning for urban wind simulation: A comprehensive review},
   author  = {Karadag, Ilker and Smyl, Danny and Kastner, Patrick},
   journal = {Sustainable Cities and Society},
+  volume  = {148},
   pages   = {107614},
   year    = {2026},
   doi     = {10.1016/j.scs.2026.107614}
@@ -98,7 +103,7 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 <div class="annotate" markdown>
 - @kastner2026physicsgan (1)(2)
 </div>
-1. Kastner, P., Chen, K., Manivasakan, V., Michalatos, P., Karadag, I., & Dogan, T. (2026). A Physics-informed GAN Framework for Urban Wind Analysis with Arbitrary Input and Output Channels. *Available at SSRN 6401886*.
+1. Kastner, P., Chen, K., Manivasakan, V., Michalatos, P., Karadag, I., & Dogan, T. (2026). A Physics-informed GAN Framework for Urban Wind Analysis with Arbitrary Input and Output Channels. *Available at SSRN 6401886*. [doi:10.2139/ssrn.6401886](https://doi.org/10.2139/ssrn.6401886)
 2.  
 ```bibtex
 @article{kastner2026physicsgan,
@@ -113,7 +118,7 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 <div class="annotate" markdown>
 - @kastner2023gan (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2023). A GAN-based surrogate model for instantaneous urban wind flow prediction. *Building and Environment*, 242, 110384.
+1. Kastner, P. & Dogan, T. (2023). A GAN-based surrogate model for instantaneous urban wind flow prediction. *Building and Environment*, 242, 110384. [doi:10.1016/j.buildenv.2023.110384](https://doi.org/10.1016/j.buildenv.2023.110384)
 2.  
 ```bibtex
 @article{kastner2023gan,
@@ -123,7 +128,8 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
   volume    = {242},
   pages     = {110384},
   year      = {2023},
-  publisher = {Elsevier}
+  publisher = {Elsevier},
+  doi       = {10.1016/j.buildenv.2023.110384}
 }
 ```
 
@@ -132,66 +138,76 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 <div class="annotate" markdown>
 - @Kastner2021eddy3d (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2021). Eddy3D: A toolkit for decoupled outdoor thermal comfort simulations in urban areas. *Building and Environment*, 108639.
+1. Kastner, P. & Dogan, T. (2022). Eddy3D: A toolkit for decoupled outdoor thermal comfort simulations in urban areas. *Building and Environment*, 212, 108639. [doi:10.1016/j.buildenv.2021.108639](https://doi.org/10.1016/j.buildenv.2021.108639)
 2.  
 ```bibtex
 @article{Kastner2021eddy3d,
   title   = {Eddy3D: A toolkit for decoupled outdoor thermal comfort simulations in urban areas},
   author  = {Kastner, Patrick and Dogan, Timur},
   journal = {Building and Environment},
+  volume  = {212},
   pages   = {108639},
-  year    = {2021}
+  year    = {2022},
+  doi     = {10.1016/j.buildenv.2021.108639}
 }
 ```
 
 <div class="annotate" markdown>
 - @young2021modeling (1)(2)
 </div>
-1. Young, E., Kastner, P., Dogan, T., Chokhachian, A., Mokhtar, S., & Reinhart, C. (2021). Modeling Outdoor Thermal Comfort along Cycling Routes at Varying Levels of Physical Accuracy to Predict Bike Ridership in Cambridge, MA. *Building and Environment*, 108577. 
+1. Young, E., Kastner, P., Dogan, T., Chokhachian, A., Mokhtar, S., & Reinhart, C. (2021). Modeling Outdoor Thermal Comfort along Cycling Routes at Varying Levels of Physical Accuracy to Predict Bike Ridership in Cambridge, MA. *Building and Environment*, 208, 108577. [doi:10.1016/j.buildenv.2021.108577](https://doi.org/10.1016/j.buildenv.2021.108577) 
 2.  
 ```bibtex
 @article{young2021modeling,
   title   = {Modeling Outdoor Thermal Comfort along Cycling Routes at Varying Levels of Physical Accuracy to Predict Bike Ridership in Cambridge, MA},
   author  = {Young, Elizabeth and Kastner, Patrick and Dogan, Timur and Chokhachian, Ata and Mokhtar, Sarah and Reinhart, Christoph},
   journal = {Building and Environment},
+  volume  = {208},
   pages   = {108577},
-  year    = {2021}
+  year    = {2021},
+  doi     = {10.1016/j.buildenv.2021.108577}
 } 
 ```
 
 <div class="annotate" markdown>
 - @DOGAN2021surfer (1)(2)
 </div>
-1. Dogan, T., Kastner, P., & Mermelstein, R. (2021). Surfer: A Fast Simulation Algorithm to Predict Surface Temperatures and Mean Radiant Temperatures in Large Urban Models. *Building and Environment*, 107762. 
+1. Dogan, T., Kastner, P., & Mermelstein, R. (2021). Surfer: A Fast Simulation Algorithm to Predict Surface Temperatures and Mean Radiant Temperatures in Large Urban Models. *Building and Environment*, 196, 107762. [doi:10.1016/j.buildenv.2021.107762](https://doi.org/10.1016/j.buildenv.2021.107762) 
 2.  
 ```bibtex
 @article{DOGAN2021surfer,
   title   = {Surfer: A Fast Simulation Algorithm to Predict Surface Temperatures and Mean Radiant Temperatures in Large Urban Models},
   author  = {Dogan, Timur and Kastner, Patrick and Mermelstein, Remy},
   journal = {Building and Environment},
-  pages= {107762},
-  year    = {2021}
+  volume  = {196},
+  pages   = {107762},
+  year    = {2021},
+  doi     = {10.1016/j.buildenv.2021.107762}
 } 
 ```
 
 <div class="annotate" markdown>
 - @dogan2020streamlined (1)(2)
 </div>
-1. Dogan, T. & Kastner, P. (2020). Streamlined CFD Simulation Framework to Generate Wind‑pressure Coefficients on Building Facades for Airflow Network Simulations. *Journal of Building Simulation*. 
+1. Dogan, T. & Kastner, P. (2021). Streamlined CFD Simulation Framework to Generate Wind‑pressure Coefficients on Building Facades for Airflow Network Simulations. *Building Simulation*, 14(4), 1189‑1200. [doi:10.1007/s12273-020-0727-x](https://doi.org/10.1007/s12273-020-0727-x) 
 2.  
 ```bibtex
 @article{dogan2020streamlined,
   title   = {Streamlined CFD Simulation Framework to Generate Wind-pressure Coefficients on Building Facades for Airflow Network Simulations},
   author  = {Dogan, Timur and Kastner, Patrick},
-  journal = {Journal of Building Simulation},
-  year    = {2020}
+  journal = {Building Simulation},
+  volume  = {14},
+  number  = {4},
+  pages   = {1189--1200},
+  year    = {2021},
+  doi     = {10.1007/s12273-020-0727-x}
 } 
 ```
 
 <div class="annotate" markdown>
 - @natanian2020energy (1)(2)
 </div>
-1. Natanian, J., Kastner, P., Dogan, T., & Auer, T. (2020). From Energy Performative to Livable Mediterranean Cities: An Annual Outdoor Thermal Comfort and Energy Balance Cross‑climatic Typological Study. *Energy and Buildings*, 224, 110283. 
+1. Natanian, J., Kastner, P., Dogan, T., & Auer, T. (2020). From Energy Performative to Livable Mediterranean Cities: An Annual Outdoor Thermal Comfort and Energy Balance Cross‑climatic Typological Study. *Energy and Buildings*, 224, 110283. [doi:10.1016/j.enbuild.2020.110283](https://doi.org/10.1016/j.enbuild.2020.110283) 
 2.  
 ```bibtex
 @article{natanian2020energy,
@@ -200,14 +216,15 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
   journal = {Energy and Buildings},
   volume  = {224},
   pages   = {110283},
-  year    = {2020}
+  year    = {2020},
+  doi     = {10.1016/j.enbuild.2020.110283}
 } 
 ```
 
 <div class="annotate" markdown>
 - @kastner2020predicting (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2020). Predicting Space Usage by Multi‑Objective Assessment of Outdoor Thermal Comfort around a University Campus. *SimAUD 2020 Proceedings*, 85‑91. 
+1. Kastner, P. & Dogan, T. (2020). Predicting Space Usage by Multi‑Objective Assessment of Outdoor Thermal Comfort around a University Campus. *SimAUD 2020 Proceedings*, 85‑91. [ResearchGate](https://www.researchgate.net/publication/346039200) 
 2.  
 ```bibtex
 @inproceedings{kastner2020predicting,
@@ -215,14 +232,15 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
   author    = {Kastner, Patrick and Dogan, Timur},
   booktitle = {SimAUD 2020 Proceedings},
   pages     = {85--91},
-  year      = {2020}
+  year      = {2020},
+  url       = {https://www.researchgate.net/publication/346039200}
 } 
 ```
 
 <div class="annotate" markdown>
 - @kastner2020solving (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2020). Solving Thermal Bridging Problems for Architectural Applications with OpenFOAM. *SimAUD 2020 Proceedings*, 405‑412. 
+1. Kastner, P. & Dogan, T. (2020). Solving Thermal Bridging Problems for Architectural Applications with OpenFOAM. *SimAUD 2020 Proceedings*, 405‑412. [PDF](http://simaud.org/2020/proceedings/37.pdf) 
 2.  
 ```bibtex
 @inproceedings{kastner2020solving,
@@ -230,14 +248,15 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
   author    = {Kastner, Patrick and Dogan, Timur},
   booktitle = {SimAUD 2020 Proceedings},
   pages     = {405--412},
-  year      = {2020}
+  year      = {2020},
+  url       = {http://simaud.org/2020/proceedings/37.pdf}
 }
 ```
 
 <div class="annotate" markdown>
 - @kastner2019cylindrical (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2019). A Cylindrical Meshing Methodology for Annual Urban Computational Fluid Dynamics Simulations. *Journal of Building Performance Simulation*, 13(1), 59‑68. 
+1. Kastner, P. & Dogan, T. (2020). A Cylindrical Meshing Methodology for Annual Urban Computational Fluid Dynamics Simulations. *Journal of Building Performance Simulation*, 13(1), 59‑68. [doi:10.1080/19401493.2019.1692906](https://doi.org/10.1080/19401493.2019.1692906) 
 2.   
 ```bibtex
 @article{kastner2019cylindrical,
@@ -247,48 +266,55 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
   volume  = {13},
   number  = {1},
   pages   = {59--68},
-  year    = {2019}
-} ```
+  year    = {2020},
+  doi     = {10.1080/19401493.2019.1692906}
+}
+```
 
 <div class="annotate" markdown>
 - @kastner2019towards (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2019). Towards High‑Resolution Annual Outdoor Thermal Comfort Mapping In Urban Design. *Building Simulation Conference Proceedings*. 
+1. Kastner, P. & Dogan, T. (2019). Towards High‑Resolution Annual Outdoor Thermal Comfort Mapping In Urban Design. *Building Simulation 2019 Conference Proceedings*, 621‑628. [doi:10.26868/25222708.2019.210458](https://doi.org/10.26868/25222708.2019.210458) 
 2.  
 ```bibtex
 @inproceedings{kastner2019towards,
   title     = {Towards High-Resolution Annual Outdoor Thermal Comfort Mapping In Urban Design},
   author    = {Kastner, Patrick and Dogan, Timur},
   booktitle = {Building Simulation Conference Proceedings},
-  year      = {2019}
+  pages     = {621--628},
+  year      = {2019},
+  doi       = {10.26868/25222708.2019.210458}
 } 
 ```
 
 <div class="annotate" markdown>
 - @kastner2018streamlining (1)(2)
 </div>
-1. Kastner, P. & Dogan, T. (2018). Streamlining Meshing Methodologies for Annual Urban CFD Simulations. *IBPSA: eSIM Conference Proceedings*. 
+1. Kastner, P. & Dogan, T. (2018). Streamlining Meshing Methodologies for Annual Urban CFD Simulations. *IBPSA: eSIM Conference Proceedings*. [IBPSA](https://publications.ibpsa.org/conference/paper/?id=esim2018_1-2-A-4) 
 2.   
 ```bibtex
 @inproceedings{kastner2018streamlining,
   title     = {Streamlining Meshing Methodologies for Annual Urban CFD Simulations},
   author    = {Kastner, Patrick and Dogan, Timur},
   booktitle = {IBPSA: eSIM Conference Proceedings},
-  year      = {2018}
+  year      = {2018},
+  url       = {https://publications.ibpsa.org/conference/paper/?id=esim2018_1-2-A-4}
 } 
 ```
 
 <div class="annotate" markdown>
 - @dogan2018streamlined (1)(2)
 </div>
-1. Dogan, T. & Kastner, P. (2018). Streamlined CFD Simulation Framework to Generate Wind‑Pressure Coefficients on Building Facades for Airflow Network Simulations. *IBPC 2018 Proceedings*. 
+1. Dogan, T. & Kastner, P. (2018). Streamlined CFD Simulation Framework to Generate Wind‑Pressure Coefficients on Building Facades for Airflow Network Simulations. *IBPC 2018 Proceedings*, 1139‑1144. [doi:10.14305/ibpc.2018.ms-5.05](https://doi.org/10.14305/ibpc.2018.ms-5.05) 
 2.    
 ```bibtex
 @inproceedings{dogan2018streamlined,
   title     = {Streamlined CFD Simulation Framework to Generate Wind-Pressure Coefficients on Building Facades for Airflow Network Simulations},
   author    = {Dogan, Timur and Kastner, Patrick},
   booktitle = {IBPC: 7th International Building Physics Conference Proceedings},
-  year      = {2018}
+  pages     = {1139--1144},
+  year      = {2018},
+  doi       = {10.14305/ibpc.2018.ms-5.05}
 } 
 ```
 
@@ -297,13 +323,14 @@ Rahimi, S., Alvarez, M., Stone, B., Berardi, U., & Kastner, P. (2025). Coupled U
 <div class="annotate" markdown>
 - @DeSimone2021 (1)(2)
 </div>
-1. De Simone, Z., Kastner, P., & Dogan, T. (2021). Towards Safer Work Environments During the COVID‑19 Crisis: A Study of Different Floor Plan Layouts and Ventilation Strategies Coupling OpenFOAM and Airborne Pathogen Data for Actionable, Simulation‑based Feedback in Design. *Building Simulation Conference Proceedings*.
+1. De Simone, Z., Kastner, P., & Dogan, T. (2021). Towards Safer Work Environments During the COVID‑19 Crisis: A Study of Different Floor Plan Layouts and Ventilation Strategies Coupling OpenFOAM and Airborne Pathogen Data for Actionable, Simulation‑based Feedback in Design. *Building Simulation 2021 Conference Proceedings*. [doi:10.26868/25222708.2021.30632](https://doi.org/10.26868/25222708.2021.30632)
 2.  
 ```bibtex
 @inproceedings{DeSimone2021,
   title     = {Towards Safer Work Environments During the COVID-19 Crisis: A Study Of Different Floor Plan Layouts and Ventilation Strategies Coupling OpenFOAM and Airborne Pathogen Data for Actionable, Simulation-based Feedback in Design},
   author    = {De Simone, Zoe and Kastner, Patrick and Dogan, Timur},
   booktitle = {Building Simulation Conference Proceedings},
-  year      = {2021}
+  year      = {2021},
+  doi       = {10.26868/25222708.2021.30632}
 }
 ```
