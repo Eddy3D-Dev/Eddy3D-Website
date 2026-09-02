@@ -1,4 +1,4 @@
-1.11.0-beta.827 (Aug. 29, 2026)
+1.12.0-beta.827 (Sep. 2, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,20 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.12.0-beta.827 (September 2, 2026)
+
+Pre-release. Tick *Include pre-releases* in the Rhino Package Manager to see it.
+
+**PALM-4U** — PALM Case writes the whole case (static driver + `_p3d` namelists) and renders the domain in Rhino (#851). Cores lives on PALM Settings; left empty, the MPI rank count is picked automatically. PALM Run launches in a terminal (#849 and follow-ups).
+
+**Outdoor (wind CFD)** — Pollutant dispersion: passive-scalar Pollutant Sources on the wind case (#807). One engine per study: the OpenFOAM engine (BlueCFD / WSL / Containerized) is chosen once, on Outdoor Case's new Engine input, and read from the study by Wind Run, Wind Scripts, Probe and Streamlines; documents saved with the old per-component Engine dropdowns migrate on load. snappyHexMesh custom refinement regions (#850); VizExport gets its own File Name input; STL Exporter's Mode is a dropdown. ParaView stream lines on by default, coloured by U and seeded from the building corridor.
+
+**Comfort · Weather · Setup** — Annual PET (Simulation) on the UTCI pipeline. Download Weather shows the selected station in its banner. Install Engines rows re-probe after their install; the Water Surface image is tracked with real pull progress. The update prompt has a *What's New* button that opens this changelog.
+
+**Ribbon** — Panels re-banded by workflow stage: Outdoor+ grouped by domain with a `01 | Pre` band; Sun / CHT / WRF / PALM re-banded; Parse Case Logs and CheckMesh moved to Post's monitor row.
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.11.0-beta.827...v1.12.0-beta.827
 
 ### 1.11.0-beta.827 (August 29, 2026)
 
