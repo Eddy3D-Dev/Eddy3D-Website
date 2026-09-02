@@ -1,4 +1,4 @@
-1.6.0-beta.827 (Aug. 7, 2026)
+1.12.0-beta.827 (Sep. 2, 2026)
 
 !!! Compatibility
 
@@ -10,9 +10,107 @@
 
 ## Changelog
 
+### 1.12.0-beta.827 (September 2, 2026)
+
+Pre-release. Tick *Include pre-releases* in the Rhino Package Manager to see it.
+
+**PALM-4U** — PALM Case writes the whole case (static driver + `_p3d` namelists) and renders the domain in Rhino (#851). Cores lives on PALM Settings; left empty, the MPI rank count is picked automatically. PALM Run launches in a terminal (#849 and follow-ups).
+
+**Outdoor (wind CFD)** — Pollutant dispersion: passive-scalar Pollutant Sources on the wind case (#807). One engine per study: the OpenFOAM engine (BlueCFD / WSL / Containerized) is chosen once, on Outdoor Case's new Engine input, and read from the study by Wind Run, Wind Scripts, Probe and Streamlines; documents saved with the old per-component Engine dropdowns migrate on load. snappyHexMesh custom refinement regions (#850); VizExport gets its own File Name input; STL Exporter's Mode is a dropdown. ParaView stream lines on by default, coloured by U and seeded from the building corridor.
+
+**Comfort · Weather · Setup** — Annual PET (Simulation) on the UTCI pipeline. Download Weather shows the selected station in its banner. Install Engines rows re-probe after their install; the Water Surface image is tracked with real pull progress. The update prompt has a *What's New* button that opens this changelog.
+
+**Ribbon** — Panels re-banded by workflow stage: Outdoor+ grouped by domain with a `01 | Pre` band; Sun / CHT / WRF / PALM re-banded; Parse Case Logs and CheckMesh moved to Post's monitor row.
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.11.0-beta.827...v1.12.0-beta.827
+
+### 1.11.0-beta.827 (August 29, 2026)
+
+Two components were folded into others and no longer exist under their old names: **FluidX3D Run** (use **LBM Run**, which now drives both LBM engines — pick a FluidX3D Run Settings to select the FluidX3D engine) and **Wind Legend** (use **Flex Legend**, which now also speaks Viewshed's Openness/Visibility metrics). Saved documents wired to either will show an unresolved component; everything else opens unchanged.
+
+* **WRF mesoscale front end** — drive Eddy3D's CFD from a WRF/WPS run: WRF Map (Natural Earth base map, terrain probing), WRF Animate, WRF Probe and WRF Progress, one case-folder contract across all of them, plus a published WRF+WPS container image wired into Setup
+* **CHT (conjugate heat transfer) and HAM (heat-and-moisture) solvers** — steady-state and transient conduction through building envelopes, pinned against the ISO 10211 A.3 ten-region benchmark and the HAMSTAD tutorials
+* **Viewshed and View Target** — one merged BVH instead of two, parallelized ray casting, view cones rendered as real geometry and truncated against context; Flex Legend now speaks Viewshed's Openness/Visibility metrics on a fixed 0–1 ramp
+* **Ribbon reorganized again**: Sun &middot; Shadow &middot; Daylight and Post &middot; Comfort panels each merge into one
+* **UMF water surfaces** — ponds as a case region, with evapotranspiration
+* **Esinti** — busy-vs-dead bridge, a mid-solve guard, port data modifiers, and a new component defaults to the machine's last-used agent
+* **Validation**: Zhang & Chen (2006) UFAD chamber and Jiang (2003) cross-ventilated cube (Indoor + Outdoor), plus COSMO pond studies against Syafii and Robitu/Fleuriot
+* **Radiance**: Vertical Sky Component and Daily Light Integral
+* Streamlines now trace while a solve is still running
+* EPW-driven wind rose on the wind compass
+* Setup window reports whether anything actually needs doing before you open it, installs blueCFD elevated, and tells Windows users when they need a container runtime
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.10.0.827...v1.11.0-beta.827
+
+### 1.10.0.827 (August 25, 2026)
+
+No breaking changes — Grasshopper documents saved with `1.9.0.827` open unchanged.
+
+**The ribbon is reorganised**: 19 panels become 13, one panel per workflow instead of one per stage. The five `Outdoor &middot; …` panels collapse into a single **02 | Outdoor**, and the two `MRT &middot; …` panels into **06 | MRT**. Saved documents are unaffected (Grasshopper finds components by GUID, not by panel), but where you click has moved.
+
+* **Esinti** — a new assistant plugin on `00 | Setup`. Opens a Codex, Claude Code or Antigravity session against a generated workspace, reads the live canvas, and inserts a confirmed template or STL connection
+* **Transient (URANS) wind runs** — pick `PIMPLE` on Run Settings for a time-marching solve, with Duration / Time Step / Max Courant / Averaging Window controls; read `UMean`/`pMean` downstream
+* **Outdoor pollutant dispersion** — passive-scalar sources on the wind case, with species selection
+* **Indoor mean age of air**, and the CO&#8322;/species case is now runnable, openable and clearable straight from the canvas
+* **Study Report** — a CWE study report generator backed by a persisted study manifest (ASCE F5), with the report path autofilled from the study
+* **Facade Cp export into the EnergyPlus AirflowNetwork**
+* **EN ISO 7730 PMV and PPD**, pinned against the standard's published reference rows
+* **Probe a parallel case in its decomposition** — no `reconstructPar` needed to read points out of a running or unreconstructed solve
+* **Scalar Field Viewer**, beside the renamed **Vector Field Viewer** (formerly Wind Field Viewer — same component and GUID, so existing documents keep working)
+* Setup panel now shows the engine diagnostics it already computed, detects the native OpenLB solver, and can build it locally (installing MSYS2 via winget when missing)
+* Fixed: the indoor fan did nothing, the Heat Source wrote watts where it asked for K/s, emitter sources were ignored, and a source zone smaller than the background cell was silently dropped
+* Fixed: Cp used the dynamic head where `pInf` is the free-stream static pressure
+* Fixed: indoor and UMF cases could not be meshed on a comma-decimal locale
+* Fixed: containers are isolated from Podman networking, which could abort a valid run before OpenFOAM started; the CUDA image now covers every GPU generation, not just Ada
+* ~1.4x faster FluidX3D solves, plus batched wind comfort, a PET batch API and a tiled DDS transpose
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.9.0.827...v1.10.0.827
+
+### 1.9.0.827 (August 20, 2026)
+
+No breaking changes — Grasshopper documents saved with `1.8.0.827` open unchanged.
+
+* **Surface runoff / Stormwater plugin** — design storms, DEM rasterization with breaklines, and ponding/velocity/hazard maps on graded terrain
+* **OpenLB native (container-free) runtime** — the GPU/CPU LBM wind engine now installs and runs directly on Windows, no Docker/Podman required; the container path remains available
+* **EPW-driven Sun &middot; Shadow panel** — Sun Hours, Shadow, and Solar Irradiation now sample sub-hourly straight from the weather file, plus daylight factor and annual sDA/ASE/UDI
+* **Future climate morphing** — morph an EPW to a projected future climate scenario
+* **UTCI output carries the annual comfort field as one item** (Deconstruct UTCI), and ML wind prediction now connects through to annual UTCI via the VAF component
+* **Wind CFD point probing under MPI** — 96.6 s &rarr; 1.9 s on a 6k-point grid
+* Inline dropdowns for wind comfort and VAF settings; Deconstruct Wind gains an inline legend
+* Land-cover fetch no longer silently returns empty results from a region-limited Overpass mirror
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.8.0.827...v1.9.0.827
+
+### 1.8.0.827 (August 16, 2026)
+
+No breaking changes — Grasshopper documents saved with `1.7.0.827` open unchanged.
+
+* **Trees as porous media in the LBM engine** — crowns become HLBM porous cells driven by a physical Cd&middot;LAD, so vegetation slows wind without blocking it
+* **Vegetation library** — 30 tree types (5 archetypes + 25 urban species) carrying crown-average LAD and foliage Cd; one trees object now feeds both the OpenFOAM and LBM engines
+* **Inflow direction jitter and a perturbed-inflow UQ ensemble**, with a per-point speed *Spread* output flagging wake regions where results are inflow-sensitive
+* **Native Apple silicon LBM solver** — the container image is now multi-arch, ending emulation on M-series Macs; thread count is pinned to the container's real CPU allotment, with a warning when the VM is starved
+* **Davenport roughness dropdown** on the ABL component — eight canonical z<sub>0</sub> classes from open sea to city core
+* **Named dropdowns** replacing raw numeric selectors across CO<sub>2</sub> standards, facade zones, terrain categories, occupant activity, UTCI legend metric, and tree density
+* **MRT fix** — View Factors and MRT Run now solve one scene regardless of upstream tree branching; previously they split into per-branch solves that never saw each other's geometry
+* **ParaView pedestrian layer follows the terrain** instead of a flat plane
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.7.0.827...v1.8.0.827
+
+### 1.7.0.827 (August 13, 2026)
+
+First stable release since `1.4.1.827`, superseding the never-promoted `1.5.0`/`1.6.0` beta line.
+
+* **LBM/OpenLB container engine** — GPU-accelerated wind solves via Docker/podman, with automatic CPU fallback
+* **Indoor species + buoyant thermal** — CO<sub>2</sub> as a transported species, breathing manikin, IAQ against 7 standards, and the two-node comfort models
+* **Staged MRT components** with Embree occlusion (2.7–6× faster)
+* **ASCE CWE Prestandard** checks
+* **Wind Predictor ML** with CoreML acceleration on Apple silicon
+* **Wind & comfort visualization** — Wind Legend, speed-coloured streamlines, and class-coloured comfort meshes with colourblind-safe palettes
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.4.1.827...v1.7.0.827
+
 ### 1.6.0-beta.827 (August 7, 2026)
 
-## What's Changed
 * Legend mode for actual UTCI/PET values by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/749
 
 
@@ -20,7 +118,6 @@
 
 ### 1.5.0-beta.827 (August 7, 2026)
 
-## What's Changed
 * Urban radiance validation tests + SolarCal shortwave dMRT fix (discussion #91) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/747
 * New *Settle Data* component (Outdoor) by @kastnerp
 
@@ -29,7 +126,6 @@
 
 ### 1.4.1.827 (August 5, 2026)
 
-## What's Changed
 * Release 1.4.0.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/742
 * perf(mrt): build the Sun Hours BVH in parallel by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/743
 * fix(mrt): Sun Hours stalls when Rhino's ThreadPool is busy by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/744
@@ -101,7 +197,6 @@ Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 1.1.0.827 (July 15, 2026)
 
-## What's Changed
 * Release 1.0.7.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/647
 * Fix Docker --cpus cap starving parallel wind runs on one core by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/658
 * Fix blueCFD run scripts failing at the auto-close timeout by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/659
@@ -124,7 +219,6 @@ Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 1.0.9.827 (July 14, 2026)
 
-## What's Changed
 * Add CI-runnable PET regression test guarding the Syst() hot path by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/654
 * OutdoorCase: overhaul the viewport domain preview by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/655
 * Merge PET.Tests and UTCI tests into Comfort.Tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/656
@@ -134,7 +228,6 @@ Changes since `v1.1.0.827`: [compare on GitHub](https://github.com/Eddy3D-Dev/Ed
 
 ### 1.0.8.827 (July 13, 2026)
 
-## What's Changed
 * 1.0.4.827 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/620
 * CI: auto-create the Eddy3D-Templates version branch on release/pre-release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/621
 * ⚡ Bolt: cache preview DisplayMaterials in Check Geometry (fewer per-frame allocations) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/622
