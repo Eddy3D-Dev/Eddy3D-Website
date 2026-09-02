@@ -1,4 +1,4 @@
-1.11.0-beta.827 (Aug. 29, 2026)
+1.12.0-beta.827 (Sep. 2, 2026)
 
 !!! Compatibility
 
