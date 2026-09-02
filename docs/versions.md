@@ -1,4 +1,4 @@
-1.12.0-beta.827 (Sep. 2, 2026)
+1.12.0.827 (Sep. 2, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,18 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.12.0.827 (September 2, 2026)
+
+Stable release of the 1.12 line. Everything in 1.12.0-beta.827 below, plus:
+
+**LBM (Lattice-Boltzmann wind)** — LBM Case → LBM Run → Probe for both LBM engines: the case is built once by the new **LBM Case** component (the Settings object wired into it picks OpenLB or FluidX3D), LBM Run only runs it, and probes outside the domain return null instead of a bogus value (#854). Documents saved with the old twelve-input LBM Run migrate on load; a Remark says which setup wires must move to an LBM Case. FluidX3D: the Run strip shows cells · spacing · steps before a run, Memory 0 means "detected from this machine's GPU", Clear also wipes source-tree results, Grid Spacing fixes the lattice, and the launch window closes itself when the solve ends.
+
+**Case files** — every file Eddy3D writes for OpenFOAM now carries the Eddy3D banner, list-shaped time tables included, and reads back clean.
+
+**Credits** — Ilker Karadag joins the author list (CITATION.cff, plugin metadata).
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.10.0.827...v1.12.0.827
 
 ### 1.12.0-beta.827 (September 2, 2026)
 
