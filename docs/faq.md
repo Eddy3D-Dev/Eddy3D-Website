@@ -36,7 +36,7 @@ Rhino Version: 8.27.26019.16022
 
 ## FAQ
 
-We have compiled the most common questions from the [GitHub Discussions](https://github.com/orgs/Eddy3D-Dev/discussions) and the [McNeel forum](https://discourse.mcneel.com/c/grasshopper/eddy3d/){ aria-label="Eddy3D category on the McNeel forum" } (2024–2026) to help you resolve issues quickly. Every component mentioned below has its own page in the [component reference](https://docs.eddy3d.com/latest/Components/){ aria-label="Eddy3D component reference" }.
+We have compiled the most common questions from the [GitHub Discussions](https://github.com/orgs/Eddy3D-Dev/discussions) and the [McNeel forum](https://discourse.mcneel.com/c/grasshopper/eddy3d/){ aria-label="Eddy3D category on the McNeel forum" } (2022–2026) to help you resolve issues quickly. Every component mentioned below has its own page in the [component reference](https://docs.eddy3d.com/latest/Components/){ aria-label="Eddy3D component reference" }.
 
 ### 1. Installation, Setup, and Compatibility
 
@@ -76,6 +76,12 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
 ??? note "Do I need admin rights? / Installing in a lab or on a corporate machine"
     The Grasshopper package installs per user and needs no elevation. Elevation is required exactly three times, once per machine: the EnergyPlus vendor installer, blueCFD-Core 2024, and enabling WSL. For managed labs, IT can run the prerequisite script once (`installer/prereqs/Install-Eddy3DPrereqs.ps1` in the [repository](https://github.com/Eddy3D-Dev/Eddy3D)) or drive the same setup catalog headlessly with `eddy3d-cli setup install …`; after that, no user ever sees an elevation prompt. Every user still installs the package from the Package Manager under their own account — Yak packages are per-user by design.
 
+??? note "What are the licence terms? Can we use Eddy3D in teaching and in commercial practice?"
+    Eddy3D is released under the GPL-3.0 and is free for educational and commercial use. The engines it drives carry their own licences, listed in the package's `THIRD-PARTY-NOTICES.md`: OpenFOAM, urbanMicroclimateFoam and OpenLB are GPL, Radiance and EnergyPlus are permissive. Two are restricted and the Setup window asks you to acknowledge their terms before installing: **FluidX3D** is free for non-commercial use only, and the **Future Weather Generator** jar behind Morph Weather has its own terms. Acknowledging a licence records what was asserted; whether a given use is allowed is a question for your legal function, not for the plugin.
+
+??? note "Can I change where blueCFD, Radiance or EnergyPlus are installed?"
+    blueCFD-Core is expected at `C:\blueCFD-Core\2024`; a different (space-free) location is picked up from the registry, or set the `EDDY3D_BLUECFD_DIR` environment variable before starting Rhino. Radiance is downloaded by Eddy3D itself into the per-user engine folder (`%LocalAppData%\Eddy3D` on Windows, `~/Library/Application Support/Eddy3D` on macOS), so it needs no configuration and no admin rights. EnergyPlus is looked for at its vendor default (`C:\EnergyPlusV26-1-0`, `/Applications/EnergyPlus-26-1-0`). The Setup window shows which path each engine resolved to.
+
 ??? note "Which engine runs the CFD, and how do I choose it?"
     The OpenFOAM engine is a property of the **study**: the *Engine* input on the [Outdoor Case](https://docs.eddy3d.com/latest/components/Outdoor_Case/) component (and the equivalent on the indoor and Outdoor+ cases) offers **BlueCFD**, **WSL** (Windows only) and **Containerized** (Podman or Docker Desktop). Wind Run, Write Run Scripts, Probe and Streamlines all read it from the case, and it is written into the study so a reopened case keeps the engine it was solved with. On macOS the only option is Containerized. Check what is present on your machine with the [Eddy3D Setup](https://docs.eddy3d.com/latest/components/Eddy3D_Setup/) window.
 
@@ -105,6 +111,9 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
 
 ??? note "Where are the templates? The Select Template list is empty."
     [Select Template](https://docs.eddy3d.com/latest/components/Select_Template/) reads the [Eddy3D-Templates](https://github.com/Eddy3D-Dev/Eddy3D-Templates) repository on the branch that matches your installed version and caches the files under `%APPDATA%\Eddy3D\Templates\`. Templates are grouped as Outdoor (OpenFOAM, LBM, ML, Microclimate), Outdoor+, Indoor (natural ventilation, CO2 occupancy, breathing manikin, thermal comfort) and Misc. If the list is empty or stale, right-click the component and choose *Force Refresh Main List*; the context menu also shows which branch it is reading. Templates for a **newer** version than the one installed will not open cleanly — update the package first.
+
+??? note "I edited a template too much — how do I get the original back?"
+    Selecting a template merges a **copy** of it into your open canvas; the cached template file is never modified. Select the same template again to get a pristine copy next to your edited one, and save your own work under a new file name. If the cached copy itself seems corrupt, *Force Refresh Main List* re-downloads every template.
 
 ### 2. Geometry, Meshing & Domain Generation
 
@@ -136,7 +145,10 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
     An input received an empty list or a null item — typically a geometry reference that no longer exists in the Rhino file, or a case path to a folder that was deleted. Internalize the geometry, check every orange input, and re-write the case.
 
 ??? note "How do I include trees and porous zones?"
-    Trees are modeled as porous zones (Darcy-Forchheimer) rather than solid geometry. Feed crown volumes — one closed solid per tree — into the [Tree](https://docs.eddy3d.com/latest/components/Tree/) component and pick a crown density class or a species from the shared vegetation library, or wire a leaf area index. The same objects drive the Outdoor+ vegetation region and the LBM engines. If some trees seem to have no effect, check that the crown volume actually intersects the probe height and that the mesh resolves it (a crown smaller than a few cells is invisible to the solver).
+    Trees are modeled as porous zones (Darcy-Forchheimer) rather than solid geometry. Feed crown volumes — one closed solid per tree — into the [Tree](https://docs.eddy3d.com/latest/components/Tree/) component and pick a crown density class or a species from the shared vegetation library, or wire a leaf area index. The same objects drive the Outdoor+ vegetation region and the LBM engines. If some trees seem to have no effect, check that the crown volume actually intersects the probe height and that the mesh resolves it (a crown smaller than a few cells is invisible to the solver). If the solver aborts right after `Selecting … explicitPorositySource … cellZone Tree_0`, a crown volume overlaps a building or dips below the ground, so its cell zone is empty or shared with a solid — keep crowns clear of buildings and above the terrain, and merge overlapping crowns into one volume.
+
+??? note "How do I include terrain and slopes?"
+    Wire a terrain mesh into the *Terrain* input of Outdoor Case (the `CylinderDomain` and `BoxDomain` templates show the wiring). The terrain must be a single continuous mesh that extends well past the domain footprint, and the buildings must sit on it, not float above or cut through it. Probe on a surface offset from the terrain rather than on a flat plane, or you will sample inside the ground. Centre the site near the origin first — a terrain imported with real-world coordinates triggers the "too far from the origin" error.
 
 ??? note "Can I model a perforated screen, a small enclosed void, or a balcony behind a mesh?"
     The outdoor workflows assume an open domain with ample space around solid buildings; a small void behind a perforated panel is often not meshed at all (probes there report "Did not find location"). Model such cases as a wind-tunnel box with the panel on a flat plate and a cell size well below the hole size, or treat the screen as a porous zone. For rooms with openings, use the indoor workflow.
@@ -182,6 +194,15 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
     - Turn the *Robustness* dial on Run Settings toward 5, enable *Potential Foam Init* and leave the *Warm-up Iterations* automatic — this tames the cold-start overshoot.
     - Keep the domain at the default extents (≥ 15H downwind).
     - *Convergence* (residualControl) and *Auto-stop on Plateau* stop the run once it is flat instead of burning 4000 iterations.
+
+??? note "Does the solver stop when it converges, or always run the full iteration count?"
+    It stops early. *Convergence* on Run Settings (default 1e-4) is OpenFOAM's residualControl: once the pressure, velocity and turbulence residuals all fall below it, the solver writes and exits. *Auto-stop on Plateau* additionally watches the live residuals and stops a run whose residuals have been flat for about 100 iterations. Set *Convergence* to 0 to force the full count.
+
+??? note "The residual plot jumps back to 1 partway through the run"
+    That is the warm-up ramp, not a crash: the first iterations run with robust first-order numerics, then the solver restarts from the latest time with the settings of the Robustness dial, and the residuals start again from that field. [Live Residuals](https://docs.eddy3d.com/latest/components/Live_Residuals/) stitches both phases into one curve. Set *Warm-up Iterations* to 0 to disable it.
+
+??? note "Can Eddy3D simulate water, or fluids other than air?"
+    No. The wind, indoor and microclimate workflows model air at ambient conditions with OpenFOAM's incompressible and buoyant solvers; there is no free-surface, hydrodynamic or multiphase path, and the mesh and boundary condition components are tuned for atmospheric flows.
 
 ??? note "How do I know a run has finished, and where are the logs?"
     The console prints a `MESHING DONE` / `SIMULATION DONE` line and closes after a countdown. On the canvas, [Meshing Progress](https://docs.eddy3d.com/latest/components/Meshing_Progress/) has a *Done* output, [Live Residuals](https://docs.eddy3d.com/latest/components/Live_Residuals/) draws the convergence history, and [Parse Case Logs](https://docs.eddy3d.com/latest/components/Parse_Case_Logs/) lists FOAM errors and warnings. Every step writes a numbered log (`01_blockMesh.txt`, `run_01_foamRun.txt`, …) into the case folder, with standard error captured. A missing log means that step never ran — read the earliest absent one first.
@@ -253,6 +274,15 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
 ??? note "How do I get a heatmap / colored mesh instead of arrows?"
     Wire the probe points and one scalar per point into the [Scalar Field Viewer](https://docs.eddy3d.com/latest/components/Scalar_Field_Viewer/) (point cloud, heatmap mesh, or volumetric cloud), or feed the annual wind field into [Deconstruct Wind](https://docs.eddy3d.com/latest/components/Deconstruct_Wind/), which colors a probe mesh by the mean, min or max. [Flex Legend](https://docs.eddy3d.com/latest/components/Flex_Legend/) draws a matching legend from the viewer's *Range* output. No CSV round-trip is needed; the CSV export exists for the web visualizer.
 
+??? note "The mesh grid is visible in the results"
+    A blocky pattern in a probed plane or a heatmap is the background mesh showing through: outside the refinement box the cells are the base cell size, and every probe in a cell reads the same value. Extend the *Refinement Box Extension* on the domain component to cover the area you plot, reduce the cell size, or add a Refinement Region over it. The heatmap viewers colour from the nearest sample, so a coarse probe grid produces the same look — space the probes at least as finely as the cells.
+
+??? note "How do I get the air flow rate through an opening or an open area?"
+    [Flow Rates](https://docs.eddy3d.com/latest/components/Flow_Rates/) integrates probed velocity vectors over a mesh: probe the `U` field at the mesh vertices, wire the vectors and the mesh in, and it returns the volumetric flow rate (m³/s) per face along with the face centres. Multiply by air density (≈ 1.2 kg/m³) for a mass flow rate. Use a mesh that spans the opening or the street section you care about, with its normals pointing the way you count positive flow.
+
+??? note "Can I probe an OpenFOAM case I ran outside Eddy3D?"
+    [Load Wind Case](https://docs.eddy3d.com/latest/components/Load_Wind_Case/) expects the Eddy3D layout: a study folder holding `mesh/` (with `constant/polyMesh`) and one `case_NNN` folder per direction with the solved time directories. Arrange an external case that way and Probe, Streamlines, Open In ParaView and Study Report work on it as on any Eddy3D study.
+
 ??? note "How can I extract data or import results to Excel?"
     The Probe *Values* output is an ordinary Grasshopper data tree (one branch per direction, one item per point) that any CSV or Excel writer can consume. [Export to Visualizer](https://docs.eddy3d.com/latest/components/Export_to_Visualizer/) writes a ready-made CSV (X, Y, Z, speed and the velocity components, one row per point) for [viz.eddy3d.com](https://viz.eddy3d.com/), which also opens in Excel.
 
@@ -263,7 +293,7 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
     In OpenFOAM's incompressible solvers pressure is kinematic ($p / \rho$, in $m^2/s^2$). Multiply by the air density (≈ 1.225 kg/m³) for Pascals. Enable *Pressure Coefficient* on Run Settings to write the dimensionless Cp field, referenced to the ABL speed at building height; Cp does not change with the inlet speed, physical pressure does.
 
 ??? note "Cp values on the facade come back as huge negative numbers"
-    A probe sitting exactly on (or a hair inside) the building surface does not fall into a fluid cell, so the sample is garbage. Offset the sampling points a small distance into the flow along the face normal — Rhino's face normals (or a Brep Grid Points output) give the direction for complex roofs. A few cells' worth of offset is enough; the first fluid cell already carries the surface pressure.
+    A probe sitting exactly on (or a hair inside) the building surface does not fall into a fluid cell, so the sample is garbage. Offset the sampling points a small distance into the flow along the face normal. [Facade Grid](https://docs.eddy3d.com/latest/components/Facade_Grid/) does exactly this — it grids the facades, returns the outward normals and pushes each point off its surface by *Offset* — and replaces the old "decompose and scale up mesh" cluster from the 0.x templates. A few cells' worth of offset is enough; the first fluid cell already carries the surface pressure.
 
 ??? note "How do I get facade pressures into EnergyPlus / Ladybug's AirflowNetwork?"
     Probe the `Cp` field at the facade points and wire the tree into [Airflow Network Cp](https://docs.eddy3d.com/latest/components/Airflow_Network_Cp/). It writes the `WindPressureCoefficientArray`, per-node `WindPressureCoefficientValues` and `ExternalNode` objects as an IDF snippet to merge into the EnergyPlus model.
@@ -306,6 +336,9 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
 ??? note "Which contaminant sources are available?"
     CO2 Emitter and Viral Emitter (zone sources), Heat Source and Momentum Source, plus the breathing [Manikin](https://docs.eddy3d.com/latest/components/Manikin/) with the [Indoor Species Case](https://docs.eddy3d.com/latest/components/Indoor_Species_Case/) for exhaled CO2 as a real species. [Occupant CO2](https://docs.eddy3d.com/latest/components/Occupant_CO2/) and [CO2 Air Quality](https://docs.eddy3d.com/latest/components/CO2_Air_Quality/) give the EN 16798-1 categories without CFD. For outdoor pollutant dispersion, use Pollutant Source on the wind case.
 
+??? note "Can I study airborne infection risk or indoor air quality (COVID-19, CO2)?"
+    Yes. The Viral Emitter and CO2 Emitter add a scalar source to any indoor case, and the [Indoor Species Case](https://docs.eddy3d.com/latest/components/Indoor_Species_Case/) with the breathing [Manikin](https://docs.eddy3d.com/latest/components/Manikin/) solves exhaled CO2 as a real species with a set breathing rate and concentration. Probe the `viral` or `CO2` field at head height, and enable *Age of Air* to see which parts of the room the ventilation never reaches. [CO2 Air Quality](https://docs.eddy3d.com/latest/components/CO2_Air_Quality/) classifies concentrations against EN 16798-1 without CFD.
+
 ??? note "How do I couple exterior Eddy3D pressure results to an interior CFD model?"
     The standard workflow:
     1. Run the external simulation in Eddy3D and probe Cp at each opening centroid (offset from the facade).
@@ -334,7 +367,10 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
 ??? note "Can I use the Eddy3D assistant instead of reading all of this?"
     [Esinti](https://docs.eddy3d.com/latest/components/Esinti/) (Eddy3D → *00 | Setup*) opens a session in Codex, Claude Code or Antigravity that reads the live canvas, recommends and loads templates, wires components and explains workflow trade-offs, and only applies changes you confirm.
 
-### 7. Standards & Compliance
+### 7. Standards, Validation & Compliance
+
+??? note "Has Eddy3D been validated?"
+    The wind path follows the AIJ and COST 732 best-practice guidelines (log-law ABL, rough-wall ground treatment, domain and blockage rules, realizable k-ε) and has been compared against wind-tunnel and field data in the peer-reviewed studies listed on the [Publications](publications.md) page. The `ABL_Verification` template reproduces the empty-domain check — the inlet profile must survive unchanged to the outlet — that every domain and roughness setting should pass before buildings go in. Reference wind speed and height are single values by design; a measured multi-level profile goes in through the Manual Inflow Profile component.
 
 ??? note "How does Eddy3D relate to the ASCE/SEI Prestandard for Computational Wind Engineering (2026)?"
     The *Prestandard for Use of Computational Wind Engineering in Building Design* (ASCE/SEI + NIST, 2026) is the first US standardization effort for CFD-based wind engineering. Its normative scope is **structural wind loads**, for which it mandates turbulence-resolving LES — that is not what Eddy3D does (see the next question). For **pedestrian wind comfort**, however, the Prestandard explicitly states that steady-state RANS approaches "give acceptable results", deferring to the established guidelines Eddy3D follows (AIJ 2008, AWES-QAM, Franke et al. 2011). Its approach-flow and QA chapters transfer to comfort studies, and Eddy3D already aligns with the core of them:
