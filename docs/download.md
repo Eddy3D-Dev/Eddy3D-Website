@@ -5,12 +5,14 @@
 - **Package page:** [Rhino Packages](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D)
 - **Current version:** `1.12.0.827` (September 2, 2026)
 
+[![Total downloads](https://img.shields.io/github/downloads/Eddy3D-Dev/Eddy3D/total?label=total%20downloads)](https://github.com/Eddy3D-Dev/Eddy3D/releases)
+
 Install **Eddy3D** from the Rhino Package Manager: run `PackageManager` in Rhino 8 and search for **`Eddy3D`**.
 
-| Channel | Version | Date | Platform | Rhino | Install | Notes |
-| --- | --- | --- | --- | --- | --- | --- |
-| Stable release | `1.12.0.827` | September 2, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.12.0.827 via the Rhino Package Manager" } | [Changelog](#changelog) |
-| Pre-release (beta) | `1.12.0-beta.827` | September 2, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.12.0-beta.827 via the Rhino Package Manager" } | Tick *Include pre-releases* in the Package Manager |
+| Channel | Version | Date | Platform | Rhino | Install | Downloads | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Stable release | `1.12.0.827` | September 2, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.12.0.827 via the Rhino Package Manager" } | [![Downloads for 1.12.0.827](https://img.shields.io/github/downloads/Eddy3D-Dev/Eddy3D/v1.12.0.827/total)](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.12.0.827) | [Changelog](#changelog) |
+| Pre-release (beta) | `1.12.0-beta.827` | September 2, 2026 | Windows / Mac | 8.27 | [Install via Rhino Package Manager](https://rhinopackages.github.io/?search=eddy3d&sort=2&p=Eddy3D){ aria-label="Install Eddy3D 1.12.0-beta.827 via the Rhino Package Manager" } | [![Downloads for 1.12.0-beta.827](https://img.shields.io/github/downloads/Eddy3D-Dev/Eddy3D/v1.12.0-beta.827/total)](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.12.0-beta.827) | Tick *Include pre-releases* in the Package Manager |
 
 All modules &mdash; Outdoor, Outdoor+, Indoor, MRT, and FluidX3D &mdash; now ship in the single **Eddy3D** package on **Windows and macOS**. Depending on your use case, you may need additional software (BlueCFD, Radiance), [see documentation](https://docs.eddy3d.com){ aria-label="See documentation for additional software requirements" }.
 
