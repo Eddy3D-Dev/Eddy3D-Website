@@ -12,6 +12,47 @@
 
 ### 1.12.0.827 (September 2, 2026)
 
+## What's Changed
+* perf(shadow): one sweep per study, a Result/Deconstruct split, and a mesh cache by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/817
+* feat(setup): the setup window answers whether anything needs doing by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/818
+* Indoor and outdoor validation: Zhang & Chen (2006) UFAD chamber, Jiang (2003) cross-ventilated cube by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/821
+* Fix TestHeavyWarning going red on non-en-US dev boxes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/823
+* fix(gui): pin HeavyWarning count formatting to the invariant culture by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/822
+* Add CHT (conjugate heat transfer) and HAM (heat-moisture) solvers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/826
+* fix(setup): tell Windows users to install a container runtime (#828) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/829
+* CHT: write residuals per region, and stop probe NaNs crashing the field viewers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/830
+* Add Vertical Sky Component and Daily Light Integral by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/831
+* Water-pond (simpleWater) validation against Syafii/Robitu papers + the veg-less UMF solve path it unblocked by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/833
+* feat(esinti): Cordyceps-inspired MCP bridge upgrades + panel-driven lifecycle hardening by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/824
+* fix(paraview): move the Open toggle last, with a layout migration by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/834
+* Document: Water Surface writes a UMF grassModel the solver never implemented by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/832
+* Water-body (pond) evapotranspiration — case-only route by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/820
+* Consolidate dead code, fix culture bugs, add process capture & tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/825
+* CHT: steady-state solve mode, and the ISO 10211 A.3 ten-region fixture by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/836
+* CI: run build and template-branch checks on pull requests only by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/839
+* Truncate Viewshed's rendered view cones against the context by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/838
+* fix(gui): dispose canvas-owned menus so Rhino stops aborting by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/841
+* Add a WRF front end that drives Eddy3D's CFD from the mesoscale by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/840
+* Flex Legend: Openness/Visibility metrics and the Blue → Yellow view ramp by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/842
+* Publish a WRF + WPS container image and wire it into the setup window by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/843
+* Merge Sun/Shadow/Daylight + Post/Comfort ribbon panels, fix exposure bugs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/844
+* feat(esinti): busy-vs-dead bridge status, mid-solve guard, port data modifiers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/845
+* feat(palm): PALM-4U plugin — ribbon tab 14, full loop container-proven by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/846
+* Seasonal wind comfort + animated stream lines in ParaView by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/847
+* feat(palm): results reload across sessions and cache across recomputes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/848
+* fix(palm): dropdown labels must not contain commas by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/849
+* Pond validation follow-up: the two remaining solve unlocks, the nightly's test fixes, and publication figures by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/837
+* feat(openfoam): user refinement regions and function objects in every workflow by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/850
+* feat(palm): PALM Case writes the whole case and renders the domain in Rhino by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/851
+* fix(outdoor): Cull Ground Mesh derives its ray height from the buildings, reports what it did by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/852
+* build(wrf): keep naturalearth.bin.gz in the main assembly — MSBuild read ".bin" as a culture on Windows by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/853
+* LBM Case → Run → Probe for both LBM engines, null-outside probes, FluidX3D launch window auto-close by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/854
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.10.0.827...v1.12.0.827
+
+### 1.12.0.827 (September 2, 2026)
+
 Stable release of the 1.12 line. Everything in 1.12.0-beta.827 below, plus:
 
 **LBM (Lattice-Boltzmann wind)** — LBM Case → LBM Run → Probe for both LBM engines: the case is built once by the new **LBM Case** component (the Settings object wired into it picks OpenLB or FluidX3D), LBM Run only runs it, and probes outside the domain return null instead of a bogus value (#854). Documents saved with the old twelve-input LBM Run migrate on load; a Remark says which setup wires must move to an LBM Case. FluidX3D: the Run strip shows cells · spacing · steps before a run, Memory 0 means "detected from this machine's GPU", Clear also wipes source-tree results, Grid Spacing fixes the lattice, and the launch window closes itself when the solve ends.
