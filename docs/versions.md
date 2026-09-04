@@ -1,4 +1,4 @@
-1.12.0.827 (Sep. 2, 2026)
+1.13.0.827 (Sep. 4, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,21 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.13.0.827 (September 4, 2026)
+
+## What's Changed
+* fix(umf): Run All ordering, terrain coverage guard, solid-mesh audit, bounded logs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/855
+* fix(umf): refuse an uncovered terrain at WRITE time and keep the Domain Box on the canvas by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/856
+* fix(umf): skip the terrain extraction pass when a terrain surface is supplied by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/858
+* feat(umf): several terrain pieces with their own surface materials by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/859
+* feat(setup): standalone Eddy3D Setup installer for Windows and macOS, built per release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/857
+* fix(umf): write the OF12 uniformValue dictionary instead of uniformValueCoeffs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/860
+* fix(templates): download templates through a host + TLS-stack ladder, and say why a download failed by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/861
+* fix(umf): reachable residual controls and a 200-iteration floor for the hourly fluid solve by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/863
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.12.0.827...v1.13.0.827
 
 ### 1.12.0.827 (September 2, 2026)
 
