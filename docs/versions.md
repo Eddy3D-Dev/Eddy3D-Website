@@ -1,4 +1,4 @@
-1.12.0.827 (Sep. 2, 2026)
+1.14.0-beta.827 (Sep. 7, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,50 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.14.0-beta.827 (September 7, 2026)
+
+## What's Changed
+* fix(umf): Run All ordering, terrain coverage guard, solid-mesh audit, bounded logs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/855
+* fix(umf): refuse an uncovered terrain at WRITE time and keep the Domain Box on the canvas by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/856
+* fix(umf): skip the terrain extraction pass when a terrain surface is supplied by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/858
+* feat(umf): several terrain pieces with their own surface materials by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/859
+* feat(setup): standalone Eddy3D Setup installer for Windows and macOS, built per release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/857
+* fix(umf): write the OF12 uniformValue dictionary instead of uniformValueCoeffs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/860
+* fix(templates): download templates through a host + TLS-stack ladder, and say why a download failed by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/861
+* fix(umf): reachable residual controls and a 200-iteration floor for the hourly fluid solve by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/863
+* feat(setup): plugin tabs in Eddy3D Setup, the OpenFOAM row split, a container-runtime row, grouped diagnostics by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/865
+* feat(weather): bundled 60,868-file climate catalog and a map-backed Station picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/866
+* feat(weather): interactive station map, Earth Anchor Point as default site, tile text that fits by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/867
+* feat(wrf): ship the WRF panel to the public ribbon by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/864
+* ci: run the PR workflows only against pre-release and release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/868
+* ui(library): larger map pane, tiles sized to their text, zoom kept across a dot click by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/869
+* feat(weather): faint sea/land fill under the station map, and a colour-by switch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/870
+* fix(cht): residual NaN/divergence detection with real fixtures by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/871
+* feat(umf): residual column parser, live residuals, and a reachable residualControl key set by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/872
+* fix(umf): finish the residualControl key set in the CFDHAM templates, both copies by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/873
+* ui(library): pole-safe projection, view kept on dot click, +25 % pane, zoom-out capped at a continent by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/874
+* ui(library): Dataset and Period as separate columns in the climate picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/875
+* ui(library): Period as numeric From / To columns in the climate picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/876
+* build(installer): the Windows installer builds on a Mac by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/877
+* feat(setup): live progress for the elevated installers and the Radiance image pull by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/878
+* fix(installer): stage the Windows build under dist/, not /tmp by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/879
+* build(installer): the Windows publish is one file — no symbols, no Embree natives beside the exe by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/880
+* ci: on-demand Windows build of the standalone Setup exe, as an artifact by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/881
+* ui(library): station, state and country as three columns in the climate picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/882
+* fix(installer): keep the single-file app exe in dist/, and say which exe is which by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/883
+* build(installer): a Windows Release build produces the single-file exe (and the installer) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/884
+* build(installer): say in the Output window why a build produced no single-file exe by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/885
+* release: attach the single-file Eddy3DSetup exe to every GitHub release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/886
+* ui(library): the ASHRAE zone as Zone | Thermal | Moisture columns by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/887
+* ui(library): a faint halo around the selected station on the map by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/888
+* fix(ml): Wind Predictor derives SDF and Bldg_height through the Dataset Curator's helper by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/890
+* fix(setup): container runtime row names the installed engine, links Podman when none is by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/891
+* fix(setup): UMF row subtitle no longer ends in the WSL route word by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/892
+* feat(climate): psychrometric chart with Givoni strategy zones in the Climate files browser by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/893
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.12.0.827...v1.14.0-beta.827
 
 ### 1.12.0.827 (September 2, 2026)
 
