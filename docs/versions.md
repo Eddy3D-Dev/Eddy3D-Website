@@ -1,4 +1,4 @@
-1.14.0-beta.827 (Sep. 7, 2026)
+1.15.0-beta.827 (Sep. 27, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,60 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.15.0-beta.827 (September 27, 2026)
+
+## What's Changed
+* fix(cli): four silent-wrong-answer bugs in the wind-study pipeline by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/895
+* fix(cli): decompose the mesh case, and stop silent wrong answers in eddy3d-cli by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/894
+* feat(cli): cylindrical wind domain — one mesh for every direction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/897
+* fix(gui): fit the library browser to the monitor it opens on by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/898
+* feat(cli): probe, report, OpenLB, and real failure diagnosis — plus a full GH-vs-CLI gap scan by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/899
+* Fix three confirmed bugs from GitHub issue review by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/903
+* Drop the monthly Umami event cap now that we're self-hosted by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/905
+* Written-case preflight, foamToC selection tables, and a function-object catalogue by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/904
+* feat(cli): every OpenFOAM setting the canvas exposes reaches eddy3d-cli by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/909
+* eddy3d-cli: deployment commands for remote Linux/HPC targets (#902) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/906
+* Read Results component, one restart-stitching rule, and an idle guard on Clean Case by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/907
+* feat(outdoor): Wellington wind comfort, user-defined criteria, GEM on CFD path by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/901
+* Measure #597's wind IC levers — they do not hold, so do not ship them by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/908
+* perf(ml): Wind Predictor runs only the missing directions, bounds its width by memory, fixes the CoreML cache by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/916
+* fix(gh): variable-parameter components reopen the documents they saved while FIXED (#914) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/918
+* perf(wind): Brep Grid Points stops latticing the parent surface of a split face and fans out the curved-face evaluation (#915) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/917
+* fix: auto-stop can fire for k-epsilon runs (#911); InstallLock probe builds under SDK 8 (#910) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/921
+* feat(node): a simulation node that is one executable by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/920
+* feat(esinti): add_component and build_graph report the solve's runtime messages by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/919
+* Measure #597's wind IC levers at 2M cells with residual decay by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/912
+* Indoor: transient buoyant solve, and say which solver a case runs (Discussions#100) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/924
+* Wind conditions record, per-direction z0, Height Bands, measured numerics defaults by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/922
+* feat(cht): meshed-but-unsolved exterior regions carrying surface films by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/896
+* ci(node): build E3D.exe automatically; an idle node says so by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/925
+* feat(node): the executable is E3D, and a node reports what it is doing about an update by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/926
+* docs(campaign-experiments): lessons from running ground+warmstart on a shared Windows box by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/927
+* Probe: load results past an empty newest segment; Case Run: warn when case not on disk by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/930
+* blueCFD: probe per-user AppData installs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/931
+* A timeout the clocks call too slow is not climbed; one they call paused or rising is by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/929
+* run: continue a stable unconverged rung instead of re-solving from 0 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/932
+* fix(build-case): refuse a turned box that leaves the terrain; withdraw fixed-box-1008/of12-v3 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/934
+* feat(node): every archived case ships a pedestrian-height wind sample by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/935
+* Case Run: warn when case has not been written yet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/933
+* MRT: an EnergyPlus run period for event studies (Discussions#102) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/928
+* fix(node): the stationarity stop works on Windows, a slow case is not killed at 24 h, cleanup is one rm by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/936
+* fix(node): ask Syncthing to ship a finished archive, as run_case.sh does by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/937
+* fix(node): the solve line names the case, phase, rung and iteration -- read off the log being written by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/938
+* feat(mesh): recipe cyl-1008/of12-v5 -- a campaign mesh that passes checkMesh by construction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/940
+* feat(run): opt-in warm start of a direction from its converged neighbour -- off by default by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/939
+* feat(node): Windows node diagnosis ships in E3D and runs after setup-sim-node by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/941
+* feat(node): a case outlives its machine -- the next node continues on the master's mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/946
+* fix(cli): help keeps its layout on a terminal, grouped and coloured by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/943
+* fix(node): a case never runs beside what an earlier run of it left; a stuck heartbeat abandons its solve by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/942
+* fix(indoor): seed snappy in the room's air, and let Indoor Case pick its engine (Discussions#104) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/947
+* feat(node): a full disk is the machine's fault -- room is checked before every lease, and a failed write gives the case back by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/950
+* feat(node): default --cpus is 40% of the physical cores; a node without MPI is refused by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/948
+* fix(cli): the node's live view redraws in place on Windows by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/949
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.14.0-beta.827...v1.15.0-beta.827
 
 ### 1.14.0-beta.827 (September 7, 2026)
 
