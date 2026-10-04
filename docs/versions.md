@@ -1,4 +1,4 @@
-1.15.0-beta.827 (Sep. 27, 2026)
+1.16.0-beta.827 (Oct. 4, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,32 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.16.0-beta.827 (October 4, 2026)
+
+## What's Changed
+* Release 1.6.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/750
+* feat(node): the thermal campaign recipe -- surface temperatures from Radiance by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/951
+* test(validation): wind-tunnel and exact-solution validation suite by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/953
+* fix(umf): a campus build no longer drops entries into ModLogs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/952
+* Stormwater reads stitched multipolygons; smallest polygon wins in Stormwater and PALM by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/957
+* fix(mrt): bind a custom Radiance material to its surface with an alias by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/955
+* Land Cover Roughness: colour by land use or roughness, paved surfaces, draped zones, 13x faster; zGround from the terrain by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/954
+* fix(outdoor): a box domain's terrain is its whole floor -- no air under the sheet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/956
+* feat(node): each direction's pedestrian field goes to the broker as it finishes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/962
+* feat(outdoor): zGround per inlet face, read from the meshed rim by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/959
+* fix(outdoor): the cylinder's floor and top come from the terrain it contains by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/961
+* Competitor-gap features: share pack, scheme compare, authority presets, tree canopies in MRT, wind climate, ML guardrails, remote run, site context, WBGT/SET*, indoor compliance, geometry repair, Agent Skill by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/960
+* fix(cli): climate-index find answers when a station has no statistics by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/964
+* fix(lbm): a refused FluidX3D.Core.dll no longer stops OpenLB (discussion #107) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/966
+* feat(node): declare the canopy recipe only where the site build has a canopy source by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/965
+* fix(windows): clear dev's 11 Windows-only test failures (#959/#960 and the merges between them) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/967
+* test(templates): check in the Rhino template re-save and its Templates.Tests stage by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/968
+* fix(indoor,outdoor+): Wall Temp °C, Initial Temp, terrain trimmed to domain (Discussions #106/#109/#110) — for 1.16.1 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/970
+* Test infra: cap CPUs (EDDY3D_MAX_CPUS), re-arm the engine phase, fix the Release build's pdb race by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/971
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.15.0-beta.827...v1.16.0-beta.827
 
 ### 1.15.0-beta.827 (September 27, 2026)
 
