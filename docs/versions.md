@@ -13,7 +13,6 @@
 ### 1.16.0-beta.827 (October 4, 2026)
 
 ## What's Changed
-* Release 1.6.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/750
 * feat(node): the thermal campaign recipe -- surface temperatures from Radiance by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/951
 * test(validation): wind-tunnel and exact-solution validation suite by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/953
 * fix(umf): a campus build no longer drops entries into ModLogs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/952
