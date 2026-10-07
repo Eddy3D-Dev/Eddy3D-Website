@@ -13,7 +13,6 @@
 ### 1.17.0-beta.827 (October 7, 2026)
 
 ## What's Changed
-* Release 1.16.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/969
 * feat(node): send every part to the broker too, and continue from the broker's mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/977
 * Open discussions 2026-10-05: humidity units (#99), UMF preflight (#112), probes not in mesh (#111), indoor write schedule (#113) + reply drafts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/978
 * feat(node): run-sim-node --broker re-points a paired node; clear-node unpairs it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/979
