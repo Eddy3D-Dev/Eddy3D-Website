@@ -1,4 +1,4 @@
-1.16.0-beta.827 (Oct. 4, 2026)
+1.17.0-beta.827 (Oct. 7, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,28 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.17.0-beta.827 (October 7, 2026)
+
+## What's Changed
+* Release 1.16.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/969
+* feat(node): send every part to the broker too, and continue from the broker's mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/977
+* Open discussions 2026-10-05: humidity units (#99), UMF preflight (#112), probes not in mesh (#111), indoor write schedule (#113) + reply drafts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/978
+* feat(node): run-sim-node --broker re-points a paired node; clear-node unpairs it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/979
+* build(outdoor-tests): reference MetaFOAM.Site directly by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/980
+* fix(node): the supervisor applies --broker itself and never hands it to the child by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/981
+* feat(node): no more Syncthing, and scripts/node-update builds dev and switches to it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/982
+* fix(node): the live view draws only glyphs a Windows console font has by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/984
+* feat(site): the frontal area index per wind direction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/985
+* Fixes from the #978 full battery: PALM exit code, indoor age-of-air on x86, Jiang timeout, bash tests on Windows, terrain-zones aspect by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/983
+* fix(comfort): MRT inputs decide their unit — Kelvin converted with a Warning, a mix refused (#963) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/986
+* test(wind): the initial-condition fixture derives its iteration cap from the baseline by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/987
+* feat(node): what did not reach the broker goes later, in bulk by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/988
+* feat(node): backfill a finished case's pedestrian fields from its archives by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/989
+* fix(node): the runner reads the progress file once more after the script exits by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/991
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.16.0-beta.827...v1.17.0-beta.827
 
 ### 1.16.0-beta.827 (October 4, 2026)
 
