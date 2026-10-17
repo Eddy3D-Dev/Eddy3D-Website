@@ -1,4 +1,4 @@
-1.17.0-beta.827 (Oct. 7, 2026)
+1.18.0.827 (Oct. 17, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,145 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.18.0.827 (October 17, 2026)
+
+## What's Changed
+* Release 1.4.1.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/746
+* Release 1.6.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/750
+* Release 1.7.0.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/767
+* Release 1.8.0.827 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/774
+* feat(setup): plugin tabs in Eddy3D Setup, the OpenFOAM row split, a container-runtime row, grouped diagnostics by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/865
+* feat(weather): bundled 60,868-file climate catalog and a map-backed Station picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/866
+* feat(weather): interactive station map, Earth Anchor Point as default site, tile text that fits by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/867
+* feat(wrf): ship the WRF panel to the public ribbon by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/864
+* ci: run the PR workflows only against pre-release and release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/868
+* ui(library): larger map pane, tiles sized to their text, zoom kept across a dot click by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/869
+* feat(weather): faint sea/land fill under the station map, and a colour-by switch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/870
+* fix(cht): residual NaN/divergence detection with real fixtures by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/871
+* feat(umf): residual column parser, live residuals, and a reachable residualControl key set by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/872
+* fix(umf): finish the residualControl key set in the CFDHAM templates, both copies by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/873
+* ui(library): pole-safe projection, view kept on dot click, +25 % pane, zoom-out capped at a continent by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/874
+* ui(library): Dataset and Period as separate columns in the climate picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/875
+* ui(library): Period as numeric From / To columns in the climate picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/876
+* build(installer): the Windows installer builds on a Mac by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/877
+* feat(setup): live progress for the elevated installers and the Radiance image pull by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/878
+* fix(installer): stage the Windows build under dist/, not /tmp by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/879
+* build(installer): the Windows publish is one file — no symbols, no Embree natives beside the exe by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/880
+* ci: on-demand Windows build of the standalone Setup exe, as an artifact by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/881
+* ui(library): station, state and country as three columns in the climate picker by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/882
+* fix(installer): keep the single-file app exe in dist/, and say which exe is which by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/883
+* build(installer): a Windows Release build produces the single-file exe (and the installer) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/884
+* build(installer): say in the Output window why a build produced no single-file exe by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/885
+* release: attach the single-file Eddy3DSetup exe to every GitHub release by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/886
+* ui(library): the ASHRAE zone as Zone | Thermal | Moisture columns by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/887
+* ui(library): a faint halo around the selected station on the map by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/888
+* fix(ml): Wind Predictor derives SDF and Bldg_height through the Dataset Curator's helper by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/890
+* fix(setup): container runtime row names the installed engine, links Podman when none is by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/891
+* fix(setup): UMF row subtitle no longer ends in the WSL route word by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/892
+* feat(climate): psychrometric chart with Givoni strategy zones in the Climate files browser by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/893
+* fix(cli): four silent-wrong-answer bugs in the wind-study pipeline by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/895
+* fix(cli): decompose the mesh case, and stop silent wrong answers in eddy3d-cli by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/894
+* feat(cli): cylindrical wind domain — one mesh for every direction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/897
+* fix(gui): fit the library browser to the monitor it opens on by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/898
+* feat(cli): probe, report, OpenLB, and real failure diagnosis — plus a full GH-vs-CLI gap scan by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/899
+* Fix three confirmed bugs from GitHub issue review by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/903
+* Drop the monthly Umami event cap now that we're self-hosted by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/905
+* Written-case preflight, foamToC selection tables, and a function-object catalogue by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/904
+* feat(cli): every OpenFOAM setting the canvas exposes reaches eddy3d-cli by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/909
+* eddy3d-cli: deployment commands for remote Linux/HPC targets (#902) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/906
+* Read Results component, one restart-stitching rule, and an idle guard on Clean Case by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/907
+* feat(outdoor): Wellington wind comfort, user-defined criteria, GEM on CFD path by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/901
+* Measure #597's wind IC levers — they do not hold, so do not ship them by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/908
+* perf(ml): Wind Predictor runs only the missing directions, bounds its width by memory, fixes the CoreML cache by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/916
+* fix(gh): variable-parameter components reopen the documents they saved while FIXED (#914) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/918
+* perf(wind): Brep Grid Points stops latticing the parent surface of a split face and fans out the curved-face evaluation (#915) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/917
+* fix: auto-stop can fire for k-epsilon runs (#911); InstallLock probe builds under SDK 8 (#910) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/921
+* feat(node): a simulation node that is one executable by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/920
+* feat(esinti): add_component and build_graph report the solve's runtime messages by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/919
+* Measure #597's wind IC levers at 2M cells with residual decay by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/912
+* Indoor: transient buoyant solve, and say which solver a case runs (Discussions#100) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/924
+* Wind conditions record, per-direction z0, Height Bands, measured numerics defaults by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/922
+* feat(cht): meshed-but-unsolved exterior regions carrying surface films by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/896
+* ci(node): build E3D.exe automatically; an idle node says so by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/925
+* feat(node): the executable is E3D, and a node reports what it is doing about an update by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/926
+* docs(campaign-experiments): lessons from running ground+warmstart on a shared Windows box by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/927
+* Probe: load results past an empty newest segment; Case Run: warn when case not on disk by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/930
+* blueCFD: probe per-user AppData installs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/931
+* A timeout the clocks call too slow is not climbed; one they call paused or rising is by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/929
+* run: continue a stable unconverged rung instead of re-solving from 0 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/932
+* fix(build-case): refuse a turned box that leaves the terrain; withdraw fixed-box-1008/of12-v3 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/934
+* feat(node): every archived case ships a pedestrian-height wind sample by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/935
+* Case Run: warn when case has not been written yet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/933
+* MRT: an EnergyPlus run period for event studies (Discussions#102) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/928
+* fix(node): the stationarity stop works on Windows, a slow case is not killed at 24 h, cleanup is one rm by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/936
+* fix(node): ask Syncthing to ship a finished archive, as run_case.sh does by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/937
+* fix(node): the solve line names the case, phase, rung and iteration -- read off the log being written by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/938
+* feat(mesh): recipe cyl-1008/of12-v5 -- a campaign mesh that passes checkMesh by construction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/940
+* feat(run): opt-in warm start of a direction from its converged neighbour -- off by default by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/939
+* feat(node): Windows node diagnosis ships in E3D and runs after setup-sim-node by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/941
+* feat(node): a case outlives its machine -- the next node continues on the master's mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/946
+* fix(cli): help keeps its layout on a terminal, grouped and coloured by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/943
+* fix(node): a case never runs beside what an earlier run of it left; a stuck heartbeat abandons its solve by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/942
+* fix(indoor): seed snappy in the room's air, and let Indoor Case pick its engine (Discussions#104) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/947
+* feat(node): a full disk is the machine's fault -- room is checked before every lease, and a failed write gives the case back by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/950
+* feat(node): default --cpus is 40% of the physical cores; a node without MPI is refused by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/948
+* fix(cli): the node's live view redraws in place on Windows by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/949
+* feat(node): the thermal campaign recipe -- surface temperatures from Radiance by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/951
+* test(validation): wind-tunnel and exact-solution validation suite by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/953
+* fix(umf): a campus build no longer drops entries into ModLogs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/952
+* Stormwater reads stitched multipolygons; smallest polygon wins in Stormwater and PALM by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/957
+* fix(mrt): bind a custom Radiance material to its surface with an alias by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/955
+* Land Cover Roughness: colour by land use or roughness, paved surfaces, draped zones, 13x faster; zGround from the terrain by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/954
+* fix(outdoor): a box domain's terrain is its whole floor -- no air under the sheet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/956
+* feat(node): each direction's pedestrian field goes to the broker as it finishes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/962
+* feat(outdoor): zGround per inlet face, read from the meshed rim by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/959
+* fix(outdoor): the cylinder's floor and top come from the terrain it contains by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/961
+* Competitor-gap features: share pack, scheme compare, authority presets, tree canopies in MRT, wind climate, ML guardrails, remote run, site context, WBGT/SET*, indoor compliance, geometry repair, Agent Skill by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/960
+* fix(cli): climate-index find answers when a station has no statistics by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/964
+* fix(lbm): a refused FluidX3D.Core.dll no longer stops OpenLB (discussion #107) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/966
+* feat(node): declare the canopy recipe only where the site build has a canopy source by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/965
+* fix(windows): clear dev's 11 Windows-only test failures (#959/#960 and the merges between them) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/967
+* test(templates): check in the Rhino template re-save and its Templates.Tests stage by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/968
+* fix(indoor,outdoor+): Wall Temp °C, Initial Temp, terrain trimmed to domain (Discussions #106/#109/#110) — for 1.16.1 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/970
+* Test infra: cap CPUs (EDDY3D_MAX_CPUS), re-arm the engine phase, fix the Release build's pdb race by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/971
+* Release 1.16.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/969
+* feat(node): send every part to the broker too, and continue from the broker's mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/977
+* Open discussions 2026-10-05: humidity units (#99), UMF preflight (#112), probes not in mesh (#111), indoor write schedule (#113) + reply drafts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/978
+* feat(node): run-sim-node --broker re-points a paired node; clear-node unpairs it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/979
+* build(outdoor-tests): reference MetaFOAM.Site directly by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/980
+* fix(node): the supervisor applies --broker itself and never hands it to the child by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/981
+* feat(node): no more Syncthing, and scripts/node-update builds dev and switches to it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/982
+* fix(node): the live view draws only glyphs a Windows console font has by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/984
+* feat(site): the frontal area index per wind direction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/985
+* Fixes from the #978 full battery: PALM exit code, indoor age-of-air on x86, Jiang timeout, bash tests on Windows, terrain-zones aspect by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/983
+* fix(comfort): MRT inputs decide their unit — Kelvin converted with a Warning, a mix refused (#963) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/986
+* test(wind): the initial-condition fixture derives its iteration cap from the baseline by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/987
+* feat(node): what did not reach the broker goes later, in bulk by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/988
+* feat(node): backfill a finished case's pedestrian fields from its archives by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/989
+* fix(node): the runner reads the progress file once more after the script exits by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/991
+* docs: sync AGENTS.md with CLAUDE.md by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/992
+* icons: ship the Eddy3D_QGIS glyph by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/993
+* feat(library): PDF beside every exported figure, and the station map exported by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/994
+* Season filter on Deconstruct Weather (#995); refuse geometry outside metres (#996) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/999
+* ci(templates): point the template gallery at the newest version branch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/998
+* fix(packaging): publish the YAK package for rh8_27 again, not "any" by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1001
+* Setup window: real pull progress, and Ready/done only when true by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1000
+* City of London wind guideline: Harris & Deaves inlet, set-up preset, colour code (+ 4 fixes) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1005
+* Site Report: plan, Rhino-free PDF report engine and a first climate-chapter component by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1006
+* feat(noise): road-traffic noise maps after CNOSSOS-EU — a new 15 | Noise panel (prototype) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1003
+* Repo hygiene: pinned downloads and images, central packages, Run-last guard, leaner agent instructions by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1004
+* fix(lbm): a GPU rung runs the CUDA image whatever default the caller handed in by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1008
+* feat(ml): warn when the Wind Predictor's field does not change with the wind direction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1011
+* validation(aij): AIJ UWE Cases A–E — OpenFOAM fixtures, tabulated inlet, ML surrogate scoring by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1009
+* fix(lbm): the resolved runtime kind names the engine of the executable by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1012
+* docs(triage): inputs that make ML, RANS and LBM pedestrian wind comparable by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1014
+* fix(fluidx3d): ABL inlet evaluates the same shifted log law as OpenFOAM and OpenLB by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1013
+* LBM run progress + leaf season, material runoff, shadow animation, wind-rose months, flowline recording by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1010
+* Site Context: GlobalBuildingAtlas without DuckDB, refetch on press, sharp prisms; Site Report: climate-type design strategies by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1007
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.13.0.827...v1.18.0.827
 
 ### 1.17.0-beta.827 (October 7, 2026)
 
