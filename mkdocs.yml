@@ -1,6 +1,6 @@
 site_name: Eddy3D
 site_description: 'Airflow and microclimate simulations for Rhino and Grasshopper'
-site_url: https://eddy3d.com
+site_url: https://www.eddy3d.com/
 site_author: Patrick Kastner
 copyright: >-
   Copyright &copy; 2018-2026 Eddy3D
@@ -103,6 +103,9 @@ markdown_extensions:
       social_url_shorthand: true   # @user -> https://github.com/user
 
 # Plugins
+hooks:
+  - hooks/agent_files.py
+
 plugins:
   # - mkdocs-video
   - include-markdown:
