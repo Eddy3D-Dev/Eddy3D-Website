@@ -62,6 +62,7 @@
 * OpenLB: thermal buoyancy from surface heat fluxes (LBM Run Settings, LBM Field, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1080
 * OpenLB: static grid refinement around the buildings (LBM Run Settings Refine, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1081
 * fix(outdoor): stale tree porosity after trees are disconnected (Templates#9) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1082
+* Release 1.19.0-beta.827 (+ one-script Run All clears old solve logs) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1083
 
 
 **Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.18.0.827...v1.19.0-beta.827
