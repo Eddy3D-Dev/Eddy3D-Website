@@ -1,4 +1,4 @@
-1.18.0.827 (Oct. 17, 2026)
+1.19.0-beta.827 (Oct. 21, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,63 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.19.0-beta.827 (October 21, 2026)
+
+## What's Changed
+* docs(validation): AIJ Case D at 45° — all three headings scored by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1015
+* Validation: AIJ UWE Cases F, G, J, K, L, M solved (OpenFOAM 12 / UMF), probe CSV precision fix by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1036
+* eddy3d-cli parity with the Grasshopper plugins (#1016-#1031) and a Stormwater solver fix by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1035
+* AIJ validation on PACE ICE: OpenLB G-L, OpenFOAM 12 isothermal J/L, build-lbm vegetation by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1037
+* Validation: AIJ FluidX3D H/I (ICE) and ML surrogate F/K/M by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1038
+* Climate browser: status text no longer re-lays out the chart pane by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1039
+* Climate browser: Weibull pane redesign by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1040
+* fix(installer): ship the macOS first-launch fix in the dmg, lead the README with it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1041
+* Canvas feedback batch: Run All preflight, zones guard, weather site, probe time, Share Pack, libraries by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1042
+* Live Wind Tunnel: interactive in-process 2D LBM by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1043
+* Esinti 300-object cap, Flex Legend title, blueCFD ParaView detection by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1044
+* Refuse Simulate when a tree cellZone is missing from the mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1045
+* Comfort heat maps: component, climate browser year views, diurnal profile by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1046
+* Share Pack viewer: orbiting 3D view by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1047
+* Climate browser: one heat map per window, readable legend, Ladybug-style diurnal, Weibull layers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1048
+* Replace "provenance" with "origin" everywhere by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1049
+* fix(lbm): Live Wind Tunnel review — blockage, rebuilds, doc switch, trees by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1050
+* feat(canopy): Meta/WRI CHMv2 crowns — recipe cyl-1008/of12-v7, canvas on v2 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1051
+* Auto cylinder sizes under the blockage limits (2/16/16 %), not onto them by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1052
+* Live Residuals: direction label shows n/N by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1053
+* OpenLB: fix corner/edge velocities (one material per edge cell) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1054
+* docs: measured OpenLB empty-domain inflow profile by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1055
+* OpenLB GPU image supports Pascal (SM 61); pin gpu-1.9.3 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1056
+* City Surface: watertight terrain + LoD1.2 buildings in one surface (native) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1057
+* OpenLB: opt-in ground wall model (GroundWallModel), measured by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1058
+* Wind Run: no false 'no mesh' after Run All; re-mesh clears stale solve logs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1059
+* City Surface: verified in Rhino + snappyHexMesh + real LiDAR; three fixes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1060
+* Test + Clean Case: stale run_*.txt logs removed on re-mesh and clean by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1061
+* City Surface: LoD2.2 roofs (roof planes), manifold surface by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1062
+* feat(canopy): v7 drops crowns where a building stands today; scene year by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1063
+* fix(wind): lift OpenFOAM's eddy-viscosity cap; campaign recipe of12-v8 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1064
+* City Surface: snap roof ridges to the planes' intersection by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1065
+* OpenLB: rough-wall ground law + Ground setting (LBM Run Settings, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1066
+* OpenLB: displacement height d for the log-law inflow by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1067
+* OpenLB: opt-in outlet sponge layer (LBM Run Settings, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1068
+* City Surface: no roof needles/spikes, smoother ground by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1069
+* Read LAZ point clouds natively (LASzip decoder port) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1070
+* LiDAR Site: automatic AHN / USGS 3DEP download + dataset browser by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1071
+* LiDAR Site: any LAS/LAZ URL source; fix LAS writer overflow on map grids by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1072
+* feat(canopy): v7 classes the crowns by Köppen, not by latitude band by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1073
+* City Surface: LoD1.3, ground buffer, city-surface CLI verb; LiDAR browser holes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1074
+* OpenLB: keep the wall-modelled first fluid layer out of the outlet sponge by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1075
+* OpenLB: pollutant transport (LBM Case Pollutants, LBM Field Concentration, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1076
+* OpenLB: opt-in synthetic inflow turbulence (vortex method) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1078
+* OpenLB: time-varying wind schedule (LBM Run Settings, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1079
+* LBM Live View with recording, settle stop for OpenLB runs, Earthworks cut & fill by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1077
+* OpenLB: thermal buoyancy from surface heat fluxes (LBM Run Settings, LBM Field, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1080
+* OpenLB: static grid refinement around the buildings (LBM Run Settings Refine, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1081
+* fix(outdoor): stale tree porosity after trees are disconnected (Templates#9) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1082
+* Release 1.19.0-beta.827 (+ one-script Run All clears old solve logs) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1083
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.18.0.827...v1.19.0-beta.827
 
 ### 1.18.0.827 (October 17, 2026)
 
