@@ -1,4 +1,4 @@
-1.19.0-beta.827 (Oct. 21, 2026)
+1.20.0-beta.827 (Oct. 28, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,169 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.20.0-beta.827 (October 28, 2026)
+
+## What's Changed
+* feat(wind): ABL self-sustainment check (ASCE CWE AC 5-9) on every profile inlet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1089
+* feat(site): Data Coverage — which layers a site can be built from, before any fetch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1088
+* feat(site): natural-hazard history for the Site Report and site-context by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1084
+* test(lbm-cli): the stand-in solver gives up when its case directory is gone by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1090
+* feat(fluidx3d): live server phase 1 — memory-mapped slice, command channel, in-place re-voxelisation by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1085
+* feat(probes): pedestrian probes written by Outdoor and Outdoor+ Case by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1092
+* fix(umf): air seed above every roof; no-terrain floor uncoupled by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1093
+* feat(umf): no terrain wired means a flat default terrain, coupled by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1094
+* fix(umf): pin the patched 12-umcf-2746fa2 image; guard pin vs Dockerfile by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1095
+* Probes follow-ups: one height, circular region, green success, ETA, faster log parse by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1096
+* fix(clean): re-solve the case's readers so the viewer drops stale data by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1097
+* feat(site-context): cache every raster range on disk; Ground Zones output by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1098
+* feat(scripts): Eddy3D status lines in bold in interactive windows by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1099
+* Wind probes after the solve; a finished mesh re-solves the case by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1100
+* Site Context: draw buildings opaque by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1101
+* Live Residuals: dashed residual goal lines by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1102
+* Terminal DONE lines in green by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1103
+* ParaView pedestrian layer: interpolate, don't terrace by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1104
+* Live Residuals: steady study ETA by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1105
+* Cylinder refinement box: extension moves the sides; default 33 % by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1106
+* Site geometry preview: one palette, no z-fight cascade by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1107
+* Live Residuals: residual goals in their own dark colour, labelled by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1108
+* Height Bands follow the terrain by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1109
+* One OpenLB image for CPU and GPU runs (openlb-wind:1.9.3) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1110
+* feat(city-surface): LoD 2.0 and 2.1 roofs, lattice terrain, LiDAR row in Pre by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1111
+* validation(lbm): turbulent-inflow arms for AIJ Case A on OpenLB and FluidX3D; synthetic inflow becomes the FluidX3D default by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1091
+* Outdoor Case: air wash drawn in the foreground so the site shows inside by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1112
+* Translate Date To Hours: move beside the other time tools by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1113
+* feat(wind): scale-resolving on the critical directions — kOmegaSSTDES arm, two-phase transient average, sector ranking by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1087
+* test(cli): height bands follow the wind template's ground surfaces by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1114
+* fix(city-surface): skipped footprints leave the sheet, outlines cut at the lattice, crisp preview by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1115
+* feat(viewer): Streamline Map display mode + Blue → Red ramp by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1116
+* feat(city-surface): inputs in LiDAR Site's order, result cached on disk, LiDAR links in a column by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1118
+* fix(city-surface): first three inputs are LiDAR Site's first three outputs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1119
+* feat(lidar-site): terrain wider than the buildings; city-surface: every footprint built by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1120
+* fix(lidar-site): the LiDAR browser is a map, no spec sheet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1121
+* docs(tools): standalone lat/lon picker page by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1122
+* Stale-branch triage: Case D probe names, epsilon-only seed arms, SAC signing notes by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1123
+* perf(city-surface): roof fits, labels, lattice, roof samples and LAZ decode on every core by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1125
+* feat(openlb): CUDA build carries every solver feature (source; guards stay until the image is rebuilt) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1124
+* dicehub OF13 leftovers: OF12 time-unit parse, Height Bands estimate, concurrent directions by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1126
+* feat(site-picker): pick a site on a satellite map from its own component by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1127
+* docs(wind): the steady-RANS wake caveat, one string on three surfaces by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1128
+* test(ml): no leeward-wake flag; the surrogate is no worse behind a building (AIJ, pre-registered) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1129
+* feat(lidar-site): tree crowns from the cloud, land cover in its frame; City Surface carries z0 per layer by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1130
+* docs: open LiDAR point clouds beyond AHN and 3DEP by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1131
+* fix(report): the wake caveat quotes Case B's tunnel closure at the solver's height by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1132
+* feat(wind): empty-domain twins for the ABL self-sustainment check (F2, PO 4-1) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1133
+* fix(ice): a validation job runs the build it started with; a dead test host leaves a dump by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1117
+* feat(wind): transient eddy-viscosity cap study (3c-iv) — transient stays at 1e5; ABL reader drops lineCell's ground-entry duplicate by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1134
+* docs: ranked feature ideas for what to build next by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/803
+* QGIS: ML Wind Predictor + annual comfort as pure Python by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/889
+* Open-Meteo: EPW for any coordinate (openmeteo-epw) + attribution by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1135
+* docs: LiDAR sources round 2 — a keyless COPC mirror for ~17 countries by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1136
+* Node setup: proxy credentials, longer timeout, numbered name on conflict by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1138
+* feat(transient): scale-resolving numerics; near-wall record on the validation fixtures by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1137
+* docs(ideas): viewshed note names the current panel and the shipped VSC by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1139
+* GPU sun hours, viewshed and VSC on OpenCL, with a visible CPU fallback by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1140
+* Wind live view and solver features for the two LBM engines by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1141
+* City Surface: five national LiDAR sources, roads layer, OSM roof:shape, terrain ring, LoD2 oracle by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1142
+* Roof hints on the canvas: LiDAR Site → City Surface by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1143
+* OpenCL for every remaining caster; GPU occlusion engine as an opt-in by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1144
+* Canopy sun hours take the GPU twin by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1145
+* OpenCL ports 1–10: stormwater, 2D tunnel, MRT, sky view, noise, surface temp, comfort, ML grids by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1147
+* OpenCL ports, round two: fused comfort pipeline, UTCI, PET, City Surface raster + RANSAC; fp64 verified on a Quadro RTX 6000 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1148
+* GPU launches sliced into ~30 ms pieces in the shared host by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1149
+* Sliced launches for the sky-view, RANSAC, ML-grid and PET hosts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1150
+* OpenCL round three: device-resident MRT → UTCI chain, single launches up to 256k items, live-Rhino layout checks by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1151
+* test(outdoor): two Rhino-hosted fixtures follow the box and cylinder sizing they predate by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1152
+* docs(gpu): fp64 re-measurement after the single-launch threshold by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1153
+* feat(gpu): MRT direct shortwave's sun visibility traces on the device by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1154
+* test(rhino): device-resident MRT → UTCI chain through the real UtciCMP in live Rhino 8 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1155
+* test(gpu): PET per-call timing on both parity tests by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1156
+* perf(gpu): standalone UTCI post-processing parallel (0.9x → 1.4x on the M2 Max) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1157
+* docs(gpu): ICE round five after #1154–#1157 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1158
+* feat(gpu): canopy shortwave crown crossings trace on the device (path_inside kernel) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1159
+* feat(cli): mrt config takes settings.compute (auto|cpu|gpu) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1160
+* docs(mrt): settings.compute on the CLI mrt config by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1161
+* feat(gpu): view-factor sweep fused on the device — 28x on the longest MRT stage by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1162
+* test(rhino): fused view-factor sweep inside live Rhino 8 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1163
+* fix(gpu): Sky Exposure / sky-view trace a named GPU in one launch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1164
+* test(rhino): Sky Exposure's three engines inside live Rhino 8 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1165
+* docs(gpu): fused view-factor sweep on the Quadro and in live Rhino by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1166
+* feat(gpu): Auto takes the GPU occlusion tester where Embree is absent by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1167
+* fix(cli): culture-proof daylight percentages; Auto occlusion test knows the GPU rung by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1168
+* test(node): the two sbatch/core tests stop re-probing the machine by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1169
+* feat(gpu): AnnualHourTree gather has a device twin (measured a loss; Auto keeps the CPU) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1170
+* feat(gpu): shortwave hour loop has a device twin (measured a loss; Auto keeps the CPU) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1171
+* docs(gpu): ICE round eleven numbers (hour loop bit-identical on fp64, gather) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1172
+* feat(pet): remove the GPU engine option from PET (Simulation) and eddy3d-cli pet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1173
+* feat(lwt): time means are a Mean toggle; Speed/Pressure/Vorticity outputs carry them by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1174
+* perf(ml): UMag resample fans its nearest-neighbour queries across the cores (8x, bit-identical) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1175
+* docs(mrt): the sun multiply's measured cost, the options, and that it is parked by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1176
+* docs(mrt): sun-multiply options projected to 100k sensors by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1177
+* docs(mrt): a binary adapter on DdsIllReader makes the binary option whole by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1178
+* perf(mrt): binary matrices through the Radiance chain and a sparse sun step on the host by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1179
+* feat(mrt): the tutorial's outdoor Two-Phase methods: a Two-Phase preview and an MF:6 sun by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1180
+* fix(cli): the real leftovers of the open CLI-parity tickets (#715, #1017, #1020-#1025, #1027) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1181
+* Prism layers on terrain: geometry.layers, relaxed ceiling, mergeFaces default; four ICE rounds documented by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1182
+* Live Wind Tunnel: Streaks view (speed under moving flow streaks) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1183
+* Live Wind Tunnel: Streaks read as lines, not grain by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1184
+* Live Wind Tunnel: Streaks as a per-frame LIC by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1185
+* Viewport probe: Streaks view seen in Rhino by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1186
+* Live Wind Tunnel: Streaks as thin gliding strands, like the reference reel by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1187
+* Flow strands on the OpenLB/FluidX3D Live Views and OpenFOAM's Vector Field Viewer by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1188
+* LiDAR Site: a reopened document shows the saved result instead of fetching again by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1189
+* Name the flow strands LIC (old labels still select it) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1190
+* Live Wind Tunnel: LIC runs live on the Mac; Mean averages the smoke by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1191
+* feat(site): national terrain models (USGS 3DEP 1 m, Canada HRDEM, Copernicus), a progress bar for LiDAR Site's crowns and land cover, a Site Picker that stays in front by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1146
+* OpenLB: whole-cell domain (fixes the stuck geometry), missing-outlet error, platform, generated case names by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1192
+* LBM Case: a saved Case Name of "Case" reads as the retired default by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1193
+* LBM Case: no remark when a saved "Case" name is read as unset by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1194
+* LBM Case: the domain draws as wires and no longer hides the buildings by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1195
+* LBM Run: count the solver containers running per case by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1197
+* Live tunnel: the smoke's hops run on the GPU (publish 132 ms -> ~15 ms) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1198
+* FluidX3D Live View: no dark strip down the right edge and along the top by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1199
+* FluidX3D: measure where cell centres sit (i*dx, as assumed) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1200
+* LBM settings: the validation inflow arms are named and pinned on the canvas by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1201
+* Site Picker: ship it in release builds by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1202
+* feat(lidar): download and decode tiles in parallel, and fetch the footprints while the cloud downloads by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1196
+* fix(noise): facade receivers follow each building's walls; explain Lden by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1203
+* feat(city surface): output all the vegetation - low vegetation beside the tree crowns, both kept with the cached surface by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1204
+* fix(city surface): low vegetation nests in the crowns and stands on its own ground; the surface cache is readable across sessions by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1205
+* feat(fluidx3d): open side and top faces (free-slip, pressure outlet) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1206
+* fix(city surface): say what Low Vegetation leaves out - the trunk space is counted, the tooltip stops claiming "all", the relabel case is named by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1207
+* fix(city surface): clean LoD 1.3-2.2 on turned footprints (no saw-tooth, no flutes, no holes) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1208
+* fix(city surface): no slits down to the ground, straight borders on skewed lots by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1209
+* fix(city surface): no sails from leftover pieces; the oracle ignores slivers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1210
+* docs(domain): City Surface LoD 2.0 tooth tries, remaining walls by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1211
+* fix(city surface): no pits down to the terrain at any LoD; seam slivers take the right part by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1212
+* feat(city surface): quality benchmark with a ratchet, for the next round of improvements by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1214
+* perf(city quality): score a build 3-5x faster, the same numbers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1215
+* fix(city surface): LoD 2.1/2.2 seam strips go to the part beside them (fins) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1216
+* feat(stormwater): drainage allowance and Green-Ampt soils from urban-flood-modeling-workflows by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1213
+* fix(city surface): a roof plane rises at most one point spacing past its highest return by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1217
+* perf(noise): CPU solve 1.8x faster; flat ground follows the buildings by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1218
+* fix(noise): a reopened Roads from OSM reads its cache instead of refetching by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1219
+* docs(lidar): where a cloud has no building class, and the existing classifiers by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1220
+* fix(viewers): Heatmap Mesh reads a wall from its own samples, not blended from the ground and the roof by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1221
+* fix(comfort): year-long HOY no longer boxes 254M numbers into an unwired output by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1222
+* feat(ribbon): move the foam-dictionary components into 03 | Outdoor+ by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1223
+* feat(mrt): View Factors has one Engine dropdown, Compute merged into it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1224
+* feat(lidar): round per-tree crowns, satellite canopy fallback, white-model preview palette by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1225
+* feat(lidar): footways, paths, cycleways and steps as a City Surface paths layer by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1226
+* feat(lidar): Layer Kinds output — sand, rock, pitch, grass, park, forest and more as layer names by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1227
+* feat(lidar): OSM gardens as a land cover layer — own query, z0 0.10 like a park by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1228
+* feat(climate): Climate radials view in the climate browser by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1229
+* feat(site-picker): remember the last 20 places searched for or used, and let the user select by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1230
+* feat(lidar): barriers and street furniture as LiDAR Site outputs 13 and 14 (Roads switch), city-surface --roads files by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1231
+* feat(climate): Climate radial opens first with a name card and the zone by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1232
+* feat(site-look): bake sun shadows and ambient occlusion into vertex colours so Rhino shows the clay look by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1233
+* feat(city-surface): Full Terrain output, the whole ground in one mesh with nothing cut out by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1234
+* feat(gui): library browser opens where the user clicked by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1235
+* feat(lidar): land cover and gardens are cached per fixed cell, like the roads, buildings and street objects by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1236
+* fix(overpass): a fresh client finds silent mirrors in seconds, not in 150 s request timeouts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1237
+* fix(site-look): positions at UTM scale, speckle from coincident wall faces; probes that drive Site Look and City Surface in live Rhino by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1238
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.19.0-beta.827...v1.20.0-beta.827
 
 ### 1.19.0-beta.827 (October 21, 2026)
 
