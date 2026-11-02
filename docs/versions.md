@@ -1,4 +1,4 @@
-1.20.0-beta.827 (Oct. 28, 2026)
+1.21.0-beta.827 (Nov. 2, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,32 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.21.0-beta.827 (November 2, 2026)
+
+## What's Changed
+* Weather: Open-Meteo models and satellite radiation, PVGIS, NASA POWER, Copernicus CDS; CCKP in Morph Weather by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1240
+* Rank Scalar and Vector Field Viewer inputs by use by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1242
+* LiDAR Site: river, stream and canal centrelines become water ribbons by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1241
+* Overpass: an empty cell two mirrors agree on stays cached by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1244
+* Node smoke test: fail on a native library that did not load by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1245
+* City Surface: warn when layer lists arrive with no Layer Outlines by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1247
+* Climate browser: open on the nearest file, never on row 0 by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1249
+* LBM Case: explicit Engine dropdown instead of engine-by-Settings-type by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1243
+* Deconstruct Weather: Sun Vector, monthly statistics, ground temperatures by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1246
+* City Surface: bridges become decks, bridge roads leave the riverbed by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1250
+* LiDAR Site grouped outputs; Deconstruct Weather + menu by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1251
+* City Surface: Roof Fit (Auto / Standard / Strict), Auto by the LiDAR programme by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1252
+* Wind Climate: ISD years cached only once settled; damaged ERA5 years refetched by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1253
+* City Surface: every bridge, whatever the survey calls it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1254
+* City Surface: the needle at a notch corner — reproduction and dump by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1255
+* City Surface: notch-corner needle — ground truth beside the open reproduction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1256
+* City Surface: the LoD2.0 form is the floor of every LoD2.x roof by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1257
+* LBM: one solver per case, a way to ask what runs, and the solver window back by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1258
+* Validation: OpenLB master measured and not adopted; body count fix by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1260
+
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.20.0-beta.827...v1.21.0-beta.827
 
 ### 1.20.0-beta.827 (October 28, 2026)
 
