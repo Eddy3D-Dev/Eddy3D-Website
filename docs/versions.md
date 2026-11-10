@@ -1,4 +1,4 @@
-1.21.0-beta.827 (Nov. 2, 2026)
+1.21.1-beta.827 (Nov. 9, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,50 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.21.1-beta.827 (November 9, 2026)
+
+## What's Changed
+* UTCI/PET (Simulation): a velocity vector on Wind Speed is read as its speed
+* Material components: the banner names the material
+* Probe: wait for a finished output file, not a new one
+* Probe: a solid region is sampled on its surface patch
+* Probe: an all-times run no longer waits on a stale later segment
+* Surface Material and Soil Material: property banner on the Message strip
+* Building Material: property banner on the Message strip
+* Outdoor+ Case and Outdoor Case: Terrain output
+* Outdoor+: CPU -1 is auto, sized from the air mesh
+* UMF templates: take humidity out of the air stop test
+* Live Residuals: one stacked plot per region of a multi-region case
+* Load probe: the COM hang was an em dash, and the dump now prints
+* Outdoor+ Case: persistent Message strip like Outdoor Case
+* City Surface: a deck's ends run into the hill
+* Probe: 'nothing found' names the folder a multi-region case writes
+* City Surface: a deck lands only on a bank under its plane, and the ground inside a slab is cleared
+* AIJ C-E empty-domain control: wide runs on the r6 datum image
+* Result mark: seated on what a component shows, not on its clipping box
+* Calendar: enforce minimum body width
+* Convert Units: group the unit dropdowns into one submenu per quantity
+* UTCI/PET Legend: the Eddy mark sits in the legend's plane, below its labels
+* Rename MetaFOAM.CaseFields to ProbeableFields: it broke Eddy3DCli.Tests
+* UTCI/PET Legend: Label Points are not previewed
+* Result mark: one mark where several results share a place
+* Probe: no 'nothing found' warning while its own run is going
+* UMF Case: a case already written is loaded without a Read click
+* Probe field test: solve inside a document
+* Probe: Field lists region/field for a multi-region case; Region input retired
+* City Surface: a bridge deck is one plane with two smooth sides, and the ground under it is the riverbed
+* Probe: Region and Field are dropdowns read off the case
+* Probe: a pasted copy mints its own name
+* macOS run windows: every window of a cascade closes itself
+* CLI: make a relative case dir absolute once, at the boundary
+* Windows container and blueCFD terminal runs: one launcher per launch
+* Update README.md
+* Convert Units: the From-To banner shows with no values wired
+* Delete .jules directory
+* Container terminal runs: one launcher script per launch on macOS
+* UMF solve: stop sed -i flooding the log with permission warnings
+* LiDAR Site: Origin output, printed as a table in the Site Report
 
 ### 1.21.0-beta.827 (November 2, 2026)
 
