@@ -1,4 +1,4 @@
-1.21.1-beta.827 (Nov. 9, 2026)
+1.22.0.827 (Nov. 11, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,31 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.22.0.827 (November 11, 2026)
+
+Eddy3D 1.22.0.827 is the first stable release since 1.18.0.827. It rolls up the 1.19, 1.20 and 1.21 betas and everything after them: 733 commits and 22 new components. The full test suite ran on Windows against this build before release, and the packaged build was loaded in Rhino 8 (all 288 components).
+
+#### Read before upgrading
+
+- **Wind Predictor: X and Y are now one Points input (breaking for old documents).** A saved document that wired Wind Predictor's X and Y inputs loads with those wires dropped and a Remark on the component. Rewire your points to **Points**. The shipped templates are already updated.
+- **NSRDB weather source: no bundled default key in this build.** Set your own key in `NSRDB_API_KEY` or `~/.nsrdbrc` to use the NSRDB source in Download Weather. Every other weather source works as before.
+- **Install:** through Rhino's Package Manager (`PackageManager`, search **Eddy3D**; Rhino 8.27 and Rhino 9, Windows and Mac), or with the Eddy3D Setup app for Windows from the [GitHub release](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.22.0.827) (installer or portable exe). There is no Mac Setup dmg for this release; on a Mac, use the Package Manager.
+
+#### What's new since 1.21.1-beta
+
+- **Terrain from national models in Site Context:** England, France, Scotland, Wales, Norway, Estonia, Tasmania, Austria, Luxembourg, Bavaria, Lower Saxony, North Rhine-Westphalia, Rhineland-Palatinate, Hesse, Brandenburg with Berlin, South Tyrol, Poland, Czechia, the Netherlands (AHN), Switzerland (swissALTI3D) and Emilia-Romagna's coastal surveys.
+- **LiDAR Site:** NOAA Digital Coast, Luxembourg, Navarra, Kanton Zürich, Brussels and IGN's overseas departments; only the tiles a site touches are fetched.
+- **New components:** Analysis Results (one read of every solver's result), Compare Weather, Compare Wind Climates, Layer Runoff and Terrain Diagram.
+- **Esinti:** result objects and legends read back as their fields.
+- **Pedestrian sample:** wall points carry their cell's value.
+- **Fixes:** the Esinti MCP server parses again (a quoting error on dev had stopped it starting), Cut Fill refuses a cell size far too small for the grading, and the Probe banner says what is cached on disk.
+
+#### Earlier changes
+
+The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.19.0-beta.827), [1.20.0-beta](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.20.0-beta.827), [1.21.0-beta](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.21.0-beta.827), [1.21.1-beta](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.21.1-beta.827).
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.18.0.827...v1.22.0.827
 
 ### 1.21.1-beta.827 (November 9, 2026)
 
