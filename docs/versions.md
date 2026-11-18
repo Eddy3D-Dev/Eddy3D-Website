@@ -64,7 +64,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.21.1-beta.827 (November 9, 2026)
 
-## What's Changed
+**What's Changed**
 * UTCI/PET (Simulation): a velocity vector on Wind Speed is read as its speed
 * Material components: the banner names the material
 * Probe: wait for a finished output file, not a new one
@@ -108,7 +108,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.21.0-beta.827 (November 2, 2026)
 
-## What's Changed
+**What's Changed**
 * Weather: Open-Meteo models and satellite radiation, PVGIS, NASA POWER, Copernicus CDS; CCKP in Morph Weather by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1240
 * Rank Scalar and Vector Field Viewer inputs by use by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1242
 * LiDAR Site: river, stream and canal centrelines become water ribbons by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1241
@@ -134,7 +134,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.20.0-beta.827 (October 28, 2026)
 
-## What's Changed
+**What's Changed**
 * feat(wind): ABL self-sustainment check (ASCE CWE AC 5-9) on every profile inlet by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1089
 * feat(site): Data Coverage — which layers a site can be built from, before any fetch by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1088
 * feat(site): natural-hazard history for the Site Report and site-context by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1084
@@ -297,7 +297,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.19.0-beta.827 (October 21, 2026)
 
-## What's Changed
+**What's Changed**
 * docs(validation): AIJ Case D at 45° — all three headings scored by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1015
 * Validation: AIJ UWE Cases F, G, J, K, L, M solved (OpenFOAM 12 / UMF), probe CSV precision fix by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1036
 * eddy3d-cli parity with the Grasshopper plugins (#1016-#1031) and a Stormwater solver fix by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1035
@@ -354,7 +354,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.18.0.827 (October 17, 2026)
 
-## What's Changed
+**What's Changed**
 * Release 1.4.1.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/746
 * Release 1.6.0.827 (beta) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/750
 * Release 1.7.0.827 (stable) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/767
@@ -493,7 +493,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.17.0-beta.827 (October 7, 2026)
 
-## What's Changed
+**What's Changed**
 * feat(node): send every part to the broker too, and continue from the broker's mesh by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/977
 * Open discussions 2026-10-05: humidity units (#99), UMF preflight (#112), probes not in mesh (#111), indoor write schedule (#113) + reply drafts by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/978
 * feat(node): run-sim-node --broker re-points a paired node; clear-node unpairs it by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/979
@@ -514,7 +514,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.16.0-beta.827 (October 4, 2026)
 
-## What's Changed
+**What's Changed**
 * feat(node): the thermal campaign recipe -- surface temperatures from Radiance by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/951
 * test(validation): wind-tunnel and exact-solution validation suite by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/953
 * fix(umf): a campus build no longer drops entries into ModLogs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/952
@@ -539,7 +539,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.15.0-beta.827 (September 27, 2026)
 
-## What's Changed
+**What's Changed**
 * fix(cli): four silent-wrong-answer bugs in the wind-study pipeline by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/895
 * fix(cli): decompose the mesh case, and stop silent wrong answers in eddy3d-cli by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/894
 * feat(cli): cylindrical wind domain — one mesh for every direction by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/897
@@ -593,7 +593,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.14.0-beta.827 (September 7, 2026)
 
-## What's Changed
+**What's Changed**
 * fix(umf): Run All ordering, terrain coverage guard, solid-mesh audit, bounded logs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/855
 * fix(umf): refuse an uncovered terrain at WRITE time and keep the Domain Box on the canvas by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/856
 * fix(umf): skip the terrain extraction pass when a terrain surface is supplied by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/858
@@ -637,7 +637,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 
 ### 1.12.0.827 (September 2, 2026)
 
-## What's Changed
+**What's Changed**
 * perf(shadow): one sweep per study, a Result/Deconstruct split, and a mesh cache by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/817
 * feat(setup): the setup window answers whether anything needs doing by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/818
 * Indoor and outdoor validation: Zhang & Chen (2006) UFAD chamber, Jiang (2003) cross-ventilated cube by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/821
