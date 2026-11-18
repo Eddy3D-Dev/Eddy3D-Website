@@ -29,5 +29,7 @@ On every Eddy3D plugin release (see the main repo's `.claude/skills/release-eddy
   "What's Changed" entry in the page's table of contents (`#whats-changed`,
   `#whats-changed_1`, …). Keep release bodies to `###` and below — the `### NEW.VER`
   heading already says which release the notes belong to. Same for any other `##` a
-  release body may carry.
+  release body may carry. If you keep it as a bold line instead, leave a blank line
+  before the list under it: without one, Python-Markdown folds the whole list into that
+  paragraph as literal `* ` text.
 - Then the `dev → main` PR — the release is not done until it merges and the deploy runs.
