@@ -1,4 +1,4 @@
-1.22.0.827 (Nov. 11, 2026)
+1.22.1.827 (Nov. 17, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,33 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.22.1.827 (November 17, 2026)
+
+Eddy3D 1.22.1.827 follows 1.22.0.827 with 71 commits, mostly new Sun Path and terrain features, plus a few changed defaults. The fast test suites ran on Windows against this build before release, together with the pedestrian-sample engine tests, and the packaged build was loaded in Rhino 8 (all 289 components).
+
+#### Read before upgrading
+
+- **City Surface: Terrain is now the whole ground.** The separate *Full Terrain* output is retired. A saved document that wired it loads with those wires moved onto **Terrain**, and the component says how many it moved.
+- **Share Pack is now Share Bundle.** Same component, new name; saved documents keep working.
+- **Changed defaults.** Sun Hours now defaults to an Offset of 0.2 m (it was 0.01 m), and the other Sun components follow. Noise Receivers puts receivers on roofs by default, on the ground grid's spacing.
+- **A units change re-solves every Eddy3D component that holds geometry or scales to the model units.**
+- **NSRDB weather source: no bundled default key in this build.** Set your own key in `NSRDB_API_KEY` or `~/.nsrdbrc`. Every other weather source works as before.
+- **Install:** through Rhino's Package Manager (`PackageManager`, search **Eddy3D**; Rhino 8.27 and Rhino 9, Windows and Mac), or with the Eddy3D Setup app for Windows from the [GitHub release](https://github.com/Eddy3D-Dev/Eddy3D/releases/tag/v1.22.1.827) (installer or portable exe). There is no Mac Setup dmg for this release.
+
+#### What's new since 1.22.0
+
+- **Adaptive Terrain** (panel 01 | Pre): graded, conforming terrain resampling, with a Boundary box input and a guard for slow runs.
+- **Sun Path** accumulates the shadows of every wired sun, casts hard shadows from the model's own triangles, drapes them over terrain, carries an hours-in-shade legend and draws a wired sun with its time. It takes a Geometry input for the shadows.
+- **Analysis Period** reads an hour of year from Calendar or Hour of Year on its day and hour inputs.
+- **City Surface** can drape an aerial photo on the ground, including a satellite mosaic where no aerial photograph is open and Denmark's and Norway's sources through a key of your own. Rivers with no ground returns read as water, and bridge decks no longer land on roofs.
+- **Brep Grid Points** has a Cells output (one square face per grid point), samples large grids off the UI thread and sizes its limit to the machine's memory.
+- **Noise Map** has a Mesh output (one face per value) for the field viewers; roof receivers stand on the roof under them.
+- **Share Bundle** viewer: the map is drawn on WebGL, a print carries it, colour-bar labels fit and a wired site mesh is drawn as what it is.
+- **Also:** site trees take their crown shape from a right-click choice; Sun Hours and Solar Irradiation accept geometry wired straight into Canopy shades; Flex Legend writes the unit once along the colour bar; weather inputs take an EPW path and stations can be found by address; the new `Eddy3DRustGIS` plugin in the repository adds annual wind comfort in QGIS (not part of the YAK package).
+- **Fixes:** the pedestrian sample has its own 30-minute budget, so a hung sample no longer costs the direction its reconstruction; the ML wind pair reads each direction's own reference speed; Stormwater Legend takes an optional Ground input and no longer previews its label planes.
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.22.0.827...v1.22.1.827
 
 ### 1.22.0.827 (November 11, 2026)
 
