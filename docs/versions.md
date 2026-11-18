@@ -343,7 +343,7 @@ The full lists are in the beta notes: [1.19.0-beta](https://github.com/Eddy3D-De
 * OpenLB: pollutant transport (LBM Case Pollutants, LBM Field Concentration, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1076
 * OpenLB: opt-in synthetic inflow turbulence (vortex method) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1078
 * OpenLB: time-varying wind schedule (LBM Run Settings, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1079
-* LBM Live View with recording, settle stop for OpenLB runs, Earthworks cut & fill by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1077
+* LBM Live View with recording, settle stop for OpenLB runs by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1077
 * OpenLB: thermal buoyancy from surface heat fluxes (LBM Run Settings, LBM Field, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1080
 * OpenLB: static grid refinement around the buildings (LBM Run Settings Refine, CLI) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1081
 * fix(outdoor): stale tree porosity after trees are disconnected (Templates#9) by @kastnerp in https://github.com/Eddy3D-Dev/Eddy3D/pull/1082
