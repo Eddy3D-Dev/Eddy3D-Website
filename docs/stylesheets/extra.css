@@ -129,3 +129,13 @@ span.faint {
 .md-tabs__link, .md-nav__link { text-transform: none !important; }
 .md-nav__title, .md-nav__item, .md-tabs__title { text-transform: none !important; }
 .md-nav__link[href*="faq"], .md-tabs__link[href*="faq"] { text-transform: uppercase !important; }
+
+/* "What you can simulate": real template results, cropped to one 16:9 frame so the grid reads as one set */
+.md-typeset .grid.cards.results img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #fff;
+  border-radius: .2rem;
+}
