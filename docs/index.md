@@ -30,64 +30,63 @@ hide:
 
 ---
 
-## :rocket:{ aria-hidden="true" } Features
+## What you can simulate
+Each card opens a ready-to-run Grasshopper template in the [template gallery](https://templates.eddy3d.com); the same templates load from the Templates component inside Grasshopper.
+<div class="grid cards results" markdown>
 
-<div class="grid cards" markdown>
+-   [![Diagram: wind profile around three buildings](assets/images/asset_22.png){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-wind-openfoam-boxdomain)
 
--   ![](assets/images/asset_18.png){ width="300" loading=lazy .skip-lightbox  .center}
+    **Wind around buildings**
 
-    ---
+    Steady RANS in OpenFOAM: wind speed and pedestrian comfort around buildings, trees and terrain.
 
-    __USER-FRIENDLINESS__
-    
-    Clean and easy-to-use UI for urban wind flow analysis.
+-   [![Diagram: thermal comfort over a site](assets/images/asset_31.png){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-microclimate-umf-utci)
 
--   ![](assets/images/asset_19.png){ width="255" loading=lazy .skip-lightbox  .center}
+    **Outdoor thermal comfort**
 
-    ---
+    UTCI from a fully coupled microclimate simulation with urbanMicroclimateFoam.
 
-    __BUILT FOR REAL WORLD APPLICATIONS__
+-   [![Result: annual solar irradiation over Hong Kong buildings](assets/images/results/Solar_Radiation.webp){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-sun-solar-radiation)
 
-    Add realistic terrain to your simulation setup.
+    **Sun and solar radiation**
 
--   ![](assets/images/asset_31.png){ width="410" loading=lazy .skip-lightbox  .center}
+    Annual irradiation on ground and facades, sun hours and BRE sunlight checks.
 
-    ---
-    __OUTDOOR THERMAL COMFORT__
+-   [![Result: surface temperatures around Manhattan buildings](assets/images/results/SurfaceTemps_FFT.webp){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-microclimate-mrt-surfacetemps-fft)
 
-    Annual outdoor thermal comfort assessment for climate-responsive masterplanning.
- 
--   ![](assets/images/asset_25.png){ width="300" loading=lazy .skip-lightbox  .center}
-     
+    **Surface and radiant temperature**
 
-    ---
-    __SEAMLESS INTEGRATION__
+    Surface temperatures of ground and walls, the input to mean radiant temperature.
 
-    Post-processing of custom surfaces for Air Flow Network integration into EnergyPlus.
-  
--   ![](assets/images/asset_22.png){ width="350" loading=lazy .skip-lightbox  .center}
-    
+-   [![Result: live wind streaks around Zurich buildings](assets/images/results/LiveTunnel2D.webp){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-wind-lbm-livetunnel2d)
 
-    ---
-    __STREAMLINED SIMULATION SETUP__
+    **Live wind tunnel**
 
-    Urban turntable for fast outdoor airflow analysis.
+    GPU lattice-Boltzmann wind that updates while you move the geometry.
 
--   ![](assets/images/asset_29.png){ width="450" loading=lazy .skip-lightbox  .center}
-    
+-   [![Result: predicted wind comfort around a city](assets/images/results/ML_Inference_Comfort.webp){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-wind-ml-ml-inference-comfort)
 
-    ---
-     __VALIDATED SIMULATION ENGINE__
+    **Wind comfort without CFD**
 
-    Accurate results by using well-established solvers.
-  
+    Year-round pedestrian wind comfort classes from a trained model, in seconds.
+
+-   [![Result: road noise levels around New York buildings](assets/images/results/Noise.webp){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-noise-noise)
+
+    **Road traffic noise**
+
+    CNOSSOS-EU Lden on the ground and on every facade storey.
+
+-   [![Result: ponding depth over an Atlanta site](assets/images/results/Stormwater.webp){ loading=lazy .skip-lightbox }](https://templates.eddy3d.com/#t-water-stormwater)
+
+    **Stormwater**
+
+    Where water ponds on a graded site, and which way it runs.
+
 </div>
-
-
 
 ---
 
-## :busts_in_silhouette:{ aria-hidden="true" } Team
+## Team
 
 
 <div class="mdx-users">
@@ -127,7 +126,7 @@ hide:
 
 </div>
 
-## :busts_in_silhouette:{ aria-hidden="true" } Advisors & Alumni
+## Advisors & Alumni
 
 <div class="mdx-users">
 
@@ -162,7 +161,7 @@ Eddy3D is being developed as a cross-disciplinary project through a collaboratio
 
 ---
 
-## :tada:{ aria-hidden="true" } Supporters
+## Supporters
 
 <div class="grid" markdown>
 
