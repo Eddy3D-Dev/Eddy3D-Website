@@ -15,6 +15,7 @@ nav:
   - Publications: publications.md
   - Download: download.md
   - Documentation: "https://docs.eddy3d.com"
+  - Climate: "https://climate.eddy3d.com"
   # Case studies are pulled from external repository
   - Case studies:
       - case-studies/README.md
