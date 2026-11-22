@@ -174,6 +174,17 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
 ??? note "Is an EPW file required?"
     Not for the CFD itself. The ABL component takes direction, speed, reference height and roughness length directly. The EPW is needed when the weather drives something: selecting directions from a wind rose, annual pedestrian wind comfort (the [Velocity Amplification Factors](https://docs.eddy3d.com/latest/components/Velocity_Amplification_Factors_VAF/) component maps every weather hour onto the simulated directions) and the comfort metrics. Wind statistics that are not hourly (probability tables, `.stat` files) can drive the direction and speed lists, but annual comfort classification needs hourly data.
 
+??? note "Where do I get a weather file, and can an AI agent look one up for me?"
+    [climate.eddy3d.com](https://climate.eddy3d.com) lists about 16,000 weather stations with typical-year weather files (EPW), charts each station's climate and offers the files for download; [climate.eddy3d.com/near](https://climate.eddy3d.com/near) opens the station nearest you. Inside Grasshopper, the [Download Weather](https://docs.eddy3d.com/latest/components/Download_Weather/) component browses the same catalogue.
+
+    AI agents can query the catalogue directly: the site runs an MCP server at `https://climate.eddy3d.com/mcp` (no sign-in, read-only) with tools to find stations by name or position and to read a station's climate facts, weather-file downloads and chart links. In Claude Code:
+
+    ```bash
+    claude mcp add --transport http eddy3d-climate https://climate.eddy3d.com/mcp
+    ```
+
+    Steps for Codex, Gemini CLI, Cursor, VS Code, Claude, ChatGPT and others are in the [documentation](https://docs.eddy3d.com/latest/mcp/).
+
 ??? note "Can I set the inlet turbulence (k, ε, ω) or choose the turbulence model?"
     Yes. The ABL component exposes *Turbulent KE (k)*, *Turbulent Epsilon (ε)* and *Turbulent Omega (ω)* as initial/internal values (the inlet patch keeps the atmBoundaryLayer profiles), and [Run Settings](https://docs.eddy3d.com/latest/components/Run_Settings/) offers Realizable k-ε (default), Standard k-ε, RNG k-ε and SST k-ω. A turbulence-intensity or mixing-length input does not exist; for a measured inflow use the Manual Inflow Profile (next question).
 
