@@ -84,6 +84,8 @@ Each card opens a ready-to-run Grasshopper template in the [template gallery](ht
 
 </div>
 
+Weather files and climate charts for about 16,000 stations are at [climate.eddy3d.com](https://climate.eddy3d.com). AI agents can query them over MCP at `https://climate.eddy3d.com/mcp`: see [how to connect](https://docs.eddy3d.com/latest/mcp/).
+
 ---
 
 ## Team
