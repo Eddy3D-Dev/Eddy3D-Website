@@ -1,4 +1,4 @@
-1.22.2-beta.827 (Nov. 23, 2026)
+1.23.0.827 (Nov. 24, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,43 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.23.0.827 (November 24, 2026)
+
+Eddy3D 1.23.0.827 follows 1.22.1.827. It brings the climate browser as a standalone app and a website, a rebuilt MRT surface and EnergyPlus path, Analysis Grid, and fixed run scripts for WSL and for containers on Windows. Install through Rhino's Package Manager (`PackageManager`, search **Eddy3D**; Rhino 8.27 and Rhino 9, Windows and Mac).
+
+## Read before upgrading
+
+- **WRF Run: Ranks is now CPU Count.** Auto is the machine's physical cores minus two.
+- **Changed defaults.** MRT's Radiance quality defaults to Draft, and Site Context's land cover is off by default.
+- **MRT surface temperatures.** The EnergyPlus run folder is now `EnergyPlus/Eddy3D.epJSON`, and Surface Exchange picks CarrollMRT (default) or ScriptF.
+- **Facade Grid is now Analysis Grid.** Existing definitions keep working; the component carries the new name.
+- **NSRDB weather source: no bundled default key in this build.** Set your own key in `NSRDB_API_KEY` or `~/.nsrdbrc`. Every other weather source works as before.
+
+## New
+
+- **Climate browser:** new views for facade irradiation, sun path (also Cartesian), wind-driven rain, freeze-thaw, ground temperature, PV yield, window shading, degree days and a yearly comfort chart, with hover readouts. Each view in Rhino has *Copy link* and *Open online* to the same view on [climate.eddy3d.com](https://climate.eddy3d.com), the browser as a website in 8 languages, where ground temperature, wind rose, psychrometric chart and PV yield now animate through the year. The street map is OpenFreeMap's vector style and pans as one picture.
+- **Eddy3D Climate:** the climate browser as a standalone app (in the repository; not part of the YAK package).
+- **MRT:** Analysis Grid with one cell per mesh face and terrain and buildings on one clipped lattice; surfaces larger than Patch Size are split; polygons, shades and the Radiance scene leave out what lies under the terrain; View Factors has a Polygons output; the run console has a *Keep in front* tick and a steadier ETA; SurfaceTemp (EnergyPlus) shows the run's percentage.
+- **Deconstruct UTCI:** P5 and P95 outputs and comfort autonomy metrics; P5 / P95 on the Statistic dropdowns.
+- **WRF Domain** draws a satellite image or a street map under the domains. WRF links only the GRIB files of the run's window, reuses forecast cycles, keeps one GFS cache per machine and names cases by site and start.
+- **Stormwater:** water balance over time, a Region Report and classed colours.
+- **Flex Legend:** right-click *Draw Field* and *Label Isolines*.
+- **Viewshed:** unwired Normals take the Context face each point sits on, and points under the terrain see nothing.
+- **Esinti MCP:** canvas tools, resource links and a *Copy MCP config* action.
+
+## Fixes
+
+- **Wind Scripts on Windows** ([discussion 117](https://github.com/orgs/Eddy3D-Dev/discussions/117)): for WSL, `RunAll.bat` is now a Windows batch file (it was a bash script and could not run), and each step keeps its command chain in a `.sh` beside its `.bat`. For Docker and Podman, each step also gets a `.bat` launcher and there is a `RunAll.bat` to double-click.
+- **Probe points with no cell** stay empty: AFN Cp reads the Probe's Cp values instead of writing 0, Scalar Field Viewer shows no data instead of 0, and Convert Units no longer returns -273.15 °C.
+- **SurfaceTemp (EnergyPlus):** a Run toggle held true delivers its result, and a run stops the EnergyPlus an earlier one left in its folder.
+- **UMF Timing** closes the hourly weather tables at endTime.
+- **Select Template** lists templates without the GitHub API when it is rate-limited.
+- **Indoor Case** warns when a supply is drawn past the room.
+- **Climate catalog:** 413 onebuilding entries pointed at files that had moved.
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.22.1.827...v1.23.0.827
+
 
 ### 1.22.2-beta.827 (November 23, 2026)
 
