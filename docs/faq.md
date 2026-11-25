@@ -107,7 +107,7 @@ We have compiled the most common questions from the [GitHub Discussions](https:/
     Older beta and pre-release builds (like 0.4.8 and earlier) contained hardcoded expiration dates. Upgrade to the latest Eddy3D version using the Rhino Package Manager.
 
 ??? note "How do I access previous versions of Eddy3D?"
-    Recent releases and the full changelog are on the [versions page](versions.md) and in the [Rhino Package Manager](https://yak.rhino3d.com/packages/Eddy3D). Legacy 0.x installers can be downloaded [here](https://eddycfd.uber.space/download/download.php). We encourage using the latest release: bugs reported against 0.x are only fixed in 1.x.
+    Recent releases and the full changelog are on the [versions page](versions.md) and in the [Rhino Package Manager](https://yak.rhino3d.com/packages/Eddy3D). We encourage using the latest release: bugs reported against 0.x are only fixed in 1.x.
 
 ??? note "Where are the templates? The Select Template list is empty."
     [Select Template](https://docs.eddy3d.com/latest/components/Select_Template/) reads the [Eddy3D-Templates](https://github.com/Eddy3D-Dev/Eddy3D-Templates) repository on the branch that matches your installed version and caches the files under `%APPDATA%\Eddy3D\Templates\`. Templates are grouped as Outdoor (OpenFOAM, LBM, ML, Microclimate), Outdoor+, Indoor (natural ventilation, CO2 occupancy, breathing manikin, thermal comfort) and Misc. If the list is empty or stale, right-click the component and choose *Force Refresh Main List*; the context menu also shows which branch it is reading. Templates for a **newer** version than the one installed will not open cleanly — update the package first.
