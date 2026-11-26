@@ -1,4 +1,4 @@
-1.23.0.827 (Nov. 24, 2026)
+1.24.0-beta.827 (Nov. 26, 2026)
 
 !!! Compatibility
 
@@ -9,6 +9,36 @@
 [Eddy3D-Dev Discussions - GitHub](https://github.com/orgs/Eddy3D-Dev/discussions)
 
 ## Changelog
+
+### 1.24.0-beta.827 (November 26, 2026)
+
+Eddy3D 1.24.0-beta.827 follows 1.23.0.827. It is a pre-release: in Rhino's Package Manager tick **Include pre-releases** and search **Eddy3D** (Rhino 8.27 and Rhino 9, Windows and Mac).
+
+#### Read before upgrading
+
+- **SurfaceTemp results change.** The solver has a black-body sky with a matching exterior film, conducts through each hour's own film, and solves each point at the wind of its own height. Re-run studies you want to compare.
+- **Radiance sun term changes.** Each hour's sun is spread along its path, so hourly values at a shadow's edge differ from 1.23.0.
+- **MRT View Factors is now MRT Scene.** Same component; existing definitions keep working.
+
+#### New
+
+- **MRT and SurfaceTemp (EnergyPlus):** an *In-House* engine option, with Eddy3D's own Radiance DDS and EnergyPlus-style thermal and green-roof solvers and OpenCL GPU acceleration. It is new in this beta.
+- **Reopening a document** brings back MRT results, MRT Scene and SurfaceTemp (EnergyPlus). EnergyPlus is not run twice on the same model.
+- **MRT Surface** takes a SurfaceTemp Material assembly, and EnergyPlus solves every layer of it.
+- **One material table** for SurfaceTemp, CHT, UMF and MRT.
+- **SurfaceTemp Material:** 30 more assemblies (EU, US, Asia), outdoor surfaces included, plus irrigated turf. Optional Emissivity, Wetness and Wind Exposure inputs.
+- **SurfaceTemp:** optional nonlinear surface exchange and an "Unconditioned behind" setting.
+- **Deconstruct SurfaceTemp:** reads an EnergyPlus run from a VF Model or MRT Result; values per sensor or point; surface outlines; a coloured polygon mesh.
+- **Outdoor+:** Albedo and Emissivity inputs on Terrain Region and Building Region.
+- **Live Wind Tunnel:** tree crowns slow the wind (new Vegetation input).
+- **Calendar** has a Date output and **Convert Units** a Unit output.
+
+#### Fixes
+
+- **MRT view-factor cache:** the cache key now includes the geometry that blocks each view, so moving only that geometry no longer risks reusing old view factors. The cache lives with Eddy3D's other caches in the local app-data folder.
+- **Radiance:** negative diffuse values at a shadow's edge are repaired.
+
+**Full Changelog**: https://github.com/Eddy3D-Dev/Eddy3D/compare/v1.23.0.827...v1.24.0-beta.827
 
 ### 1.23.0.827 (November 24, 2026)
 
